@@ -1,7 +1,64 @@
 fileFormatVersion: 2
 guid: a0bb8a01112af6a4e84a441c828850ce
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8712061768670329887
+    second: whiteSlash1_0
+  - first:
+      213: -4345824353705885277
+    second: whiteSlash1_1
+  - first:
+      213: -2857444765373705935
+    second: whiteSlash1_2
+  - first:
+      213: -3377976975490010265
+    second: whiteSlash1_3
+  - first:
+      213: -3115633066752678878
+    second: whiteSlash1_4
+  - first:
+      213: 8467105422578949881
+    second: whiteSlash1_5
+  - first:
+      213: -5892752820379331060
+    second: whiteSlash1_6
+  - first:
+      213: 10233803026352742
+    second: whiteSlash1_7
+  - first:
+      213: -2356074194870211987
+    second: whiteSlash1_8
+  - first:
+      213: -5817333900500792053
+    second: whiteSlash1_9
+  - first:
+      213: 6889318366774629512
+    second: whiteSlash1_10
+  - first:
+      213: 1623281343252613055
+    second: whiteSlash1_11
+  - first:
+      213: 8307404538209812673
+    second: whiteSlash1_12
+  - first:
+      213: 5017609566911045171
+    second: whiteSlash1_13
+  - first:
+      213: -310271496244078385
+    second: whiteSlash1_14
+  - first:
+      213: -4250075832488681917
+    second: whiteSlash1_15
+  - first:
+      213: 8430868262973940620
+    second: whiteSlash1_16
+  - first:
+      213: -2795425146178438682
+    second: whiteSlash1_17
+  - first:
+      213: 3464788082852442672
+    second: whiteSlash1_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,11 +178,158 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: whiteSlash1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 1500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3c429daf9881780800000000000000
+      internalID: -8712061768670329887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteSlash1_1
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 1500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a18e1586c780b3c0800000000000000
+      internalID: -4345824353705885277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteSlash1_2
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1000
+        width: 1500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131d99210215858d0800000000000000
+      internalID: -2857444765373705935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteSlash1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 1500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763387c86d30f11d0800000000000000
+      internalID: -3377976975490010265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteSlash1_4
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 1500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224eebdab3c03c4d0800000000000000
+      internalID: -3115633066752678878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteSlash1_5
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 500
+        width: 1500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe1a9c6583318570800000000000000
+      internalID: 8467105422578949881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteSlash1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06db10f78cb83ea0800000000000000
+      internalID: -5892752820379331060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1de381bcb328f9145ace896b5fc94f74
     internalID: 0
     vertices: []
     indices: 
