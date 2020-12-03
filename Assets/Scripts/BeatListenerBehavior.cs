@@ -9,6 +9,6 @@ public class BeatListenerBehavior : MonoBehaviour
 
     public void BeatReaction()
     {
-        Debug.Log("Beat recieved");
+        Debug.Log("Song change recieved");
     }
 }

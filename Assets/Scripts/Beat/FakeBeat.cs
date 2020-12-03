@@ -6,18 +6,30 @@ using UnityEngine.Events;
 //This class should be replaced by a proper beat system
 public class FakeBeat : MonoBehaviour
 {
-    public UnityEvent beat;
-    public float timeBetweenBeats = 1.0f;
+    public static FakeBeat instance;
+    
+    public UnityEvent songChange;
+    public float beatLength = 1.0f;
+    public float beatStart = 0.0f;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;   
+    }
     void Start()
     {
-        InvokeRepeating("CreateEvent", 0, timeBetweenBeats);
+        InvokeRepeating("SongChange", 0, 30.0f); 
+        InvokeRepeating("Showbeat", 0, beatLength);
     }
 
-    void CreateEvent()
+    void Showbeat()
     {
-        Debug.Log("Beat triggered");
-        beat.Invoke();
+        Debug.Log("Beat triggered ");
+    }
+    void SongChange()
+    {
+        beatStart = Time.time;
+        songChange.Invoke();
     }
     
 }
