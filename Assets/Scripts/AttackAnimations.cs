@@ -23,7 +23,7 @@ public class AttackAnimations : MonoBehaviour
     //Hold Beat
     float beatStart = 0;
     float beatLength = 0;
-    float toleranceRange = 0.12f;//
+    float toleranceRange = 0.07f;//
     public void ListenToSongChange()
     {
        beatStart = FakeBeat.instance.beatStart;
