@@ -169,6 +169,7 @@ namespace AudioHelm
             audioSource.clip = keyzone.audioClip;
             audioSource.outputAudioMixerGroup = keyzone.mixer;
             audioSource.volume = Mathf.Lerp(1.0f - velocityTracking, 1.0f, velocity);
+            Debug.Log("here we go");
         }
 
         List<Keyzone> GetValidKeyzones(int note, float velocity = 1.0f)
