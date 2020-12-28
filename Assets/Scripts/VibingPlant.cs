@@ -5,6 +5,10 @@ using UnityEngine;
 public class VibingPlant : VibingEntity
 {
     public Animator anim;
+    private void Awake()
+    {
+        anim = gameObject.GetComponent<Animator>();
+    }
     public override void OnBeat(float bps)
     {
         anim.SetTrigger("beat");
