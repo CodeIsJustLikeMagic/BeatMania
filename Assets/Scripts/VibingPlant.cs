@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VibingPlant : MonoBehaviour
+public class VibingPlant : VibingEntity
 {
-    // Start is called before the first frame update
-    void Start()
+    public Animator anim;
+    public override void OnBeat(float bps)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        anim.SetTrigger("beat");
+        Debug.Log(gameObject.name + " setAnimLength ");
+        anim.SetFloat("animSpeed", bps);
+        //Debug.Log("anim speed is " + anim.speed);
+        //restart animationNow
     }
 }

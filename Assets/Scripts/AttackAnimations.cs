@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //This class just does almost everything right now
-public class AttackAnimations : MonoBehaviour
+public class AttackAnimations : VibingEntity
 {
     public Animator playerAnimator; //animator is set though inspector in unity editor
     // Start is called before the first frame update
@@ -25,11 +25,8 @@ public class AttackAnimations : MonoBehaviour
     float beatStart = 0;
     float beatLength = 0;
     float toleranceRange = 0.07f;//
-    public void ListenToSongChange()
-    {
-       beatStart = AnimationOnBeat.instance.beatStart;
-       beatLength = AnimationOnBeat.instance.beatLength;
-    }
+
+
 
     bool InBeat()//is current time in beat?
     {
@@ -46,6 +43,12 @@ public class AttackAnimations : MonoBehaviour
     private int combocounter = 0;
     int maxCombo = 5;
 
+    public override void OnBeat(float bps)
+    {
+        beatStart = Time.time;
+        beatLength = 1 / bps;
+    }
+
     void Attack()
     {
         Debug.Log("combocounter: " + combocounter);
@@ -60,6 +63,8 @@ public class AttackAnimations : MonoBehaviour
             playerAnimator.SetTrigger("whiteN1"); // do weak attack
         }
     }
+
+
 
     //notizen des combosystems:
     //maximal 5 angriffe

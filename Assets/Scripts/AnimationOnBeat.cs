@@ -22,26 +22,26 @@ public class AnimationOnBeat : MonoBehaviour
         vibingEntities.Add(vibe);
     }
 
-    int count = 0;
+    public int count = 0;
+    public int everyXbeats = 4;
     public void RecieveBeatEvent()
     {
-        count++;
         //Debug.Log("recieve beat");
-        if (count % 4 == 0)
+        if (count % everyXbeats == 0 && count > 0)
         {
             //Debug.Log("accept beat" + count);
             //actual beat
             BeatChange();
         }
+        count++;
         //den ersten beat nicht und dann jeden 2.
     }
 
     public void BeatChange()
     {
         float bps = clock.bpm / 60;
-        float speed = 1 / bps;
         //120 bmp / 60 = beats per second
-        Debug.Log("RecieveBeat, bps " + bps + " speed " + speed);
+        Debug.Log("RecieveBeat, bps " + bps);
         Debug.Log("I have " + vibingEntities.Count+" entities");
         foreach (VibingEntity e in vibingEntities)
         {
