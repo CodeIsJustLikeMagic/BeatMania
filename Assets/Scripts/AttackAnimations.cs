@@ -27,8 +27,8 @@ public class AttackAnimations : MonoBehaviour
     float toleranceRange = 0.07f;//
     public void ListenToSongChange()
     {
-       beatStart = FakeBeat.instance.beatStart;
-       beatLength = FakeBeat.instance.beatLength;
+       beatStart = AnimationOnBeat.instance.beatStart;
+       beatLength = AnimationOnBeat.instance.beatLength;
     }
 
     bool InBeat()//is current time in beat?
