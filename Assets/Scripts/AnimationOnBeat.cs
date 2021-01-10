@@ -4,6 +4,8 @@ using UnityEngine;
 using AudioHelm;
 using UnityEngine.Events;
 
+
+//manages timing and speed synchonisation for vibingEntiries with the clock
 public class AnimationOnBeat : MonoBehaviour
 {
     public UnityEvent songChange;
@@ -17,7 +19,7 @@ public class AnimationOnBeat : MonoBehaviour
         instance = this;
         clock = (AudioHelmClock)FindObjectOfType(typeof(AudioHelmClock));
     }
-    public void AddMyselfToList(VibingEntity vibe)
+    public void AddMyselfToList(VibingEntity vibe)//VibingEntities add themselves to my list. Like a bootleg Observer
     {
         vibingEntities.Add(vibe);
     }

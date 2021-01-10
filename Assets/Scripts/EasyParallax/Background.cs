@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,15 +14,29 @@ public class Background : MonoBehaviour
     }
     public void Start()
     {
-        renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
-        SetSprites("yellow");
+        
+        SetSprites("blue");
     }
+
+    public void FindRenderers()
+    {
+        renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+    }
+
+    private int cnt = 0;
+    private string[] names = { "yellow", "blue"};
+    internal void SetNextSprites()
+    {
+        SetSprites(names[cnt]);
+        cnt = (cnt + 1) % names.Length;
+    }
+
     public void SetSprites(string color)
     {
         foreach(SpriteRenderer rend in renderers)
         {
-            string str = "yellow" + rend.gameObject.name;
-            Sprite sprt = Resources.Load<Sprite>("BackgroundTextures/yellow" + rend.gameObject.name);
+            string str = color+ rend.gameObject.name;
+            Sprite sprt = Resources.Load<Sprite>("BackgroundTextures/"+str);
             rend.sprite = sprt;
         }
     }
