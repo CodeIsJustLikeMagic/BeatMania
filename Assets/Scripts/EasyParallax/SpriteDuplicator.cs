@@ -60,7 +60,8 @@ namespace EasyParallax
             }
         }
 
-
+        public bool overrideNewPosCalculation;
+        public float moveBy = 16;
         private void Update()
         {
             //We need to check if any of our sprites has gone of screen. 
@@ -74,9 +75,15 @@ namespace EasyParallax
 
                     //Let's position it to the right of that sprite
                     var startingPos = rightmostSprite.position;
+                    var newPosX = moveBy;
+                    if(!overrideNewPosCalculation){
+                        newPosX = CalculateX(startingPos);
+                    }
+                    
                     var position =
-                        new Vector2(CalculateX(startingPos), startingPos.y);
+                        new Vector2(newPosX, startingPos.y);
                     duplicate.transform.position = position;
+                    Debug.Log("position "+position);
                 }
             }
         }

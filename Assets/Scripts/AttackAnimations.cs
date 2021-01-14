@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //This class just does almost everything right now
-public class AttackAnimations : VibingEntity
+public class AttackAnimations : MonoBehaviour
 {
     public Animator playerAnimator; //animator is set though inspector in unity editor
     // Start is called before the first frame update
@@ -21,38 +21,16 @@ public class AttackAnimations : VibingEntity
     {
         TestInput();
     }
-    //Hold Beat
-    float beatStart = 0;
-    float beatLength = 0;
-    float toleranceRange = 0.07f;//
-
-
-
-    bool InBeat()//is current time in beat?
-    {
-        float now = Time.time;
-        //now is in beat if: now == beatStart + n * beatLegnth +- toleranceRange; where n is any natural number
-        float missedBySeconds = (now - beatStart) % beatLength; //missed the beat by seconds.miliseconds. 
-        //allways oriented toward the next comming beat. 
-        //so if you hit the beat within the tolerance range its either almost beatLength, or almost 0 
-        //Debug.Log("InBeat " + missedBySeconds+ " ranges: 0-"+toleranceRange+"; "+(beatLength-toleranceRange)+"-"+beatLength);
-        return missedBySeconds <= toleranceRange || missedBySeconds >= beatLength-toleranceRange;     
-    }
 
     // Combosystem
     private int combocounter = 0;
     int maxCombo = 5;
 
-    public override void OnBeat(float bps)
-    {
-        beatStart = Time.time;
-        beatLength = 1 / bps;
-    }
 
     void Attack()
     {
         Debug.Log("combocounter: " + combocounter);
-        if (InBeat())
+        if (BeatChecker.instance.IsInBeat())
         {
             playerAnimator.SetTrigger("TAN"+(combocounter+1)); // Test Attack Normal 1-5
             combocounter = (combocounter + 1) % maxCombo;
