@@ -36,12 +36,14 @@ public class Enemy : VibingEntity
     {
         Debug.Log("enemy Attack");
         enemyAnimator2D.SetTrigger("TAN" + (combocounter + 1)); // Test Attack Normal 1-5
+        enemyAnimator3D.SetTrigger("Attack");
+        enemyAnimator3D.SetInteger("AttackNum", combocounter % 2);
         combocounter = (combocounter + 1) % maxCombo;
     }
 
     public void Stagger()//get staggered by getting hit. 
     {
         combocounter = 0;//rest combo
-        enemyAnimator2D.SetTrigger("Stagger");//play stagger animation as feedback
+        enemyAnimator3D.SetTrigger("Dizzy");//play stagger animation as feedback
     }
 }
