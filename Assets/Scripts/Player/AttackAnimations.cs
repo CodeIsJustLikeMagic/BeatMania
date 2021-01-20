@@ -15,10 +15,10 @@ public class AttackAnimations : MonoBehaviour
 
             Attack();
         }
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyDown("r"))
         {
             //todo make sure we are inside collider of songtree
-            Songchange.instance.DoSongChange();
+            SongchangeSystem.instance.SongChange();
         }
     }
     // Update is called once per frame

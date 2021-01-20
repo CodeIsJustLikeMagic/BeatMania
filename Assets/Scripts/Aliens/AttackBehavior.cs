@@ -2,28 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : VibingEntity
+/// <summary>
+/// Handles attack pattern and animations for an agressive alien.
+/// </summary>
+public class AttackBehavior : AlienBehavior
 {
-    //Enemy needs:
-    /// <summary>
-    /// hp, death
-    /// check for attack, attack with beat, choose attack based on combo
-    /// get staggered
-    /// 
-    /// </summary>
-    /// 
-
-    private string[] combo = { "charge", "atk1", "charge", "atk2", "charge", "atk3", "atk4", "atk5","wait", "wait" };
+    [SerializeField]
+    private string[] combo = { "charge", "atk1", "charge", "atk2", "charge", "atk3", "atk4", "atk5", "wait", "wait" };
     //  this combo array could be replaced by an array of AttackStructs. That way we can save the dmg of the spell and if enemy can be staggered during it.
 
-    private void Awake()
+    private Animator enemyAnimator2D;
+    private Animator enemyAnimator3D;
+    private void Start()
     {
-        maxCombo = combo.Length;
+        enemyAnimator2D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator2D;
+        enemyAnimator3D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
     }
-
-    public Animator enemyAnimator2D;
-    public Animator enemyAnimator3D;
-    public override void OnBeat(float bps)
+    
+    public override void PerformBehaviorOnBeat(float bps)
     {
         Debug.Log("OnBeat");
         if (CheckAttack())
@@ -36,12 +32,17 @@ public class Enemy : VibingEntity
         }
         enemyAnimator3D.SetFloat("Speed", bps);
     }
+
     //test if player is close enough to attack
     private bool CheckAttack()
     {
         return true;
     }
 
+    private void Awake()
+    {
+        maxCombo = combo.Length;
+    }
 
     //perform attack/animation
     private int combocounter = 0;
@@ -61,11 +62,11 @@ public class Enemy : VibingEntity
         {//either charge or wait
 
             enemyAnimator2D.SetTrigger(move);
-            if(move == "charge")
+            if (move == "charge")
             {
                 enemyAnimator3D.SetTrigger("Charge");
             }
-            if(move == "wait")
+            if (move == "wait")
             {
                 enemyAnimator3D.SetTrigger("Wait");
             }
@@ -78,6 +79,4 @@ public class Enemy : VibingEntity
         combocounter = 0;//rest combo
         enemyAnimator3D.SetTrigger("Dizzy");//play stagger animation as feedback
     }
-
-
 }

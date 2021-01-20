@@ -11,10 +11,6 @@ public class Background : MonoBehaviour
     {
         instance = this;
     }
-    public void Start()
-    {
-        SetSprites("yellow");
-    }
     [SerializeField]
     private int cnt = 1;
     [SerializeField]
@@ -22,13 +18,15 @@ public class Background : MonoBehaviour
     internal void SetNextSprites()
     {
         Debug.Log("songchange called");
-        SetSprites(names[cnt]);
+        SetSprites(cnt);
         cnt = (cnt + 1) % names.Length;
     }
 
-    public void SetSprites(string color)
+    public void SetSprites(int song)
     {
         SpriteRenderer[] rendererrs = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        string color = names[song];
+        cnt = song;
         foreach (SpriteRenderer rend in rendererrs)
         {
             string objectname = rend.gameObject.name;

@@ -6,10 +6,9 @@ using UnityEngine.Events;
 
 
 //manages timing and speed synchonisation for vibingEntiries with the clock
-public class AnimationOnBeat : MonoBehaviour
+public class SongSynchonizeVibing : MonoBehaviour
 {
-    public UnityEvent songChange;
-    public static AnimationOnBeat instance;
+    public static SongSynchonizeVibing instance;
     public AudioHelmClock clock;
 
     // Start is called before the first frame update
@@ -33,21 +32,30 @@ public class AnimationOnBeat : MonoBehaviour
         {
             //Debug.Log("accept beat" + count);
             //actual beat
-            BeatChange();
+            NotifyVibingEntities();
         }
         count++;
         //den ersten beat nicht und dann jeden 2.
     }
 
-    public void BeatChange()
+    public void NotifyVibingEntities()
     {
         float bps = clock.bpm / 60;
         //120 bmp / 60 = beats per second
         Debug.Log("RecieveBeat, bps " + bps);
-        Debug.Log("I have " + vibingEntities.Count+" entities");
+        Debug.Log("I have " + vibingEntities.Count + " entities");
         foreach (VibingEntity e in vibingEntities)
         {
             e.OnBeat(bps);
-        }   
+        }
     }
+    
+    public void RecieveSongChange(int song)
+    {
+        foreach (VibingEntity e in vibingEntities)
+        {
+            e.OnSongChange(song);
+        }
+    }
+
 }
