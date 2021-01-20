@@ -15,12 +15,18 @@ public class AttackAnimations : MonoBehaviour
 
             Attack();
         }
+        if (Input.GetKeyDown("f"))
+        {
+            //todo make sure we are inside collider of songtree
+            Songchange.instance.DoSongChange();
+        }
     }
     // Update is called once per frame
     void Update()
     {
         TestInput();
     }
+
 
     // Combosystem
     private int combocounter = 0;

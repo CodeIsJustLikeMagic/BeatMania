@@ -6,7 +6,6 @@ using UnityEngine;
 public class Background : MonoBehaviour
 {
     public static Background instance;
-    public SpriteRenderer[] renderers;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -14,28 +13,27 @@ public class Background : MonoBehaviour
     }
     public void Start()
     {
-        
-        SetSprites("blue");
+        SetSprites("yellow");
     }
-
-    public void FindRenderers()
-    {
-        renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
-    }
-
-    private int cnt = 0;
+    [SerializeField]
+    private int cnt = 1;
+    [SerializeField]
     private string[] names = { "yellow", "blue"};
     internal void SetNextSprites()
     {
+        Debug.Log("songchange called");
         SetSprites(names[cnt]);
         cnt = (cnt + 1) % names.Length;
     }
 
     public void SetSprites(string color)
     {
-        foreach(SpriteRenderer rend in renderers)
+        SpriteRenderer[] rendererrs = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer rend in rendererrs)
         {
-            string str = color+ rend.gameObject.name;
+            string objectname = rend.gameObject.name;
+            objectname = objectname.Replace("(Clone)", string.Empty);
+            string str = color+ objectname;
             Sprite sprt = Resources.Load<Sprite>("BackgroundTextures/"+str);
             rend.sprite = sprt;
         }

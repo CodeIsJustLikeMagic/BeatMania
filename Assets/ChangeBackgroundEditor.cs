@@ -11,7 +11,7 @@ public class ChangeBackgroundEditor : Editor
         Background background = (Background)target;
         if (GUILayout.Button("swap to next background color"))
         {
-            background.FindRenderers();
+            
             background.SetNextSprites();
         }
     }
