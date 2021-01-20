@@ -83,7 +83,7 @@ namespace EasyParallax
                     var position =
                         new Vector2(newPosX, startingPos.y);
                     duplicate.transform.position = position;
-                    Debug.Log("position "+position);
+                    //Debug.Log("position "+position);
                 }
             }
         }

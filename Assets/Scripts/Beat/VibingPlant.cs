@@ -12,7 +12,7 @@ public class VibingPlant : VibingEntity
     public override void OnBeat(float bps)
     {
         anim.SetTrigger("beat");
-        Debug.Log(gameObject.name + " setAnimLength ");
+        //Debug.Log(gameObject.name + " setAnimLength ");
         anim.SetFloat("animSpeed", bps);
         //Debug.Log("anim speed is " + anim.speed);
         //restart animationNow

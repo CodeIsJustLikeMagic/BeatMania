@@ -29,7 +29,6 @@ public class AttackAnimations : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("combocounter: " + combocounter);
         if (BeatChecker.instance.IsInBeat())
         {
             playerAnimator.SetTrigger("TAN"+(combocounter+1)); // Test Attack Normal 1-5
