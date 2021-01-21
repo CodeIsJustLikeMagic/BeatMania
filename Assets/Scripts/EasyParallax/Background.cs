@@ -25,6 +25,7 @@ public class Background : MonoBehaviour
     public void SetSprites(int song)
     {
         SpriteRenderer[] rendererrs = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        song = song % names.Length;
         string color = names[song];
         cnt = song;
         foreach (SpriteRenderer rend in rendererrs)

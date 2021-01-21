@@ -14,7 +14,7 @@ public class PassiveBehavior : AlienBehavior
 
     public override void PerformBehaviorOnBeat(float bps)
     {
-        enemyAnimator3D.SetTrigger("Waiting");
+        enemyAnimator3D.SetTrigger("Wait");
     }
 
 }
