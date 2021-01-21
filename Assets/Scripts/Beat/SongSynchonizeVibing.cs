@@ -25,7 +25,7 @@ public class SongSynchonizeVibing : MonoBehaviour
 
     public int count = 0;
     public int everyXbeats = 4;
-    public void RecieveBeatEvent()
+    public void RecieveBeatEvent()//an den sequencer drangehängt
     {
         //Debug.Log("recieve beat");
         if (count % everyXbeats == 0 && count > 0)
@@ -42,8 +42,6 @@ public class SongSynchonizeVibing : MonoBehaviour
     {
         float bps = clock.bpm / 60;
         //120 bmp / 60 = beats per second
-        Debug.Log("RecieveBeat, bps " + bps);
-        Debug.Log("I have " + vibingEntities.Count + " entities");
         foreach (VibingEntity e in vibingEntities)
         {
             e.OnBeat(bps);

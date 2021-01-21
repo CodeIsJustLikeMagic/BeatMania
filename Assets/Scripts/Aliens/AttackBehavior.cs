@@ -21,7 +21,6 @@ public class AttackBehavior : AlienBehavior
     
     public override void PerformBehaviorOnBeat(float bps)
     {
-        Debug.Log("OnBeat");
         if (CheckAttack())
         {
             Attack();
@@ -49,7 +48,6 @@ public class AttackBehavior : AlienBehavior
     private int maxCombo = 5;
     private void Attack()//set up with simple combo same as player but without being able to miss beats
     {
-        Debug.Log("enemy Attack");
         string move = combo[combocounter];
         if (move.Contains("atk"))
         {//perform an attack. animation is dictated by integer number

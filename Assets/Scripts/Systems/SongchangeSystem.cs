@@ -26,7 +26,6 @@ public class SongchangeSystem : MonoBehaviour
     }
     public void SongChange(int song)//gets called when user uses Songtree ?
     {
-        Debug.Log("Songchanger songchange");
         Background.instance.SetSprites(song);
         SongSynchonizeVibing.instance.RecieveSongChange(song);
         themes[currentsong].SetActive(false);
