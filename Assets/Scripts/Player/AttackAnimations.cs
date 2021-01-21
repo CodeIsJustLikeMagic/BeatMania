@@ -7,27 +7,6 @@ public class AttackAnimations : MonoBehaviour
     public Animator playerAnimator; //animator is set though inspector in unity editor
     // Start is called before the first frame update
 
-    //Input
-    void TestInput()
-    {
-        if (Input.GetKeyDown("e"))//white normal attack 1 (first attack on beat)
-        {
-
-            Attack();
-        }
-        if (Input.GetKeyDown("r"))
-        {
-            //todo make sure we are inside collider of songtree
-            SongchangeSystem.instance.SongChange();
-        }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        TestInput();
-    }
-
-
     // Combosystem
     private int combocounter = 0;
     int maxCombo = 5;
