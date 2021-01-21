@@ -9,11 +9,13 @@ using UnityEngine;
 
 abstract public class VibingEntity : MonoBehaviour
 {
-    private void Start()
+    protected void Start()//needs to be start because AnimationOnBeat gets its instance in Awake
     {
         
-        AnimationOnBeat.instance.AddMyselfToList(this);
+        SongSynchonizeVibing.instance.AddMyselfToList(this);
     }
 
     public abstract void OnBeat(float bps);
+
+    public virtual void OnSongChange(int song) { }
 }
