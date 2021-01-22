@@ -58,4 +58,9 @@ public class PlayerMovement : MonoBehaviour
         dashL = false;
         dashR = false;
     }
+
+    public float getHorizontalMove()
+    {
+        return horizontalMove;
+    }
 }
