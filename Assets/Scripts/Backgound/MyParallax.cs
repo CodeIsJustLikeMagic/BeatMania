@@ -12,16 +12,13 @@ public class MyParallax : MonoBehaviour
     private float parallaxEffect = 1;
 
     public float flipProb = 0.5f ;
-
-    private SpriteRenderer sprite;
-
-
+    
+    
     // Start is called before the first frame update
     void Start()
     {
         startpos = transform.position.x;
-        sprite = GetComponent<SpriteRenderer>();
-        length = sprite.bounds.size.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
         cam = Camera.main.gameObject;
     }
 
@@ -56,11 +53,8 @@ public class MyParallax : MonoBehaviour
     {
         if (Random.Range(0.0f, 1.0f) < flipProb)
         {
-            sprite.flipX = true;
-        }
-        else
-        {
-            sprite.flipX = false;
+            transform.RotateAround(transform.position, transform.up, 180f);
+            return;
         }
     }
 }

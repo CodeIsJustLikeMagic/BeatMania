@@ -38,14 +38,4 @@ public class Background : MonoBehaviour
         }
     }
 
-    public GameObject player;
-    float y = 0;
-    float z = 0;
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        y = gameObject.transform.position.y;
-        z = gameObject.transform.position.z;
-    }
-
 }

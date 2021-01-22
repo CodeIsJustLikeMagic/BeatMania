@@ -31,19 +31,18 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
         canAttack = false;
-        playerAnimator.SetBool("IsAttacking", true);
+        canAttack = false;
+        if (BeatChecker.instance.IsInBeat())
+        {
+            playerAnimator.SetTrigger("TAN" + (combocounter + 1)); // Test Attack Normal 1-5
+            combocounter = (combocounter + 1) % maxCombo;
+        }
+        else
+        {
+            combocounter = 0; //reset combo
+            playerAnimator.SetTrigger("whiteN1"); // do weak attack
+        }
         StartCoroutine(AttackCooldown());
-        //Debug.Log("combocounter: " + combocounter);
-        //if (BeatChecker.instance.IsInBeat())
-        //{
-        //    playerAnimator.SetTrigger("TAN" + (combocounter + 1)); // Test Attack Normal 1-5
-        //    combocounter = (combocounter + 1) % maxCombo;
-        //}
-        //else
-        //{
-        //    combocounter = 0; //reset combo
-        //    playerAnimator.SetTrigger("whiteN1"); // do weak attack
-        //}
     }
 
     IEnumerator AttackCooldown()
