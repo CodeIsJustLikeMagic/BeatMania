@@ -21,12 +21,12 @@ namespace EasyParallax
         private void Update()
         {
             //Save the current position, so we can edit it
-            var newPosition = transform.position;
+            var newPosition = transform.localPosition;
             //Move the position along the x axis by an amount that depends on the
             //defined speed and the deltaTime, so we can get a framerate independent movement
-            newPosition.x -= speed * Time.deltaTime;
+            newPosition.x += speed * Time.deltaTime;
             //Update our position
-            transform.position = newPosition;
+            transform.localPosition = newPosition;
         }
     }
 }
