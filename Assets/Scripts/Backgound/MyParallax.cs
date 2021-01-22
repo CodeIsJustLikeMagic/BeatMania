@@ -19,7 +19,7 @@ public class MyParallax : MonoBehaviour
     {
         startpos = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
-        cam = Camera.main.gameObject;
+        cam = GameObject.FindGameObjectWithTag("CinemachineCamera");
     }
 
     // Update is called once per frame
