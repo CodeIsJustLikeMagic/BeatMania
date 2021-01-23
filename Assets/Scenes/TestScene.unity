@@ -336,7 +336,7 @@ PrefabInstance:
     - target: {fileID: 584042309763668442, guid: 5add7682744b0b749ab3f622cf5dba00,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 55
+      value: 2103
       objectReference: {fileID: 0}
     - target: {fileID: 584042309763668445, guid: 5add7682744b0b749ab3f622cf5dba00,
         type: 3}
@@ -450,6 +450,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5add7682744b0b749ab3f622cf5dba00, type: 3}
+--- !u!83 &1201528404
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 48000
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!114 &1375579627 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1375579631, guid: ffc4f3ee33ff5604c84667586f690da6,
@@ -486,6 +514,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8310f8f4b516ae849a11151ef0902cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!83 &2017107780
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 48000
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!1001 &2112627347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2719,6 +2775,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 256539032668822644, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773041059021341123, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d306092cb2c426246981b9b05754c182,
+        type: 3}
+    - target: {fileID: 2321962261859948554, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_Text
+      value: "use your light saber with k\nyou deal more damage \nwhen you hit with
+        the beat"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097186671638041361, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778069916202309442, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778069916202309442, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778069916202309442, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778069916493374258, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778069916493374258, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748832966013041366, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 65eeaaeba3ad3774a80bf0362f665fda,
+        type: 3}
+    - target: {fileID: 6748832966267260582, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e8e6091fdddfc649b2db99f3c8f46e2,
+        type: 3}
     - target: {fileID: 7950742762589006800, guid: 0e9d70b496fc12441bc9fc9e58ab19e0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2788,6 +2903,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4784406462410606915, guid: b32d5bf058b6c0b499df6bf099a60a1b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 321f7c69b8685be42955f00716f66998,
+        type: 3}
+    - target: {fileID: 5756401313659424935, guid: b32d5bf058b6c0b499df6bf099a60a1b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756401313659424935, guid: b32d5bf058b6c0b499df6bf099a60a1b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445165375193109748, guid: b32d5bf058b6c0b499df6bf099a60a1b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162494657345220980, guid: b32d5bf058b6c0b499df6bf099a60a1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8186345575639218906, guid: b32d5bf058b6c0b499df6bf099a60a1b,
         type: 3}
       propertyPath: m_LocalPosition.x
