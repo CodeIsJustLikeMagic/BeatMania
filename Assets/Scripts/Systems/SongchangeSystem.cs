@@ -10,7 +10,7 @@ public class SongchangeSystem : MonoBehaviour
     public int[] bpms;
     private int maxsongs = 2;
     [SerializeField]
-    private int currentsong = 1;
+    private int currentsong = 0;
 
     private void Start()
     {
