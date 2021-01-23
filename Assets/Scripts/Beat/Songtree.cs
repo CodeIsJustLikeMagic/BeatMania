@@ -31,6 +31,7 @@ public class Songtree : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            interactionText.SetActive(false);
             playerinside = false;
         }
     }

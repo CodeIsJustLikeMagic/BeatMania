@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8186345575639218904}
   - component: {fileID: 8186345575639218911}
   - component: {fileID: 8186345575639218910}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Songtree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8186345576619051171}
   - component: {fileID: 8186345576619051180}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SongTree
   m_TagString: changeSprite
   m_Icon: {fileID: 0}
@@ -206,6 +206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 62131516787163196, guid: 9a6e73659cf1c7149b91ca7a33a3c32a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3587369949846275267, guid: 9a6e73659cf1c7149b91ca7a33a3c32a,
         type: 3}
