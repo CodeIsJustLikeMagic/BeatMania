@@ -15,7 +15,7 @@ public class Background : MonoBehaviour
     private int cnt = 1;
     [SerializeField]
     private string[] names = { "yellow", "blue"};
-    internal void SetNextSprites()
+    public void SetNextSprites()
     {
         Debug.Log("songchange called");
         SetSprites(cnt);
@@ -24,17 +24,21 @@ public class Background : MonoBehaviour
 
     public void SetSprites(int song)
     {
-        SpriteRenderer[] rendererrs = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        GameObject[] changeSpriteObjects = GameObject.FindGameObjectsWithTag("changeSprite"); // gameObject.GetComponentsInChildren<SpriteRenderer>();
         song = song % names.Length;
         string color = names[song];
         cnt = song;
-        foreach (SpriteRenderer rend in rendererrs)
+        foreach (GameObject obj in changeSpriteObjects)
         {
-            string objectname = rend.gameObject.name;
-            objectname = objectname.Replace("(Clone)", string.Empty);
-            string str = color+ objectname;
-            Sprite sprt = Resources.Load<Sprite>("BackgroundTextures/"+str);
-            rend.sprite = sprt;
+            SpriteRenderer[] rendererrs = obj.GetComponentsInChildren<SpriteRenderer>();
+            foreach(SpriteRenderer rend in rendererrs)
+            {
+                string objectname = rend.gameObject.name;
+                objectname = objectname.Replace("(Clone)", string.Empty);
+                string str = color + objectname;
+                Sprite sprt = Resources.Load<Sprite>("BackgroundTextures/" + str);
+                rend.sprite = sprt;
+            }
         }
     }
 

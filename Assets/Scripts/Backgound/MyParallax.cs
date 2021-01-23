@@ -30,19 +30,18 @@ public class MyParallax : MonoBehaviour
         float dist = (cam.transform.position.x * parallaxEffect); // how far we have moved from our startpoint
 
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
-
-        Debug.Log(Random.Range(0.0f, 1.0f));
+        
 
         if (temp > startpos + length*2)
         {
-            Debug.Log("moving sprites to the right temp is " + temp);
+            //Debug.Log("moving sprites to the right temp is " + temp);
             startpos += length*3;
             maybeflip();
 
         }
         else if (temp < startpos - length*2)
         {
-            Debug.Log("moving sprites to the left temp is " + temp);
+            //Debug.Log("moving sprites to the left temp is " + temp);
             startpos -= length*3;
             maybeflip();
         }

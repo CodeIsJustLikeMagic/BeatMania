@@ -23,9 +23,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604876187163730930}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.13, y: -2.55, z: -0.3178711}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6999999, y: 0.6999999, z: 0.6}
   m_Children:
   - {fileID: 1604876187775365205}
   - {fileID: 1604876187950897121}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1604876187775365205}
   - component: {fileID: 1604876187775365202}
   m_Layer: 0
-  m_Name: yellowplant2earth
+  m_Name: plant2earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 27c046d28fe775947b8e9b56fe797f2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87feb31ec34efda429641bde7d24fe54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1604876187950897119}
   - component: {fileID: 1604876187950897118}
   m_Layer: 0
-  m_Name: yellowplant1 (1)
+  m_Name: plant2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d88fd612225630b4ab4192d074485f0d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09c0e30f4cbd78844ba83c1efb361907, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429b0982ddf6f5449a146044de08a8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clock: {fileID: 0}
+  clock: {fileID: 8684755645498748049}
   vibingEntities: []
   count: -1
   everyXbeats: 4
@@ -81,20 +81,180 @@ PrefabInstance:
       propertyPath: m_Name
       value: Songs
       objectReference: {fileID: 0}
+    - target: {fileID: 740399836543671197, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399836543671197, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 276224752512216435}
+    - target: {fileID: 740399836543671197, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RecieveBeatEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399836543671197, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399836543671197, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399836543671197, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399836543671197, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: scrollPosition.x
+      value: 480.10522
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399836606940457, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 740399836795560137, guid: d03942c4ea97237428ce6df65a296609,
         type: 3}
       propertyPath: m_audioClip
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837211870273, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837211870273, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 276224752512216435}
+    - target: {fileID: 740399837211870273, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RecieveBeatEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837211870273, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837211870273, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837211870273, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 740399837211870655, guid: d03942c4ea97237428ce6df65a296609,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 740399837245114092, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837245114092, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 276224752512216435}
+    - target: {fileID: 740399837245114092, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RecieveBeatEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837245114092, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837245114092, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837245114092, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 740399837536157793, guid: d03942c4ea97237428ce6df65a296609,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 276224752512216435}
+    - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RecieveBeatEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399838294933139, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399838294933139, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 276224752512216435}
+    - target: {fileID: 740399838294933139, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RecieveBeatEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399838294933139, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399838294933139, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 740399838294933139, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7047299487868713953, guid: d03942c4ea97237428ce6df65a296609,
         type: 3}
