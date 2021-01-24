@@ -31,8 +31,8 @@ public class CharacterController : MonoBehaviour
         private float prevVelocityX = 0f;
         private bool canCheck = false; //For check if player is wallsliding
 
-    //    public float life = 10f; //Life of the player
-    //    public bool invincible = false; //If player can die
+        public float life = 10f; //Life of the player
+        public bool invincible = false; //If player can die
         private bool canMove = true; //If player can move
 
         private Animator animator;
@@ -62,9 +62,6 @@ public class CharacterController : MonoBehaviour
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
-
-        ////modified
-        //OnBeat(2.0f);
     }
 
     private void FixedUpdate()
@@ -314,6 +311,46 @@ public class CharacterController : MonoBehaviour
         animator.SetBool("IsWallSliding", false);
         oldWallSlidding = false;
         m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
+    }
+
+    public void ApplyDamage(float damage, Vector3 position)
+    {
+        if (!invincible)
+        {
+            animator.SetBool("Hit", true);
+            life -= damage;
+            Vector2 damageDir = Vector3.Normalize(transform.position - position) * 40f;
+            m_Rigidbody.velocity = Vector2.zero;
+            m_Rigidbody.AddForce(damageDir * 4);
+            if (life <= 0)
+            {
+                //StartCoroutine(WaitToDead());
+            }
+            else
+            {
+                //StartCoroutine(Stun(0.25f));
+                StartCoroutine(MakeInvincible(1f));
+            }
+        }
+    }
+
+    IEnumerator MakeInvincible(float time)
+    {
+        invincible = true;
+        yield return new WaitForSeconds(time);
+        invincible = false;
+    }
+
+    IEnumerator WaitToDead()
+    {
+        animator.SetBool("IsDead", true);
+        canMove = false;
+        invincible = true;
+        //GetComponent<Attack>().enabled = false;
+        yield return new WaitForSeconds(0.4f);
+        m_Rigidbody.velocity = new Vector2(0, m_Rigidbody.velocity.y);
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     //    public void Move(float move, bool jump, bool dashLEFT, bool dashRIGHT)

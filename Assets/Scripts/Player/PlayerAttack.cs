@@ -7,14 +7,17 @@ public class PlayerAttack : MonoBehaviour
     public Animator playerAnimator; //animator is set though inspector in unity editor
 
     public bool canAttack = true;
+    public Transform attackCheck;
 
     //Input
     void TestInput()
     {
         if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
         {
-
-            Attack();
+            if (canAttack)
+            {
+                Attack();
+            }
         }
     }
     // Update is called once per frame
@@ -24,25 +27,37 @@ public class PlayerAttack : MonoBehaviour
     }
 
     // Combosystem
-    private int combocounter = 0;
-    int maxCombo = 5;
+    private float combocounter = 0;
+    int maxCombo = 6;
 
 
     void Attack()
     {
         canAttack = false;
-        canAttack = false;
         if (BeatChecker.instance.IsInBeat())
         {
             playerAnimator.SetTrigger("TAN" + (combocounter + 1)); // Test Attack Normal 1-5
             combocounter = (combocounter + 1) % maxCombo;
+            DoDamage(combocounter);
         }
         else
         {
-            combocounter = 0; //reset combo
+            combocounter = 1; //reset combo
             playerAnimator.SetTrigger("whiteN1"); // do weak attack
+            DoDamage(combocounter);
         }
         StartCoroutine(AttackCooldown());
+    }
+
+    public void DoDamage(float damage) {
+        Collider[] collidersEnemies = Physics.OverlapSphere(attackCheck.position, 5f);
+        for (int i = 0; i < collidersEnemies.Length; i++)
+        {
+            if (collidersEnemies[i].gameObject.tag == "Enemy")
+            {
+                collidersEnemies[i].gameObject.SendMessage("ApplyDamage", damage);
+            }
+        }
     }
 
     IEnumerator AttackCooldown()
