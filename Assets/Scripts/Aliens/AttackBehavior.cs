@@ -59,7 +59,7 @@ public class AttackBehavior : AlienBehavior
         else
         {//either charge or wait
 
-            enemyAnimator2D.SetTrigger(move);
+            //enemyAnimator2D.SetTrigger(move);
             if (move == "charge")
             {
                 enemyAnimator3D.SetTrigger("Charge");

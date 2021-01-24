@@ -23,6 +23,11 @@ public class SongSynchonizeVibing : MonoBehaviour
         vibingEntities.Add(vibe);
     }
 
+    public void RemoveFromList(VibingEntity vibe)
+    {
+        vibingEntities.Remove(vibe);
+    }
+
     public int count = 0;
     public int everyXbeats = 4;
     public void RecieveBeatEvent()//an den sequencer drangehängt
@@ -44,7 +49,10 @@ public class SongSynchonizeVibing : MonoBehaviour
         //120 bmp / 60 = beats per second
         foreach (VibingEntity e in vibingEntities)
         {
-            e.OnBeat(bps);
+            if(e != null)
+            {
+                e.OnBeat(bps);
+            }
         }
     }
     
@@ -52,7 +60,10 @@ public class SongSynchonizeVibing : MonoBehaviour
     {
         foreach (VibingEntity e in vibingEntities)
         {
-            e.OnSongChange(song);
+            if(e != null)
+            {
+                e.OnSongChange(song);
+            }
         }
     }
 
