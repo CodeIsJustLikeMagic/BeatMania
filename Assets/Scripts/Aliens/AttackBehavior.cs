@@ -29,7 +29,6 @@ public class AttackBehavior : AlienBehavior
         {
             enemyAnimator3D.SetTrigger("Wait");
         }
-        enemyAnimator3D.SetFloat("Speed", bps);
     }
 
     //test if player is close enough to attack
