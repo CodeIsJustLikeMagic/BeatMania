@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clock: {fileID: 8684755645498748049}
   vibingEntities: []
-  count: -1
+  count: -2
   everyXbeats: 4
 --- !u!114 &1286667233
 MonoBehaviour:

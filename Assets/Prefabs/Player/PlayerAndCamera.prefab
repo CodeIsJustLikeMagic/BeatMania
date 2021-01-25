@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584042309763668440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4343108, y: 1.3339546, z: -10}
+  m_LocalPosition: {x: 0, y: 2.1999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 821828727231483233}
@@ -64,7 +64,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2103
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 7366100620277814454}
   m_Layer: 0
   m_Name: CinemachineCamera
-  m_TagString: Untagged
+  m_TagString: CinemachineCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5877308485058189501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.2, z: -10}
+  m_LocalPosition: {x: 0, y: 2.1999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2470461274026357675}
@@ -179,7 +179,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.831094, y: 1}
+    m_SensorSize: {x: 1.5996344, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -353,12 +353,12 @@ PrefabInstance:
     - target: {fileID: 2522208181539194177, guid: 44a1dc172435e26408d38425435e4f74,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.16
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2522208181539194177, guid: 44a1dc172435e26408d38425435e4f74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.64
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 2522208181539194177, guid: 44a1dc172435e26408d38425435e4f74,
         type: 3}
@@ -414,6 +414,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 821828727231483233}
     m_Modifications:
+    - target: {fileID: 43422572401336983, guid: 30c754261c71bc64facee3c2d5a58111,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 43422572401336986, guid: 30c754261c71bc64facee3c2d5a58111,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -474,6 +479,11 @@ PrefabInstance:
       propertyPath: attackCheck
       value: 
       objectReference: {fileID: 8688769772791396816}
+    - target: {fileID: 43422572401336988, guid: 30c754261c71bc64facee3c2d5a58111,
+        type: 3}
+      propertyPath: m_WhatIsGround.m_Bits
+      value: 565
+      objectReference: {fileID: 0}
     - target: {fileID: 43422572401336990, guid: 30c754261c71bc64facee3c2d5a58111,
         type: 3}
       propertyPath: m_Name
