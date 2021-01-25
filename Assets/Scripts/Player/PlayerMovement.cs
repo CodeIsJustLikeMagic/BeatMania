@@ -38,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
         {
             dashR = true;
         }
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dashL, dashR);
+        jump = false;
+        dashL = false;
+        dashR = false;
     }
 
     public void OnFall()
@@ -53,10 +57,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dashL, dashR);
-        jump = false;
-        dashL = false;
-        dashR = false;
+        //controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dashL, dashR);
+        //jump = false;
+        //dashL = false;
+        //dashR = false;
     }
 
     public float getHorizontalMove()
