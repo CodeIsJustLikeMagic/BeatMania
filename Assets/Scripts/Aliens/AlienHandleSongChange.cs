@@ -20,6 +20,7 @@ public class AlienHandleSongChange : VibingEntity
 
     public override void OnBeat(float bps)
     {
+        enemyAnimator3D.SetFloat("Speed", bps);
         //dictate which Behavior to Perform, based on musik (passive, attack, active)
         actionMethod(bps);
     }

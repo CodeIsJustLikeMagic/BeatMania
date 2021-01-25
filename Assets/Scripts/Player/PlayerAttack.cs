@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
 
     // Combosystem
     private float combocounter = 0;
-    int maxCombo = 6;
+    int maxCombo = 5;
 
 
     void Attack()
@@ -50,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public void DoDamage(float damage) {
-        Collider[] collidersEnemies = Physics.OverlapSphere(attackCheck.position, 5f);
+        Collider[] collidersEnemies = Physics.OverlapSphere(attackCheck.position, 3f);
         for (int i = 0; i < collidersEnemies.Length; i++)
         {
             if (collidersEnemies[i].gameObject.tag == "Enemy")

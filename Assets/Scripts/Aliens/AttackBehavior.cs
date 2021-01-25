@@ -29,7 +29,6 @@ public class AttackBehavior : AlienBehavior
         {
             enemyAnimator3D.SetTrigger("Wait");
         }
-        enemyAnimator3D.SetFloat("Speed", bps);
     }
 
     //test if player is close enough to attack
@@ -59,7 +58,7 @@ public class AttackBehavior : AlienBehavior
         else
         {//either charge or wait
 
-            enemyAnimator2D.SetTrigger(move);
+            //enemyAnimator2D.SetTrigger(move);
             if (move == "charge")
             {
                 enemyAnimator3D.SetTrigger("Charge");

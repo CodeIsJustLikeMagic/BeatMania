@@ -18,4 +18,10 @@ abstract public class VibingEntity : MonoBehaviour
     public abstract void OnBeat(float bps);
 
     public virtual void OnSongChange(int song) { }
+
+    protected virtual void OnDestroy()
+    {
+        Debug.Log("call removefrom list");
+        SongSynchonizeVibing.instance.RemoveFromList(this);
+    }
 }
