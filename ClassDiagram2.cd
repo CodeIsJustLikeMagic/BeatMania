@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ActiveBehavior" Collapsed="true">
+    <Position X="5.25" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAACAAIAAAAAAAIAAAAAAAAAAAACIABA=</HashCode>
+      <FileName>Assets\Scripts\Aliens\ActiveBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlienBehavior">
+    <Position X="4.75" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\Aliens\AlienBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlienHandleSongChange">
+    <Position X="0.75" Y="2.75" Width="2.75" />
+    <NestedTypes>
+      <Delegate Name="AlienHandleSongChange.ActionDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Aliens\AlienHandleSongChange.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAgAgIAAAAAAQAAAAAAAAFA=</HashCode>
+      <FileName>Assets\Scripts\Aliens\AlienHandleSongChange.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="behaviors" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AttackBehavior">
+    <Position X="7.25" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIgAIAAAEAAAgAAIAAAAAAAAAAAACAAFA=</HashCode>
+      <FileName>Assets\Scripts\Aliens\AttackBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PassiveBehavior" Collapsed="true">
+    <Position X="4" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAIAAAAAAAAAAAACAABA=</HashCode>
+      <FileName>Assets\Scripts\Aliens\PassiveBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VibingPlant" Collapsed="true">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAQAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Beat\VibingPlant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SongSynchonizeVibing" Collapsed="true">
+    <Position X="8" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAQAgAQAAAAAAABBAAAAAAAABAAAACAAACAAAAAUA=</HashCode>
+      <FileName>Assets\Scripts\Beat\SongSynchonizeVibing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeatChecker" Collapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAIIAAAEAAgAAAQABAIAAAAFKQAAAgAEA=</HashCode>
+      <FileName>Assets\Scripts\Beat\BeatChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

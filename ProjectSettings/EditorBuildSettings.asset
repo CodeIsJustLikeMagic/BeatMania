@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 068a5c6a6cb84b949b7570c7ddda629d
+  - enabled: 1
+    path: Assets/Scenes/Nelly Scene.unity
+    guid: b6ca9a9e189f088418246076820e945d
   m_configObjects: {}
