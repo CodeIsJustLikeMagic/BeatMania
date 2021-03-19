@@ -14,5 +14,10 @@ public class ChangeBackgroundEditor : Editor
             
             background.SetNextSprites();
         }
+        if (GUILayout.Button("load white sprites"))
+        {
+
+            background.SetWhiteSprites();
+        }
     }
 }

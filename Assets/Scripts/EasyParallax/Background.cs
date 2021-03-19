@@ -14,7 +14,7 @@ public class Background : MonoBehaviour
     [SerializeField]
     private int cnt = 1;
     [SerializeField]
-    private string[] names = { "yellow", "blue"};
+    private string[] names = { "yellow", "blue", "white"};
     public void SetNextSprites()
     {
         Debug.Log("songchange called");
@@ -22,24 +22,47 @@ public class Background : MonoBehaviour
         cnt = (cnt + 1) % names.Length;
     }
 
+    public void SetWhiteSprites()
+    {
+        SetSprites(cnt, "white");
+    }
+    
     public void SetSprites(int song)
     {
-        GameObject[] changeSpriteObjects = GameObject.FindGameObjectsWithTag("changeSprite"); // gameObject.GetComponentsInChildren<SpriteRenderer>();
         song = song % names.Length;
         string color = names[song];
+        SetSprites(song, color);
+    }
+
+    public void SetSprites(int song, string color)
+    {
+        
+        GameObject[] changeSpriteObjects = GameObject.FindGameObjectsWithTag("changeSprite"); // gameObject.GetComponentsInChildren<SpriteRenderer>();
+
         cnt = song;
         foreach (GameObject obj in changeSpriteObjects)
         {
+
             SpriteRenderer[] rendererrs = obj.GetComponentsInChildren<SpriteRenderer>();
             foreach(SpriteRenderer rend in rendererrs)
             {
-                string objectname = rend.gameObject.name;
-                objectname = objectname.Replace("(Clone)", string.Empty);
-                string str = color + objectname;
-                Sprite sprt = Resources.Load<Sprite>("BackgroundTextures/" + str);
-                rend.sprite = sprt;
+                ColorChange c = rend.gameObject.GetComponent<ColorChange>();
+                if(c != null)
+                {
+                    c.setColor(song);
+                }
+                else
+                {
+                    string objectname = rend.gameObject.name;
+                    objectname = objectname.Replace("(Clone)", string.Empty);
+                    string str = color + objectname;
+                    Sprite sprt = Resources.Load<Sprite>("BackgroundTextures/" + str);
+                    rend.sprite = sprt;
+                }
             }
         }
+
     }
+    
 
 }

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: pinkPBRTurtleShellAlbedo
   m_Shader: {fileID: 4800000, guid: afd4e5df5a9cf4406a8e772d4ea69d78, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: DAB_COORDS_TRIPLANAR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
