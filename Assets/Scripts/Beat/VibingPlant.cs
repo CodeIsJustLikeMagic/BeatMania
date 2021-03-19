@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class VibingPlant : VibingEntity
 {
-    public Animator anim;
+    [SerializeField]
+    private Animator anim;
     private void Awake()
     {
         anim = gameObject.GetComponent<Animator>();

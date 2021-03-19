@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1604876187775365205}
   - component: {fileID: 1604876187775365202}
+  - component: {fileID: 5533411769086303381}
   m_Layer: 0
   m_Name: plant2earth
   m_TagString: Untagged
@@ -102,7 +103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 87feb31ec34efda429641bde7d24fe54, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b312b79e77e9064d8cb32af2d241723, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,6 +114,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5533411769086303381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604876187775365204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d912c1a53997114dbc19a53f3f1be71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  colors:
+  - {r: 0.2901961, g: 0.8431373, b: 1, a: 1}
+  - {r: 0.16078432, g: 0.06666667, b: 0.21568629, a: 1}
+  - {r: 0.45882356, g: 0.86274517, b: 0.6784314, a: 1}
 --- !u!1 &1604876187950897120
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +143,7 @@ GameObject:
   - component: {fileID: 1604876187950897116}
   - component: {fileID: 1604876187950897119}
   - component: {fileID: 1604876187950897118}
+  - component: {fileID: 801060416550884111}
   m_Layer: 0
   m_Name: plant2
   m_TagString: Untagged
@@ -185,7 +204,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 09c0e30f4cbd78844ba83c1efb361907, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71c7b823e1398c945b704234e1408631, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -228,3 +247,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1604876187950897119}
+--- !u!114 &801060416550884111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604876187950897120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d912c1a53997114dbc19a53f3f1be71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  colors:
+  - {r: 0.2901961, g: 0.8431373, b: 1, a: 1}
+  - {r: 0.16078432, g: 0.06666667, b: 0.21568629, a: 1}
+  - {r: 0.45882356, g: 0.86274517, b: 0.6784314, a: 1}

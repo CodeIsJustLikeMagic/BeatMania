@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1979311118258452867}
   - component: {fileID: 1979311118258452876}
   - component: {fileID: 1979311118258452877}
+  - component: {fileID: 1920008117637919517}
   m_Layer: 0
   m_Name: plant1
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ca5b238c18568f3418d8c267bc4d24eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ee0bce96f2f4384b80fc00442e9e8fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,6 +116,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1979311118258452876}
+--- !u!114 &1920008117637919517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979311118258452865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d912c1a53997114dbc19a53f3f1be71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  colors:
+  - {r: 0.2901961, g: 0.8431373, b: 1, a: 1}
+  - {r: 0.16078432, g: 0.06666667, b: 0.21568629, a: 1}
+  - {r: 0.45882356, g: 0.86274517, b: 0.6784314, a: 1}
 --- !u!1 &1979311118966533209
 GameObject:
   m_ObjectHideFlags: 0

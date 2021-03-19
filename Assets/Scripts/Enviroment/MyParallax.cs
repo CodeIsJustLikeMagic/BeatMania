@@ -5,7 +5,8 @@ using UnityEngine;
 public class MyParallax : MonoBehaviour
 {
     private float length, startpos;
-    public GameObject cam;
+    [SerializeField]
+    private GameObject cam;
 
     [Tooltip("0 for move with camera, stay static as camera moves past")]
     [SerializeField]
