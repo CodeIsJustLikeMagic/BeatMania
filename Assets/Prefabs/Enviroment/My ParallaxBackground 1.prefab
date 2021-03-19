@@ -791,6 +791,7 @@ GameObject:
   - component: {fileID: 1825643014981920397}
   - component: {fileID: 1825643014981920398}
   - component: {fileID: 1825643014981920435}
+  - component: {fileID: 7262182262608215511}
   m_Layer: 0
   m_Name: sky
   m_TagString: changeSprite
@@ -877,6 +878,23 @@ MonoBehaviour:
   cam: {fileID: 0}
   parallaxEffect: 0.2
   flipProb: 0
+--- !u!114 &7262182262608215511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825643014981920396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3717d52c0be33f949bc29c78b19e8fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRend: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: 4a7b8a1c5ea193e4ead13396b4eb12bf, type: 3}
+  - {fileID: 21300000, guid: 3dd8694c5f980a143b0d2263f5052cb9, type: 3}
+  - {fileID: 21300000, guid: f41b86a290275844184c7bc42d456313, type: 3}
 --- !u!1 &1825643015449908990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4648,6 +4666,7 @@ GameObject:
   - component: {fileID: 7262182263611933833}
   - component: {fileID: 7262182263611933837}
   - component: {fileID: 7262182263611933832}
+  - component: {fileID: 7262182262608215512}
   m_Layer: 0
   m_Name: sky
   m_TagString: changeSprite
@@ -4734,6 +4753,23 @@ MonoBehaviour:
   cam: {fileID: 0}
   parallaxEffect: 0.2
   flipProb: 0
+--- !u!114 &7262182262608215512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262182263611933834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3717d52c0be33f949bc29c78b19e8fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRend: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: 4a7b8a1c5ea193e4ead13396b4eb12bf, type: 3}
+  - {fileID: 21300000, guid: 3dd8694c5f980a143b0d2263f5052cb9, type: 3}
+  - {fileID: 21300000, guid: f41b86a290275844184c7bc42d456313, type: 3}
 --- !u!1 &7262182263818010295
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,6 +4814,7 @@ GameObject:
   - component: {fileID: 7262182263981131576}
   - component: {fileID: 7262182263981131580}
   - component: {fileID: 7262182263981131583}
+  - component: {fileID: 7262182262608215513}
   m_Layer: 0
   m_Name: sky
   m_TagString: changeSprite
@@ -4864,6 +4901,23 @@ MonoBehaviour:
   cam: {fileID: 0}
   parallaxEffect: 0.2
   flipProb: 0
+--- !u!114 &7262182262608215513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262182263981131577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3717d52c0be33f949bc29c78b19e8fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRend: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: 4a7b8a1c5ea193e4ead13396b4eb12bf, type: 3}
+  - {fileID: 21300000, guid: 3dd8694c5f980a143b0d2263f5052cb9, type: 3}
+  - {fileID: 21300000, guid: f41b86a290275844184c7bc42d456313, type: 3}
 --- !u!1 &7262182263988468309
 GameObject:
   m_ObjectHideFlags: 0

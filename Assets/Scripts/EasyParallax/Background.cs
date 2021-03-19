@@ -13,7 +13,6 @@ public class Background : MonoBehaviour
     }
     [SerializeField]
     private int cnt = 1;
-    [SerializeField]
     private string[] names = { "yellow", "blue", "white"};
     public void SetNextSprites()
     {
@@ -24,19 +23,8 @@ public class Background : MonoBehaviour
 
     public void SetWhiteSprites()
     {
-        SetSprites(cnt, "white");
-    }
-    
-    public void SetSprites(int song)
-    {
-        song = song % names.Length;
-        string color = names[song];
-        SetSprites(song, color);
-    }
-
-    public void SetSprites(int song, string color)
-    {
-        
+        int song = cnt;
+        string color = "white";
         GameObject[] changeSpriteObjects = GameObject.FindGameObjectsWithTag("changeSprite"); // gameObject.GetComponentsInChildren<SpriteRenderer>();
 
         cnt = song;
@@ -63,6 +51,18 @@ public class Background : MonoBehaviour
         }
 
     }
-    
+
+    public void SetSprites(int song)
+    {
+        //GameObject[] changeSpriteObjects = GameObject.FindGameObjectsWithTag("changeSprite"); // gameObject.GetComponentsInChildren<SpriteRenderer>();
+
+        ColorChange[] rendererrs = FindObjectsOfType<ColorChange>();
+        foreach (ColorChange rend in rendererrs)
+        {
+            rend.setColor(song);
+        }
+
+    }
+
 
 }
