@@ -14,5 +14,4 @@ public class ColorChangeSprite : ColorChange
         spriteRend = GetComponent<SpriteRenderer>();
         spriteRend.sprite = sprites[song % sprites.Length];
     }
-
 }

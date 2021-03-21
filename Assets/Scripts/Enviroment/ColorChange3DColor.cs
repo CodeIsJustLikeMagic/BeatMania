@@ -13,5 +13,4 @@ public class ColorChange3DColor : ColorChange
         rend = GetComponent<Renderer>();
         rend.sharedMaterial.SetColor("_Color", colors[song%colors.Length]);
     }
-    
 }
