@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorChangeSprite : ColorChange
+public class ColorChange2DSprite : ColorChange
 {
     [SerializeField]
     private SpriteRenderer spriteRend;

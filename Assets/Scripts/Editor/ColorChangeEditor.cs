@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 
 [CustomEditor(typeof(ColorChange), true), CanEditMultipleObjects]
-public class SingleColorChangeEditor : Editor
+public class ColorChangeEditor : Editor
 {
     public override void OnInspectorGUI()
     {

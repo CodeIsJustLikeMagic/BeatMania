@@ -20,7 +20,6 @@ public class MyParallax : MonoBehaviour
     {
         startpos = transform.position.x;
         length = 18;// GetComponent<SpriteRenderer>().bounds.size.x;
-        Debug.Log(gameObject.name+" "+length);
         cam = GameObject.FindGameObjectWithTag("CinemachineCamera");
     }
 
