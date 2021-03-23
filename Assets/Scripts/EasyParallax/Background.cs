@@ -51,6 +51,16 @@ public class Background : MonoBehaviour
         }
 
     }
+
+    public void UpdateColors()
+    {
+        rendererrs = FindObjectsOfType<ColorChange>();
+        foreach (ColorChange rend in rendererrs)
+        {
+            rend.updateColor();
+        }
+    }
+
     public ColorChange[] rendererrs;
     public void SetSprites(int song)
     {

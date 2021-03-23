@@ -6,10 +6,10 @@ public class ColorChangeColor : ColorChange
 {
     [SerializeField]
     private SpriteRenderer sprite;
+    [SerializeField]
+    private Color[] colors;
 
-    public Color[] colors;
-
-    public override void setColor(int song)
+    protected override void showColor(int song)
     {
         sprite = GetComponent<SpriteRenderer>();
         sprite.color = colors[song % colors.Length];

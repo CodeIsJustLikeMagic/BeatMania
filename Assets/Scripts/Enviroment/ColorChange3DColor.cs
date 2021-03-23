@@ -8,7 +8,7 @@ public class ColorChange3DColor : ColorChange
     private Renderer rend;
 
     public Color[] colors;
-    public override void setColor(int song)
+    protected override void showColor(int song)
     {
         rend = GetComponent<Renderer>();
         rend.sharedMaterial.SetColor("_Color", colors[song%colors.Length]);

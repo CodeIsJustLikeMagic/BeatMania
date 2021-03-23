@@ -2,16 +2,26 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-[CustomEditor(typeof(ColorChange), true)]
+[CustomEditor(typeof(ColorChange), true), CanEditMultipleObjects]
 public class SingleColorChangeEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-        ColorChange t = (ColorChange)target;
+        Object[] t = targets;
         if (GUILayout.Button("swap to next color"))
         {
-            t.setColor();
+            foreach(var script in t)
+            {
+                ((ColorChange)script).setColor();
+            }
+        }
+        if (GUILayout.Button("update current color"))
+        {
+            foreach (var script in t)
+            {
+                ((ColorChange)script).updateColor();
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ abstract public class VibingEntity : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        Debug.Log("call removefrom list");
+        //Debug.Log("call removefrom list");
         SongSynchonizeVibing.instance.RemoveFromList(this);
     }
 }

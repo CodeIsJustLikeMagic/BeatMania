@@ -4,12 +4,22 @@ using UnityEngine;
 
 abstract public class ColorChange : VibingEntity
 {
-    public abstract void setColor(int song);
+    public void setColor(int song)
+    {
+        s = song;
+        showColor(s);
+    }
+
+    protected abstract void showColor(int song);
 
     private int s = 0;
     public void setColor()
     {
         s += 1;
+        setColor(s);
+    }
+    public void updateColor()
+    {
         setColor(s);
     }
 

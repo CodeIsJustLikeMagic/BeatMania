@@ -9,7 +9,7 @@ public class ColorChangeSprite : ColorChange
 
     public Sprite[] sprites;
 
-    public override void setColor(int song)
+    protected override void showColor(int song)
     {
         spriteRend = GetComponent<SpriteRenderer>();
         spriteRend.sprite = sprites[song % sprites.Length];
