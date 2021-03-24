@@ -8,7 +8,7 @@ public class MyParallax : MonoBehaviour
     [SerializeField]
     private GameObject cam;
 
-    [Tooltip("0 for move with camera, stay static as camera moves past")]
+    [Tooltip("0 for move with camera, 1 stay static as camera moves past")]
     [SerializeField]
     private float parallaxEffect = 1;
 

@@ -16,7 +16,7 @@ public class Background : MonoBehaviour
 
     public void SetNextSprites()
     {
-        Debug.Log("songchange called");
+        //Debug.Log("songchange called");
         cnt += 1;
         SetSprites(cnt);
     }
