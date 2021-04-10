@@ -1570,6 +1570,7 @@ Transform:
   - {fileID: 740939204667681030}
   - {fileID: 740399837540007435}
   - {fileID: 740399836795560138}
+  - {fileID: 611879485828427265}
   m_Father: {fileID: 7047299487868713953}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5579,6 +5580,811 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
+--- !u!1 &8307417613400907061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 611879485828427265}
+  - component: {fileID: 4202180725501754193}
+  - component: {fileID: 8625599048123147955}
+  - component: {fileID: 8437892609454099358}
+  - component: {fileID: 199117745541640221}
+  m_Layer: 0
+  m_Name: Sequencer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &611879485828427265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8307417613400907061}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.753682, y: 2.477181, z: -5.3582034}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 740399836606940454}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4202180725501754193
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8307417613400907061}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8235600533482060647, guid: 8033c1d7952e3e24b80a1bce139b24a6,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.039
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8625599048123147955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8307417613400907061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981c2862dc2a4474b9d748a52426fab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spatialize: 0
+  spatializeWithPlugin: 0
+  synthesizerMixerGroup: {fileID: 0}
+  spatializerMixerGroup: {fileID: 0}
+--- !u!114 &8437892609454099358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8307417613400907061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c2100a494de423e9975762c775cfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  noteOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  beatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: RecieveBeatEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  length: 128
+  currentIndex: 19
+  loop: 1
+  allNotes:
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes:
+    - note_: 23
+      start_: 18
+      end_: 21
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes: []
+  - notes: []
+  - notes:
+    - note_: 26
+      start_: 2
+      end_: 5
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 26
+      start_: 34
+      end_: 37
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 26
+      start_: 82
+      end_: 85
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 27
+      start_: 66
+      end_: 69
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 27
+      start_: 112
+      end_: 115
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 28
+      start_: 48
+      end_: 50
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 28
+      start_: 78
+      end_: 81
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 29
+      start_: 14
+      end_: 17
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 29
+      start_: 46
+      end_: 47
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 29
+      start_: 98
+      end_: 101
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 30
+      start_: 74
+      end_: 79
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 30
+      start_: 110
+      end_: 111
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 31
+      start_: 10
+      end_: 15
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 31
+      start_: 42
+      end_: 47
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 32
+      start_: 106
+      end_: 111
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes:
+    - note_: 42
+      start_: 66
+      end_: 69
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 42
+      start_: 82
+      end_: 85
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 42
+      start_: 112
+      end_: 115
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 43
+      start_: 2
+      end_: 5
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 43
+      start_: 18
+      end_: 21
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 43
+      start_: 34
+      end_: 37
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes: []
+  - notes:
+    - note_: 45
+      start_: 48
+      end_: 50
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 45
+      start_: 78
+      end_: 81
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 45
+      start_: 98
+      end_: 101
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 46
+      start_: 14
+      end_: 17
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 46
+      start_: 46
+      end_: 47
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 47
+      start_: 74
+      end_: 79
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 47
+      start_: 110
+      end_: 111
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 48
+      start_: 10
+      end_: 15
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+    - note_: 48
+      start_: 42
+      end_: 47
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes:
+    - note_: 49
+      start_: 106
+      end_: 111
+      velocity_: 0.8
+      parent: {fileID: 8437892609454099358}
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  scrollPosition: {x: 0, y: 653}
+  autoScroll: 0
+  division: 1
+  zoom: 0.353
+  channel: 0
+--- !u!114 &199117745541640221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8307417613400907061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c2100a494de423e9975762c775cfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  noteOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  beatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: RecieveBeatEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  length: 128
+  currentIndex: 19
+  loop: 1
+  allNotes:
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes:
+    - note_: 23
+      start_: 18
+      end_: 21
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes: []
+  - notes: []
+  - notes:
+    - note_: 26
+      start_: 2
+      end_: 5
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 26
+      start_: 34
+      end_: 37
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 26
+      start_: 82
+      end_: 85
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 27
+      start_: 66
+      end_: 69
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 27
+      start_: 112
+      end_: 115
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 28
+      start_: 48
+      end_: 50
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 28
+      start_: 78
+      end_: 81
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 29
+      start_: 14
+      end_: 17
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 29
+      start_: 46
+      end_: 47
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 29
+      start_: 98
+      end_: 101
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 30
+      start_: 74
+      end_: 79
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 30
+      start_: 110
+      end_: 111
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 31
+      start_: 10
+      end_: 15
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 31
+      start_: 42
+      end_: 47
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 32
+      start_: 106
+      end_: 111
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes:
+    - note_: 42
+      start_: 66
+      end_: 69
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 42
+      start_: 82
+      end_: 85
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 42
+      start_: 112
+      end_: 115
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 43
+      start_: 2
+      end_: 5
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 43
+      start_: 18
+      end_: 21
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 43
+      start_: 34
+      end_: 37
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes: []
+  - notes:
+    - note_: 45
+      start_: 48
+      end_: 50
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 45
+      start_: 78
+      end_: 81
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 45
+      start_: 98
+      end_: 101
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 46
+      start_: 14
+      end_: 17
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 46
+      start_: 46
+      end_: 47
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 47
+      start_: 74
+      end_: 79
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 47
+      start_: 110
+      end_: 111
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 48
+      start_: 10
+      end_: 15
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+    - note_: 48
+      start_: 42
+      end_: 47
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes:
+    - note_: 49
+      start_: 106
+      end_: 111
+      velocity_: 0.8
+      parent: {fileID: 199117745541640221}
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  - notes: []
+  scrollPosition: {x: 0, y: 360}
+  autoScroll: 0
+  division: 1
+  zoom: 0.353
+  channel: 0
 --- !u!1001 &709310612872016824
 PrefabInstance:
   m_ObjectHideFlags: 0
