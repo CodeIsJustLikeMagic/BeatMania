@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3549142245979217292}
   - component: {fileID: 276224752512216435}
   - component: {fileID: 1286667233}
+  - component: {fileID: 4712253046032301876}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clock: {fileID: 8684755645498748049}
   vibingEntities: []
-  count: -2
+  count: -3
   everyXbeats: 4
 --- !u!114 &1286667233
 MonoBehaviour:
@@ -69,6 +70,19 @@ MonoBehaviour:
   - {fileID: 1828004894951684258}
   bpms: 7800000064000000780000008c000000
   currentsong: 0
+--- !u!114 &4712253046032301876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035874925549199754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350cf12d572cde843a72db50b1ba9d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  song_unlocked: 010000
 --- !u!1001 &1375864525128775874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
         type: 3}
       propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
         type: 3}

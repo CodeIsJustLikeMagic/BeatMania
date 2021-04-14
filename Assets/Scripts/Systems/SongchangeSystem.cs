@@ -8,9 +8,10 @@ public class SongchangeSystem : MonoBehaviour
     public AudioHelm.AudioHelmClock clock;
     public GameObject[] themes;
     public int[] bpms;
-    private int maxsongs = 2;
     [SerializeField]
     private int currentsong = 0;
+    [SerializeField]
+    private bool enableAllSongs = false;
 
     private void Start()
     {
@@ -18,21 +19,19 @@ public class SongchangeSystem : MonoBehaviour
         Invoke("SongChange", 0.1f);
     }
 
-    public void SongChange()//gets called when user uses Songtree ?
-    {
-        SongChange(currentsong);
-        //todo notify Clock that it's time to change song
-        //currentsong = (currentsong + 1) % maxsongs;
-    }
     public void SongChange(int song)//gets called when user uses Songtree ?
     {
-        Background.instance.SetSprites(song);
-        SongSynchonizeVibing.instance.RecieveSongChange(song);
-        themes[currentsong].SetActive(false);
-        clock.bpm = bpms[song];
-        themes[song].SetActive(true);
-        currentsong = song;
-        //todo notify Clock that it's time to change song
+        if (UnlockedSongs.instance.SongIsUnlocked(song) || enableAllSongs)
+        {
+            //Background.instance.SetSprites(song);
+            SongSynchonizeVibing.instance.RecieveSongChange(song);
+            themes[currentsong].SetActive(false);
+            clock.bpm = bpms[song];
+            themes[song].SetActive(true);
+            currentsong = song;
+            //todo notify Clock that it's time to change song
+            //Debug.Log("performed songchange");
+        }else Debug.Log("That song hasn't been unlocked yet");
     }
 
     //einfach nur zum testen

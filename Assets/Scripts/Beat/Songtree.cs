@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Songtree : MonoBehaviour
 {
-    public GameObject interactionText;
+    [Tooltip("index of song. -1 for 'does not unlock a song'")]
+    [SerializeField]
+    private int unlocksSong = -1;
     bool playerinside = false;
 
     private void Update()
@@ -13,8 +15,15 @@ public class Songtree : MonoBehaviour
         {
             if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.F))
             {
-                //player has picked up new song upon first interaction with tree
-                //show songchange menu etc...
+                if (unlocksSong == -1 || UnlockedSongs.instance.SongIsUnlocked(unlocksSong))
+                { // not first interaction. Show songchange menu.
+                    Menu.instance.showSongChangeMenue();
+                }
+                else
+                { // first songtree Interaction. Unlock song and change to it.
+                    UnlockedSongs.instance.UnlockSong(unlocksSong);
+                    SongchangeSystem.instance.SongChange(unlocksSong);
+                }
             }
         }
     }
@@ -22,7 +31,6 @@ public class Songtree : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            interactionText.SetActive(true);
             playerinside = true;
         }
     }
@@ -31,7 +39,6 @@ public class Songtree : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            interactionText.SetActive(false);
             playerinside = false;
         }
     }

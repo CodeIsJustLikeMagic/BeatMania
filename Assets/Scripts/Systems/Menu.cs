@@ -5,7 +5,9 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     public static Menu instance;
+    public GameObject GameMenue;
     public GameObject endofDemo;
+    public GameObject songChangeMenue;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -17,9 +19,14 @@ public class Menu : MonoBehaviour
         endofDemo.SetActive(true);
     }
 
+    public void showSongChangeMenue()
+    {
+        songChangeMenue.SetActive(true);
+    }
+
     public void close()
     {
-        Debug.Log("close");
         endofDemo.SetActive(false);
+        songChangeMenue.SetActive(false);
     }
 }

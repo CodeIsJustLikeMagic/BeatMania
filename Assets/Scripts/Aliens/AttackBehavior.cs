@@ -68,7 +68,7 @@ public class AttackBehavior : AlienBehavior
                 enemyAnimator3D.SetTrigger("Wait");
             }
         }
-        combocounter = (combocounter + 1) % maxCombo;//sycle though combo array
+        combocounter = (combocounter + 1) % maxCombo;//cycle though combo array
     }
 
     public void Stagger()//get staggered by getting hit. 
