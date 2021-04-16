@@ -23,5 +23,12 @@ public class ColorChangeEditor : Editor
                 ((ColorChange)script).updateColor();
             }
         }
+        if (GUILayout.Button("swap everything to next color"))
+        {
+            foreach (var script in t)
+            {
+                FindObjectOfType<Background>().SetNextSprites();
+            }
+        }
     }
 }

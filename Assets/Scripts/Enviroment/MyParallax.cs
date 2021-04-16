@@ -13,7 +13,11 @@ public class MyParallax : MonoBehaviour
     [SerializeField]
     private float parallaxEffect = 1;
 
+    [SerializeField]
+    private bool dont_teleport;
+
     public float flipProb = 0.5f ;
+    
     
     
     // Start is called before the first frame update
@@ -32,8 +36,11 @@ public class MyParallax : MonoBehaviour
         float dist = (cam.transform.position.x * parallaxEffect); // how far we have moved from our startpoint
 
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
-        
 
+        if (dont_teleport)
+        {
+            return;
+        }
         if (temp > startpos + length*2)
         {
             //Debug.Log("moving sprites to the right temp is " + temp);

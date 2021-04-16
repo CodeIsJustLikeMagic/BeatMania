@@ -9,11 +9,16 @@ public class VibingPlant : VibingEntity
     private void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
+        if(anim == null)
+        {
+            anim = gameObject.GetComponentInChildren<Animator>();
+        }
     }
     public override void OnBeat(float bps)
     {
         //anim.SetTrigger("beat");
         //Debug.Log(gameObject.name + " setAnimLength ");
+        anim.SetFloat("Speed", bps);
         anim.SetFloat("animSpeed", bps);
         //Debug.Log("anim speed is " + anim.speed);
         //restart animationNow
