@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1414077716040317485
+--- !u!1 &5815034791825461750
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1414077716040317483}
-  - component: {fileID: 1414077716040317484}
-  - component: {fileID: 1414077716040317482}
+  - component: {fileID: 1319871353834579051}
+  - component: {fileID: 1424889971615669902}
+  - component: {fileID: 2405319037911283152}
   m_Layer: 0
-  m_Name: enviroment2plant_2
+  m_Name: Treebaum_krone_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1414077716040317483
+--- !u!4 &1319871353834579051
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414077716040317485}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 112.35, y: -7.47, z: 0}
+  m_GameObject: {fileID: 5815034791825461750}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.4632363, y: 7.885812, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1414077716040317484
+--- !u!212 &1424889971615669902
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414077716040317485}
+  m_GameObject: {fileID: 5815034791825461750}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,31 +71,31 @@ SpriteRenderer:
   m_SortingLayerID: -752560011
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 484c7b5f8fcadb3419363ced53234bee, type: 3}
-  m_Color: {r: 0.6603774, g: 0.14965054, b: 0.109024554, a: 1}
+  m_Sprite: {fileID: 21300000, guid: bb047694eb69d294f88b4da8c41c8654, type: 3}
+  m_Color: {r: 0.500623, g: 0.8216517, b: 0.8490566, a: 255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9, y: 1.18}
+  m_Size: {x: 11.74, y: 11.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1414077716040317482
+--- !u!114 &2405319037911283152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414077716040317485}
+  m_GameObject: {fileID: 5815034791825461750}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d912c1a53997114dbc19a53f3f1be71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1414077716040317484}
+  sprite: {fileID: 1424889971615669902}
   colors:
-  - {r: 0.40784317, g: 0.18823531, b: 0.18039216, a: 1}
-  - {r: 0.1254902, g: 0.20784315, b: 0.1137255, a: 1}
-  - {r: 0.6603774, g: 0.14965054, b: 0.109024554, a: 1}
+  - {r: 0.8301887, g: 0.78280526, b: 0.44250622, a: 255}
+  - {r: 0.500623, g: 0.8216517, b: 0.8490566, a: 255}
+  - {r: 0.19607845, g: 0.41176474, b: 0.22352943, a: 255}

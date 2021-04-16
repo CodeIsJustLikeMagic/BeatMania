@@ -17,10 +17,12 @@ public class MovingPlatform : AlienBehavior
     }
 
     private int combocounter = 0;
+    public string debug = "";
     public override void PerformBehaviorOnBeat(float bps)
     {
         animator.SetFloat("Speed", bps);
         string move = combo[combocounter];
+        debug = move;
         animator.SetTrigger(move);
         combocounter = (combocounter + 1) % combo.Length;// cycle though combo array
     }

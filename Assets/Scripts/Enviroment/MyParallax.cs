@@ -17,14 +17,15 @@ public class MyParallax : MonoBehaviour
     private bool dont_teleport;
 
     public float flipProb = 0.5f ;
-    
-    
+
+    public int posMulti = 2;
     
     // Start is called before the first frame update
     void Start()
     {
         startpos = transform.position.x;
-        length = 18;// GetComponent<SpriteRenderer>().bounds.size.x;
+        length = 15 * posMulti;
+        
         cam = GameObject.FindGameObjectWithTag("CinemachineCamera");
     }
 
