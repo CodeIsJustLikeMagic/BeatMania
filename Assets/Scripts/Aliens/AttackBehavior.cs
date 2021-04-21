@@ -10,24 +10,27 @@ public class AttackBehavior : AlienBehavior
     [SerializeField]
     private string[] combo = { "charge", "atk1", "charge", "atk2", "charge", "atk3", "atk4", "atk5", "wait", "wait" };
     //  this combo array could be replaced by an array of AttackStructs. That way we can save the dmg of the spell and if enemy can be staggered during it.
-
+    public float dmgToPlayer = 1f;
     private Animator enemyAnimator2D;
     private Animator enemyAnimator3D;
+
+    [SerializeField]
+    private float attack_range = 2.4f;
+
+    private WalkBehavior _walkBehavior;
     private void Start()
     {
         enemyAnimator2D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator2D;
         enemyAnimator3D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
+        _walkBehavior = gameObject.GetComponent<WalkBehavior>();
     }
     
     public override void PerformBehaviorOnBeat(float bps)
     {
-        if (CheckAttack())
+        WalkState s = _walkBehavior.CheckForEnemyInRange(bps, attack_range, true, true);
+        if (s == WalkState.See_And_In_Range)
         {
             Attack();
-        }
-        else
-        {
-            enemyAnimator3D.SetTrigger("Wait");
         }
     }
 
