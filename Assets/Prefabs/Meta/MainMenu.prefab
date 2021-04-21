@@ -1592,7 +1592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5895979700123561056}
   m_Layer: 0
-  m_Name: MainMenue 1
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8713,7 +8713,7 @@ MonoBehaviour:
   defaultVolume: 0.5
   defaultSen: 4
   defaultInvertY: 0
-  _newGameButtonLevel: Add Your Level Here!
+  _newGameButtonLevel: Scenes/1_Tutorial_Level
   menuDefaultCanvas: {fileID: 5896436590147242721}
   GeneralSettingsCanvas: {fileID: 5895501701262932417}
   graphicsMenu: {fileID: 5897050560643306225}
