@@ -8,6 +8,7 @@ public class SongchangeSystem : MonoBehaviour
     public AudioHelm.AudioHelmClock clock;
     public GameObject[] themes;
     public int[] bpms;
+    [Tooltip("will Initialize with this song at start")]
     [SerializeField]
     private int currentsong = 0;
     [SerializeField]
@@ -16,7 +17,7 @@ public class SongchangeSystem : MonoBehaviour
     private void Start()
     {
         instance = this;
-        Invoke("SongChange", 0.1f);
+        Invoke("SongChange", 0.2f);
     }
 
     public void SongChange(int song)//gets called when user uses Songtree ?
@@ -30,8 +31,12 @@ public class SongchangeSystem : MonoBehaviour
             themes[song].SetActive(true);
             currentsong = song;
             //todo notify Clock that it's time to change song
-            //Debug.Log("performed songchange");
         }else Debug.Log("That song hasn't been unlocked yet");
+    }
+
+    private void SongChange()
+    {
+        SongChange(currentsong);
     }
 
     //einfach nur zum testen

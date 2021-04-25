@@ -7,6 +7,7 @@ TagManager:
   - CinemachineCamera
   - changeSprite
   - Enemy
+  - Alien
   layers:
   - Default
   - TransparentFX

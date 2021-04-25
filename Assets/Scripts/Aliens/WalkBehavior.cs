@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Rendering.PostProcessing;
+using Random = UnityEngine.Random;
 
 public enum WalkState {See_And_In_Range = 2, See_Not_In_Range = 1, Dont_See = 0}
 /// <summary>
@@ -11,26 +13,23 @@ public enum WalkState {See_And_In_Range = 2, See_Not_In_Range = 1, Dont_See = 0}
 /// </summary>
 public class WalkBehavior : MonoBehaviour
 {
-    private static GameObject player;
-    public void Awake()
-    {
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
-        anim = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
-    }
     [Tooltip("for target selection")]
-    public float vision_range = 8;
-
+    [SerializeField] private float vision_range = 8;
     [SerializeField] private float walking_speed = 1f;
-    //public float attack_range = 1.4f;
+    [SerializeField] private int turn_around_randomly_probability;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private Transform groundForwardCheck;
+    [SerializeField] private LayerMask m_WhatIsGround;
 
+    [Tooltip("enable flying")]
+    [SerializeField] private bool ignoreGroundCheck;
+    
     private Animator anim;
-
+    private Rigidbody rb;
+    private static GameObject player;
     private float distancePlayer;
-    private int state = 0;
-
+    private bool move = false;
+    
     /// <summary>
     /// Alien walks around, chases player and stops when enemy is in given action_range.
     /// </summary>
@@ -47,7 +46,7 @@ public class WalkBehavior : MonoBehaviour
                 RotateToPlayer();
                 distancePlayer = Vector3.Distance(gameObject.transform.position,
                     player.transform.position);
-                Debug.Log("Distance to payer is "+distancePlayer);
+                //Debug.Log("Distance to payer is "+distancePlayer);
             }
             if (distancePlayer <= action_range) // chase playerv
             {
@@ -74,7 +73,6 @@ public class WalkBehavior : MonoBehaviour
             }
             return WalkState.Dont_See; // cannot see player
         }
-
     }
 
     public WalkState CheckForEnemyInRange(float bps, float action_range)
@@ -82,18 +80,6 @@ public class WalkBehavior : MonoBehaviour
         return CheckForEnemyInRange(bps, action_range, true, true);
     }
     
-    private void RotateToPlayer()
-    {
-        Vector3 targetPostition = new Vector3( player.transform.position.x, 
-            this.transform.position.y, 
-            player.transform.position.z ) ;
-        this.transform.LookAt( targetPostition );
-        //if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
-        //{
-        //    transform.position += transform.forward* walking_speed* Time.deltaTime;
-        //}
-    }
-
     /// <summary>
     /// uses a raycast to see check if object is visible
     /// </summary>
@@ -128,36 +114,115 @@ public class WalkBehavior : MonoBehaviour
         return false;
     }
 
-    private bool move = false;
+    private void RotateToPlayer()
+    {
+        Vector3 targetPostition = new Vector3( player.transform.position.x, 
+            this.transform.position.y, 
+            player.transform.position.z ) ;
+        this.transform.LookAt( targetPostition );
+        //if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        //{
+        //    transform.position += transform.forward* walking_speed* Time.deltaTime;
+        //}
+    }
+    
+    void Awake()
+    {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        anim = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
+    }
+    
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
         if (move)
         {
-            transform.position += transform.forward * (walking_speed * Time.deltaTime);
+            rb.MovePosition(transform.position + transform.forward * (walking_speed * Time.deltaTime));
         }
-        
     }
 
     #region Walking/Animations
     private void Chase(float bps)
     {
-        Debug.Log("Alien chasing ");
-        move = true;
-        anim.SetTrigger("Walk");
+        if (GroundInFrontIsNotSave() || WalkedIntoWall())
+        {
+            move = false;
+            anim.SetTrigger("Wait");//do idle animation
+        }
+        else
+        {
+            anim.SetTrigger("Walk");
+            move = true;
+        }
     }
 
     private void StopToPerformAction()
     {
-        Debug.Log("Alien Stoping");
         move = false;
         // dont set an Animation Trigger because the Action will do that.
     }
 
     private void WalkAround()
     {
-        Debug.Log("Alien Walk Around");
-        move = false;
+        anim.SetTrigger("Walk");
+        RandomTurn(); // turn around with a random_turn_probability
+        if (WalkedIntoWall() || GroundInFrontIsNotSave()) // check if forward movement is valid
+        {
+            TurnAround();
+        }
+        move = true;
     }
+
+    private bool WalkedIntoWall()
+    {
+        Collider[] colliders = Physics.OverlapSphere(wallCheck.position, 0.2f, m_WhatIsGround);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            //Debug.Log("overlap sphere wallcheck hit "+colliders[i].gameObject.name);
+            if (colliders[i].gameObject != gameObject)
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool GroundInFrontIsNotSave()
+    {
+        if (ignoreGroundCheck)
+        {
+            return false;
+        }
+        Collider[] colliders = Physics.OverlapSphere(groundForwardCheck.position, 0.2f, m_WhatIsGround);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            //Debug.Log("overlap sphere groundcheck hit "+colliders[i].gameObject.name);
+            if (colliders[i].gameObject != gameObject)
+                return false;// hit ground. we are save to move forward
+        }
+        return true;// didnt hit ground. we are not save
+    }
+
+    private void TurnAround()
+    {
+        transform.RotateAround(transform.transform.position, Vector3.up, 180);
+    }
+
+    private void RandomTurn()
+    {
+        if(Random.Range(0,100) < turn_around_randomly_probability)
+        {
+            TurnAround();
+        }
+    }
+    
+
     #endregion
     //https://answers.unity.com/questions/296347/move-transform-to-target-in-x-seconds.html
     public IEnumerator MyMoveForward(float seconds)//doesnt look right. Doenst walk continually
@@ -166,6 +231,7 @@ public class WalkBehavior : MonoBehaviour
         while (elapsedTime < seconds)
         {
             elapsedTime += Time.deltaTime;
+            
             transform.position += transform.forward * walking_speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }

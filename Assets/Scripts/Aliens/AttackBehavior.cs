@@ -8,29 +8,42 @@ using UnityEngine;
 public class AttackBehavior : AlienBehavior
 {
     [SerializeField]
-    private string[] combo = { "charge", "atk1", "charge", "atk2", "charge", "atk3", "atk4", "atk5", "wait", "wait" };
+    private string[] combo3D = { "Charge", "Attack", "Charge", "Attack", "Charge", "Attack", "Attack", "Attack", "Wait", "Wait" };
+
+    [SerializeField]
+    private string[] comboPerformer = { "","Attack1","","Attack2","","Attack3","Attack4" ,"Attack5", "",""};
     //  this combo array could be replaced by an array of AttackStructs. That way we can save the dmg of the spell and if enemy can be staggered during it.
     public float dmgToPlayer = 1f;
-    private Animator enemyAnimator2D;
     private Animator enemyAnimator3D;
+    [SerializeField] private bool only3D = true;
 
     [SerializeField]
     private float attack_range = 2.4f;
 
     private WalkBehavior _walkBehavior;
+    private AttackPerformer attackPerformer;
     private void Start()
     {
-        enemyAnimator2D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator2D;
         enemyAnimator3D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
         _walkBehavior = gameObject.GetComponent<WalkBehavior>();
+        attackPerformer = gameObject.GetComponentInChildren<AttackPerformer>();
     }
-    
+    public bool suppress = false;
     public override void PerformBehaviorOnBeat(float bps)
     {
+        if (suppress)
+        {
+            return;
+        }
         WalkState s = _walkBehavior.CheckForEnemyInRange(bps, attack_range, true, true);
-        if (s == WalkState.See_And_In_Range)
+        if (s == WalkState.See_And_In_Range && !skip)
         {
             Attack();
+        }
+
+        if (skip)
+        {
+            skip = false;
         }
     }
 
@@ -42,41 +55,40 @@ public class AttackBehavior : AlienBehavior
 
     private void Awake()
     {
-        maxCombo = combo.Length;
+        maxCombo = combo3D.Length;
     }
 
     //perform attack/animation
     private int combocounter = 0;
     private int maxCombo = 5;
+    private bool skip;
     private void Attack()//set up with simple combo same as player but without being able to miss beats
     {
-        string move = combo[combocounter];
-        if (move.Contains("atk"))
-        {//perform an attack. animation is dictated by integer number
-            enemyAnimator2D.SetTrigger("Attack");
-            enemyAnimator2D.SetInteger("AttackNum", int.Parse(move.Substring(3)));
-
-            enemyAnimator3D.SetTrigger("Attack");
+        string move3D = combo3D[combocounter];
+        if (!only3D)
+        {
+            enemyAnimator3D.SetTrigger(move3D);
+            attackPerformer.Perform(comboPerformer[combocounter], 1, false);
         }
         else
-        {//either charge or wait
-
-            //enemyAnimator2D.SetTrigger(move);
-            if (move == "charge")
-            {
-                enemyAnimator3D.SetTrigger("Charge");
-            }
-            if (move == "wait")
-            {
-                enemyAnimator3D.SetTrigger("Wait");
-            }
+        {
+            attackPerformer.Perform(move3D, 1, false);
         }
+        
+        
         combocounter = (combocounter + 1) % maxCombo;//cycle though combo array
     }
 
     public void Stagger()//get staggered by getting hit. 
     {
+        skip = true;
         combocounter = 0;//rest combo
         enemyAnimator3D.SetTrigger("Dizzy");//play stagger animation as feedback
+    }
+
+    public void GetHit()
+    {
+        skip = true;
+        enemyAnimator3D.SetTrigger("GetHit");
     }
 }

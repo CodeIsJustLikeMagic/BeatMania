@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 43422572401336986}
-  - component: {fileID: 43422572401336991}
+  - component: {fileID: 4430089283309518203}
   - component: {fileID: 43422572401336988}
   - component: {fileID: 43422572401336989}
   - component: {fileID: 43422572401336983}
@@ -43,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &43422572401336991
+--- !u!136 &4430089283309518203
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,6 +79,8 @@ MonoBehaviour:
   m_WallCheck: {fileID: 2249016678792462813}
   canDoubleJump: 1
   m_DashForce: 25
+  life: 10
+  invincible: 0
   OnFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -150,8 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ccf778526e97064aa3c898a22f816db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 3364873373681689921}
   canAttack: 1
+  attackCheck: {fileID: 0}
+  attackPerformer2D: {fileID: 0}
 --- !u!95 &43422572401336984
 Animator:
   serializedVersion: 3
@@ -494,12 +497,6 @@ PrefabInstance:
 --- !u!4 &3364873373681689951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1773534108576165152, guid: e7a4d55e209f658478452e8877a06eb1,
-    type: 3}
-  m_PrefabInstance: {fileID: 3904257356850989183}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &3364873373681689921 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1773534108576165182, guid: e7a4d55e209f658478452e8877a06eb1,
     type: 3}
   m_PrefabInstance: {fileID: 3904257356850989183}
   m_PrefabAsset: {fileID: 0}

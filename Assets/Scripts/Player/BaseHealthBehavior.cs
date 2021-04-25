@@ -4,13 +4,6 @@ using UnityEngine;
 
 public abstract class BaseHealthBehavior : MonoBehaviour
 {
-    public float Health = 10f;
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        HandleCollision(collider);
-    }
-
-    abstract protected void HandleCollision(Collider hit);
+    abstract public void ApplyDamage(float dmg, bool stagger, Vector3 attack_pos);
     
 }

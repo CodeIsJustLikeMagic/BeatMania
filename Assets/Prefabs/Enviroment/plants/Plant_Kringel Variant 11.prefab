@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7666796419046883066
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3680576457107741561, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: colors.Array.data[2].r
+      value: 0.9811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680576457107741561, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: colors.Array.data[2].g
+      value: 0.6906823
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680576457107741561, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: colors.Array.data[2].b
+      value: 0.67105734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 129.51723
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1293442
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.904248
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477835, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645932974477844, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_Name
+      value: Plant_Kringel Variant 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640645934160024939, guid: fb20fd3e6e9650d4e88414c7e3366549,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57922389653b9284eaa7796eb4c4c0be,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb20fd3e6e9650d4e88414c7e3366549, type: 3}

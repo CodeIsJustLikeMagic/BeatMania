@@ -29,6 +29,7 @@ public class AlienHandleSongChange : VibingEntity
     public override void OnSongChange(int song)
     {
         actionMethod = behaviors[song % behaviors.Length].PerformBehaviorOnBeat;
+        GetComponent<AlienHealthBehavior>().OnSongChange(song);
     }
 
 

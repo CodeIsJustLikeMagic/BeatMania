@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6245886508109569344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9035068704823870055, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0db3a1183c95a2843948acddfb11b441,
+        type: 3}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 130.48938
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1633072
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.904248
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961287, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035068706344961304, guid: aa95a287f885bce4d9e6587ccea0dd10,
+        type: 3}
+      propertyPath: m_Name
+      value: Plant_Kringel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa95a287f885bce4d9e6587ccea0dd10, type: 3}

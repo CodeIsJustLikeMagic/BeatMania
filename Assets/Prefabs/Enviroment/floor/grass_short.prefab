@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6596570910560797413}
   - component: {fileID: 6596570910560797211}
   m_Layer: 0
-  m_Name: enviromentplatform_grass_short
+  m_Name: grass_short
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,9 +68,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -752560011
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 995693024edc2cc4d8bb0885648e8899, type: 3}
   m_Color: {r: 0.29411766, g: 0.5764706, b: 0.7176471, a: 1}
   m_FlipX: 0

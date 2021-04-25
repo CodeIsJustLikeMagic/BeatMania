@@ -9,7 +9,7 @@ AnimatorController:
   m_Name: yellowtree1_1
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: animSpeed
+  - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -104,7 +104,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 775595812331d644484e4850e8e42002, type: 2}
   m_Tag: 
-  m_SpeedParameter: animSpeed
+  m_SpeedParameter: Speed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 

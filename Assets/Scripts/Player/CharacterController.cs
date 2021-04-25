@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : BaseHealthBehavior
 {
         [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
         [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
@@ -313,8 +313,9 @@ public class CharacterController : MonoBehaviour
         m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
     }
 
-    public void ApplyDamage(float damage, Vector3 position)
-    {
+    public override void ApplyDamage(float damage, bool stagger, Vector3 position)
+    {// implements Base Health Behavior. gets called when AttackPerformer hits something
+        //Debug.Log("Player apply damage");
         if (!invincible)
         {
             animator.SetBool("Hit", true);
@@ -324,12 +325,12 @@ public class CharacterController : MonoBehaviour
             m_Rigidbody.AddForce(damageDir * 4);
             if (life <= 0)
             {
-                //StartCoroutine(WaitToDead());
+                StartCoroutine(WaitToDead());
             }
             else
             {
                 //StartCoroutine(Stun(0.25f));
-                StartCoroutine(MakeInvincible(1f));
+                //StartCoroutine(MakeInvincible(1f)); // invincible is not really nessesary
             }
         }
     }
