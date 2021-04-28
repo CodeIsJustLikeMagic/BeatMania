@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class proximityText : MonoBehaviour
+public class ProximityText : MonoBehaviour
 {
     private GameObject player;
     [SerializeField]
@@ -10,6 +10,11 @@ public class proximityText : MonoBehaviour
     [SerializeField]
     private GameObject textObject;
     // Start is called before the first frame update
+
+    public void SetText(string n_text)
+    {
+        GetComponentInChildren<TextMesh>().text = n_text;
+    }
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

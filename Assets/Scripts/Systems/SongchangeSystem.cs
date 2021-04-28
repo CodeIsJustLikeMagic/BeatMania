@@ -20,6 +20,11 @@ public class SongchangeSystem : MonoBehaviour
         Invoke("SongChange", 0.2f);
     }
 
+    public int GetCurrentSong()
+    {
+        return currentsong;
+    }
+
     public void SongChange(int song)//gets called when user uses Songtree ?
     {
         if (UnlockedSongs.instance.SongIsUnlocked(song) || enableAllSongs)

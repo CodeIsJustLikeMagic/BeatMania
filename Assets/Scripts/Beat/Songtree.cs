@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,13 @@ public class Songtree : MonoBehaviour
     [SerializeField]
     private int unlocksSong = -1;
     bool playerinside = false;
+    [SerializeField] private ProximityText proximityText;
+    
+
+    private void Start()
+    {
+        proximityText = GetComponentInChildren<ProximityText>();
+    }
 
     private void Update()
     {
@@ -23,6 +31,7 @@ public class Songtree : MonoBehaviour
                 { // first songtree Interaction. Unlock song and change to it.
                     UnlockedSongs.instance.UnlockSong(unlocksSong);
                     SongchangeSystem.instance.SongChange(unlocksSong);
+                    proximityText.SetText("Press f to change current Song");
                 }
             }
         }

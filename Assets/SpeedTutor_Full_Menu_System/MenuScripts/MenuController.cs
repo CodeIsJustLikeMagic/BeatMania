@@ -9,6 +9,7 @@ namespace SpeedTutorMainMenuSystem
 {
     public class MenuController : MonoBehaviour
     {
+        [SerializeField] private bool isMainMenu = false;
         #region Default Values
         [Header("Default Menu Values")]
         [SerializeField] private float defaultBrightness;
@@ -72,26 +73,30 @@ namespace SpeedTutorMainMenuSystem
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (isMainMenu)
             {
-                if (menuNumber == 2 || menuNumber == 7 || menuNumber == 8)
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    GoBackToMainMenu();
-                    ClickSound();
-                }
+                    if (menuNumber == 2 || menuNumber == 7 || menuNumber == 8)
+                    {
+                        GoBackToMainMenu();
+                        ClickSound();
+                    }
 
-                else if (menuNumber == 3 || menuNumber == 4 || menuNumber == 5)
-                {
-                    GoBackToOptionsMenu();
-                    ClickSound();
-                }
+                    else if (menuNumber == 3 || menuNumber == 4 || menuNumber == 5)
+                    {
+                        GoBackToOptionsMenu();
+                        ClickSound();
+                    }
 
-                else if (menuNumber == 6) //CONTROLS MENU
-                {
-                    GoBackToGameplayMenu();
-                    ClickSound();
+                    else if (menuNumber == 6) //CONTROLS MENU
+                    {
+                        GoBackToGameplayMenu();
+                        ClickSound();
+                    }
                 }
             }
+            
         }
 
         private void ClickSound()
