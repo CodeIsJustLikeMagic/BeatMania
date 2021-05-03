@@ -32,6 +32,7 @@ public class CharacterController : BaseHealthBehavior
         private bool canCheck = false; //For check if player is wallsliding
 
         public float life = 10f; //Life of the player
+        private float maxlife;
         public bool invincible = false; //If player can die
         private bool canMove = true; //If player can move
 
@@ -62,6 +63,8 @@ public class CharacterController : BaseHealthBehavior
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+        Checkpoint.setFirstSpawnPosition(transform.position); // when the player dies before finding the first checkpoint they respawn where they started the level
+        maxlife = life;
     }
 
     private void FixedUpdate()
@@ -351,7 +354,13 @@ public class CharacterController : BaseHealthBehavior
         yield return new WaitForSeconds(0.4f);
         m_Rigidbody.velocity = new Vector2(0, m_Rigidbody.velocity.y);
         yield return new WaitForSeconds(1.1f);
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        
+        //Behavior for when player dies
+        transform.position = Checkpoint.getSpwanPosition();
+        animator.SetBool("IsDead", false);
+        life = maxlife;
+        canMove = true;
+        invincible = false;
     }
 
     //    public void Move(float move, bool jump, bool dashLEFT, bool dashRIGHT)
