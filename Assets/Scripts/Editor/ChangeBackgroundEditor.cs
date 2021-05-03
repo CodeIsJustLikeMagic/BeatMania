@@ -19,4 +19,11 @@ public class ChangeBackgroundEditor : Editor
             background.UpdateColors();
         }
     }
+
+
+    [MenuItem("Tools/Swap to next background color")]
+    private static void swapToNextBackgroundColor()
+    {
+        FindObjectOfType<Background>().SetNextSprites();
+    }
 }
