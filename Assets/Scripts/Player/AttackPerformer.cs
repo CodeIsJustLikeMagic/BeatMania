@@ -13,7 +13,7 @@ public class AttackPerformer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     //remember stats of the last perform call
