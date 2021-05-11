@@ -10,13 +10,68 @@ PrefabInstance:
     - target: {fileID: 7571385396255574978, guid: 87efbb0593d90e94ab5665e97b8ae84f,
         type: 3}
       propertyPath: m_Name
-      value: underground3_spike1 (2)
+      value: underground3_spike1 (2) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: colors.Array.data[2].r
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: colors.Array.data[2].g
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: colors.Array.data[2].b
+      value: 0.20392159
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: colors.Array.data[0].g
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: colors.Array.data[0].b
+      value: 0.27450982
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: colors.Array.data[1].r
+      value: 0.13608047
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.20754719
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: colors.Array.data[1].b
+      value: 0.16698499
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571385396255574979, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7712202338799312282, guid: 87efbb0593d90e94ab5665e97b8ae84f,
         type: 3}
       propertyPath: m_FlipY
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7712202338799312282, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712202338799312282, guid: 87efbb0593d90e94ab5665e97b8ae84f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42b1015632a08cf4d97a259532519aa4, type: 2}
     - target: {fileID: 7923241910006979973, guid: 87efbb0593d90e94ab5665e97b8ae84f,
         type: 3}
       propertyPath: m_LocalPosition.x

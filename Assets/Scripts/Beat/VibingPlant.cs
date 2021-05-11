@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using UnityEngine;
 
 public class VibingPlant : VibingEntity
@@ -14,13 +15,14 @@ public class VibingPlant : VibingEntity
             anim = gameObject.GetComponentInChildren<Animator>();
         }
     }
+
+    private int stateName;
     public override void OnBeat(float bps)
     {
-        //Debug.Log("beat");
-        //anim.SetTrigger("beat");
-        //Debug.Log(gameObject.name + " setAnimLength ");
-        anim.SetFloat("Speed", bps);
-        //Debug.Log("anim speed is " + anim.speed);
+        stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
+        anim.Play(stateName, 0, 0.0f);
         //restart animationNow
+        
+        anim.SetFloat("Speed", bps);
     }
 }

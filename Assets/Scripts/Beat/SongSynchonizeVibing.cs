@@ -28,19 +28,25 @@ public class SongSynchonizeVibing : MonoBehaviour
         vibingEntities.Remove(vibe);
     }
 
-    public int count = 0;
+    private int count = 0;
     public int everyXbeats = 4;
-    public void RecieveBeatEvent()//an den sequencer drangehängt
+    public void RecieveBeatEvent(int division)//an den sequencer drangehängt
     {
-        //Debug.Log("recieve beat");
-        if (count % everyXbeats == 0 && count > 0)
-        {
-            //Debug.Log("accept beat" + count);
-            //actual beat
-            NotifyVibingEntities();
-        }
         count++;
-        //den ersten beat nicht und dann jeden 2.
+        //Debug.Log("count "+count +" time "+Time.time +" is division "+ division);
+        if (true)//songHasBeenChanged)
+        {
+            if (division % everyXbeats == 0) // very 4th division
+            {
+                if (songHasBeenChanged)
+                {
+                    songHasBeenChanged = false;
+                    Invoke("NotifyVibingEntities", (1/(60/clock.bpm))/16f);// beat event is at audio helm synthesizer division
+                    //division is before the actual sound. add a small delay here so the beat counts as the middle of the actual beat sound
+                    //NotifyVibingEntities();
+                }
+            }
+        }
     }
 
     public void NotifyVibingEntities()
@@ -55,9 +61,11 @@ public class SongSynchonizeVibing : MonoBehaviour
             }
         }
     }
-    
+
+    private bool songHasBeenChanged = false;
     public void RecieveSongChange(int song)
     {
+        songHasBeenChanged = true;
         foreach (VibingEntity e in vibingEntities)
         {
             if(e != null)
