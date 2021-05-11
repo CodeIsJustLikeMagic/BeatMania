@@ -14,10 +14,15 @@ public class Background : MonoBehaviour
     [SerializeField]
     private int cnt = 1;
 
+    public int getSong()
+    {
+        return cnt;
+    }
     public void SetNextSprites()
     {
         //Debug.Log("songchange called");
         cnt += 1;
+        
         SetSprites(cnt);
     }
 

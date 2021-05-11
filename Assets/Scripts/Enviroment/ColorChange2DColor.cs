@@ -26,4 +26,10 @@ public class ColorChange2DColor : ColorChange
         }
         sprite.color = colors[song % colors.Length];
     }
+
+    public void setColor(Color color, int songNum = 0)
+    {
+        Debug.Log("setColor "+ color + " song "+ songNum, this);
+        colors[songNum % colors.Length] = color;
+    }
 }

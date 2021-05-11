@@ -16,15 +16,20 @@ public class MyParallax : MonoBehaviour
     [SerializeField]
     private bool dont_teleport;
 
-    public float flipProb = 0.5f ;
+    [SerializeField]
+    private float flipProb = 0.5f ;
 
-    public int posMulti = 2;
+    [SerializeField]
+    private int posMulti = 2;
+
+    [SerializeField]
+    private int width = 15;
     
     // Start is called before the first frame update
     void Start()
     {
         startpos = transform.position.x;
-        length = 15 * posMulti;
+        length = width * posMulti;
         
         cam = GameObject.FindGameObjectWithTag("CinemachineCamera");
     }

@@ -40,7 +40,10 @@ public class ActiveBehavior : AlienBehavior
 
     private void Heal()
     {
-        enemyAnimator2D.SetTrigger("Heal");
+        if (enemyAnimator2D != null)
+        {
+            enemyAnimator2D.SetTrigger("Heal");
+        }
         enemyAnimator3D.SetTrigger("Heal");
         //heal the player
     }
