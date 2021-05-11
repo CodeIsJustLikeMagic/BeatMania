@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  dmg_entities_with_tag: Player
+  dmg_tag: Player
 --- !u!65 &4794957775280970042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -139,7 +139,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1773534108576165152}
-  - component: {fileID: 6262817827450862599}
   m_Layer: 0
   m_Name: AttackSpriteAnimation
   m_TagString: Untagged
@@ -162,17 +161,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6262817827450862599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773534108576165181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c9d897bab8b2404caa5de5cc580cc3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  dmg_entities_with_tag: Player

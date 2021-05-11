@@ -28,7 +28,10 @@ public class AttackBehavior : AlienBehavior
         _walkBehavior = gameObject.GetComponent<WalkBehavior>();
         attackPerformer = gameObject.GetComponentInChildren<AttackPerformer>();
     }
-    public bool suppress = false;
+    
+    [Tooltip("stops this Behavior from being performed. ")]
+    public bool suppress = false; // Alien gets supressed before it dies So it doesnt interrupt its attack animation.
+    //essentally used when skip isnt enough.
     public override void PerformBehaviorOnBeat(float bps)
     {
         if (suppress)
@@ -61,7 +64,10 @@ public class AttackBehavior : AlienBehavior
     //perform attack/animation
     private int combocounter = 0;
     private int maxCombo = 5;
-    private bool skip;
+    private bool skip; // when you want to stop alien from performing behavior for one beat.
+    //used when getting hit or dizzy to stop alien from interrupting its "gethit" animation.
+    //skip could be changed to an int so you can make alien skip the next X beats.
+    //when you want it to get staggered from mutliple beats or something.
     private void Attack()//set up with simple combo same as player but without being able to miss beats
     {
         string move3D = combo3D[combocounter];

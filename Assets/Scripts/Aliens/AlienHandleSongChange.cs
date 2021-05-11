@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class AlienHandleSongChange : VibingEntity
@@ -21,10 +22,23 @@ public class AlienHandleSongChange : VibingEntity
 
     public override void OnBeat(float bps)
     {
+        this.bps = bps;
         enemyAnimator3D.SetFloat("Speed", bps);
         //dictate which Behavior to Perform, based on musik (passive, attack, active)
-        actionMethod(bps);
+        StopCoroutine("ActionOnBeat");
+        StartCoroutine("ActionOnBeat");
     }
+
+    private float bps;
+    private IEnumerator ActionOnBeat()
+    {
+        while (true)
+        {
+            actionMethod(bps);
+            yield return new WaitForSeconds(1 / bps);
+        }
+    }
+    
 
     public override void OnSongChange(int song)
     {

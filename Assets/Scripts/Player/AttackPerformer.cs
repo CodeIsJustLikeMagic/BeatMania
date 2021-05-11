@@ -6,14 +6,19 @@ using UnityEngine;
 
 public class AttackPerformer : MonoBehaviour
 {
+    
+    // !!! make sure this script is on the same gameObject as your trigger collider. Only then will OnTriggerEnter be called. 
     [SerializeField]
-    public Animator anim;
+    private Animator anim = null;
 
-    [SerializeField] private string dmg_entities_with_tag = "Player";
+    public string dmg_tag = "Player";
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        if (anim == null)
+        {
+            anim = GetComponentInChildren<Animator>();
+        }
     }
 
     //remember stats of the last perform call
@@ -36,9 +41,8 @@ public class AttackPerformer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == dmg_entities_with_tag)
+        if (other.CompareTag(dmg_tag))
         {
-            //Debug.Log("hit enitity with tag "+ dmg_entities_with_tag, this);
             BaseHealthBehavior hp = other.gameObject.GetComponent<BaseHealthBehavior>();
             hp.ApplyDamage(dmg, stagger, transform.position);
         }
