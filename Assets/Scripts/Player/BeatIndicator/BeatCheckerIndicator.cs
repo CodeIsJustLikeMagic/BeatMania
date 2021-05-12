@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //directly show if Beatchecker gives true of false at any time.
-public class LightIndicator : MonoBehaviour
+public class BeatCheckerIndicator : MonoBehaviour
 {
     private Light light;
-    // Start is called before the first frame update
-    void Start()
-    {
-        light = GetComponent<Light>();
-    }
+
+    [SerializeField] private SpriteRenderer fakeLight;
+
+    [SerializeField] private SpriteRenderer middle;
+
 
     // Update is called once per frame
     void Update()
     {
         if (BeatChecker.instance.IsInBeat())
         {
-            light.enabled = true;
+            fakeLight.enabled = true;
+            middle.enabled = true;
         }
         else
         {
-            light.enabled = false;
+            fakeLight.enabled = false;
+            middle.enabled = false;
         }
     }
 }

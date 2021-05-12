@@ -46,12 +46,14 @@ public class PlayerAttack : MonoBehaviour
             combocounter = (combocounter + 1) % maxCombo;
             attackPerformer2D.Perform("Attack" + (combocounter + 1), combocounter, false);
             //DoDamage(combocounter);
+            BeatIndicatorFeedback.instance.Success();
         }
         else
         {
             combocounter = 1; //reset combo
             attackPerformer2D.Perform("whiteN1", combocounter, false); // do weak attack
             //DoDamage(combocounter);
+            BeatIndicatorFeedback.instance.Failed();
         }
         StartCoroutine(AttackCooldown());
     }

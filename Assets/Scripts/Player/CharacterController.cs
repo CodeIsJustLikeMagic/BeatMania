@@ -207,12 +207,20 @@ public class CharacterController : BaseHealthBehavior
                 //particleJumpUp.Play();
             }
             //Doublejump
-            else if (!m_Grounded && jump && canDoubleJump && !isWallSliding && BeatChecker.instance.IsInBeat())
+            else if (!m_Grounded && jump && canDoubleJump && !isWallSliding)
             {
-                canDoubleJump = false;
-                m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, 0);
-                m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
-                animator.SetBool("IsDoubleJumping", true);
+                if (BeatChecker.instance.IsInBeat())
+                {
+                    canDoubleJump = false;
+                    m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, 0);
+                    m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
+                    animator.SetBool("IsDoubleJumping", true);
+                    BeatIndicatorFeedback.instance.Success();
+                }
+                else
+                {
+                    BeatIndicatorFeedback.instance.Failed();
+                }
             }
             else if (m_IsWall && !m_Grounded)
             {
