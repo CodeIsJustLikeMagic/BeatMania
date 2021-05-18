@@ -10,6 +10,7 @@ public class SongSynchonizeVibing : MonoBehaviour
 {
     public static SongSynchonizeVibing instance;
     public AudioHelmClock clock;
+    private int currentsong = 0;
 
     // Start is called before the first frame update
     public List<VibingEntity> vibingEntities = new List<VibingEntity>();
@@ -30,6 +31,8 @@ public class SongSynchonizeVibing : MonoBehaviour
 
     private int count = 0;
     public int everyXbeats = 4;
+
+    public bool[] delay_beat_timing;
     public void RecieveBeatEvent(int division)//an den sequencer drangehängt
     {
         count++;
@@ -41,9 +44,15 @@ public class SongSynchonizeVibing : MonoBehaviour
                 if (songHasBeenChanged)
                 {
                     songHasBeenChanged = false;
-                    Invoke("NotifyVibingEntities", (1/(60/clock.bpm))/16f);// beat event is at audio helm synthesizer division
-                    //division is before the actual sound. add a small delay here so the beat counts as the middle of the actual beat sound
-                    //NotifyVibingEntities();
+                    if (delay_beat_timing[currentsong])
+                    {
+                        Invoke("NotifyVibingEntities", (1/(60/clock.bpm))/16f);// beat event is at audio helm synthesizer division
+                        Debug.Log("with delay"); //division is before the actual sound. add a small delay here so the beat counts as the middle of the actual beat sound
+                    }
+                    else
+                    {
+                        NotifyVibingEntities();
+                    }
                 }
             }
         }
@@ -65,6 +74,7 @@ public class SongSynchonizeVibing : MonoBehaviour
     private bool songHasBeenChanged = false;
     public void RecieveSongChange(int song)
     {
+        currentsong = song;
         songHasBeenChanged = true;
         foreach (VibingEntity e in vibingEntities)
         {

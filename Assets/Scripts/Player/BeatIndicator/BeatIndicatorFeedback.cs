@@ -21,6 +21,11 @@ public class BeatIndicatorFeedback : MonoBehaviour
         renderer.enabled = true;
         lastFeedback = Time.time;
 
+        try
+        {
+            //Playtest
+            PlaytestInstructions.instance.Failed();
+        }catch{}
     }
 
     private int failed = 0;
@@ -31,6 +36,12 @@ public class BeatIndicatorFeedback : MonoBehaviour
         renderer.color = successColor;
         renderer.enabled = true;
         lastFeedback = Time.time;
+
+        try
+        {
+            PlaytestInstructions.instance.Success();
+        }catch{}
+
     }
     
     private void Awake()
