@@ -30,6 +30,11 @@ public class WalkBehavior : MonoBehaviour
     private float distancePlayer;
     private bool move = false;
     
+    public void Stop()
+    {
+        StopToPerformAction();
+    }
+    
     /// <summary>
     /// Alien walks around, chases player and stops when enemy is in given action_range.
     /// </summary>

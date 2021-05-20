@@ -22,21 +22,21 @@ public class AlienHandleSongChange : VibingEntity
 
     public override void OnBeat(float jitter_delay, float bps)
     {
-        this.bps = bps;
+        AlienHandleSongChange.bps = bps;
         enemyAnimator3D.SetFloat("Speed", bps);
         //dictate which Behavior to Perform, based on musik (passive, attack, active)
-        StopCoroutine("ActionOnBeat");
-        StartCoroutine("ActionOnBeat");
+        CancelInvoke();
+        InvokeRepeating("ActionOnBeat",  SongSynchonizeVibing.instance.BeatStart + SongSynchonizeVibing.instance.BeatLength - Time.time, 1 / bps);
+        if (SongSynchonizeVibing.instance.BeatStart - Time.time + SongSynchonizeVibing.instance.BeatLength < 0)
+        {
+            Debug.LogError("AlienHandleSongChange failed to Start Action Invoke beacause Time-BeatStart is negative", this);
+        }
     }
 
-    private float bps;
-    private IEnumerator ActionOnBeat()
+    private static float bps;
+    private void ActionOnBeat()
     {
-        while (true)
-        {
-            actionMethod(bps);
-            yield return new WaitForSeconds(1 / bps);
-        }
+        actionMethod(bps);
     }
     
 
@@ -44,6 +44,7 @@ public class AlienHandleSongChange : VibingEntity
     {
         actionMethod = behaviors[song % behaviors.Length].PerformBehaviorOnBeat;
         GetComponent<AlienHealthBehavior>().OnSongChange(song);
+        GetComponent<WalkBehavior>().Stop(); // dont keep walking when song is changed.
     }
 
 

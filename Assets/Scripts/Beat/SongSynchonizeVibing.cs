@@ -46,12 +46,22 @@ public class SongSynchonizeVibing : MonoBehaviour
     }
 
     private float delay;
-    private int count = 0;
     public int everyXbeats = 4;
-    private float beat_length_seconds;
+
     public bool[] delay_beat_timing;
 
-    public float beatStart = 0;
+    private float beatStart = 0;
+    public float BeatStart
+    {
+        get => beatStart;
+    }
+
+    private float beat_length_seconds;
+    public float BeatLength
+    {
+        get => beat_length_seconds;
+    }
+    
     public void RecieveBeatEvent(int division)//an den sequencer drangehängt
     {
         if (division % everyXbeats == 0) // very 4th division
@@ -62,29 +72,27 @@ public class SongSynchonizeVibing : MonoBehaviour
             //Debug.Log("sixteenth time "+ BeatGiver.GetSixteenthTime()+" Sequencer Position "+ BeatGiver.GetSequencerPosition()); 
             if (songHasBeenChanged)
             {
-
+                
                 delay = BeatGiver.GetSixteenthTime() / 2; // half a division
-                Debug.Log("Song "+currentsong+" delay modifier "+delay_modifier_per_song[currentsong]);
                 delay = delay * delay_modifier_per_song[currentsong]; // * 1.7f // make beat timing at a little more than half a note 
                 
                 var sixteenth_time = BeatGiver.GetSixteenthTime();
                 beat_length_seconds = 60 / clock.bpm;
                 
                 float sequencer_position_jitter = (float)BeatGiver.GetSequencerPosition()%1;
-                Debug.Log(Time.time+" Sequencer Position Jitter "+ sequencer_position_jitter);
                 
                 var time_that_event_is_late = sequencer_position_jitter * sixteenth_time; // jitter * beatlength_time
                 // actual division is at Time.time - time_that_event_is_late
                 //division is before the actual sound. add a small delay here so the beat counts as a little after middle of the actual beat sound
                 beatStart = Time.time - time_that_event_is_late + delay;
 
-                var wait_time = (1 - sequencer_position_jitter) * BeatGiver.GetSixteenthTime();
+                //var wait_time = (1 - sequencer_position_jitter) * BeatGiver.GetSixteenthTime();
                 BeatChecker.instance.SetBeatStart(beatStart);
                 NotifyVibingEntities( -(0.125f* delay_modifier_per_song[currentsong]) + (sequencer_position_jitter / 4)); 
                 // jitter_offset is the position_jitter in relation to the entire beat (4 divisions)
                 // and adding a delay so the start of the vibing plants animations is at the beat_sound
                 songHasBeenChanged = false;
-                Debug.Log(Time.time+" corrected beattiming " + beatStart +" next beat should start at "+ (beatStart + beat_length_seconds));
+                //Debug.Log(Time.time+" corrected beattiming " + beatStart +" next beat should start at "+ (beatStart + beat_length_seconds));
             }
             else
             {
@@ -95,7 +103,7 @@ public class SongSynchonizeVibing : MonoBehaviour
                 //Debug.Log("missed Beat by "+ BeatChecker.instance.IsInBeatMissedBy(beattiming));
                 if (!BeatChecker.instance.IsInBeat(beattiming, 0.07f, 0.0f))
                 {
-                    Debug.LogError("Fixing sync");
+                    Debug.Log("Fixing sync");
                     songHasBeenChanged = true;
                 }
             }

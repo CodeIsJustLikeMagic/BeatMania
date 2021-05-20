@@ -12,6 +12,11 @@ public class SongchangeSystem : MonoBehaviour
     [Tooltip("will Initialize with this song at start")]
     [SerializeField]
     private int currentsong = 0;
+
+    public int Currentsong
+    {
+        get => currentsong;
+    }
     [SerializeField]
     private bool enableAllSongs = false;
 

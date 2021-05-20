@@ -10,10 +10,6 @@ public class BeatChecker : VibingEntity
     //Hold Beat
     float beatStart = 0;
     private float beatLength = 0;
-    public float BeatLength
-    {
-        get => beatLength;
-    }
 
     //Callibration + UI
     private bool toggle = false;
@@ -131,12 +127,10 @@ public class BeatChecker : VibingEntity
     public override void OnBeat(float jitter_delay, float bps)
     {
         beatLength = 1 / bps;
-        Debug.Log("Jitter_delay is " +jitter_delay+" beatlength is "+ beatLength, this);
     }
 
     public void SetBeatStart(float beatStart)
     {
-        Debug.Log("beatStart is "+beatStart);
         this.beatStart = beatStart;
     }
 

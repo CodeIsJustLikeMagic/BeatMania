@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using Sanford.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 
@@ -29,14 +30,16 @@ public class PlaytestInstructions : MonoBehaviour
     public void Success()
     {
         sucess_count++;
-        missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+BeatChecker.instance.BeatLength+")";
+        missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+SongSynchonizeVibing.instance.BeatLength+")";
+        data += "\nS" + (SongchangeSystem.instance.Currentsong + 1) + " missed by !" +
+                BeatChecker.instance.IsInBeatMissedBy(Time.time)+"! beat length "+SongSynchonizeVibing.instance.BeatLength;
         UpdateCounters();
     }
 
     public void Failed()
     {
         failed_count++;
-        missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+BeatChecker.instance.BeatLength+")";
+        missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+SongSynchonizeVibing.instance.BeatLength+")";
         UpdateCounters();
     }
 
@@ -70,7 +73,7 @@ public class PlaytestInstructions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             HideAll();
-            stuff.SetActive(true);
+            //stuff.SetActive(true);
         }
     }
 
@@ -79,7 +82,7 @@ public class PlaytestInstructions : MonoBehaviour
     {
         if (context == "") return;
         data = data + "\n" + context + " h: " + sucess_count + " m: " + failed_count;
-        result_text.text = data;
+        //result_text.text = data;
         var fileName = Path.GetTempPath() + "BeatMania_Playtest_1_Result.txt";
         saved_to.text = fileName;
         var sr = File.CreateText(fileName);
@@ -89,7 +92,7 @@ public class PlaytestInstructions : MonoBehaviour
 
     void AdvanceWithKHits(int k, string save_message)
     {
-        if (sucess_count == 5)
+        if (sucess_count == 2 || failed_count == 20)
         {
             Save(save_message);
             currentInstruction++;
@@ -97,7 +100,11 @@ public class PlaytestInstructions : MonoBehaviour
             ResetCounters();
             AcknowledgeSound();
         }
-        ShowOnlyHUD();
+
+        if (sucess_count == 1 || failed_count == 1)
+        {
+            ShowOnlyHUD();
+        }
     }
     
 
@@ -115,6 +122,7 @@ public class PlaytestInstructions : MonoBehaviour
                 AdvanceWithEnter(0);
                 break;
             case 1: // s1 Eyes open
+                stuff.SetActive(true);
                 AdvanceWithKHits(20, "S1 eyes open");
                 break;
             case 2: 
@@ -125,11 +133,9 @@ public class PlaytestInstructions : MonoBehaviour
                 break;
             case 4:
                 AdvanceWithKHits(20,"S2 eyes open");
-                ShowOnlyHUD();
                 break;
             case 5:
                 AdvanceWithKHits(20,"S2 eyes closed");
-                ShowOnlyHUD();
                 break;
             case 6:
                 AdvanceWithEnter(2);
@@ -157,6 +163,7 @@ public class PlaytestInstructions : MonoBehaviour
                 {
                     // let the player explore what we have.
                     HideAll();
+                    stuff.SetActive(false);
                 }
                 break;
         }
@@ -196,13 +203,5 @@ public class PlaytestInstructions : MonoBehaviour
     {
         HideAll();
         instruction_displays[instructionIndex].SetActive(true);
-
-        switch (instructionIndex)
-        {
-            case 2:
-                ResetCounters();
-                break;
-            
-        }
     }
 }
