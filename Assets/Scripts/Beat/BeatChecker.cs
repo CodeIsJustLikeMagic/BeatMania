@@ -9,7 +9,11 @@ public class BeatChecker : VibingEntity
 
     //Hold Beat
     float beatStart = 0;
-    float beatLength = 0;
+    private float beatLength = 0;
+    public float BeatLength
+    {
+        get => beatLength;
+    }
 
     //Callibration + UI
     private bool toggle = false;
@@ -119,9 +123,9 @@ public class BeatChecker : VibingEntity
         return IsInBeat(time, toleranceRange, toleranceRange);
     }
 
-    public string IsInBeatMissedBy(float time)
+    public float IsInBeatMissedBy(float time)
     {
-        return  (time - beatStart) % beatLength+"BeatChecker: beatStart is " +beatStart+" beatlength is "+ beatLength;
+        return (time - beatStart) % beatLength;
     }
 
     public override void OnBeat(float jitter_delay, float bps)

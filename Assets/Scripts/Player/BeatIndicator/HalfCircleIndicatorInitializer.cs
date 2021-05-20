@@ -12,8 +12,8 @@ public class HalfCircleIndicatorInitializer : MonoBehaviour
         for (var index = 0; index < indicators.Length; index++)
         {
             HalfCircleIndicator i = indicators[index];
-            i.start_anim_at_normalized_Time = index* (1.0f / indicators.Length) ;
-            i.animationSpeedMultiplier = 1.0f/indicators.Length;
+            i.start_anim_at_normalized_Time = index* (1.0f / (float)indicators.Length) ;
+            i.animationSpeedMultiplier = 1.0f/ (float)indicators.Length;
         }
     }
 }

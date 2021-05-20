@@ -12,11 +12,23 @@ public class SongSynchonizeVibing : MonoBehaviour
 {
     public static SongSynchonizeVibing instance;
     public AudioHelmClock clock;
-    private int currentsong = 0;
-
     public Sequencer BeatGiver;
-
-    // Start is called before the first frame update
+    
+    private float[] delay_modifier_per_song = {1.7f, 1.2f, 1.6f, 1.3f};
+    // a higer modifier means the beat counts later in the division
+    // if you hit mostly to early the modifier needs to be lower
+    // if you hit to late the modifier needs to be higher
+    
+    // you hit early if BeatChecker missed_by gives you close to beat length
+    // you hit late if BeatChecker gives you close to 0
+    
+    // a modifier of 1.0 means that the beat counts as the middle each 4th division
+    // a modifier of 0 would be exaclty the 4th division
+    // a modifier of 2 would be 4th + 1 division.
+    
+    private int currentsong = 0;
+    
+    // lits gets filled automatically
     public List<VibingEntity> vibingEntities = new List<VibingEntity>();
     private void Awake()
     {
@@ -52,7 +64,8 @@ public class SongSynchonizeVibing : MonoBehaviour
             {
 
                 delay = BeatGiver.GetSixteenthTime() / 2; // half a division
-                delay = delay * 1.1f; // make beat timing at a little more than half a note 
+                Debug.Log("Song "+currentsong+" delay modifier "+delay_modifier_per_song[currentsong]);
+                delay = delay * delay_modifier_per_song[currentsong]; // * 1.7f // make beat timing at a little more than half a note 
                 
                 var sixteenth_time = BeatGiver.GetSixteenthTime();
                 beat_length_seconds = 60 / clock.bpm;
@@ -67,7 +80,7 @@ public class SongSynchonizeVibing : MonoBehaviour
 
                 var wait_time = (1 - sequencer_position_jitter) * BeatGiver.GetSixteenthTime();
                 BeatChecker.instance.SetBeatStart(beatStart);
-                NotifyVibingEntities((sequencer_position_jitter / 4) - (0.125f / 1)); 
+                NotifyVibingEntities( -(0.125f* delay_modifier_per_song[currentsong]) + (sequencer_position_jitter / 4)); 
                 // jitter_offset is the position_jitter in relation to the entire beat (4 divisions)
                 // and adding a delay so the start of the vibing plants animations is at the beat_sound
                 songHasBeenChanged = false;
@@ -78,8 +91,8 @@ public class SongSynchonizeVibing : MonoBehaviour
                 //check if audio helm beat timing still fits beatchecker. If not reset beat timing because it got messed up.
                 var jitter = (float) BeatGiver.GetSequencerPosition() % 1;
                 var beattiming = Time.time - (jitter * BeatGiver.GetSixteenthTime()) + delay;
-                Debug.Log(Time.time+" jitter "+ jitter+" calculated beattiming is "+ beattiming+" beat is still synched: "+ BeatChecker.instance.IsInBeat(beattiming,0.07f,0.0f));
-                Debug.Log("missed Beat by "+ BeatChecker.instance.IsInBeatMissedBy(beattiming));
+                //Debug.Log(Time.time+" jitter "+ jitter+" calculated beattiming is "+ beattiming+" beat is still synched: "+ BeatChecker.instance.IsInBeat(beattiming,0.07f,0.0f));
+                //Debug.Log("missed Beat by "+ BeatChecker.instance.IsInBeatMissedBy(beattiming));
                 if (!BeatChecker.instance.IsInBeat(beattiming, 0.07f, 0.0f))
                 {
                     Debug.LogError("Fixing sync");

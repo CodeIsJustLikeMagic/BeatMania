@@ -17,6 +17,7 @@ public class PlaytestInstructions : MonoBehaviour
 
     public Text hit_text;
     public Text missed_text;
+    public Text missed_by;
 
     public Text result_text;
     public Text saved_to;
@@ -28,12 +29,14 @@ public class PlaytestInstructions : MonoBehaviour
     public void Success()
     {
         sucess_count++;
+        missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+BeatChecker.instance.BeatLength+")";
         UpdateCounters();
     }
 
     public void Failed()
     {
         failed_count++;
+        missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+BeatChecker.instance.BeatLength+")";
         UpdateCounters();
     }
 

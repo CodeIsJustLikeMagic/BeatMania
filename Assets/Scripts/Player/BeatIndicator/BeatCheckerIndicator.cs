@@ -19,11 +19,15 @@ public class BeatCheckerIndicator : MonoBehaviour
         {
             fakeLight.enabled = true;
             middle.enabled = true;
+            //Debug.Log("accepted "+ BeatChecker.instance.IsInBeatMissedBy(Time.time));
         }
         else
         {
             fakeLight.enabled = false;
             middle.enabled = false;
+            //Debug.Log("missed "+ BeatChecker.instance.IsInBeatMissedBy(Time.time));
         }
+        
+        
     }
 }
