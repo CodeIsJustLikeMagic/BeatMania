@@ -119,10 +119,21 @@ public class BeatChecker : VibingEntity
         return IsInBeat(time, toleranceRange, toleranceRange);
     }
 
-    public override void OnBeat(float bps)
+    public string IsInBeatMissedBy(float time)
     {
-        beatStart = Time.time;
+        return  (time - beatStart) % beatLength+"BeatChecker: beatStart is " +beatStart+" beatlength is "+ beatLength;
+    }
+
+    public override void OnBeat(float jitter_delay, float bps)
+    {
         beatLength = 1 / bps;
+        Debug.Log("Jitter_delay is " +jitter_delay+" beatlength is "+ beatLength, this);
+    }
+
+    public void SetBeatStart(float beatStart)
+    {
+        Debug.Log("beatStart is "+beatStart);
+        this.beatStart = beatStart;
     }
 
     private void Awake()

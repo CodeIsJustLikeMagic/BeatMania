@@ -28,7 +28,7 @@ abstract public class ColorChange : VibingEntity
         setColor(song);
     }
 
-    public override void OnBeat(float bps)
+    public override void OnBeat(float jitter_delay, float bps)
     {
     }
 }

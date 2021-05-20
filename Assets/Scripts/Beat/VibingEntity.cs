@@ -15,7 +15,7 @@ abstract public class VibingEntity : MonoBehaviour
         SongSynchonizeVibing.instance.AddMyselfToList(this);
     }
 
-    public abstract void OnBeat(float bps);
+    public abstract void OnBeat(float jitter_delay, float bps);
 
     public virtual void OnSongChange(int song) { }
 

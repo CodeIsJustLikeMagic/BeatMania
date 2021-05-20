@@ -17,7 +17,7 @@ public class PlatformHandleSongChange : VibingEntity
     public delegate void ActionDelegate(float bps);
     ActionDelegate actionMethod;
 
-    public override void OnBeat(float bps)
+    public override void OnBeat(float jitter_delay, float bps)
     {
         //dictate which Behavior to Perform, based on musik (passive, attack, active)
         actionMethod(bps);

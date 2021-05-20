@@ -17,10 +17,10 @@ public class VibingPlant : VibingEntity
     }
 
     private int stateName;
-    public override void OnBeat(float bps)
+    public override void OnBeat(float jitter_delay, float bps)
     {
         stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
-        anim.Play(stateName, 0, 0.0f);
+        anim.Play(stateName, 0, jitter_delay);
         //restart animationNow
         
         anim.SetFloat("Speed", bps);

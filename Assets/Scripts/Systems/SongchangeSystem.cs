@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AudioHelm;
 using UnityEngine;
 
 public class SongchangeSystem : MonoBehaviour
@@ -29,13 +30,11 @@ public class SongchangeSystem : MonoBehaviour
     {
         if (UnlockedSongs.instance.SongIsUnlocked(song) || enableAllSongs)
         {
-            //Background.instance.SetSprites(song);
             SongSynchonizeVibing.instance.RecieveSongChange(song);
             themes[currentsong].SetActive(false);
             clock.bpm = bpms[song];
             themes[song].SetActive(true);
             currentsong = song;
-            //todo notify Clock that it's time to change song
         }else Debug.Log("That song hasn't been unlocked yet");
     }
 

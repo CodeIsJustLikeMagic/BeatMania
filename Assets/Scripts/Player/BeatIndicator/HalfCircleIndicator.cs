@@ -19,10 +19,10 @@ public class HalfCircleIndicator : VibingEntity
     }
 
     private int stateName;
-    public override void OnBeat(float bps)
+    public override void OnBeat(float jitter_delay, float bps)
     {
         stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
-        anim.Play(stateName, 0, start_anim_at_normalized_Time);
+        anim.Play(stateName, 0, start_anim_at_normalized_Time + jitter_delay);
         //restart animationNow
         
         anim.SetFloat("Speed", animationSpeedMultiplier* bps);

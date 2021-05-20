@@ -10,7 +10,7 @@ public class SongChangeListener : VibingEntity
         
     }
 
-    public override void OnBeat(float bps)
+    public override void OnBeat(float jitter_delay, float bps)
     {
         throw new System.NotImplementedException();
     }

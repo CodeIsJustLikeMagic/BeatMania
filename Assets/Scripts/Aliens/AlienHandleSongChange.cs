@@ -20,7 +20,7 @@ public class AlienHandleSongChange : VibingEntity
     public delegate void ActionDelegate(float bps);
     ActionDelegate actionMethod;
 
-    public override void OnBeat(float bps)
+    public override void OnBeat(float jitter_delay, float bps)
     {
         this.bps = bps;
         enemyAnimator3D.SetFloat("Speed", bps);
