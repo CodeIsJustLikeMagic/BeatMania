@@ -1,6 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
+using Debug = UnityEngine.Debug;
 
 public class ColorChange2DColor : ColorChange
 {
@@ -8,8 +14,15 @@ public class ColorChange2DColor : ColorChange
     private SpriteRenderer sprite;
     [SerializeField]
     private Color[] colors = { new Color(255, 255, 255, 255), new Color(255, 255, 255, 255), new Color(255, 255, 255, 255) };
+    [SerializeField] private float SongChangeColorSteps = 5;
 
-    protected override void showColor(int song)
+    [SerializeField] private float delayTransitionByXBeats = 0;
+    private int currentSong;
+    private bool songWasChanged = false;
+    private float beatCountsToTransition = 1;
+
+    
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         if(sprite == null)
@@ -20,16 +33,60 @@ public class ColorChange2DColor : ColorChange
                 Debug.LogError(gameObject.name + " Element is missing its spriteRenderer");
             }
         }
-        if(colors.Length == 0)
-        {
-            return;
-        }
-        sprite.color = colors[song % colors.Length];
     }
 
-    public void setColor(Color color, int songNum = 0)
+
+    // show color gets called when the song is changed.
+    protected override void showColor(int song)
     {
-        Debug.Log("setColor "+ color + " song "+ songNum, this);
+        if (!Application.isPlaying)
+        {
+            sprite.color = colors[song % colors.Length];
+        }
+        else
+        {
+            //Debug.Log("show Color");
+            currentSong = song;
+            if(colors.Length == 0)
+            {
+                return;
+            }
+            songWasChanged = true;
+        }
+
+    }
+
+    private void ColorProgress()
+    {
+        
+        //Debug.Log("Color Progress steps= "+steps+" counts to transition "+ beatCountsToTransition);
+        if (beatCountsToTransition == SongChangeColorSteps)
+        {
+            sprite.color = colors[currentSong % colors.Length];
+            beatCountsToTransition = 1;
+            CancelInvoke();
+        }
+        float t = beatCountsToTransition / SongChangeColorSteps; // 0 is a, 1 is b
+        // interpolate step beatCountsToTransition between the two colors.
+        sprite.color = Color.Lerp(sprite.color, colors[currentSong % colors.Length],t);
+        beatCountsToTransition++;
+    }
+
+    public override void OnBeat(float jitter_delay, float bps)
+    {
+        if (songWasChanged)
+        {
+            beatCountsToTransition = 1;
+            //sprite.color = Color.Lerp(sprite.color, colors[currentSong % colors.Length],1/SongChangeColorSteps);
+            InvokeRepeating("ColorProgress", SongSynchonizeVibing.instance.BeatStart+ (SongSynchonizeVibing.instance.BeatLength * delayTransitionByXBeats+1) - Time.time, 1/bps);
+            songWasChanged = false;
+        }
+    }
+    
+    
+    // for Tools/Create Color Change 2D With current Color
+    public void OverrideColor_EditorScript(Color color, int songNum = 0)
+    {
         colors[songNum % colors.Length] = color;
     }
 }

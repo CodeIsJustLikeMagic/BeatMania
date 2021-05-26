@@ -40,13 +40,13 @@ public class ChangeBackgroundEditor : Editor
                 r.gameObject.AddComponent<ColorChange2DColor>();
                 ColorChange2DColor c = r.GetComponent<ColorChange2DColor>();
                 Color color = r.GetComponent<SpriteRenderer>().color;
-                c.setColor(color, 0);
-                c.setColor(color, 1);
-                c.setColor(color, 2);
+                c.OverrideColor_EditorScript(color, 0);
+                c.OverrideColor_EditorScript(color, 1);
+                c.OverrideColor_EditorScript(color, 2);
             }
             ColorChange2DColor c2 = r.GetComponent<ColorChange2DColor>();
             Color color2 = r.GetComponent<SpriteRenderer>().color;
-            c2.setColor(color2, FindObjectOfType<Background>().getSong());
+            c2.OverrideColor_EditorScript(color2, FindObjectOfType<Background>().getSong());
         }
     }
 }
