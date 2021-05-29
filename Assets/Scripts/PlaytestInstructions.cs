@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Sanford.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
@@ -83,7 +82,7 @@ public class PlaytestInstructions : MonoBehaviour
         if (context == "") return;
         data = data + "\n" + context + " h: " + sucess_count + " m: " + failed_count;
         //result_text.text = data;
-        var fileName = Path.GetTempPath() + "BeatMania_Playtest_1_Result.txt";
+        var fileName = Application.dataPath + "/BeatMania_Playtest_1_Result.txt";
         saved_to.text = fileName;
         var sr = File.CreateText(fileName);
         sr.Write(data);
@@ -92,7 +91,7 @@ public class PlaytestInstructions : MonoBehaviour
 
     void AdvanceWithKHits(int k, string save_message)
     {
-        if (sucess_count == 2 || failed_count == 20)
+        if (sucess_count == k || failed_count == k)
         {
             Save(save_message);
             currentInstruction++;

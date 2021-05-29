@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Security.AccessControl;
 using UnityEngine;
 using AudioHelm;
-using UnityEditor.Rendering;
 using UnityEngine.Events;
 
 
@@ -101,11 +100,16 @@ public class SongSynchonizeVibing : MonoBehaviour
                 var beattiming = Time.time - (jitter * BeatGiver.GetSixteenthTime()) + delay;
                 //Debug.Log(Time.time+" jitter "+ jitter+" calculated beattiming is "+ beattiming+" beat is still synched: "+ BeatChecker.instance.IsInBeat(beattiming,0.07f,0.0f));
                 //Debug.Log("missed Beat by "+ BeatChecker.instance.IsInBeatMissedBy(beattiming));
-                if (!BeatChecker.instance.IsInBeat(beattiming, 0.07f, 0.0f))
+                try
                 {
-                    Debug.Log("Fixing sync");
-                    songHasBeenChanged = true;
+                    if (!BeatChecker.instance.IsInBeat(beattiming, 0.07f, 0.0f))
+                    {
+                        Debug.Log("Fixing sync");
+                        songHasBeenChanged = true;
+                    }
                 }
+                catch{}
+
             }
         }
     }
