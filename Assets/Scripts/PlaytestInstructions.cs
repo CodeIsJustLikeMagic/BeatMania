@@ -30,7 +30,7 @@ public class PlaytestInstructions : MonoBehaviour
     {
         sucess_count++;
         missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+SongSynchonizeVibing.instance.BeatLength+")";
-        data += "\nS" + (SongchangeSystem.instance.Currentsong + 1) + " missed by !" +
+        data += "\nS" + (SongchangeSystem.instance.Currentsong + 1) + " hit. missed by !" +
                 BeatChecker.instance.IsInBeatMissedBy(Time.time)+"! beat length "+SongSynchonizeVibing.instance.BeatLength;
         UpdateCounters();
     }
@@ -39,6 +39,8 @@ public class PlaytestInstructions : MonoBehaviour
     {
         failed_count++;
         missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+SongSynchonizeVibing.instance.BeatLength+")";
+        data += "\nS" + (SongchangeSystem.instance.Currentsong + 1) + " miss. missed by !" +
+                BeatChecker.instance.IsInBeatMissedBy(Time.time)+"! beat length "+SongSynchonizeVibing.instance.BeatLength;
         UpdateCounters();
     }
 
