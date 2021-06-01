@@ -5,7 +5,7 @@ using UnityEngine;
 //directly show if Beatchecker gives true of false at any time.
 public class BeatCheckerIndicator : MonoBehaviour
 {
-    private Light light;
+    private Light _light;
 
     [SerializeField] private SpriteRenderer fakeLight;
 

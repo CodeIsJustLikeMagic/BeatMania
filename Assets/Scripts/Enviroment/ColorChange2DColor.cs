@@ -8,6 +8,7 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
+[DisallowMultipleComponent]
 public class ColorChange2DColor : ColorChange
 {
     [SerializeField]
@@ -39,8 +40,13 @@ public class ColorChange2DColor : ColorChange
     // show color gets called when the song is changed.
     protected override void showColor(int song)
     {
+        if (colors.Length == 0)
+        {
+            Debug.LogError("color Array Length is zero", this);
+        }
         if (!Application.isPlaying)
         {
+            sprite = GetComponentInChildren<SpriteRenderer>();
             sprite.color = colors[song % colors.Length];
         }
         else

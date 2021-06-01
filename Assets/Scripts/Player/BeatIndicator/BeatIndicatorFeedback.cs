@@ -11,14 +11,14 @@ public class BeatIndicatorFeedback : MonoBehaviour
     [SerializeField] private Color failedColor;
     [SerializeField] float disapearTimer = 0.1f;
     
-    private SpriteRenderer renderer;
-    private float lastFeedback;
+    private SpriteRenderer _spriteRenderer;
+    private float _lastFeedback;
 
     public void Failed()
     {
-        renderer.color = failedColor;
-        renderer.enabled = true;
-        lastFeedback = Time.time;
+        _spriteRenderer.color = failedColor;
+        _spriteRenderer.enabled = true;
+        _lastFeedback = Time.time;
 
         try
         {
@@ -32,9 +32,9 @@ public class BeatIndicatorFeedback : MonoBehaviour
     private int skipped = 0;
     public void Success()
     {
-        renderer.color = successColor;
-        renderer.enabled = true;
-        lastFeedback = Time.time;
+        _spriteRenderer.color = successColor;
+        _spriteRenderer.enabled = true;
+        _lastFeedback = Time.time;
 
         try
         {
@@ -46,14 +46,14 @@ public class BeatIndicatorFeedback : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        renderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if (lastFeedback + disapearTimer <= Time.time)
+        if (_lastFeedback + disapearTimer <= Time.time)
         {
-            renderer.enabled = false;
+            _spriteRenderer.enabled = false;
         }
     }
 

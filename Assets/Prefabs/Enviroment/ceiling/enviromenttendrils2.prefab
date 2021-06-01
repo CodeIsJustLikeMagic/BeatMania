@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408144320821430222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 96.732666, y: -8.490354, z: 0}
+  m_LocalPosition: {x: 96.732666, y: -8.490354, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6306031088767921233}
@@ -46,9 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   colors:
-  - {r: 0.38431376, g: 0.2784314, b: 0.29803923, a: 1}
-  - {r: 0.14117648, g: 0.12941177, b: 0.36078432, a: 1}
-  - {r: 0.24313727, g: 0.29411766, b: 0.121568635, a: 1}
+  - {r: 0.882353, g: 0.8235295, b: 0.45882356, a: 1}
+  - {r: 0.3254902, g: 0.62352943, b: 0.7490196, a: 1}
+  - {r: 0.5647059, g: 0.18431373, b: 0.15294118, a: 1}
+  SongChangeColorSteps: 5
+  delayTransitionByXBeats: 0
 --- !u!1 &8639310522551222491
 GameObject:
   m_ObjectHideFlags: 0

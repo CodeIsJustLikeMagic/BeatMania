@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 2125653624337329615, guid: 618293f625a4fce418f6c84c11225214,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.904248
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2125653624337329615, guid: 618293f625a4fce418f6c84c11225214,
         type: 3}
@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 2125653624337329616, guid: 618293f625a4fce418f6c84c11225214,
         type: 3}
       propertyPath: m_Name
-      value: Plant_Kringel
+      value: Plant_Kringel Variant 3
       objectReference: {fileID: 0}
     - target: {fileID: 2125653625518942895, guid: 618293f625a4fce418f6c84c11225214,
         type: 3}

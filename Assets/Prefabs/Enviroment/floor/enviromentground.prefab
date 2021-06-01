@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9168541671877904362}
   - component: {fileID: 9168541671877904363}
-  - component: {fileID: 9168541671877904356}
   - component: {fileID: 9168541671877904357}
   m_Layer: 0
   m_Name: enviromentground
@@ -83,20 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9168541671877904356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9168541671877904358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d912c1a53997114dbc19a53f3f1be71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 9168541671877904363}
-  colors: []
 --- !u!114 &9168541671877904357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,3 +99,5 @@ MonoBehaviour:
   - {r: 0.4811321, g: 0.44708973, b: 0.37900499, a: 1}
   - {r: 0.16375935, g: 0.25584435, b: 0.3018868, a: 1}
   - {r: 0.3490566, g: 0.21776149, b: 0.20910466, a: 1}
+  SongChangeColorSteps: 5
+  delayTransitionByXBeats: 0

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 635651881355403552, guid: 5e0b6c52695ecbb43bcf6b9bdb830eb9,
         type: 3}
       propertyPath: m_Name
-      value: Leaf_Kringel
+      value: Leaf_Kringel Variant 2
       objectReference: {fileID: 0}
     - target: {fileID: 635651881355403583, guid: 5e0b6c52695ecbb43bcf6b9bdb830eb9,
         type: 3}
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 635651881355403583, guid: 5e0b6c52695ecbb43bcf6b9bdb830eb9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.904248
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 635651881355403583, guid: 5e0b6c52695ecbb43bcf6b9bdb830eb9,
         type: 3}

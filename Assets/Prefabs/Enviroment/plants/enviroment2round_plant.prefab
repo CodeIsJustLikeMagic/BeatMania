@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4564982908670949844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 120.30155, y: -10.182972, z: 0}
+  m_LocalPosition: {x: 120.30155, y: -10.182972, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,3 +99,5 @@ MonoBehaviour:
   - {r: 0.5294118, g: 0.10588236, b: 0.3019608, a: 1}
   - {r: 0.7490196, g: 0.654902, b: 1, a: 1}
   - {r: 0.38823533, g: 0.5019608, b: 0.3254902, a: 1}
+  SongChangeColorSteps: 5
+  delayTransitionByXBeats: 0

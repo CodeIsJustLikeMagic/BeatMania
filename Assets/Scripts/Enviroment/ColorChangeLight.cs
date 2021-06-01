@@ -5,12 +5,12 @@ using UnityEngine;
 public class ColorChangeLight : ColorChange
 {
     [SerializeField]
-    private Light light;
+    private Light myLight;
 
     public Color[] colors = { new Color(255, 255, 255, 255), new Color(255, 255, 255, 255), new Color(255, 255, 255, 255) };
     protected override void showColor(int song)
     {
-        light = GetComponentInChildren<Light>();
-        light.color = colors[song%colors.Length];
+        myLight = GetComponentInChildren<Light>();
+        myLight.color = colors[song%colors.Length];
     }
 }
