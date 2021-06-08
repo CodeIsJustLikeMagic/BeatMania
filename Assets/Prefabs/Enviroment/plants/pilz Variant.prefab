@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 2188451171037431492, guid: 7401cc80f6ca175458153e760b90385d,
         type: 3}
       propertyPath: m_Name
-      value: pilz
+      value: pilz Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2188451171037431515, guid: 7401cc80f6ca175458153e760b90385d,
         type: 3}
@@ -72,6 +72,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[0].r
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[0].g
+      value: 0.8436857
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[0].b
+      value: 0.51450694
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[1].r
+      value: 0.63234246
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.90074575
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[1].b
+      value: 0.9245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[2].r
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[2].g
+      value: 0.7215819
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708611755611992527, guid: 7401cc80f6ca175458153e760b90385d,
+        type: 3}
+      propertyPath: colors.Array.data[2].b
+      value: 0.7056337
       objectReference: {fileID: 0}
     - target: {fileID: 7418255257730804610, guid: 7401cc80f6ca175458153e760b90385d,
         type: 3}

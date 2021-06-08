@@ -7,6 +7,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[0].r
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[0].g
+      value: 0.7399873
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[0].b
+      value: 0.26321647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].r
+      value: 0.45256317
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.79626137
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].b
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[2].r
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[2].g
+      value: 0.68277496
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[2].b
+      value: 0.57978815
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6970944772198093575, guid: a6bc837a467c5404b8ff6c8cda68a723,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -75,7 +125,7 @@ PrefabInstance:
     - target: {fileID: 6970944772198093592, guid: a6bc837a467c5404b8ff6c8cda68a723,
         type: 3}
       propertyPath: m_Name
-      value: pilz Variant (2)
+      value: pilz small Variant (2) Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bc837a467c5404b8ff6c8cda68a723, type: 3}

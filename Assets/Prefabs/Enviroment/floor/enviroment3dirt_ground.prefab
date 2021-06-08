@@ -96,8 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   colors:
-  - {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
-  - {r: 0.38274297, g: 0.5097687, b: 0.5754717, a: 1}
-  - {r: 0.5283019, g: 0.42093864, b: 0.41117835, a: 1}
+  - {r: 0.6132076, g: 0.46558914, b: 0.25164652, a: 1}
+  - {r: 0.14431292, g: 0.35503072, b: 0.4433962, a: 255}
+  - {r: 0.5, g: 0.23779133, b: 0.18160376, a: 255}
   SongChangeColorSteps: 5
   delayTransitionByXBeats: 0

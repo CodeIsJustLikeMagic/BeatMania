@@ -32,6 +32,71 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[0].r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[0].g
+      value: 0.6993777
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[0].b
+      value: 0.34069067
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].r
+      value: 0.4862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.7112061
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].b
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[2].r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[2].g
+      value: 0.49575529
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[2].b
+      value: 0.46293163
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592225217388061715, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522249884577135110, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].r
+      value: 0.24313727
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522249884577135110, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.43921572
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522249884577135110, guid: a6bc837a467c5404b8ff6c8cda68a723,
+        type: 3}
+      propertyPath: colors.Array.data[1].b
+      value: 0.20784315
+      objectReference: {fileID: 0}
     - target: {fileID: 5001019842579290021, guid: a6bc837a467c5404b8ff6c8cda68a723,
         type: 3}
       propertyPath: m_Sprite
