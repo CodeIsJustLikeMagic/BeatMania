@@ -40,8 +40,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 3974223613
+    locked: 0
   - name: ParallaxBackground
     uniqueID: 4182940223
+    locked: 0
+  - name: TreeLine
+    uniqueID: 1569129593
     locked: 0
   - name: Default
     uniqueID: 0
