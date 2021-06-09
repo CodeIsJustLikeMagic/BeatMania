@@ -20,10 +20,10 @@ public class MyParallax : MonoBehaviour
     private float flipProb = 0.5f ;
 
     [SerializeField]
-    private int posMulti = 2;
+    private float posMulti = 2;
 
     [SerializeField]
-    private int width = 15;
+    private float width = 15;
     
     // Start is called before the first frame update
     void Start()
