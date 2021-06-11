@@ -1,0 +1,205 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ComboAttack : MonoBehaviour
+{
+    //public Animator playerAnimator; //animator is set though inspector in unity editor
+    private Animator animator;
+
+    //public Transform attackCheck;
+
+    private bool canAttack = true;
+    private bool entryAttack = false; // combo entry
+    private bool fullyCharged = false;
+    private bool windUp = false;
+    private float chargeLevel = 0;
+    private float maxCharge = 0;
+    private float beatLen = 0;
+
+    public string targetEntity = "Alien";
+
+    //damage values
+    private float dmgvalue_normal = 2;
+    private float dmgvalue_weak = 1;
+    private float dmgvalue_spin = 6;
+    private float dmgvalue_stagger = 6;
+
+    [SerializeField] private AttackPerformer attackPerformer2D;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        attackPerformer2D = GetComponentInChildren<AttackPerformer>();
+        beatLen = BeatChecker.instance.GetbeatLength();
+        maxCharge = beatLen * 4;
+    }
+
+    //MUSS NOCH GECALLT WERDEN --> onbeatchange()
+    void SetBps()
+    {
+        beatLen = BeatChecker.instance.GetbeatLength();
+        maxCharge = beatLen * 4;
+    }
+
+    //Input
+    void AttackInput()
+    {
+        if (canAttack)
+        {
+            //press attack button
+            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
+            {
+                if (BeatChecker.instance.IsInBeat())
+                {
+                    if (windUp)
+                    {
+                        StaggerAttack();
+                    }
+                    else if (entryAttack)
+                    {
+                        WindUp();
+                    }
+                    else
+                    {
+                        Attack();
+                    }
+                }
+                else
+                {
+                    WeakAttack();
+                }
+            }
+            //hold attack button
+            else if ((Input.GetKey("joystick button 1") || Input.GetKey(KeyCode.K)) && entryAttack)
+            {
+                Charge();
+            }
+            //release attack button
+            else if ((Input.GetKeyUp("joystick button 1") || Input.GetKeyUp(KeyCode.K)) && entryAttack)
+            {
+                SpinAttack();
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        AttackInput();
+    }
+
+    void Attack()
+    {
+        BeatIndicatorFeedback.instance.Success();
+        canAttack = false;
+        animator.SetBool("IsAttacking", true);
+        attackPerformer2D.Perform("normal_attack", dmgvalue_normal, false, targetEntity);
+        entryAttack = true;
+        StartCoroutine(AttackCooldown());
+    }
+
+    void WeakAttack()
+    {
+        BeatIndicatorFeedback.instance.Failed();
+        canAttack = false;
+        animator.SetBool("IsAttacking", true);
+        attackPerformer2D.Perform("weak_attack", dmgvalue_weak, false, targetEntity);
+        resetCombo();
+        StartCoroutine(WeakAttackCooldown());
+    }
+
+    void Charge()
+    {
+        if (!fullyCharged)
+        {
+            chargeLevel += Time.deltaTime;
+            if (maxCharge <= chargeLevel)
+            {
+                fullyCharged = true;
+                attackPerformer2D.Perform("charge", 0, false, targetEntity);
+            }
+        }
+    }
+
+    void SpinAttack()
+    {
+        if (fullyCharged && BeatChecker.instance.IsInBeat())
+        {
+            BeatIndicatorFeedback.instance.Success();
+            animator.SetBool("IsAttacking", true);
+            attackPerformer2D.Perform("spin_attack", dmgvalue_spin, false, targetEntity);
+        }
+        else
+        {
+            BeatIndicatorFeedback.instance.Failed();
+            animator.SetBool("IsAttacking", true);
+            attackPerformer2D.Perform("weak_attack", dmgvalue_weak, false, targetEntity);
+        }
+        resetCombo();
+        StartCoroutine(SpinDuration());
+    }
+
+    void WindUp()
+    {
+        BeatIndicatorFeedback.instance.Success();
+        canAttack = false;
+        animator.SetBool("IsAttacking", true);
+        attackPerformer2D.Perform("wind_up", dmgvalue_normal, false, targetEntity);
+        windUp = true;
+        StartCoroutine(AttackCooldown());
+    }
+
+    void StaggerAttack()
+    {
+        BeatIndicatorFeedback.instance.Success();
+        canAttack = false;
+        animator.SetBool("IsAttacking", true);
+        attackPerformer2D.Perform("stagger", dmgvalue_stagger, true, targetEntity);
+        resetCombo();
+        StartCoroutine(AttackCooldown());
+    }
+
+    void resetCombo()
+    {
+        fullyCharged = false;
+        entryAttack = false;
+        chargeLevel = 0;
+        entryAttack = false;
+        windUp = false;
+    }
+
+    //public void DoDamage(float damage)
+    //{
+    //    Collider[] collidersEnemies = Physics.OverlapSphere(attackCheck.position, 3f);
+    //    for (int i = 0; i < collidersEnemies.Length; i++)
+    //    {
+    //        if (collidersEnemies[i].gameObject.tag == "Enemy")
+    //        {
+    //            collidersEnemies[i].gameObject.SendMessage("ApplyDamage", damage);
+    //        }
+    //    }
+    //}
+
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(0.25f);
+        canAttack = true;
+    }
+
+    IEnumerator WeakAttackCooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        canAttack = true;
+    }
+
+    IEnumerator SpinDuration()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canAttack = true;
+    }
+}

@@ -139,4 +139,7 @@ public class BeatChecker : VibingEntity
         instance = this;
     }
 
+    public float GetbeatLength() {
+        return beatLength;
+    }
 }

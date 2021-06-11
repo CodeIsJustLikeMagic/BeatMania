@@ -29,8 +29,9 @@ public class AttackPerformer : MonoBehaviour
     {
         anim.SetFloat("Speed", bps);
     }
-    public void Perform(string trigger, float dmg, bool stagger)
+    public void Perform(string trigger, float dmg, bool stagger, string target_tag)
     {
+        dmg_tag = target_tag;
         if (trigger != "")
         {
             anim.SetTrigger(trigger);

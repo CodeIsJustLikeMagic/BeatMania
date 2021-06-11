@@ -74,11 +74,11 @@ public class AttackBehavior : AlienBehavior
         if (!only3D)
         {
             enemyAnimator3D.SetTrigger(move3D);
-            attackPerformer.Perform(comboPerformer[combocounter], 1, false);
+            attackPerformer.Perform(comboPerformer[combocounter], 1, false, "Player");
         }
         else
         {
-            attackPerformer.Perform(move3D, 1, false);
+            attackPerformer.Perform(move3D, 1, false, "Player");
         }
         
         

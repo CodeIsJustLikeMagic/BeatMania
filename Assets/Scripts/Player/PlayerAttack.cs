@@ -44,14 +44,14 @@ public class PlayerAttack : MonoBehaviour
         {
             //playerAnimator.SetTrigger("TAN" + (combocounter + 1)); // Test Attack Normal 1-5
             combocounter = (combocounter + 1) % maxCombo;
-            attackPerformer2D.Perform("Attack" + (combocounter + 1), combocounter, false);
+            attackPerformer2D.Perform("Attack" + (combocounter + 1), combocounter, false, "Alien");
             //DoDamage(combocounter);
             BeatIndicatorFeedback.instance.Success();
         }
         else
         {
             combocounter = 1; //reset combo
-            attackPerformer2D.Perform("whiteN1", combocounter, false); // do weak attack
+            attackPerformer2D.Perform("whiteN1", combocounter, false, "Alien"); // do weak attack
             //DoDamage(combocounter);
             BeatIndicatorFeedback.instance.Failed();
         }
