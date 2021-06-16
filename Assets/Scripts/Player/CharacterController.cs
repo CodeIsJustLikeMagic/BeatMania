@@ -30,6 +30,9 @@ public class CharacterController : BaseHealthBehavior
     private bool m_IsWall = false; //If there is a wall in front of the player
     private bool hasJumped = false; //If player
 
+    private bool touchedRightWall = false;  //Stores Information if Player jumped from a right wall
+    private bool touchedLeftWall = false;   //Stores Information if Player jumped from a left  wall
+
     private bool isWallSliding = false; //If player is sliding in a wall
     private bool oldWallSlidding = false; //If player is sliding in a wall in the previous frame
     private float prevVelocityX = 0f;
@@ -79,9 +82,7 @@ public class CharacterController : BaseHealthBehavior
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
 
-
-        //
-
+        //Groundcheck
         Collider[] colliders = Physics.OverlapSphere(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -93,6 +94,8 @@ public class CharacterController : BaseHealthBehavior
                 //if (!m_IsWall && !isDashing)
                 //    particleJumpDown.Play();
                 canDoubleJump = true;
+                touchedLeftWall = false;
+                touchedRightWall = false;
                 if (m_Rigidbody.velocity.y < 0f)
                     limitVelOnWallJump = false;
             }
@@ -100,7 +103,7 @@ public class CharacterController : BaseHealthBehavior
 
         m_IsWall = false;
 
-        //
+        //Wallcheck
         if (!m_Grounded)
         {
             OnFallEvent.Invoke();
@@ -215,22 +218,21 @@ public class CharacterController : BaseHealthBehavior
             {
                 // Add a vertical force to the player.
                 animator.SetBool("IsJumping", true);
-                //animator.SetBool("JumpUp", true);
-                if (!BeatChecker.instance.IsInBeat())
+                if (BeatChecker.instance.IsInBeat())
                 {
-                    isLowJumping = true;
-                    Debug.Log("lowjump");
-                    BeatIndicatorFeedback.instance.Failed();
+                    canDoubleJump = true;
+                    BeatIndicatorFeedback.instance.Success();
+                    
                 }
                 else
                 {
-                    BeatIndicatorFeedback.instance.Success();
+                    isLowJumping = true;
+                    canDoubleJump = false;
+                    BeatIndicatorFeedback.instance.Failed();
                 }
                 m_Grounded = false;
                 m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce));
-                canDoubleJump = true;
-                //particleJumpDown.Play();
-                //particleJumpUp.Play();
+                
             }
             //Doublejump
             else if (!m_Grounded && jump && canDoubleJump && !isWallSliding)
@@ -275,7 +277,7 @@ public class CharacterController : BaseHealthBehavior
                     }
                 }
                 //modified
-                if (jump && isWallSliding)
+                if (jump && isWallSliding && ((m_FacingRight && !touchedLeftWall) ||(!m_FacingRight && !touchedRightWall)))
                 {
                     animator.SetBool("IsJumping", true);
                     animator.SetBool("JumpUp", true);
@@ -289,6 +291,15 @@ public class CharacterController : BaseHealthBehavior
                     oldWallSlidding = false;
                     m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
                     canMove = false;
+                    if (m_FacingRight)
+                    {
+                        touchedLeftWall = true;
+                        touchedRightWall = false;
+                    }
+                    else {
+                        touchedLeftWall = false;
+                        touchedRightWall = true;
+                    }
                 }
                 else if ((dashLeft || dashRight) && canDash)
                 {
