@@ -86,7 +86,7 @@ public class CharacterController : BaseHealthBehavior
         Collider[] colliders = Physics.OverlapSphere(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject != gameObject)
+            if (colliders[i].gameObject.tag == "GroundandWall" || colliders[i].gameObject.tag == "Ground")
                 m_Grounded = true;
             if (!wasGrounded)
             {
@@ -110,7 +110,7 @@ public class CharacterController : BaseHealthBehavior
             Collider[] collidersWall = Physics.OverlapSphere(m_WallCheck.position, k_GroundedRadius, m_WhatIsGround);
             for (int i = 0; i < collidersWall.Length; i++)
             {
-                if (collidersWall[i].gameObject != null)
+                if (collidersWall[i].gameObject.tag == "GroundandWall")
                 {
                     isDashing = false;
                     m_IsWall = true;
@@ -227,7 +227,6 @@ public class CharacterController : BaseHealthBehavior
                 else
                 {
                     isLowJumping = true;
-                    canDoubleJump = false;
                     BeatIndicatorFeedback.instance.Failed();
                 }
                 m_Grounded = false;
@@ -235,7 +234,7 @@ public class CharacterController : BaseHealthBehavior
                 
             }
             //Doublejump
-            else if (!m_Grounded && jump && canDoubleJump && !isWallSliding)
+            else if (!m_Grounded && jump && canDoubleJump && !isWallSliding && !isLowJumping)
             {
                 if (BeatChecker.instance.IsInBeat())
                 {
