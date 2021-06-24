@@ -302,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 4785158247609017928, guid: 609783515b4258142ac050747476db4a,
         type: 3}
       propertyPath: m_Name
-      value: GlowPlant
+      value: GlowPlant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4785158247609017943, guid: 609783515b4258142ac050747476db4a,
         type: 3}
@@ -317,7 +317,7 @@ PrefabInstance:
     - target: {fileID: 4785158247609017943, guid: 609783515b4258142ac050747476db4a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4785158247609017943, guid: 609783515b4258142ac050747476db4a,
         type: 3}
