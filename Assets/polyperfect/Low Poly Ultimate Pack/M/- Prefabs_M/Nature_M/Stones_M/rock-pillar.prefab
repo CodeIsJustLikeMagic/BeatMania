@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64000012857651166}
   m_Layer: 0
   m_Name: rock-pillar
-  m_TagString: Untagged
+  m_TagString: GroundandWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

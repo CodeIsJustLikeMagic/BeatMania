@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class damageFeedback : MonoBehaviour
 {
-
+    public GameObject normalModel;
     public GameObject damageModel;
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,13 @@ public class damageFeedback : MonoBehaviour
     {
         
         damageModel.SetActive(true);
+        normalModel.SetActive(false);
 
     }
 
     public void doNotDisplayDamage()
     {
+        normalModel.SetActive(true);
         damageModel.SetActive(false);
     }
 }

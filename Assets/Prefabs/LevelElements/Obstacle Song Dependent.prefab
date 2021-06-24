@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 2806080455967128706}
   m_Layer: 0
   m_Name: Obstacle Song Dependent
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,5 +714,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ecbfa1a91053841946e85fb1cddf34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openPassage: 000101
+  passageBlocked: 010101
   vis: {fileID: 2806080455661065579}

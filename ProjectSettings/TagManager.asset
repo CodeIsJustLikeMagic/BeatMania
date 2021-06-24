@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CinemachineCamera
   - Alien
+  - Ground
+  - GroundandWall
+  - changeSprite
   layers:
   - Default
   - TransparentFX
