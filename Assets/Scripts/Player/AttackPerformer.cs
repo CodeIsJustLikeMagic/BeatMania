@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class AttackPerformer : MonoBehaviour
+public class AttackPerformer : MonoBehaviour // sits on Enemy
 {
     
     // !!! make sure this script is on the same gameObject as your trigger collider. Only then will OnTriggerEnter be called. 
