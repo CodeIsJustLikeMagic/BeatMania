@@ -131,7 +131,7 @@ public class ComboAttack : MonoBehaviour
         if (fullyCharged && BeatChecker.instance.IsInBeat())
         {
             BeatIndicatorFeedback.instance.Success();
-            animator.SetBool("IsAttacking", true);
+            animator.SetBool("IsSpinning", true);
             attackPerformer2D.Perform("spin_attack", dmgvalue_spin, false, targetEntity);
         }
         else
@@ -148,7 +148,7 @@ public class ComboAttack : MonoBehaviour
     {
         BeatIndicatorFeedback.instance.Success();
         canAttack = false;
-        animator.SetBool("IsAttacking", true);
+        animator.SetBool("IsWindUp", true);
         attackPerformer2D.Perform("wind_up", dmgvalue_normal, false, targetEntity);
         windUp = true;
         StartCoroutine(AttackCooldown());
@@ -158,7 +158,7 @@ public class ComboAttack : MonoBehaviour
     {
         BeatIndicatorFeedback.instance.Success();
         canAttack = false;
-        animator.SetBool("IsAttacking", true);
+        animator.SetBool("IsStaggering", true);
         attackPerformer2D.Perform("stagger", dmgvalue_stagger, true, targetEntity);
         resetCombo();
         StartCoroutine(AttackCooldown());
