@@ -376,8 +376,7 @@ public class CharacterController : BaseHealthBehavior
             }
             else
             {
-                //StartCoroutine(Stun(0.25f));
-                //StartCoroutine(MakeInvincible(1f)); // invincible is not really nessesary
+                StartCoroutine(DashCooldown());
             }
         }
     }
