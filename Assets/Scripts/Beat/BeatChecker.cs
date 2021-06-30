@@ -82,6 +82,10 @@ public class BeatChecker : VibingEntity
     /// <returns>true if time is in beat</returns>
     public bool IsInBeat(float time, float toleranceRange, float toleranceShift)
     {
+        if (allwaysTrue)
+        {
+            return true;
+        }
         // time is in beat if: time == beatStart + n * beatLegnth + -toleranceRange; where n is any natural number
         float missedBySeconds = (time - beatStart) % beatLength;
         return missedBySeconds <= (toleranceRange + toleranceShift) || missedBySeconds >= beatLength - (toleranceRange - toleranceShift);
@@ -141,5 +145,11 @@ public class BeatChecker : VibingEntity
 
     public float GetbeatLength() {
         return beatLength;
+    }
+
+    private bool allwaysTrue = false;
+    public void DisableBeatCheck()
+    {
+        allwaysTrue = true;
     }
 }
