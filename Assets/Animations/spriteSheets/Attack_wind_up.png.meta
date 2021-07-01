@@ -44,6 +44,12 @@ TextureImporter:
   - first:
       213: 2476006337025498815
     second: Attack_wind_up_6
+  - first:
+      213: 7627247803515570577
+    second: Attack_wind_up_7
+  - first:
+      213: 1284878943201716132
+    second: Attack_wind_up_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,9 +139,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1200
+        y: 1600
         width: 2000
-        height: 600
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,9 +160,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2000
-        y: 1200
+        y: 1600
         width: 2000
-        height: 600
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,9 +181,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4000
-        y: 1200
+        y: 1600
         width: 2000
-        height: 600
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,10 +201,10 @@ TextureImporter:
       name: Attack_wind_up_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 600
+        x: 6000
+        y: 1600
         width: 2000
-        height: 600
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +222,10 @@ TextureImporter:
       name: Attack_wind_up_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 600
+        x: 0
+        y: 800
         width: 2000
-        height: 600
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +243,10 @@ TextureImporter:
       name: Attack_wind_up_5
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 600
+        x: 2000
+        y: 800
         width: 2000
-        height: 600
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +264,10 @@ TextureImporter:
       name: Attack_wind_up_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 4000
+        y: 800
         width: 2000
-        height: 600
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,6 +277,48 @@ TextureImporter:
       bones: []
       spriteID: fbe550425aa8c5220800000000000000
       internalID: 2476006337025498815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_wind_up_7
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 800
+        width: 2000
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1998c66677d69d960800000000000000
+      internalID: 7627247803515570577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_wind_up_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2000
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7eaec579ec4d110800000000000000
+      internalID: 1284878943201716132
       vertices: []
       indices: 
       edges: []
