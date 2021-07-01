@@ -32,6 +32,7 @@ public class AttackPerformer : MonoBehaviour // sits on Enemy
     }
     public void Perform(string trigger, float dmg, bool stagger, string target_tag)
     {
+        Debug.Log("Perform action performer "+trigger, this);
         dmg_tag = target_tag;
         if (trigger != "")
         {
