@@ -11,9 +11,14 @@ public class ColorChange3DTexture : ColorChange
 
     protected override void showColor(int song)
     {
-        if (rend is null)
+        if (rend == null)
         {
             rend = GetComponentInChildren<Renderer>();
+        }
+
+        if (rend == null)
+        {
+            Debug.LogError("CholorChange couldnt find a renderer :(", this);
         }
         rend.sharedMaterial.SetTexture("_MainTex", textures[song % textures.Length]);
     }

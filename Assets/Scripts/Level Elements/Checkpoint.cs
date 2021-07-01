@@ -6,9 +6,24 @@ using UnityEngine;
 public class Checkpoint : Interactable
 {
     private static Vector3 activeSpawnPoint;
+    [SerializeField] private GameObject feedbackLight;
+    [SerializeField] private ParticleSystem feedbackParticleSystem;
+
+    private void Start()
+    {
+        FeedbackInactive();
+    }
+
     protected override void DoSomething()
     {
+        Debug.Log("Checkpoint used");
+        var checkpoints = FindObjectsOfType<Checkpoint>();
+        foreach (var s in checkpoints)
+        {
+            s.FeedbackInactive(); // Deactivate Feedback for previous Checkpoint
+        }
         activeSpawnPoint = this.transform.position;
+        FeedbackActive(); // Activate Feedback for Current Checkpoint
     }
 
     public static Vector3 getSpwanPosition()
@@ -21,6 +36,17 @@ public class Checkpoint : Interactable
     //but forget to also move the spawn checkpoint. So the player sets its first position after starting the level to be the first spawn position.
     {
         activeSpawnPoint = position;
+    }
+
+    private void FeedbackActive()
+    {
+        feedbackLight.SetActive(true);
+        feedbackParticleSystem.Play();
+    }
+    private void FeedbackInactive()
+    {
+        feedbackLight.SetActive(false);
+        feedbackParticleSystem.Stop();
     }
 
 }

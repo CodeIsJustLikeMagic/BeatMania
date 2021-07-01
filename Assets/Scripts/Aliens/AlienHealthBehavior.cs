@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,5 +51,10 @@ public class AlienHealthBehavior : BaseHealthBehavior
                 _attackBehavior.Stagger();
             }
         }
+    }
+
+    public override void ApplyHeal(float dmg)
+    {
+        throw new NotImplementedException();
     }
 }

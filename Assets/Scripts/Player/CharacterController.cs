@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class CharacterController : BaseHealthBehavior
@@ -16,6 +17,8 @@ public class CharacterController : BaseHealthBehavior
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_WallCheck;                             //Posicion que controla si el personaje toca una pared
+
+    [SerializeField] private ParticleSystem boostParticleSystem;
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
@@ -243,6 +246,7 @@ public class CharacterController : BaseHealthBehavior
                     m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
                     animator.SetBool("IsDoubleJumping", true);
                     BeatIndicatorFeedback.instance.Success();
+                    boostParticleSystem.Play();
                 }
                 else
                 {
@@ -378,6 +382,15 @@ public class CharacterController : BaseHealthBehavior
             {
                 StartCoroutine(DashCooldown());
             }
+        }
+    }
+
+    public override void ApplyHeal(float dmg)
+    {
+        life += dmg;
+        if (life > maxlife) // make sure we cant go beyond maxhealth
+        {
+            life = maxlife;
         }
     }
 

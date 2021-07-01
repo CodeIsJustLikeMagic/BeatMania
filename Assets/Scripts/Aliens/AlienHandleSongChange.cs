@@ -41,6 +41,12 @@ public class AlienHandleSongChange : VibingEntity
 
     public override void OnSongChange(int song)
     {
+        foreach (var b in behaviors)
+        {
+            b.enabled = false; // when script is disabled it's update function isnt called anymore. Other functions can still be called.
+        }
+
+        behaviors[song % behaviors.Length].enabled = true;
         actionMethod = behaviors[song % behaviors.Length].PerformBehaviorOnBeat;
         GetComponent<AlienHealthBehavior>().OnSongChange(song);
         GetComponent<WalkBehavior>().Stop(); // dont keep walking when song is changed.
