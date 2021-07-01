@@ -23,6 +23,120 @@ TextureImporter:
   - first:
       213: 3881836704664041191
     second: Attack_charge_up_6
+  - first:
+      213: 5967125391378607217
+    second: Attack_charge_up_0
+  - first:
+      213: 2192356414801520073
+    second: Attack_charge_up_1
+  - first:
+      213: 7050483642798264921
+    second: Attack_charge_up_2
+  - first:
+      213: -1891544132672746734
+    second: Attack_charge_up_3
+  - first:
+      213: 75681040977347301
+    second: Attack_charge_up_4
+  - first:
+      213: 6162016603415759008
+    second: Attack_charge_up_5
+  - first:
+      213: -3575093899419467855
+    second: Attack_charge_up_6
+  - first:
+      213: -2137348454518577144
+    second: Attack_charge_up_7
+  - first:
+      213: 694682355497394071
+    second: Attack_charge_up_8
+  - first:
+      213: -6503672312340548806
+    second: Attack_charge_up_9
+  - first:
+      213: -6753113219805546298
+    second: Attack_charge_up_10
+  - first:
+      213: -464057981153893173
+    second: Attack_charge_up_11
+  - first:
+      213: 2702379397472181754
+    second: Attack_charge_up_12
+  - first:
+      213: -7552490829246205697
+    second: Attack_charge_up_13
+  - first:
+      213: 3528802336986975988
+    second: Attack_charge_up_14
+  - first:
+      213: 6900636634030906603
+    second: Attack_charge_up_15
+  - first:
+      213: -1476728952013821276
+    second: Attack_charge_up_16
+  - first:
+      213: -7125375944497453688
+    second: Attack_charge_up_17
+  - first:
+      213: 5832555006868282227
+    second: Attack_charge_up_18
+  - first:
+      213: -8200875032744146293
+    second: Attack_charge_up_19
+  - first:
+      213: 346233029993034916
+    second: Attack_charge_up_20
+  - first:
+      213: 146569554109261061
+    second: Attack_charge_up_21
+  - first:
+      213: -6658036858251412041
+    second: Attack_charge_up_7
+  - first:
+      213: -1233842887154376074
+    second: Attack_charge_up_8
+  - first:
+      213: 6704674797285428327
+    second: Attack_charge_up_9
+  - first:
+      213: 8317127403605441486
+    second: Attack_charge_up_10
+  - first:
+      213: -7409277915228387768
+    second: Attack_charge_up_11
+  - first:
+      213: -5150152906305311778
+    second: Attack_charge_up_12
+  - first:
+      213: -2259492080584089514
+    second: Attack_charge_up_13
+  - first:
+      213: -3206052048983066886
+    second: Attack_charge_up_14
+  - first:
+      213: -8679502100325714738
+    second: Attack_charge_up_15
+  - first:
+      213: -3923823148731824689
+    second: Attack_charge_up_16
+  - first:
+      213: -6961901321070568323
+    second: Attack_charge_up_17
+  - first:
+      213: 4153811574840648577
+    second: Attack_charge_up_18
+  - first:
+      213: 7804540395941745333
+    second: Attack_charge_up_19
+  - first:
+      213: 8934679414519665571
+    second: Attack_charge_up_20
+  - first:
+      213: 3778204960813251338
+    second: Attack_charge_up_21
+  - first:
+      213: 8264486065380359861
+    second: Attack_charge_up_22
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,18 +226,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1200
+        y: 2400
         width: 2000
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70d8bad7ac17f8320800000000000000
-      internalID: 2562391827502828807
+      spriteID: 17ce553adec7fc250800000000000000
+      internalID: 5967125391378607217
       vertices: []
       indices: 
       edges: []
@@ -133,18 +247,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2000
-        y: 1200
+        y: 2400
         width: 2000
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e3958a5100a15a80800000000000000
-      internalID: -8479820695687818271
+      spriteID: 9c52b4d2b80dc6e10800000000000000
+      internalID: 2192356414801520073
       vertices: []
       indices: 
       edges: []
@@ -154,18 +268,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4000
-        y: 1200
+        y: 2400
         width: 2000
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e366afd2f65d341e0800000000000000
-      internalID: -2214691918246681026
+      spriteID: 95251bf948958d160800000000000000
+      internalID: 7050483642798264921
       vertices: []
       indices: 
       edges: []
@@ -174,19 +288,19 @@ TextureImporter:
       name: Attack_charge_up_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 613
+        x: 6000
+        y: 2400
         width: 2000
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b5f39ab09caad2e0800000000000000
-      internalID: -2100176538609388103
+      spriteID: 21b011712a2efb5e0800000000000000
+      internalID: -1891544132672746734
       vertices: []
       indices: 
       edges: []
@@ -195,19 +309,19 @@ TextureImporter:
       name: Attack_charge_up_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 600
+        x: 8000
+        y: 2400
         width: 2000
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d11ff0c073ea9a350800000000000000
-      internalID: 6028541127660925213
+      spriteID: 5e2cfab718fdc0100800000000000000
+      internalID: 75681040977347301
       vertices: []
       indices: 
       edges: []
@@ -216,19 +330,19 @@ TextureImporter:
       name: Attack_charge_up_5
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 600
+        x: 0
+        y: 1800
         width: 2000
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69f9f8cff35358a50800000000000000
-      internalID: 6522678184252514198
+      spriteID: 0a8c7aaf371e38550800000000000000
+      internalID: 6162016603415759008
       vertices: []
       indices: 
       edges: []
@@ -237,19 +351,355 @@ TextureImporter:
       name: Attack_charge_up_6
       rect:
         serializedVersion: 2
-        x: 13
-        y: 0
+        x: 2000
+        y: 1800
         width: 2000
         height: 600
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e6b2918aed0fd530800000000000000
-      internalID: 3881836704664041191
+      spriteID: 1bfbf664a07b26ec0800000000000000
+      internalID: -3575093899419467855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_7
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1800
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd7772d0c6e993a0800000000000000
+      internalID: -6658036858251412041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_8
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 1800
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672658a6e6280eee0800000000000000
+      internalID: -1233842887154376074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_9
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 1800
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c46ba843acb0d50800000000000000
+      internalID: 6704674797285428327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecbb19bbe4f5c6370800000000000000
+      internalID: 8317127403605441486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_11
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1200
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8464aacfdf4fc2990800000000000000
+      internalID: -7409277915228387768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_12
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1200
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edbe9b8e73bf688b0800000000000000
+      internalID: -5150152906305311778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_13
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 1200
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6502afb8ceba4a0e0800000000000000
+      internalID: -2259492080584089514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_14
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 1200
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af673f8d5a0d183d0800000000000000
+      internalID: -3206052048983066886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec434d263d63c8780800000000000000
+      internalID: -8679502100325714738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_16
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 600
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc58262b2a7cb89c0800000000000000
+      internalID: -3923823148731824689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_17
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 600
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c144c52ab526f90800000000000000
+      internalID: -6961901321070568323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_18
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 600
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18368469e9d45a930800000000000000
+      internalID: 4153811574840648577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_19
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 600
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b25b4fc32c4f4c60800000000000000
+      internalID: 7804540395941745333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a3907ce69b5efb70800000000000000
+      internalID: 8934679414519665571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_21
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b74e1e461ee6430800000000000000
+      internalID: 3778204960813251338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_charge_up_22
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 2000
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be79221a4a51b270800000000000000
+      internalID: 8264486065380359861
       vertices: []
       indices: 
       edges: []

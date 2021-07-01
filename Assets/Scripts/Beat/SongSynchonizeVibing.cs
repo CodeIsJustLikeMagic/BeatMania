@@ -116,6 +116,7 @@ public class SongSynchonizeVibing : MonoBehaviour
 
     public void NotifyVibingEntities(float jitter_offset)
     {
+        Debug.Log("Notify Vibing Entity");
         float bps = clock.bpm / 60;
         foreach (VibingEntity e in vibingEntities)
         {
