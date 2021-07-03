@@ -12,22 +12,52 @@ public class AlienHealthBehavior : BaseHealthBehavior
     [SerializeField]
     private bool[] canTakeDamage = {true, true, true};
 
+    private SkinnedMeshRenderer visual;
+    private Collider collider;
+
+    private float maxHealth = 10f;
     private AttackBehavior _attackBehavior;
+    private AlienHandleSongChange _alienHandleSongChange;
 
     private bool _vulnerable = true;
+    private Vector3 _respawnLocation;
 
-    void Start()
+    void Awake()
     {
+        maxHealth = Health;
         _attackBehavior = GetComponent<AttackBehavior>();
+        _alienHandleSongChange = GetComponent<AlienHandleSongChange>();
+        visual = GetComponentInChildren<SkinnedMeshRenderer>();
+        collider = GetComponent<Collider>();
+        _respawnLocation = transform.position;
     }
     public void OnSongChange(int song)
     {
+        // revive if we were dead.
+        if (is_dead)
+        {
+            Revive();
+        }
         _vulnerable = canTakeDamage[song % canTakeDamage.Length];
     }
 
+    private bool is_dead = false;
     private void Die()
     {
-        Destroy(gameObject);
+        is_dead = true;
+        visual.enabled = false;
+        collider.enabled = false;
+    }
+
+    private void Revive()
+    {
+        is_dead = false;
+        Health = maxHealth;
+        _vulnerable = true;
+        _alienHandleSongChange.is_dead = false;
+        visual.enabled = true;
+        collider.enabled = true;
+        transform.position = _respawnLocation;
     }
 
     public override void ApplyDamage(float dmg, bool stagger, Vector3 pos)
@@ -42,7 +72,7 @@ public class AlienHealthBehavior : BaseHealthBehavior
                 gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D.SetTrigger("Die");
                 //float bps = ((AudioHelmClock)FindObjectOfType(typeof(AudioHelmClock))).bpm / 60;
                 // not sure if death animation should be in beat
-                _attackBehavior.suppress = true; //stop attackbehavior from starting attacks
+                _alienHandleSongChange.is_dead = true; //stop attackbehavior from starting attacks
                 Invoke("Die", deathAnimationLength);
                 _vulnerable = false; // dont take damage until we die. Stops us from reseting Die animation.
             }

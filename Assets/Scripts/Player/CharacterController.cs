@@ -373,7 +373,7 @@ public class CharacterController : BaseHealthBehavior
             life -= damage;
             Vector2 damageDir = Vector3.Normalize(transform.position - position) * 40f;
             m_Rigidbody.velocity = Vector2.zero;
-            m_Rigidbody.AddForce(damageDir * 4);
+            m_Rigidbody.AddForce(damageDir * 2);
             if (life <= 0)
             {
                 StartCoroutine(WaitToDead());

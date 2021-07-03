@@ -249,7 +249,6 @@ MonoBehaviour:
   - {fileID: 4259501715017500202}
   - {fileID: 1346815261338818098}
   - {fileID: 7799048972637744258}
-  enemyAnimator2D: {fileID: 0}
   enemyAnimator3D: {fileID: 7577285393757083036}
 --- !u!114 &2895056999091280479
 MonoBehaviour:
@@ -324,7 +323,6 @@ MonoBehaviour:
   dmgToPlayer: 1
   only3D: 0
   attack_range: 2.4
-  suppress: 0
 --- !u!114 &4687517011736086013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +338,8 @@ MonoBehaviour:
   Health: 10
   deathAnimationLength: 2
   canTakeDamage: 010101
+  visual: {fileID: 0}
+  collider: {fileID: 136878745527715396}
 --- !u!114 &2752039697436020540
 MonoBehaviour:
   m_ObjectHideFlags: 0

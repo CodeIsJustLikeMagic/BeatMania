@@ -24,7 +24,6 @@ public class AttackPerformer : VibingEntity // sits on Enemy
 
     public override void OnBeat(float jitter_delay, float bps)
     {
-        Debug.Log("AttackPerformer On Beat");
         anim.SetFloat("Speed", bps);
     }
 
@@ -34,9 +33,9 @@ public class AttackPerformer : VibingEntity // sits on Enemy
 
     public void Perform(string trigger, float dmg, bool stagger, string target_tag)
     {
-        Debug.Log("Perform action performer "+trigger, this);
+        //Debug.Log("Perform action performer "+trigger, this);
         dmg_tag = target_tag;
-        if (trigger == "Attack")
+        if (trigger != "")
         {
             anim.SetTrigger(trigger);
             this.dmg = dmg;

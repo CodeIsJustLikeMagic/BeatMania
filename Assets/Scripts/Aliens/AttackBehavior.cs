@@ -27,15 +27,8 @@ public class AttackBehavior : AlienBehavior
         attackPerformer = gameObject.GetComponentInChildren<AttackPerformer>();
     }
     
-    [Tooltip("stops this Behavior from being performed. ")]
-    public bool suppress = false; // Alien gets supressed before it dies So it doesnt interrupt its attack animation.
-    //essentally used when skip isnt enough.
     public override void PerformBehaviorOnBeat(float bps)
     {
-        if (suppress)
-        {
-            return;
-        }
         WalkState s = _walkBehavior.CheckForEnemyInRange(bps, attack_range, true, true);
         if (s == WalkState.See_And_In_Range && !skip)
         {

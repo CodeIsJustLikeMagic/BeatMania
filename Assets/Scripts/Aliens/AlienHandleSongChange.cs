@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +8,6 @@ public class AlienHandleSongChange : VibingEntity
     [SerializeField]
     private AlienBehavior[] behaviors; //order of behaviors dictates which berhavior is performed in which song
     
-    
-
-    public Animator enemyAnimator2D;
     public Animator enemyAnimator3D;
 
     private void Awake()
@@ -31,11 +29,16 @@ public class AlienHandleSongChange : VibingEntity
             Debug.LogError("AlienHandleSongChange failed to Start Action Invoke beacause Time-BeatStart is negative", this);
         }
     }
-
+    
+    [NonSerialized] public bool is_dead = false; // Alien gets supressed before it dies So it doesnt interrupt its attack animation.
+    //essentally used when skip isnt enough.
     private static float bps;
     private void ActionOnBeat()
     {
-        actionMethod(bps);
+        if (!is_dead)
+        {
+            actionMethod(bps);
+        }
     }
     
 

@@ -20,7 +20,6 @@ public class HealPerformer : VibingEntity
 
     public override void OnBeat(float jitter_delay, float bps)
     {
-        Debug.Log("AttackPerformer On Beat");
         anim.SetFloat("Speed", bps);
     }
 
