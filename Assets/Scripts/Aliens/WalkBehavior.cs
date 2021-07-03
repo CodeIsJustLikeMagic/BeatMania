@@ -53,7 +53,7 @@ public class WalkBehavior : MonoBehaviour
                     player.transform.position);
                 //Debug.Log("Distance to payer is "+distancePlayer);
             }
-            if (distancePlayer <= action_range) // chase playerv
+            if (distancePlayer <= action_range) // chase player
             {
                 if (walk_if_not_in_range)
                 {
@@ -92,15 +92,15 @@ public class WalkBehavior : MonoBehaviour
     /// <returns></returns>
     public bool CanSee(GameObject player) //Raycast to see if we can hit
     {
-        // see though some materials. here ignoreprojectiles and water. 
-        var ignoreprojectiles = 11; 
-        var water = 4;
+        // only see player and ground
+        var terrain_layer = 14;
+        var player_layer = 9;
 
-        var layermask1 = 1 << ignoreprojectiles;
-        var layermask2 = 1 << water;
+        var layermask1 = 1 << terrain_layer;
+        var layermask2 = 1 << player_layer;
         
         var finalmask = layermask1 | layermask2; //only water and ignoreprojectiles
-        finalmask = ~finalmask; //everything except water and ignoreprojectiles
+        //finalmask = ~finalmask; //everything except water and ignoreprojectiles
 
         Vector3 fromPosition = this.gameObject.transform.position;
         fromPosition.y = fromPosition.y + 1;
@@ -108,7 +108,6 @@ public class WalkBehavior : MonoBehaviour
         toPosition.y = toPosition.y + 1;
         Vector3 direction = toPosition - fromPosition;
         
-
         RaycastHit hit;
         if (Physics.Raycast(fromPosition, direction, out hit, vision_range, finalmask)){
             if(hit.collider.gameObject.tag == "Player")

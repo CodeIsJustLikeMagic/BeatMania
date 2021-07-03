@@ -269,7 +269,7 @@ MonoBehaviour:
   groundForwardCheck: {fileID: 4985068284955325174}
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 16385
   ignoreGroundCheck: 0
 --- !u!114 &1346815261338818098
 MonoBehaviour:
@@ -338,8 +338,6 @@ MonoBehaviour:
   Health: 10
   deathAnimationLength: 2
   canTakeDamage: 010101
-  visual: {fileID: 0}
-  collider: {fileID: 136878745527715396}
 --- !u!114 &2752039697436020540
 MonoBehaviour:
   m_ObjectHideFlags: 0
