@@ -31,7 +31,7 @@ public class AttackPerformer : VibingEntity // sits on Enemy
     private float dmg;
     private bool stagger;
 
-    public void Perform(string trigger, float dmg, bool stagger, string target_tag)
+    public void Perform(string trigger, float dmg, bool stagger, string target_tag, bool resync = false)
     {
         //Debug.Log("Perform action performer "+trigger, this);
         dmg_tag = target_tag;
@@ -40,6 +40,13 @@ public class AttackPerformer : VibingEntity // sits on Enemy
             anim.SetTrigger(trigger);
             this.dmg = dmg;
             this.stagger = stagger;
+        }
+
+        if (resync)
+        {
+            Debug.Log("resync the animation");
+            int stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
+            anim.Play(stateName, 0, SongSynchonizeVibing.instance.GetJitterOffset());
         }
     }
 

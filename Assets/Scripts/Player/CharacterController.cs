@@ -19,7 +19,7 @@ public class CharacterController : BaseHealthBehavior
     [SerializeField] private Transform m_WallCheck;                             //Posicion que controla si el personaje toca una pared
 
     [SerializeField] private ParticleSystem boostParticleSystem;
-
+    [SerializeField] private ParticleSystem booostFailParticleSystem;
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
     private Rigidbody m_Rigidbody;
@@ -225,7 +225,7 @@ public class CharacterController : BaseHealthBehavior
                 {
                     canDoubleJump = true;
                     BeatIndicatorFeedback.instance.Success();
-                    
+                    boostParticleSystem.Play();
                 }
                 else
                 {
@@ -251,6 +251,7 @@ public class CharacterController : BaseHealthBehavior
                 else
                 {
                     BeatIndicatorFeedback.instance.Failed();
+                    booostFailParticleSystem.Play();
                 }
             }
             else if (m_IsWall && !m_Grounded)

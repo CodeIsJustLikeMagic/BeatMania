@@ -121,7 +121,7 @@ public class ComboAttack : MonoBehaviour
             if (maxCharge <= chargeLevel)
             {
                 fullyCharged = true;
-                attackPerformer2D.Perform("charge", 0, false, targetEntity);
+                attackPerformer2D.Perform("charge", 0, false, targetEntity, true);
             }
         }
     }

@@ -114,6 +114,11 @@ public class SongSynchonizeVibing : MonoBehaviour
         }
     }
 
+    public float GetJitterOffset()
+    {
+        float sequencer_position_jitter = (float)BeatGiver.GetSequencerPosition()%1;
+        return -(0.125f * delay_modifier_per_song[currentsong]) + (sequencer_position_jitter / 4);
+    }
     public void NotifyVibingEntities(float jitter_offset)
     {
         Debug.Log("Notify Vibing Entity");
