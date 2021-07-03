@@ -8,10 +8,8 @@ using UnityEngine;
 public class AttackBehavior : AlienBehavior
 {
     [SerializeField]
-    private string[] combo3D = { "Charge", "Attack", "Charge", "Attack", "Charge", "Attack", "Attack", "Attack", "Wait", "Wait" };
-
-    [SerializeField]
-    private string[] comboPerformer = { "","Attack1","","Attack2","","Attack3","Attack4" ,"Attack5", "",""};
+    private string[] combo = { "Charge", "Attack", "Charge", "Attack", "Charge", "Attack", "Attack", "Attack", "Wait", "Wait" };
+    
     //  this combo array could be replaced by an array of AttackStructs. That way we can save the dmg of the spell and if enemy can be staggered during it.
     public float dmgToPlayer = 1f;
     private Animator enemyAnimator3D;
@@ -58,7 +56,7 @@ public class AttackBehavior : AlienBehavior
 
     private void Awake()
     {
-        maxCombo = combo3D.Length;
+        maxCombo = combo.Length;
     }
 
     //perform attack/animation
@@ -70,15 +68,15 @@ public class AttackBehavior : AlienBehavior
     //when you want it to get staggered from mutliple beats or something.
     private void Attack()//set up with simple combo same as player but without being able to miss beats
     {
-        string move3D = combo3D[combocounter];
+        string move = combo[combocounter];
         if (!only3D)
         {
-            enemyAnimator3D.SetTrigger(move3D);
-            attackPerformer.Perform(comboPerformer[combocounter], 1, false, "Player");
+            enemyAnimator3D.SetTrigger(move);
+            attackPerformer.Perform(move, 1, false, "Player");
         }
         else
         {
-            attackPerformer.Perform(move3D, 1, false, "Player");
+            attackPerformer.Perform(move, 1, false, "Player");
         }
         
         

@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class HealBehavior : AlienBehavior
 {
-    private Animator enemyAnimator2D;
+    [SerializeField] private float heal_by = 1;
+    [SerializeField] int HealEveryXBeats = 4;
+    private HealPerformer _healPerformer;
     private Animator enemyAnimator3D;
     private void Start()
     {
-        enemyAnimator2D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator2D;
+        _healPerformer = gameObject.GetComponentInChildren<HealPerformer>();
+        if (_healPerformer == null)
+        {
+            Debug.LogError("Enemy has no heal behavior. It is sad.", this);
+        }
         enemyAnimator3D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
     }
 
@@ -30,7 +36,7 @@ public class HealBehavior : AlienBehavior
         }
     }
 
-    public int HealEveryXBeats = 4;
+
     private int cd = 0;
 
     private bool PlayerIsInRange()
@@ -40,10 +46,7 @@ public class HealBehavior : AlienBehavior
 
     private void Heal()
     {
-        if (enemyAnimator2D != null)
-        {
-            enemyAnimator2D.SetTrigger("Heal");
-        }
+        _healPerformer.Heal("Heal", heal_by, "Player");
         enemyAnimator3D.SetTrigger("Heal");
         //heal the player
     }
