@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class damageFeedback : MonoBehaviour
+public class DamageFeedback : MonoBehaviour
 {
     public GameObject normalModel;
     public GameObject damageModel;
