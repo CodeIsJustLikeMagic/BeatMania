@@ -121,10 +121,20 @@ public class WalkBehavior : MonoBehaviour
 
     private void RotateToPlayer()
     {
-        Vector3 targetPostition = new Vector3( player.transform.position.x, 
+        Vector3 targetPosition = new Vector3( player.transform.position.x, 
             this.transform.position.y, 
             player.transform.position.z ) ;
-        this.transform.LookAt( targetPostition );
+
+        Vector3 us_to_target = targetPosition - transform.position;
+        Vector3 lookDirection = transform.TransformDirection(Vector3.forward);
+
+        if (Vector3.Dot(lookDirection, us_to_target) < 0)
+        {
+            TurnAround();
+        }
+        
+        
+        //this.transform.LookAt( targetPosition );// no. you need to scale instead
         //if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
         //{
         //    transform.position += transform.forward* walking_speed* Time.deltaTime;
@@ -217,6 +227,15 @@ public class WalkBehavior : MonoBehaviour
     private void TurnAround()
     {
         transform.RotateAround(transform.transform.position, Vector3.up, 180);
+        Flip();
+    }
+    
+    private void Flip()
+    {
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
     private void RandomTurn()
