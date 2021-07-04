@@ -2071,6 +2071,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4687517011736086013, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: height
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6112746983863161654, guid: ea2f84a68524d5049827b00fabc3956c,
         type: 3}
       propertyPath: m_Size.y
@@ -2111,6 +2116,11 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: dba5f34c2721cff4c85196ed664bf574, type: 3}
+    - target: {fileID: 7903706047822177681, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8777473816568637907, guid: ea2f84a68524d5049827b00fabc3956c,
         type: 3}
       propertyPath: m_Name

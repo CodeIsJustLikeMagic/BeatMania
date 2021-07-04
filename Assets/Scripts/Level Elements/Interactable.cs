@@ -4,21 +4,17 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    bool playerinside = false;
-    [SerializeField] protected ProximityText proximityText;
+
+    [SerializeField] protected string interactionText = "";
     
-
-    private void Start()
-    {
-        proximityText = GetComponentInChildren<ProximityText>();
-    }
-
+    bool playerinside = false;
     private void Update()
     {
         if (playerinside)
         {
             if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.X))
             {
+                InteractionHint.instance.Hide();
                 DoSomething();
             }
         }
@@ -31,6 +27,7 @@ public abstract class Interactable : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             playerinside = true;
+            InteractionHint.instance.Show(interactionText);
         }
     }
 
@@ -39,6 +36,7 @@ public abstract class Interactable : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             playerinside = false;
+            InteractionHint.instance.Hide();
         }
     }
 }

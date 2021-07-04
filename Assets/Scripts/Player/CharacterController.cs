@@ -18,8 +18,10 @@ public class CharacterController : BaseHealthBehavior
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_WallCheck;                             //Posicion que controla si el personaje toca una pared
 
-    [SerializeField] private ParticleSystem boostParticleSystem;
-    [SerializeField] private ParticleSystem booostFailParticleSystem;
+    [SerializeField] private ParticleSystem jumpParticleSystem;
+    [SerializeField] private ParticleSystem jumpFailParticleSystem;
+    [SerializeField] private ParticleSystem dashParticleSystem;
+    
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
     private Rigidbody m_Rigidbody;
@@ -96,7 +98,7 @@ public class CharacterController : BaseHealthBehavior
                 OnLandEvent.Invoke();
                 //if (!m_IsWall && !isDashing)
                 //    particleJumpDown.Play();
-                canDoubleJump = true;
+                //canDoubleJump = true;
                 touchedLeftWall = false;
                 touchedRightWall = false;
                 if (m_Rigidbody.velocity.y < 0f)
@@ -225,7 +227,7 @@ public class CharacterController : BaseHealthBehavior
                 {
                     canDoubleJump = true;
                     BeatIndicatorFeedback.instance.Success();
-                    boostParticleSystem.Play();
+                    jumpParticleSystem.Play();
                 }
                 else
                 {
@@ -246,12 +248,12 @@ public class CharacterController : BaseHealthBehavior
                     m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
                     animator.SetBool("IsDoubleJumping", true);
                     BeatIndicatorFeedback.instance.Success();
-                    boostParticleSystem.Play();
+                    jumpParticleSystem.Play();
                 }
                 else
                 {
                     BeatIndicatorFeedback.instance.Failed();
-                    booostFailParticleSystem.Play();
+                    jumpFailParticleSystem.Play();
                 }
             }
             else if (m_IsWall && !m_Grounded)
@@ -340,6 +342,7 @@ public class CharacterController : BaseHealthBehavior
     IEnumerator DashCooldown()
     {
         animator.SetBool("IsDashing", true);
+        dashParticleSystem.Play();
         isDashing = true;
         canDash = false;
         yield return new WaitForSeconds(0.1f);

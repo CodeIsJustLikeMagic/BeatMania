@@ -6,7 +6,7 @@ using AudioHelm;
 
 public class AlienHealthBehavior : BaseHealthBehavior
 {
-    [SerializeField] private float Health = 10f;
+    [field: SerializeField] public float health { get; private set; } = 10f;
     [SerializeField] private float deathAnimationLength = 2f;
     [Tooltip("For each song: Set if we can take damage or not")]
     [SerializeField]
@@ -22,14 +22,18 @@ public class AlienHealthBehavior : BaseHealthBehavior
     private bool _vulnerable = true;
     private Vector3 _respawnLocation;
 
+    public GameObject UIPrefab;
+    [SerializeField] private float height;
+    [SerializeField] EnemyUI enemyUi;
     void Awake()
     {
-        maxHealth = Health;
+        maxHealth = health;
         _attackBehavior = GetComponent<AttackBehavior>();
         _alienHandleSongChange = GetComponent<AlienHandleSongChange>();
         visual = GetComponentInChildren<SkinnedMeshRenderer>();
         collider = GetComponent<Collider>();
         _respawnLocation = transform.position;
+        
     }
     public void OnSongChange(int song)
     {
@@ -39,6 +43,14 @@ public class AlienHealthBehavior : BaseHealthBehavior
             Revive();
         }
         _vulnerable = canTakeDamage[song % canTakeDamage.Length];
+        if (enemyUi == null)
+        {
+            GameObject _uiGo = Instantiate(UIPrefab);
+            //_uiGo.SendMessage("SetTarget", this.gameObject, SendMessageOptions.RequireReceiver);
+            enemyUi = _uiGo.GetComponent<EnemyUI>();
+            enemyUi.SetTarget(this.gameObject, height);
+        }
+        enemyUi.SetVisible(_vulnerable);
     }
 
     private bool is_dead = false;
@@ -47,12 +59,13 @@ public class AlienHealthBehavior : BaseHealthBehavior
         is_dead = true;
         visual.enabled = false;
         collider.enabled = false;
+        enemyUi.SetVisible(false);
     }
 
     private void Revive()
     {
         is_dead = false;
-        Health = maxHealth;
+        health = maxHealth;
         _vulnerable = true;
         _alienHandleSongChange.is_dead = false;
         visual.enabled = true;
@@ -64,8 +77,8 @@ public class AlienHealthBehavior : BaseHealthBehavior
     {
         if (_vulnerable)
         {
-            Health -= dmg;
-            if (Health <= 0.3)
+            health -= dmg;
+            if (health <= 0.3)
             {
                 Debug.Log("Die");
                 //Play death animation

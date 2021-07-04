@@ -18,6 +18,11 @@ public class Songtree : Interactable
         {
             feedback_light.SetActive(true);
             feedback_particles.Play();
+            interactionText = "change current song";
+        }
+        else
+        {
+            interactionText = "learn new song";
         }
     }
 
@@ -31,7 +36,7 @@ public class Songtree : Interactable
         { // first songtree Interaction. Unlock song and change to it.
             UnlockedSongs.instance.UnlockSong(unlocksSong);
             SongchangeSystem.instance.SongChange(unlocksSong);
-            proximityText.SetText("Press f to change current Song");
+            interactionText = "change current song";
             feedback_light.SetActive(true);
             feedback_particles.Play();
         }

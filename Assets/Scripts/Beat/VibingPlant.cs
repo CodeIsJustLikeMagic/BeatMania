@@ -19,6 +19,15 @@ public class VibingPlant : VibingEntity
     private int stateName;
     public override void OnBeat(float jitter_delay, float bps)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            anim.enabled = false;
+            return;
+        }
+        else
+        {
+            anim.enabled = true;
+        }
         stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
         anim.Play(stateName, 0, jitter_delay);
         //restart animationNow

@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - GroundandWall
   - changeSprite
+  - VirusCloud
   layers:
   - Default
   - TransparentFX
@@ -19,12 +20,12 @@ TagManager:
   - 
   - 
   - 
-  - DoNotRender
+  - Player
   - Not Ground
-  - VisibleNotGround
+  - 
   - Post Processing
   - Background
-  - 
+  - Ground
   - 
   - 
   - 
