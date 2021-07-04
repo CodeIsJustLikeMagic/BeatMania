@@ -64,6 +64,10 @@ public class AttackBehavior : AlienBehavior
     private void Attack()//set up with simple combo same as player but without being able to miss beats
     {
         string move = combo[combocounter];
+        if (move != "Charge" && move != "Wait")
+        {
+            _walkBehavior.KeepMoving();
+        }
         if (!only3D)
         {
             enemyAnimator3D.SetTrigger(move);

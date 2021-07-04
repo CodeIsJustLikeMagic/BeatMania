@@ -135,7 +135,7 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.8581553, g: 0.8081876, b: 0.44862795, a: 1}
+    - _Color: {r: 0.5515275, g: 0.96785504, b: 0.98326993, a: 1}
     - _DabsScale: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.05660379, g: 0.05633679, b: 0.05633679, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

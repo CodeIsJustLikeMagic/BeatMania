@@ -183,6 +183,11 @@ public class WalkBehavior : MonoBehaviour
         // dont set an Animation Trigger because the Action will do that.
     }
 
+    public void KeepMoving()
+    {
+        move = true;
+    }
+
     private void WalkAround()
     {
         anim.SetTrigger("Walk");

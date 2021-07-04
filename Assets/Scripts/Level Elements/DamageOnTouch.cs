@@ -12,7 +12,7 @@ public class DamageOnTouch : MonoBehaviour
         if (other.CompareTag(dmg_tag))
         {
             BaseHealthBehavior hp = other.gameObject.GetComponent<BaseHealthBehavior>();
-            hp.ApplyDamage(dmg, staggers, transform.position); //apply damage to the player on touch
+            hp.ApplyDamage(dmg, staggers, transform.position, forceMulti: 10f); //apply damage to the player on touch
         }
     }
     private void OnCollisionEnter(Collision collision)

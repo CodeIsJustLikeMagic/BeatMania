@@ -77,7 +77,7 @@ public class AlienHealthBehavior : BaseHealthBehavior
         _alienHandleSongChange.enemyAnimator3D.SetTrigger("Wait");
     }
 
-    public override void ApplyDamage(float dmg, bool stagger, Vector3 pos)
+    public override void ApplyDamage(float dmg, bool stagger, Vector3 pos, float forceMulti= 4f)
     {
         if (_vulnerable)
         {

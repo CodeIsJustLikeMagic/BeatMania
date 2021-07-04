@@ -370,7 +370,7 @@ public class CharacterController : BaseHealthBehavior
         m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
     }
 
-    public override void ApplyDamage(float damage, bool stagger, Vector3 position)
+    public override void ApplyDamage(float damage, bool stagger, Vector3 position, float forceMulti= 1f)
     {// implements Base Health Behavior. gets called when AttackPerformer hits something
         //Debug.Log("Player apply damage");
         if (!invincible)
@@ -379,7 +379,7 @@ public class CharacterController : BaseHealthBehavior
             life -= damage;
             Vector2 damageDir = Vector3.Normalize(transform.position - position) * 40f;
             m_Rigidbody.velocity = Vector2.zero;
-            m_Rigidbody.AddForce(damageDir * 2);
+            m_Rigidbody.AddForce(damageDir * forceMulti);
             if (life <= 0)
             {
                 StartCoroutine(WaitToDead());
