@@ -31,14 +31,24 @@ public class AlienHandleSongChange : VibingEntity
     }
     
     [NonSerialized] public bool is_dead = false; // Alien gets supressed before it dies So it doesnt interrupt its attack animation.
+
+    [NonSerialized] public int skip = 0;
     //essentally used when skip isnt enough.
     private static float bps;
     private void ActionOnBeat()
     {
-        if (!is_dead)
+        if (is_dead) // 2 ways to stop alien from acting. Either it is dead and needs to be revived to act again
         {
-            actionMethod(bps);
+            return;
         }
+
+        if (skip > 0) // or it skips a number of beats and starts to act again. For stagger
+        {
+            skip--;
+            return;
+        }
+        
+        actionMethod(bps);
     }
     
 

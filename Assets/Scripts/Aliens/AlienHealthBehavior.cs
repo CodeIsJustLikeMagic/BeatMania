@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AudioHelm;
+using Random = System.Random;
 
 public class AlienHealthBehavior : BaseHealthBehavior
 {
@@ -60,6 +61,7 @@ public class AlienHealthBehavior : BaseHealthBehavior
         visual.enabled = false;
         collider.enabled = false;
         enemyUi.SetVisible(false);
+        GetComponent<Rigidbody>().useGravity = false;
     }
 
     private void Revive()
@@ -71,6 +73,8 @@ public class AlienHealthBehavior : BaseHealthBehavior
         visual.enabled = true;
         collider.enabled = true;
         transform.position = _respawnLocation;
+        GetComponent<Rigidbody>().useGravity = true;
+        _alienHandleSongChange.enemyAnimator3D.SetTrigger("Wait");
     }
 
     public override void ApplyDamage(float dmg, bool stagger, Vector3 pos)
@@ -89,8 +93,9 @@ public class AlienHealthBehavior : BaseHealthBehavior
                 Invoke("Die", deathAnimationLength);
                 _vulnerable = false; // dont take damage until we die. Stops us from reseting Die animation.
             }
-            else
+            else if(stagger)
             {
+                _alienHandleSongChange.skip = 2; // get locked out of acting for 2 beats. is this to much?
                 _attackBehavior.Stagger();
             }
         }

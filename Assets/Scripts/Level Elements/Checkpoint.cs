@@ -23,6 +23,8 @@ public class Checkpoint : Interactable
             s.FeedbackInactive(); // Deactivate Feedback for previous Checkpoint
         }
         activeSpawnPoint = this.transform.position;
+        activeSpawnPoint.z = -0.83f;
+        activeSpawnPoint.y += 1f;
         FeedbackActive(); // Activate Feedback for Current Checkpoint
     }
 

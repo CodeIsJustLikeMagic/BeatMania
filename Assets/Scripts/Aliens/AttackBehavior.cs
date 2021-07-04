@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 /// <summary>
@@ -78,14 +80,13 @@ public class AttackBehavior : AlienBehavior
 
     public void Stagger()//get staggered by getting hit. 
     {
-        skip = true;
         combocounter = 0;//rest combo
         enemyAnimator3D.SetTrigger("Dizzy");//play stagger animation as feedback
     }
 
     public void GetHit()
     {
-        skip = true;
-        enemyAnimator3D.SetTrigger("GetHit");
+        //enemyAnimator3D.SetTrigger("GetHit");
+        throw new NotImplementedException();
     }
 }

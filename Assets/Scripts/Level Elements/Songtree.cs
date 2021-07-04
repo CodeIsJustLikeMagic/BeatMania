@@ -9,15 +9,15 @@ public class Songtree : Interactable
     [SerializeField]
     private int unlocksSong = -1;
 
-    [SerializeField] private GameObject feedback_light;
-    [SerializeField] private ParticleSystem feedback_particles;
+    //[SerializeField] private GameObject feedback_light;
+    //[SerializeField] private ParticleSystem feedback_particles;
 
     private void Start()
     {
         if (unlocksSong != -1 || !UnlockedSongs.instance.SongIsUnlocked(unlocksSong))
         {
-            feedback_light.SetActive(true);
-            feedback_particles.Play();
+            //feedback_light.SetActive(true);
+            //feedback_particles.Play();
             interactionText = "change current song";
         }
         else
@@ -37,8 +37,8 @@ public class Songtree : Interactable
             UnlockedSongs.instance.UnlockSong(unlocksSong);
             SongchangeSystem.instance.SongChange(unlocksSong);
             interactionText = "change current song";
-            feedback_light.SetActive(true);
-            feedback_particles.Play();
+            //feedback_light.SetActive(true);
+            //feedback_particles.Play();
         }
     }
 
