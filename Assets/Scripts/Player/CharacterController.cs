@@ -391,6 +391,13 @@ public class CharacterController : BaseHealthBehavior
         }
     }
 
+    public override void AddForce(Vector3 position, float forceMulti)
+    {
+        Vector2 damageDir = Vector3.Normalize(transform.position - position) * 40f;
+        m_Rigidbody.velocity = Vector2.zero;
+        m_Rigidbody.AddForce(damageDir * forceMulti);
+    }
+
     public override void ApplyHeal(float dmg)
     {
         life += dmg;

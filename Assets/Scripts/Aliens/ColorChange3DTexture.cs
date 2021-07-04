@@ -11,6 +11,10 @@ public class ColorChange3DTexture : ColorChange
 
     protected override void showColor(int song)
     {
+        if (!enabled)
+        {
+            return;
+        }
         if (rend == null)
         {
             rend = GetComponentInChildren<Renderer>();

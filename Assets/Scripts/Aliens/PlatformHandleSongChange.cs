@@ -48,5 +48,6 @@ public class PlatformHandleSongChange : VibingEntity
 
     public void DoNothing(float bps){
         animator.SetTrigger("Default");
+        
     }
 }

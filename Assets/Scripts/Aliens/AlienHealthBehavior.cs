@@ -51,6 +51,10 @@ public class AlienHealthBehavior : BaseHealthBehavior
             enemyUi = _uiGo.GetComponent<EnemyUI>();
             enemyUi.SetTarget(this.gameObject, height);
         }
+        else
+        {
+            transform.position = _respawnLocation;
+        }
         enemyUi.SetVisible(_vulnerable);
     }
 
@@ -102,6 +106,11 @@ public class AlienHealthBehavior : BaseHealthBehavior
     }
 
     public override void ApplyHeal(float dmg)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void AddForce(Vector3 position, float forceMulti)
     {
         throw new NotImplementedException();
     }
