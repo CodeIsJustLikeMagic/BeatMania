@@ -23,7 +23,7 @@ public class CharacterController : BaseHealthBehavior
     [SerializeField] private ParticleSystem dashParticleSystem;
     
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-    private bool m_Grounded;            // Whether or not the player is grounded.
+    public bool m_Grounded;            // Whether or not the player is grounded.
     private Rigidbody m_Rigidbody;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 velocity = Vector3.zero;
@@ -35,8 +35,8 @@ public class CharacterController : BaseHealthBehavior
     private bool m_IsWall = false; //If there is a wall in front of the player
     private bool hasJumped = false; //If player
 
-    private bool touchedRightWall = false;  //Stores Information if Player jumped from a right wall
-    private bool touchedLeftWall = false;   //Stores Information if Player jumped from a left  wall
+    public bool touchedRightWall = false;  //Stores Information if Player jumped from a right wall
+    public bool touchedLeftWall = false;   //Stores Information if Player jumped from a left  wall
 
     private bool isWallSliding = false; //If player is sliding in a wall
     private bool oldWallSlidding = false; //If player is sliding in a wall in the previous frame
@@ -92,17 +92,19 @@ public class CharacterController : BaseHealthBehavior
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "GroundandWall" || colliders[i].gameObject.tag == "Ground")
-                m_Grounded = true;
-            if (!wasGrounded)
             {
-                OnLandEvent.Invoke();
-                //if (!m_IsWall && !isDashing)
-                //    particleJumpDown.Play();
-                //canDoubleJump = true;
-                touchedLeftWall = false;
-                touchedRightWall = false;
-                if (m_Rigidbody.velocity.y < 0f)
-                    limitVelOnWallJump = false;
+                m_Grounded = true;
+                if (!wasGrounded)
+                {
+                    OnLandEvent.Invoke();
+                    //if (!m_IsWall && !isDashing)
+                    //    particleJumpDown.Play();
+                    //canDoubleJump = true;
+                    touchedLeftWall = false;
+                    touchedRightWall = false;
+                    if (m_Rigidbody.velocity.y < 0f)
+                        limitVelOnWallJump = false;
+                }
             }
         }
 

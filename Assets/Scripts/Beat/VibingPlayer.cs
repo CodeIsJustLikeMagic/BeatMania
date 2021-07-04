@@ -8,9 +8,13 @@ public class VibingPlayer : VibingEntity
     private int[] songSpeeds = { 120, 100, 120, 140};
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private ComboAttack combo;
+
     private void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
+        combo = gameObject.GetComponent<ComboAttack>();
         if (anim == null)
         {
             anim = gameObject.GetComponentInChildren<Animator>();
@@ -25,5 +29,7 @@ public class VibingPlayer : VibingEntity
         //restart animationNow
 
         anim.SetFloat("AnimationSpeed", bps/2);
+
+        combo.SetBps(bps);
     }
 }
