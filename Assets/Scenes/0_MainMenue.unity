@@ -252,6 +252,11 @@ PrefabInstance:
       propertyPath: brightnessEffect
       value: 
       objectReference: {fileID: 980339799}
+    - target: {fileID: 5784041107570958749, guid: e8ed57ee8f6d5eb47a626b303542e6f3,
+        type: 3}
+      propertyPath: _newGameButtonLevel
+      value: Scenes/Story_Intro
+      objectReference: {fileID: 0}
     - target: {fileID: 5895979700123561055, guid: e8ed57ee8f6d5eb47a626b303542e6f3,
         type: 3}
       propertyPath: m_Name
