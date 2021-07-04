@@ -13,7 +13,7 @@ public abstract class Interactable : MonoBehaviour
     {
         if (playerinside)
         {
-            if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.X))
             {
                 if (!dontShowInteractionHint)
                 {

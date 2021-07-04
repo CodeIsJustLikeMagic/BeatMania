@@ -49,7 +49,7 @@ public class ComboAttack : MonoBehaviour
         if (canAttack)
         {
             //press attack button
-            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.K))
             {
                 if (BeatChecker.instance.IsInBeat())
                 {
@@ -76,12 +76,12 @@ public class ComboAttack : MonoBehaviour
                 DashAttack();
             }
             //hold attack button
-            else if ((Input.GetKey("joystick button 1") || Input.GetKey(KeyCode.K)) && entryAttack)
+            else if ((Input.GetKey("joystick button 2") || Input.GetKey(KeyCode.K)) && entryAttack)
             {
                 Charge();
             }
             //release attack button
-            else if ((Input.GetKeyUp("joystick button 1") || Input.GetKeyUp(KeyCode.K)) && entryAttack)
+            else if ((Input.GetKeyUp("joystick button 2") || Input.GetKeyUp(KeyCode.K)) && entryAttack)
             {
                 SpinAttack();
             }
