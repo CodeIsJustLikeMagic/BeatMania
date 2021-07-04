@@ -35,15 +35,12 @@ public class ComboAttack : MonoBehaviour
     void Start()
     {
         attackPerformer2D = GetComponentInChildren<AttackPerformer>();
-        beatLen = BeatChecker.instance.GetbeatLength();
-        maxCharge = beatLen * 4;
     }
 
-    //MUSS NOCH GECALLT WERDEN --> onbeatchange()
-    void SetBps()
+    public void SetBps(float bps)
     {
-        beatLen = BeatChecker.instance.GetbeatLength();
-        maxCharge = beatLen * 4;
+        //two beats to charge
+        maxCharge = 1 / bps * 2;
     }
 
     //Input
@@ -52,7 +49,7 @@ public class ComboAttack : MonoBehaviour
         if (canAttack)
         {
             //press attack button
-            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.K))
             {
                 if (BeatChecker.instance.IsInBeat())
                 {
@@ -74,13 +71,17 @@ public class ComboAttack : MonoBehaviour
                     WeakAttack();
                 }
             }
+            else if ((Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("RT") > 0 || Input.GetKeyDown(KeyCode.E)))
+            {
+                DashAttack();
+            }
             //hold attack button
-            else if ((Input.GetKey("joystick button 1") || Input.GetKey(KeyCode.K)) && entryAttack)
+            else if ((Input.GetKey("joystick button 2") || Input.GetKey(KeyCode.K)) && entryAttack)
             {
                 Charge();
             }
             //release attack button
-            else if ((Input.GetKeyUp("joystick button 1") || Input.GetKeyUp(KeyCode.K)) && entryAttack)
+            else if ((Input.GetKeyUp("joystick button 2") || Input.GetKeyUp(KeyCode.K)) && entryAttack)
             {
                 SpinAttack();
             }
@@ -162,6 +163,22 @@ public class ComboAttack : MonoBehaviour
         attackPerformer2D.Perform("stagger", dmgvalue_stagger, true, targetEntity);
         resetCombo();
         StartCoroutine(AttackCooldown());
+    }
+
+    void DashAttack()
+    {
+        if (fullyCharged && BeatChecker.instance.IsInBeat())
+        {
+            BeatIndicatorFeedback.instance.Success();
+            attackPerformer2D.Perform("pierce", dmgvalue_spin, false, targetEntity);
+        }
+        else if (fullyCharged && !BeatChecker.instance.IsInBeat())
+        {
+            BeatIndicatorFeedback.instance.Failed();
+            attackPerformer2D.Perform("nothing", 0, false, targetEntity);
+        }
+        resetCombo();
+        StartCoroutine(SpinDuration());
     }
 
     void resetCombo()
