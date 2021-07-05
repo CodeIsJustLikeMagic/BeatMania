@@ -62,6 +62,11 @@ public class CharacterController : BaseHealthBehavior
     public UnityEvent OnFallEvent;
     public UnityEvent OnLandEvent;
 
+    [SerializeField]
+    private ComboAttack combo;
+    [SerializeField]
+    private DamageFeedback feedback;
+
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
 
@@ -69,6 +74,8 @@ public class CharacterController : BaseHealthBehavior
     {
         m_Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        combo = gameObject.GetComponent<ComboAttack>();
+        feedback = gameObject.GetComponent<DamageFeedback>();
 
         if (OnFallEvent == null)
             OnFallEvent = new UnityEvent();
@@ -341,6 +348,17 @@ public class CharacterController : BaseHealthBehavior
         transform.localScale = theScale;
     }
 
+    IEnumerator StaggerTime(float time = 0.5f) {
+        canMove = false;
+        canDash = false;
+        combo.SetAttack(false);
+        yield return new WaitForSeconds(time);
+        feedback.doNotDisplayDamage();
+        canMove = true;
+        canDash = true;
+        combo.SetAttack(true);
+    }
+
     IEnumerator DashCooldown()
     {
         animator.SetBool("IsDashing", true);
@@ -386,7 +404,7 @@ public class CharacterController : BaseHealthBehavior
             }
             else
             {
-                StartCoroutine(DashCooldown());
+                StartCoroutine(StaggerTime());
             }
         }
     }
@@ -416,11 +434,12 @@ public class CharacterController : BaseHealthBehavior
 
     IEnumerator WaitToDead()
     {
-        animator.SetBool("IsDead", true);
+        combo.SetAttack(false);
         canMove = false;
         invincible = true;
-        //GetComponent<Attack>().enabled = false;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
+        feedback.doNotDisplayDamage();
+        animator.SetBool("IsDead", true);
         m_Rigidbody.velocity = new Vector2(0, m_Rigidbody.velocity.y);
         yield return new WaitForSeconds(1.1f);
 
@@ -428,6 +447,7 @@ public class CharacterController : BaseHealthBehavior
         transform.position = Checkpoint.getSpwanPosition();
         animator.SetBool("IsDead", false);
         life = maxlife;
+        combo.SetAttack(true);
         canMove = true;
         invincible = false;
     }

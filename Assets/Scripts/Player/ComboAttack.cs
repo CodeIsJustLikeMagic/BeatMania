@@ -43,6 +43,10 @@ public class ComboAttack : MonoBehaviour
         maxCharge = 1 / bps * 2;
     }
 
+    public void SetAttack(bool mode) {
+        canAttack = mode;
+    }
+
     //Input
     void AttackInput()
     {
