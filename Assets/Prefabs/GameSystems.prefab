@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350cf12d572cde843a72db50b1ba9d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  song_unlocked: 01010101
+  song_unlocked: 01000000
 --- !u!114 &958389160
 MonoBehaviour:
   m_ObjectHideFlags: 0

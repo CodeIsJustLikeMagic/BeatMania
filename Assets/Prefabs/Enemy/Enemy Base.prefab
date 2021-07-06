@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e6e1331f62642479d1543ecb8edfb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vision_range: 8
+  vision_range: 5
   walking_speed: 2
   turn_around_randomly_probability: 2
   wallCheck: {fileID: 2817621520915898767}
@@ -326,7 +326,7 @@ MonoBehaviour:
   - Wait
   dmgToPlayer: 1
   only3D: 0
-  attack_range: 2.4
+  attack_range: 2.2
 --- !u!114 &4687517011736086013
 MonoBehaviour:
   m_ObjectHideFlags: 0

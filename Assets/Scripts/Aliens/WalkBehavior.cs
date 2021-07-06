@@ -158,13 +158,21 @@ public class WalkBehavior : MonoBehaviour
     {
         if (move)
         {
-            rb.MovePosition(transform.position + transform.forward * (walking_speed * Time.deltaTime));
+            if (slow)
+            {
+                rb.MovePosition(transform.position + transform.forward * (walking_speed/10 * Time.deltaTime));
+            }
+            else
+            {
+                rb.MovePosition(transform.position + transform.forward * (walking_speed * Time.deltaTime));
+            }
         }
     }
 
     #region Walking/Animations
     private void Chase(float bps)
     {
+        slow = false;
         if (GroundInFrontIsNotSave() || WalkedIntoWall())
         {
             move = false;
@@ -183,9 +191,16 @@ public class WalkBehavior : MonoBehaviour
         // dont set an Animation Trigger because the Action will do that.
     }
 
+    private bool slow = false;
     public void KeepMoving()
     {
+        slow = true;
         move = true;
+    }
+
+    public void StopMoving()
+    {
+        move = false;
     }
 
     private void WalkAround()
@@ -197,6 +212,7 @@ public class WalkBehavior : MonoBehaviour
             TurnAround();
         }
         move = true;
+        slow = false;
     }
 
     private bool WalkedIntoWall()
