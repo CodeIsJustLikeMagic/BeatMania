@@ -4832,6 +4832,7 @@ GameObject:
   - component: {fileID: 3107404532868463497}
   - component: {fileID: 3107404532868463496}
   - component: {fileID: 3107404532868463503}
+  - component: {fileID: 7332962904365106478}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -4869,6 +4870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionText: 
+  dontShowInteractionHint: 0
   feedbackLight: {fileID: 4321245794812945569}
   feedbackParticleSystem: {fileID: 4683576242253480239}
 --- !u!65 &3107404532868463503
@@ -4884,6 +4886,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.165024, y: 8.428369, z: 2.0987291}
   m_Center: {x: 0, y: -0.0135502815, z: -0.71155113}
+--- !u!114 &7332962904365106478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107404532868463502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df4e563ddf4a44428dd70fc0f31d9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionText: 
+  dontShowInteractionHint: 1
 --- !u!1 &4321245794812945569
 GameObject:
   m_ObjectHideFlags: 0
@@ -6658,15 +6674,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 42b1015632a08cf4d97a259532519aa4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39f7e3f5031cd9e4489a91e648bc3b02, type: 3}
---- !u!212 &5894459931164787753 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8850386796970922464, guid: 39f7e3f5031cd9e4489a91e648bc3b02,
-    type: 3}
-  m_PrefabInstance: {fileID: 3107404531971626441}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8278776239974157605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6483961724985743596, guid: 39f7e3f5031cd9e4489a91e648bc3b02,
+    type: 3}
+  m_PrefabInstance: {fileID: 3107404531971626441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5894459931164787753 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8850386796970922464, guid: 39f7e3f5031cd9e4489a91e648bc3b02,
     type: 3}
   m_PrefabInstance: {fileID: 3107404531971626441}
   m_PrefabAsset: {fileID: 0}
