@@ -13,7 +13,7 @@ public class HealBehavior : AlienBehavior
         _healPerformer = gameObject.GetComponentInChildren<HealPerformer>();
         if (_healPerformer == null)
         {
-            Debug.LogError("Enemy has no heal behavior. It is sad.", this);
+            Debug.LogError("Enemy has no heal performer. It is sad.", this);
         }
         enemyAnimator3D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
     }

@@ -14,10 +14,6 @@ public class PlatformBehavior : AlienBehavior
         {
             Debug.LogError("Platform Behavior was not assigned a Platform", this);
         }
-        else
-        {
-            Platform.SetActive(false);
-        }
     }
     public void OnEnable()
     {
@@ -31,6 +27,6 @@ public class PlatformBehavior : AlienBehavior
 
     public override void PerformBehaviorOnBeat(float bps)
     {
-        
+        Platform.SetActive(true);
     }
 }

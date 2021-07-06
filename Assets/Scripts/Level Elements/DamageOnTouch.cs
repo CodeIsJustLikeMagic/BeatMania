@@ -10,6 +10,7 @@ public class DamageOnTouch : MonoBehaviour
     [SerializeField] private float force = 10f;
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("On trigger Enter damage on touch", this);
         if (other.CompareTag(dmg_tag))
         {
             BaseHealthBehavior hp = other.gameObject.GetComponent<BaseHealthBehavior>();
@@ -26,6 +27,7 @@ public class DamageOnTouch : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("On collision Enter");
         OnTriggerEnter(collision.collider);
     }
 }

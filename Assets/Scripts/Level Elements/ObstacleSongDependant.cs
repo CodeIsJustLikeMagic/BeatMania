@@ -10,8 +10,7 @@ public class ObstacleSongDependant : VibingEntity
     {
         if (vis == null)
         {
-            Debug.LogError("ObstaceSongDependant does not have a visualize object", this);
-            return;
+            vis = gameObject.transform.GetChild(0).gameObject;
         }
 
         vis.SetActive(passageBlocked[song % passageBlocked.Length]);

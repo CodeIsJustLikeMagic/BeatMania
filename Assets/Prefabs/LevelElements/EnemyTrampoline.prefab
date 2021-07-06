@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4242000459369167352}
   - component: {fileID: 4242000459369167359}
   - component: {fileID: 4242000459369167353}
+  - component: {fileID: 8150998760351443863}
   m_Layer: 10
   m_Name: EnemyTrampoline1
   m_TagString: Untagged
@@ -101,6 +102,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8150998760351443863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242000459369167358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cfcdee5c75f3d43891b4de503fa30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!1 &4242000459645325325
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +126,7 @@ GameObject:
   - component: {fileID: 4242000459645325320}
   - component: {fileID: 4242000459645325327}
   - component: {fileID: 4242000459645325326}
+  - component: {fileID: 4041406025925142929}
   m_Layer: 10
   m_Name: EnemyTrampoline
   m_TagString: Ground
@@ -146,8 +161,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9859161, y: 2.9391785, z: 1.6221348}
-  m_Center: {x: 0.011680603, y: 0.01168108, z: 0.3110674}
+  m_Size: {x: 2.9955575, y: 2.7945585, z: 1.6221348}
+  m_Center: {x: 0.17076242, y: 0.08399105, z: 0.3110674}
 --- !u!114 &4242000459645325326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +179,22 @@ MonoBehaviour:
   dmg: 0
   staggers: 0
   force: 20
+--- !u!54 &4041406025925142929
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242000459645325325}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &4242000459918499422
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +206,7 @@ GameObject:
   - component: {fileID: 4242000459918499416}
   - component: {fileID: 4242000459918499423}
   - component: {fileID: 4242000459918499417}
+  - component: {fileID: 3624760732347447492}
   m_Layer: 10
   m_Name: EnemyTrampolineCopy of main slash
   m_TagString: Untagged
@@ -265,3 +297,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3624760732347447492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242000459918499422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cfcdee5c75f3d43891b4de503fa30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}

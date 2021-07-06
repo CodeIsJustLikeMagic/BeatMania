@@ -15,10 +15,6 @@ public class TrampolineBehavior : AlienBehavior
         {
             Debug.LogError("Trampolione Behavior was not assigned a Trampoline", this);
         }
-        else
-        {
-            Trampoline.SetActive(false);
-        }
     }
     public void OnEnable()
     {

@@ -43,12 +43,6 @@ public class AttackBehavior : AlienBehavior
         }
     }
 
-    //test if player is close enough to attack
-    private bool CheckAttack()
-    {
-        return true;
-    }
-
     private void Awake()
     {
         maxCombo = combo.Length;
