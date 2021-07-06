@@ -94,6 +94,7 @@ public class AlienHealthBehavior : BaseHealthBehavior
                 //float bps = ((AudioHelmClock)FindObjectOfType(typeof(AudioHelmClock))).bpm / 60;
                 // not sure if death animation should be in beat
                 _alienHandleSongChange.is_dead = true; //stop attackbehavior from starting attacks
+                collider.enabled = false;
                 GetComponent<WalkBehavior>().StopMoving();
                 Invoke("Die", deathAnimationLength);
                 _vulnerable = false; // dont take damage until we die. Stops us from reseting Die animation.
