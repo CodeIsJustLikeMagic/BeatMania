@@ -69,6 +69,7 @@ MonoBehaviour:
   - Invisible
   - Visible
   move_every_x_beats: 1
+  the_force: {fileID: 5329435275100719659}
   debug: 
 --- !u!1 &268303938643117035
 GameObject:
@@ -84,6 +85,7 @@ GameObject:
   - component: {fileID: 268303938643117031}
   - component: {fileID: 268303938643117030}
   - component: {fileID: 268303938643117029}
+  - component: {fileID: 5329435275100719659}
   m_Layer: 0
   m_Name: 3DObject
   m_TagString: Ground
@@ -204,6 +206,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5329435275100719659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268303938643117035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28733b77333f4d348b2099d05968594e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  use: 0
+  force: 20
 --- !u!114 &4388931310567619428
 MonoBehaviour:
   m_ObjectHideFlags: 0
