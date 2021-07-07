@@ -1431,6 +1431,11 @@ PrefabInstance:
       propertyPath: normalModel
       value: 
       objectReference: {fileID: 7224898710274966634}
+    - target: {fileID: 6156423664850352952, guid: 30c754261c71bc64facee3c2d5a58111,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6177359558166751130, guid: 30c754261c71bc64facee3c2d5a58111,
         type: 3}
       propertyPath: m_LocalRotation.x
