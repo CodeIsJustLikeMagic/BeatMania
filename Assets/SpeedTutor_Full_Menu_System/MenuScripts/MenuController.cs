@@ -135,9 +135,13 @@ namespace SpeedTutorMainMenuSystem
                 menuNumber = 5;
             }
 
-            if (buttonType == "Exit")
+            if (buttonType == "BackToMenu")
             {
                 SceneManager.LoadScene(0);
+            }
+            if (buttonType == "Exit")
+            {
+                Application.Quit();
             }
 
             if (buttonType == "Options")

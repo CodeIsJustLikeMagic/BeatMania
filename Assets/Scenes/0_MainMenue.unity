@@ -235,6 +235,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shaderDerp: {fileID: 4800000, guid: aa28d8b840c1bcb4297c6dea68c63a36, type: 3}
   brightness: 1
+--- !u!1 &1684507507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8248793701061898135, guid: 882b228dfade9f54ea0f544bf81fa563,
+    type: 3}
+  m_PrefabInstance: {fileID: 8248793700621056082}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1684507508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684507507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e01a91ec8c5c744f9cfd0f0dd3bb123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5895979701364440512
 PrefabInstance:
   m_ObjectHideFlags: 0
