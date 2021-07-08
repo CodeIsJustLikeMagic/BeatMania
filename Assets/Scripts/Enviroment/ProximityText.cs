@@ -8,7 +8,7 @@ public class ProximityText : MonoBehaviour
     [SerializeField]
     private float showUpDistance = 10;
     [SerializeField]
-    private GameObject textObject;
+    private GameObject textObject = null;
     // Start is called before the first frame update
 
     public void SetText(string n_text)

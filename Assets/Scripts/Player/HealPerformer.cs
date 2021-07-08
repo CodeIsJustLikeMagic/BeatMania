@@ -9,7 +9,7 @@ public class HealPerformer : VibingEntity
 
     public string heal_tag = "Player";
     // Start is called before the first frame update
-    void Start()
+    private new void Start()
     {
         base.Start();
         if (anim == null)

@@ -6,7 +6,7 @@ public class UnlockedSongs : MonoBehaviour
 {
     public static UnlockedSongs instance;
     [SerializeField]
-    private bool[] song_unlocked;
+    private bool[] song_unlocked = null;
     
     // Start is called before the first frame update
     void Awake()
@@ -31,6 +31,9 @@ public class UnlockedSongs : MonoBehaviour
     /// <returns></returns>
     public bool SongIsUnlocked(int song)
     {
+        #if UNITY_EDITOR
+            return true;
+        #endif
         if(song < 0)
         {
             return false;

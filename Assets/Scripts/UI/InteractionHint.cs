@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class InteractionHint : MonoBehaviour
 {
     public static InteractionHint instance;
-    [SerializeField] private Text text;
-    [SerializeField] private GameObject ui_image;
+    [SerializeField] private Text text = null;
+    [SerializeField] private GameObject ui_image = null;
 
     [SerializeField] private string defaultText="interact";
     [SerializeField] private string keyDescription = "f";

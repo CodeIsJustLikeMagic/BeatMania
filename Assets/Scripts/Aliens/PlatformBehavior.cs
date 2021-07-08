@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlatformBehavior : AlienBehavior
 {
-    [SerializeField] private GameObject Platform;
+    [SerializeField] private GameObject Platform  = null;
 
     public void Start()
     {

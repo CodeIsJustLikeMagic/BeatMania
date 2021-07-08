@@ -9,24 +9,19 @@ using Debug = UnityEngine.Debug;
 
 public class EnemyUI : MonoBehaviour
 {
-    private Text enemyNameText;
-
-    [SerializeField] private Slider enemyHealthSlider;
-
-    private bool oneHP = false;
-
-    private GameObject target;
-    private AlienHealthBehavior enemyHealth;
+    [SerializeField] private Slider enemyHealthSlider = null;
+    
     [Tooltip("Pixel offset from the enemy target")]
     [SerializeField]
     private Vector3 screenOffset = new Vector3(0f, 30f, 0f);
 
-
-    float characterControllerheight = 2f;
-    private Transform targetTransform;
-    private Renderer targetRenderer;
+    private GameObject _target;
+    private AlienHealthBehavior _enemyHealth;
+    private float _characterControllerHeight = 2f;
+    private Transform _targetTransform;
+    private Renderer _targetRenderer;
     private CanvasGroup _canvasGroup;
-    private Vector3 targetPosition;
+    private Vector3 _targetPosition;
 
     public void SetTarget(GameObject _target, float height=2f)
     {
@@ -36,17 +31,14 @@ public class EnemyUI : MonoBehaviour
             return;
         }
 
-        target = _target;
-        enemyHealth = target.GetComponent<AlienHealthBehavior>();
+        this._target = _target;
+        _enemyHealth = this._target.GetComponent<AlienHealthBehavior>();
 
-        targetTransform = this.target.GetComponent<Transform>();
-        targetRenderer = this.target.GetComponentInChildren<Renderer>();
+        _targetTransform = this._target.GetComponent<Transform>();
+        _targetRenderer = this._target.GetComponentInChildren<Renderer>();
         
-        if (height != null)
-        {
-            characterControllerheight = height;
-        }
-        enemyHealthSlider.maxValue = enemyHealth.health;
+        _characterControllerHeight = height;
+        enemyHealthSlider.maxValue = _enemyHealth.health;
     }
     // Start is called before the first frame update
     private void Awake()
@@ -60,10 +52,10 @@ public class EnemyUI : MonoBehaviour
     {
         if (enemyHealthSlider != null) // allways keeps the same health as the health component
         {
-            enemyHealthSlider.value = enemyHealth.health;
+            enemyHealthSlider.value = _enemyHealth.health;
         }
 
-        if (target == null)
+        if (_target == null)
         {
             Destroy(this.gameObject);
             return;
@@ -74,17 +66,17 @@ public class EnemyUI : MonoBehaviour
     private void LateUpdate()
     {
         //if target is outside of view frustum dont show their UI.
-        if (targetRenderer != null)
+        if (_targetRenderer != null)
         {
-            if (targetRenderer.isVisible && visible)
+            if (_targetRenderer.isVisible && visible)
             {
                 this._canvasGroup.alpha =  1f;
                 // follow the target GameObject on screen.
-                if (targetTransform != null)
+                if (_targetTransform != null)
                 {
-                    targetPosition = targetTransform.position;
-                    targetPosition.y += characterControllerheight;
-                    this.transform.position = Camera.main.WorldToScreenPoint(targetPosition) + screenOffset;
+                    _targetPosition = _targetTransform.position;
+                    _targetPosition.y += _characterControllerHeight;
+                    this.transform.position = Camera.main.WorldToScreenPoint(_targetPosition) + screenOffset;
                 }
             }
             else

@@ -6,8 +6,8 @@ using UnityEngine;
 public class Checkpoint : Interactable
 {
     private static Vector3 activeSpawnPoint;
-    [SerializeField] private GameObject feedbackLight;
-    [SerializeField] private ParticleSystem feedbackParticleSystem;
+    [SerializeField] private GameObject feedbackLight = null;
+    [SerializeField] private ParticleSystem feedbackParticleSystem = null;
 
     private void Start()
     {

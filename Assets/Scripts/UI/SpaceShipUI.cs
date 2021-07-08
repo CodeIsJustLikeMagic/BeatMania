@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SpaceShipUI : MonoBehaviour
 {
     public static SpaceShipUI instance;
-    [SerializeField] private Text t;
+    [SerializeField] private Text t = null;
     
 
     public void PartsCollectedUpdate()

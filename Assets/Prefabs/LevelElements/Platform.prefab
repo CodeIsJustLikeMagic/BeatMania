@@ -69,8 +69,7 @@ MonoBehaviour:
   - Invisible
   - Visible
   move_every_x_beats: 1
-  the_force: {fileID: 5329435275100719659}
-  debug: 
+  debug: GoDown
 --- !u!1 &268303938643117035
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,8 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28733b77333f4d348b2099d05968594e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  use: 0
-  force: 20
 --- !u!114 &4388931310567619428
 MonoBehaviour:
   m_ObjectHideFlags: 0

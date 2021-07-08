@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AudioHelm;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 public class AlienHealthBehavior : BaseHealthBehavior
@@ -13,26 +14,26 @@ public class AlienHealthBehavior : BaseHealthBehavior
     [SerializeField]
     private bool[] canTakeDamage = {true, true, true};
 
-    private SkinnedMeshRenderer visual;
-    private Collider collider;
+    private SkinnedMeshRenderer _visual;
+    private Collider _collider;
 
-    private float maxHealth = 10f;
+    private float _maxHealth = 10f;
     private AttackBehavior _attackBehavior;
     private AlienHandleSongChange _alienHandleSongChange;
 
     private bool _vulnerable = true;
     private Vector3 _respawnLocation;
 
-    public GameObject UIPrefab;
-    [SerializeField] private float height;
+    [FormerlySerializedAs("UIPrefab")] public GameObject uiPrefab;
+    [SerializeField] private float height = 0;
     [SerializeField] EnemyUI enemyUi;
     void Awake()
     {
-        maxHealth = health;
+        _maxHealth = health;
         _attackBehavior = GetComponent<AttackBehavior>();
         _alienHandleSongChange = GetComponent<AlienHandleSongChange>();
-        visual = GetComponentInChildren<SkinnedMeshRenderer>();
-        collider = GetComponent<Collider>();
+        _visual = GetComponentInChildren<SkinnedMeshRenderer>();
+        _collider = GetComponent<Collider>();
         _respawnLocation = transform.position;
         
     }
@@ -46,7 +47,7 @@ public class AlienHealthBehavior : BaseHealthBehavior
         _vulnerable = canTakeDamage[song % canTakeDamage.Length];
         if (enemyUi == null)
         {
-            GameObject _uiGo = Instantiate(UIPrefab);
+            GameObject _uiGo = Instantiate(uiPrefab);
             //_uiGo.SendMessage("SetTarget", this.gameObject, SendMessageOptions.RequireReceiver);
             enemyUi = _uiGo.GetComponent<EnemyUI>();
             enemyUi.SetTarget(this.gameObject, height);
@@ -56,26 +57,45 @@ public class AlienHealthBehavior : BaseHealthBehavior
             transform.position = _respawnLocation;
         }
         enemyUi.SetVisible(_vulnerable);
+        if (_vulnerable)
+        {
+            GetComponent<Rigidbody>().mass = 1000;
+        }
+        else
+        {
+            GetComponent<Rigidbody>().mass = 10000;
+        }
     }
 
     private bool is_dead = false;
-    private void Die()
+
+    private void DieStart()
     {
-        is_dead = true;
-        visual.enabled = false;
-        collider.enabled = false;
+        //Play death animation
+        gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D.SetTrigger("Die");
+        //float bps = ((AudioHelmClock)FindObjectOfType(typeof(AudioHelmClock))).bpm / 60;
+        // not sure if death animation should be in beat
+        _alienHandleSongChange.is_dead = true; //stop attackbehavior from starting attacks
+        _collider.enabled = false;
         enemyUi.SetVisible(false);
         GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<WalkBehavior>().StopMoving();
+        _vulnerable = false; // dont take damage until we die. Stops us from reseting Die animation.
+    }
+    private void DieEnd()
+    {
+        is_dead = true;
+        _visual.enabled = false;
     }
 
     private void Revive()
     {
         is_dead = false;
-        health = maxHealth;
+        health = _maxHealth;
         _vulnerable = true;
         _alienHandleSongChange.is_dead = false;
-        visual.enabled = true;
-        collider.enabled = true;
+        _visual.enabled = true;
+        _collider.enabled = true;
         transform.position = _respawnLocation;
         GetComponent<Rigidbody>().useGravity = true;
         _alienHandleSongChange.enemyAnimator3D.SetTrigger("Wait");
@@ -89,15 +109,9 @@ public class AlienHealthBehavior : BaseHealthBehavior
             if (health <= 0.3)
             {
                 Debug.Log("Die");
-                //Play death animation
-                gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D.SetTrigger("Die");
-                //float bps = ((AudioHelmClock)FindObjectOfType(typeof(AudioHelmClock))).bpm / 60;
-                // not sure if death animation should be in beat
-                _alienHandleSongChange.is_dead = true; //stop attackbehavior from starting attacks
-                collider.enabled = false;
-                GetComponent<WalkBehavior>().StopMoving();
-                Invoke("Die", deathAnimationLength);
-                _vulnerable = false; // dont take damage until we die. Stops us from reseting Die animation.
+                DieStart();
+                Invoke("DieEnd", deathAnimationLength);
+                
             }
             else if(stagger)
             {

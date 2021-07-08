@@ -22,8 +22,8 @@ public class PlaytestInstructions : MonoBehaviour
     public Text result_text;
     public Text saved_to;
 
-    [SerializeField] private AudioSource click;
-    [SerializeField] private AudioSource acknowledge;
+    [SerializeField] private AudioSource click = null;
+    [SerializeField] private AudioSource acknowledge = null;
 
     public List<GameObject> instruction_displays;
     public void Success()

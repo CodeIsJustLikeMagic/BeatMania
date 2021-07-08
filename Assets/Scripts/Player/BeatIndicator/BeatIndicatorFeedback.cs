@@ -7,8 +7,8 @@ public class BeatIndicatorFeedback : MonoBehaviour
 {
     public static BeatIndicatorFeedback instance;
     
-    [SerializeField] private Color successColor;
-    [SerializeField] private Color failedColor;
+    public Color successColor;
+    public Color failedColor;
     [SerializeField] float disapearTimer = 0.1f;
     
     private SpriteRenderer _spriteRenderer;
@@ -27,9 +27,9 @@ public class BeatIndicatorFeedback : MonoBehaviour
         }catch{}
     }
 
-    private int failed = 0;
-    private int hit = 0;
-    private int skipped = 0;
+    //private int failed = 0;
+    //private int hit = 0;
+    //private int skipped = 0;
     public void Success()
     {
         _spriteRenderer.color = successColor;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformHandleSongChange : VibingEntity
 {
     [SerializeField]
-    private AlienBehavior[] behaviors; //order of behaviors dictates which berhavior is performed in which song
+    private AlienBehavior[] behaviors = null; //order of behaviors dictates which berhavior is performed in which song
     
     private Animator animator;
 

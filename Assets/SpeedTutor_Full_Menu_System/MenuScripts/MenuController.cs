@@ -12,10 +12,10 @@ namespace SpeedTutorMainMenuSystem
         [SerializeField] private bool isMainMenu = false;
         #region Default Values
         [Header("Default Menu Values")]
-        [SerializeField] private float defaultBrightness;
-        [SerializeField] private float defaultVolume;
-        [SerializeField] private int defaultSen;
-        [SerializeField] private bool defaultInvertY;
+        [SerializeField] private float defaultBrightness =1;
+        [SerializeField] private float defaultVolume = 0.5f;
+        [SerializeField] private int defaultSen=4;
+        //[SerializeField] private bool defaultInvertY = false;
 
         [Header("Levels To Load")]
         public string _newGameButtonLevel;
@@ -26,34 +26,34 @@ namespace SpeedTutorMainMenuSystem
 
         #region Menu Dialogs
         [Header("Main Menu Components")]
-        [SerializeField] private GameObject menuDefaultCanvas;
-        [SerializeField] private GameObject GeneralSettingsCanvas;
-        [SerializeField] private GameObject graphicsMenu;
-        [SerializeField] private GameObject soundMenu;
-        [SerializeField] private GameObject gameplayMenu;
-        [SerializeField] private GameObject controlsMenu;
-        [SerializeField] private GameObject confirmationMenu;
+        [SerializeField] private GameObject menuDefaultCanvas = null;
+        [SerializeField] private GameObject GeneralSettingsCanvas = null;
+        [SerializeField] private GameObject graphicsMenu = null;
+        [SerializeField] private GameObject soundMenu = null;
+        [SerializeField] private GameObject gameplayMenu = null;
+        [SerializeField] private GameObject controlsMenu = null;
+        [SerializeField] private GameObject confirmationMenu = null;
         [Space(10)]
         [Header("Menu Popout Dialogs")]
-        [SerializeField] private GameObject noSaveDialog;
-        [SerializeField] private GameObject newGameDialog;
-        [SerializeField] private GameObject loadGameDialog;
+        [SerializeField] private GameObject noSaveDialog = null;
+        [SerializeField] private GameObject newGameDialog = null;
+        [SerializeField] private GameObject loadGameDialog = null;
         #endregion
 
         #region Slider Linking
         [Header("Menu Sliders")]
-        [SerializeField] private Text controllerSenText;
-        [SerializeField] private Slider controllerSenSlider;
+        [SerializeField] private Text controllerSenText  = null;
+        [SerializeField] private Slider controllerSenSlider = null;
         public float controlSenFloat = 2f;
         [Space(10)]
-        [SerializeField] private Brightness brightnessEffect;
-        [SerializeField] private Slider brightnessSlider;
-        [SerializeField] private Text brightnessText;
+        [SerializeField] private Brightness brightnessEffect = null;
+        [SerializeField] private Slider brightnessSlider = null;
+        [SerializeField] private Text brightnessText = null;
         [Space(10)]
-        [SerializeField] private Text volumeText;
-        [SerializeField] private Slider volumeSlider;
+        [SerializeField] private Text volumeText = null;
+        [SerializeField] private Slider volumeSlider = null;
         [Space(10)]
-        [SerializeField] private Toggle invertYToggle;
+        [SerializeField] private Toggle invertYToggle = null;
         #endregion
 
         #region Initialisation - Button Selection & Menu Order

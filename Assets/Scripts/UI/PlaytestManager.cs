@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlaytestManager : MonoBehaviour
 {
-    [SerializeField] private BeatChecker beatChecker;
-    [SerializeField] private GameObject beatIndicator;
+    [SerializeField] private BeatChecker beatChecker  = null;
+    [SerializeField] private GameObject beatIndicator = null;
     [SerializeField] private bool playerControllWithBeat = true;
 
     private void Start()

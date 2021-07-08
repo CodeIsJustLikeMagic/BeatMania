@@ -257,6 +257,11 @@ PrefabInstance:
       propertyPath: _newGameButtonLevel
       value: Scenes/Story_Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 5784142491631772137, guid: e8ed57ee8f6d5eb47a626b303542e6f3,
+        type: 3}
+      propertyPath: m_Text
+      value: Start Game
+      objectReference: {fileID: 0}
     - target: {fileID: 5895979700123561055, guid: e8ed57ee8f6d5eb47a626b303542e6f3,
         type: 3}
       propertyPath: m_Name
@@ -315,6 +320,11 @@ PrefabInstance:
     - target: {fileID: 5895979700123561056, guid: e8ed57ee8f6d5eb47a626b303542e6f3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897157933671068679, guid: e8ed57ee8f6d5eb47a626b303542e6f3,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

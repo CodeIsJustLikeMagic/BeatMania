@@ -24,6 +24,7 @@ public class PlatformMoving : AlienBehavior
     public string debug = "";
     public override void PerformBehaviorOnBeat(float bps)
     {
+
         if (beat_num < move_every_x_beats)
         {
             beat_num++;
@@ -35,7 +36,6 @@ public class PlatformMoving : AlienBehavior
         {
             animator = GetComponentInChildren<Animator>();
         }
-
         if (!animator.gameObject.activeSelf)
         {
             return;

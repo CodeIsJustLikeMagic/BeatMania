@@ -15,7 +15,7 @@ public class ComboAttack : MonoBehaviour
     private bool windUp = false;
     private float chargeLevel = 0;
     private float maxCharge = 0;
-    private float beatLen = 0;
+    //private float beatLen = 0;
 
     public string targetEntity = "Alien";
 
@@ -122,11 +122,14 @@ public class ComboAttack : MonoBehaviour
     {
         if (!fullyCharged)
         {
+            if (chargeLevel == 0) // start charge animation right away
+            {
+                attackPerformer2D.Perform("charge", 0, false, targetEntity, true);
+            }
             chargeLevel += Time.deltaTime;
             if (maxCharge <= chargeLevel)
             {
                 fullyCharged = true;
-                attackPerformer2D.Perform("charge", 0, false, targetEntity, true);
             }
         }
     }

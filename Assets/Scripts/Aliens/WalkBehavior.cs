@@ -16,13 +16,13 @@ public class WalkBehavior : MonoBehaviour
     [Tooltip("for target selection")]
     [SerializeField] private float vision_range = 8;
     [SerializeField] private float walking_speed = 1f;
-    [SerializeField] private int turn_around_randomly_probability;
-    [SerializeField] private Transform wallCheck;
-    [SerializeField] private Transform groundForwardCheck;
-    [SerializeField] private LayerMask m_WhatIsGround;
+    [SerializeField] private int turn_around_randomly_probability = 2;
+    [SerializeField] private Transform wallCheck = null;
+    [SerializeField] private Transform groundForwardCheck = null;
+    [SerializeField] private LayerMask m_WhatIsGround = 0;
 
     [Tooltip("enable flying")]
-    [SerializeField] private bool ignoreGroundCheck;
+    [SerializeField] private bool ignoreGroundCheck = false;
     
     private Animator anim;
     private Rigidbody rb;

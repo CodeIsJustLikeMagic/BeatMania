@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] public float life = 3;
     public bool isInvincible = false;
-    private bool isHitted = false;
+    //private bool isHitted = false;
 
     void FixedUpdate()
     {
@@ -34,10 +34,10 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator HitTime()
     {
-        isHitted = true;
+        //isHitted = true;
         isInvincible = true;
         yield return new WaitForSeconds(0.1f);
-        isHitted = false;
+        //isHitted = false;
         isInvincible = false;
     }
 

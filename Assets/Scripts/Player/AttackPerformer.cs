@@ -13,7 +13,7 @@ public class AttackPerformer : VibingEntity // sits on Enemy
 
     public string dmg_tag = "Player";
     // Start is called before the first frame update
-    void Start()
+    private new void Start()
     {
         base.Start();
         if (anim == null)
@@ -22,8 +22,11 @@ public class AttackPerformer : VibingEntity // sits on Enemy
         }
     }
 
+    private float bps = 0;
+
     public override void OnBeat(float jitter_delay, float bps)
     {
+        this.bps = bps;
         anim.SetFloat("Speed", bps);
     }
 
@@ -33,6 +36,7 @@ public class AttackPerformer : VibingEntity // sits on Enemy
 
     public void Perform(string trigger, float dmg, bool stagger, string target_tag, bool resync = false)
     {
+        //Debug.Log("Attack Performer perfrom, targets: "+dmg_tag);
         dmg_tag = target_tag;
         if (trigger != "")
         {            
@@ -44,8 +48,9 @@ public class AttackPerformer : VibingEntity // sits on Enemy
         if (resync)
         {
             int stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
-            anim.Play(stateName, 0, SongSynchonizeVibing.instance.GetJitterOffset());
+            anim.Play(stateName, 0, SongSynchonizeVibing.instance.GetJitterOffset()*bps);
         }
+        //Debug.Log("Attack Performer perform done. targets: "+dmg_tag);
     }
 
     private void OnTriggerEnter(Collider other)

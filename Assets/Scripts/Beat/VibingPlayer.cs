@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Permissions;
 using UnityEngine;
@@ -25,10 +26,11 @@ public class VibingPlayer : VibingEntity
     public override void OnBeat(float jitter_delay, float bps)
     {
         stateName = anim.GetCurrentAnimatorStateInfo(1).fullPathHash;
-        if (stateName == null)
-        {
-            Debug.Log("stateName is null", this);
-        }
+
+        anim.Play(stateName, 1, jitter_delay);
+        
+        stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
+
         anim.Play(stateName, 0, jitter_delay);
         //restart animationNow
 

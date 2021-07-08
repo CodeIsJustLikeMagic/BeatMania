@@ -14,13 +14,13 @@ public class CharacterController : BaseHealthBehavior
 
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = true;                         // Whether or not a player can steer while jumping;
-    [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
-    [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
-    [SerializeField] private Transform m_WallCheck;                             //Posicion que controla si el personaje toca una pared
+    [SerializeField] private LayerMask m_WhatIsGround =0;                          // A mask determining what is ground to the character
+    [SerializeField] private Transform m_GroundCheck = null;                           // A position marking where to check if the player is grounded.
+    [SerializeField] private Transform m_WallCheck = null;                             //Posicion que controla si el personaje toca una pared
 
-    [SerializeField] private ParticleSystem jumpParticleSystem;
-    [SerializeField] private ParticleSystem jumpFailParticleSystem;
-    [SerializeField] private ParticleSystem dashParticleSystem;
+    [SerializeField] private ParticleSystem jumpParticleSystem  = null;
+    [SerializeField] private ParticleSystem jumpFailParticleSystem = null;
+    [SerializeField] private ParticleSystem dashParticleSystem = null;
     
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     public bool m_Grounded;            // Whether or not the player is grounded.
@@ -33,7 +33,7 @@ public class CharacterController : BaseHealthBehavior
     private bool canDash = true;
     private bool isDashing = false; //If player is dashing
     private bool m_IsWall = false; //If there is a wall in front of the player
-    private bool hasJumped = false; //If player
+    //private bool hasJumped = false; //If player
 
     public bool touchedRightWall = false;  //Stores Information if Player jumped from a right wall
     public bool touchedLeftWall = false;   //Stores Information if Player jumped from a left  wall
@@ -63,9 +63,9 @@ public class CharacterController : BaseHealthBehavior
     public UnityEvent OnLandEvent;
 
     [SerializeField]
-    private ComboAttack combo;
+    private ComboAttack combo  = null;
     [SerializeField]
-    private DamageFeedback feedback;
+    private DamageFeedback feedback  = null;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }

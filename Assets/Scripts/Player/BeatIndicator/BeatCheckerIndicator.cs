@@ -7,9 +7,9 @@ public class BeatCheckerIndicator : MonoBehaviour
 {
     private Light _light;
 
-    [SerializeField] private SpriteRenderer fakeLight;
+    [SerializeField] private SpriteRenderer fakeLight = null;
 
-    [SerializeField] private SpriteRenderer middle;
+    [SerializeField] private SpriteRenderer middle = null;
 
 
     // Update is called once per frame

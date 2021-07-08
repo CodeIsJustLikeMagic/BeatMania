@@ -14,7 +14,7 @@ public class MyParallax : MonoBehaviour
     private float parallaxEffect = 1;
 
     [SerializeField]
-    private bool dont_teleport;
+    private bool dont_teleport = true;
 
     [SerializeField]
     private float flipProb = 0.5f ;

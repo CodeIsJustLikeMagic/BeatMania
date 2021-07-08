@@ -7,7 +7,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class TrampolineBehavior : AlienBehavior
 {
-    [SerializeField] private GameObject Trampoline;
+    [SerializeField] private GameObject Trampoline = null;
 
     public void Start()
     {
@@ -18,13 +18,13 @@ public class TrampolineBehavior : AlienBehavior
     }
     public void OnEnable()
     {
-        Debug.Log("Trampoline Enable");
+        //Debug.Log("Trampoline Enable");
         Trampoline.SetActive(true);
     }
 
     public void OnDisable()
     {
-        Debug.Log("Trampoline Disable");
+        //Debug.Log("Trampoline Disable");
         Trampoline.SetActive(false);
     }
 

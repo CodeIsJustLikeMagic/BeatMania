@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class SongChangeMenue : MonoBehaviour
 {
-    [SerializeField]
-    private Button[] songButtons;
+    public Button[] songButtons;
 
-    [SerializeField] private Color runningSongColor;
-    [SerializeField] private Color regularSongColor;
+    public Color runningSongColor;
+    public Color regularSongColor;
     void OnEnable()
     {
         for (int i = 0; i< songButtons.Length; i++)
