@@ -63,7 +63,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    private void CursorHide()
+    public static void CursorHide()
     {
         #if UNITY_EDITOR
             return;
@@ -71,7 +71,7 @@ public class Menu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    private void CursorShow()
+    public static void CursorShow()
     {
         #if UNITY_EDITOR
             return;

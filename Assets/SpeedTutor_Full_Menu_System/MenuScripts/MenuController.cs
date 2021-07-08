@@ -137,8 +137,7 @@ namespace SpeedTutorMainMenuSystem
 
             if (buttonType == "Exit")
             {
-                Debug.Log("YES QUIT!");
-                Application.Quit();
+                SceneManager.LoadScene(0);
             }
 
             if (buttonType == "Options")
