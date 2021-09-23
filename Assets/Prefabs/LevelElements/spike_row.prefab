@@ -99,7 +99,7 @@ MonoBehaviour:
   sprite: {fileID: 2283065795587525557}
   colors:
   - {r: 1, g: 0, b: 0.8235295, a: 255}
-  - {r: 0.25882354, g: 1, b: 0.94117653, a: 255}
+  - {r: 0.0141509175, g: 1, b: 0.035473, a: 255}
   - {r: 1, g: 0.1137255, b: 0, a: 255}
   SongChangeColorSteps: 5
   delayTransitionByXBeats: 0

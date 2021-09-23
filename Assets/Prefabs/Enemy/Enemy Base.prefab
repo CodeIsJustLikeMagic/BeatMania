@@ -342,7 +342,7 @@ MonoBehaviour:
   <health>k__BackingField: 10
   deathAnimationLength: 2
   canTakeDamage: 010101
-  UIPrefab: {fileID: 2353226710366907741, guid: 2c80deadda55d554d9722673c4019785,
+  uiPrefab: {fileID: 2353226710366907741, guid: 2c80deadda55d554d9722673c4019785,
     type: 3}
   height: 0
   enemyUi: {fileID: 0}
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8777473816568637907}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 243991ac81b30404ca9f34ed237f4aa5, type: 3}
   m_Name: 

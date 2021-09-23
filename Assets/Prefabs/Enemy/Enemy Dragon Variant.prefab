@@ -1533,6 +1533,31 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2752039697436020540, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: textures.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 5f64c8ae8a94aeb478bbdb3f53bb1c7d, type: 3}
+    - target: {fileID: 2752039697436020540, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: textures.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: 05e0b292caf97c2489dd04be76c27eaa, type: 3}
+    - target: {fileID: 2752039697436020540, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: textures.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 60c8c7f1a761473489eedb65bb566eef, type: 3}
+    - target: {fileID: 2752039697436020540, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: rend
+      value: 
+      objectReference: {fileID: 5951653017035870566}
+    - target: {fileID: 2752039697436020540, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2950267188584949515, guid: ea2f84a68524d5049827b00fabc3956c,
         type: 3}
       propertyPath: m_LocalPosition.y
