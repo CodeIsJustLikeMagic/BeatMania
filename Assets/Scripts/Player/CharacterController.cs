@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterController : BaseHealthBehavior
 {
+    public static CharacterController instance;
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
     [SerializeField] private float m_FallMultiplier = 2.5f;                     // Gravity multiplier on Player when falling.
     [SerializeField] private float m_LowJumpMultiplier = 2f;                  // Gravity multiplier on Player low-Jump.
@@ -72,6 +73,7 @@ public class CharacterController : BaseHealthBehavior
 
     private void Awake()
     {
+        instance = this;
         m_Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         combo = gameObject.GetComponent<ComboAttack>();
@@ -450,5 +452,11 @@ public class CharacterController : BaseHealthBehavior
         combo.SetAttack(true);
         canMove = true;
         invincible = false;
+    }
+
+
+    public void DebugTeleport(Vector3 position)
+    {
+        transform.position = position;
     }
 }

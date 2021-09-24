@@ -40,7 +40,7 @@ public class WalkBehavior : MonoBehaviour
     /// </summary>
     /// <param name="action_range">distance in float from the player at which point the alien will stop chasing to perform their action</param>
     /// <param name="walk_if_not_in_range">disable walking around. Default: true</param>
-    /// <param name="turn_to_player">disable turning toward the player. Dont set this to false if you want the alien to chase the palyer. Default: true</param>
+    /// <param name="turn_to_player">disable turning toward the player. Dont set this to false if you want the alien to chase the player. Default: true</param>
     /// <returns>WalkState. Player is visible and in action_range, Player is visible(chase them) or Player is not visible(walk around)</returns>
     public WalkState CheckForEnemyInRange(float bps, float action_range, bool walk_if_not_in_range, bool turn_to_player)
     {
@@ -154,13 +154,14 @@ public class WalkBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    public float slow_modifier = 10;
     private void Update()
     {
         if (move)
         {
             if (slow)
             {
-                rb.MovePosition(transform.position + transform.forward * (walking_speed/10 * Time.deltaTime));
+                rb.MovePosition(transform.position + transform.forward * (walking_speed/slow_modifier * Time.deltaTime));
             }
             else
             {
@@ -268,18 +269,7 @@ public class WalkBehavior : MonoBehaviour
     
 
     #endregion
-    //https://answers.unity.com/questions/296347/move-transform-to-target-in-x-seconds.html
-    public IEnumerator MyMoveForward(float seconds)//doesnt look right. Doenst walk continually
-    {
-        float elapsedTime = 0;
-        while (elapsedTime < seconds)
-        {
-            elapsedTime += Time.deltaTime;
-            
-            transform.position += transform.forward * walking_speed * Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-    }
+
 
 }
 

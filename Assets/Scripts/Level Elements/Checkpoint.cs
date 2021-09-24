@@ -22,10 +22,17 @@ public class Checkpoint : Interactable
         {
             s.FeedbackInactive(); // Deactivate Feedback for previous Checkpoint
         }
-        activeSpawnPoint = this.transform.position;
-        activeSpawnPoint.z = -0.83f;
-        activeSpawnPoint.y += 1f;
+
+        activeSpawnPoint = getPosition();
         FeedbackActive(); // Activate Feedback for Current Checkpoint
+    }
+
+    public Vector3 getPosition()
+    {
+        Vector3 p = this.transform.position;
+        p.z = -0.83f;
+        p.y += 1f;
+        return p;
     }
 
     public static Vector3 getSpwanPosition()

@@ -10,7 +10,7 @@ using UnityEngine;
 public class AttackBehavior : AlienBehavior
 {
     [SerializeField]
-    private string[] combo = { "Charge", "Attack", "Charge", "Attack", "Charge", "Attack", "Attack", "Attack", "Wait", "Wait" };
+    private string[] combo = { "Charge", "Attack", "Charge", "Attack", "Charge_1", "Attack", "Attack", "Attack", "Wait", "Walk" };
     
     //  this combo array could be replaced by an array of AttackStructs. That way we can save the dmg of the spell and if enemy can be staggered during it.
     public float dmgToPlayer = 1f;
@@ -31,9 +31,18 @@ public class AttackBehavior : AlienBehavior
     
     public override void PerformBehaviorOnBeat(float bps)
     {
-        WalkState s = _walkBehavior.CheckForEnemyInRange(bps, attack_range, true, true);
-        if (s == WalkState.See_And_In_Range && !skip)
+        string move = combo[combocounter];
+        if (move == "Walk") // only walk during that time slot
         {
+            WalkState s = _walkBehavior.CheckForEnemyInRange(bps, attack_range, true, true);
+            if (s == WalkState.See_And_In_Range && !skip)
+            {
+                combocounter++;
+                Attack(); // do next thing once player is in range. 
+            }
+        }
+        else // dont check if player is visible. 
+        { // force alien to keep going in its pattern as long as not walking
             Attack();
         }
 
@@ -55,12 +64,33 @@ public class AttackBehavior : AlienBehavior
     //used when getting hit or dizzy to stop alien from interrupting its "gethit" animation.
     //skip could be changed to an int so you can make alien skip the next X beats.
     //when you want it to get staggered from mutliple beats or something.
+    private float charge_length = 0;
     private void Attack()//set up with simple combo same as player but without being able to miss beats
     {
         string move = combo[combocounter];
-        if (move != "Charge" && move != "Wait")
+        var c = move.Split('_');
+        move = c[0];
+        if (charge_length > 1)
         {
-            _walkBehavior.KeepMoving();
+            charge_length--;
+            return;
+        }
+        if (move == "Charge")
+        {
+            charge_length = 1;
+            if (c.Length > 1)
+            {
+                charge_length = int.Parse(c[1]);
+            }
+            enemyAnimator3D.speed = 1f / charge_length;
+        }
+        else
+        {
+            enemyAnimator3D.speed = 1f;
+        }
+        if (move == "Attack")
+        {
+            _walkBehavior.KeepMoving(); // move forward a little during attack
         }
         if (!only3D)
         {
@@ -71,8 +101,6 @@ public class AttackBehavior : AlienBehavior
         {
             attackPerformer.Perform(move, 1, false, "Player");
         }
-        
-        
         combocounter = (combocounter + 1) % maxCombo;//cycle though combo array
     }
 

@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8427216535615996794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361731101808672400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d912c1a53997114dbc19a53f3f1be71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 9049466125551793036}
+  colors:
+  - {r: 1, g: 0, b: 0.69194555, a: 255}
+  - {r: 0.15133426, g: 1, b: 0.08018869, a: 255}
+  - {r: 1, g: 0.30296707, b: 0, a: 255}
+  SongChangeColorSteps: 5
+  delayTransitionByXBeats: 0
 --- !u!1 &2600743053344652081
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e6e1331f62642479d1543ecb8edfb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vision_range: 5
+  vision_range: 7
   walking_speed: 2
   turn_around_randomly_probability: 2
   wallCheck: {fileID: 2817621520915898767}
@@ -275,6 +294,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16385
   ignoreGroundCheck: 0
+  slow_modifier: 10
 --- !u!114 &1346815261338818098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,6 +686,18 @@ PrefabInstance:
 --- !u!4 &1063713383144433452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1773534108576165152, guid: e7a4d55e209f658478452e8877a06eb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1612229635018295820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1361731101808672400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 340617119990789276, guid: e7a4d55e209f658478452e8877a06eb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1612229635018295820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &9049466125551793036 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7766988832505756032, guid: e7a4d55e209f658478452e8877a06eb1,
     type: 3}
   m_PrefabInstance: {fileID: 1612229635018295820}
   m_PrefabAsset: {fileID: 0}
