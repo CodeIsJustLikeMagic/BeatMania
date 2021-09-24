@@ -1624,6 +1624,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 740399837540007434, guid: d03942c4ea97237428ce6df65a296609,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 740399837933671083, guid: d03942c4ea97237428ce6df65a296609,
         type: 3}
       propertyPath: beatEvent.m_PersistentCalls.m_Calls.Array.size
