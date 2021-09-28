@@ -14,7 +14,15 @@ public class PlaySoundBehaviour : StateMachineBehaviour
         audioSource = animator.transform.GetComponent<AudioSource>();
         audioSource.clip = audioSound;
         audioSource.loop = loop;
-        audioSource.Play();
+        if (BeatChecker.instance.IsInBeat())
+        {
+            audioSource.pitch = 1.2f;
+        }
+        else
+        {
+            audioSource.pitch = 0.8f;
+        }
+            audioSource.Play();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
