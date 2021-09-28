@@ -19,6 +19,7 @@ public class PlatformMoving : AlienBehavior
         animator = GetComponentInChildren<Animator>();
     }
 
+
     private int combocounter = 0;
     public string debug = "";
     public override void PerformBehaviorOnBeat(float bps)
