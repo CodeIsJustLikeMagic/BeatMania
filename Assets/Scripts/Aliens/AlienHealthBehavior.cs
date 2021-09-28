@@ -9,6 +9,8 @@ using Random = System.Random;
 public class AlienHealthBehavior : BaseHealthBehavior
 {
     [field: SerializeField] public float health { get; private set; } = 10f;
+    public Renderer UItargetRenderer;
+
     [SerializeField] private float deathAnimationLength = 2f;
     [Tooltip("For each song: Set if we can take damage or not")]
     [SerializeField]
@@ -35,6 +37,7 @@ public class AlienHealthBehavior : BaseHealthBehavior
         _visual = GetComponentInChildren<SkinnedMeshRenderer>();
         _collider = GetComponent<Collider>();
         _respawnLocation = transform.position;
+        UItargetRenderer = _visual;
         
     }
     public void OnSongChange(int song)

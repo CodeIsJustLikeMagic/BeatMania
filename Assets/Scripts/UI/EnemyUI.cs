@@ -15,11 +15,11 @@ public class EnemyUI : MonoBehaviour
     [SerializeField]
     private Vector3 screenOffset = new Vector3(0f, 30f, 0f);
 
-    private GameObject _target;
+    public GameObject _target;
     private AlienHealthBehavior _enemyHealth;
     private float _characterControllerHeight = 2f;
     private Transform _targetTransform;
-    private Renderer _targetRenderer;
+    public Renderer _targetRenderer;
     private CanvasGroup _canvasGroup;
     private Vector3 _targetPosition;
 
@@ -35,8 +35,11 @@ public class EnemyUI : MonoBehaviour
         _enemyHealth = this._target.GetComponent<AlienHealthBehavior>();
 
         _targetTransform = this._target.GetComponent<Transform>();
-        _targetRenderer = this._target.GetComponentInChildren<Renderer>();
-        
+        _targetRenderer = this._target.GetComponentInChildren<SkinnedMeshRenderer>();
+        if (_targetRenderer == null)
+        {
+            Debug.LogError("UI without Renderer");
+        }
         _characterControllerHeight = height;
         enemyHealthSlider.maxValue = _enemyHealth.health;
     }
@@ -68,6 +71,7 @@ public class EnemyUI : MonoBehaviour
         //if target is outside of view frustum dont show their UI.
         if (_targetRenderer != null)
         {
+            Debug.Log("target name "+_target.name+" isVisible "+_targetRenderer.isVisible+" visible "+visible,_targetRenderer);
             if (_targetRenderer.isVisible && visible)
             {
                 this._canvasGroup.alpha =  1f;
@@ -85,7 +89,6 @@ public class EnemyUI : MonoBehaviour
             }
             
         }
-
 
     }
 
