@@ -13,6 +13,12 @@ public class PlatformForce : MonoBehaviour
         {
             // make player our child
             other.collider.transform.SetParent(transform);
+            // if the players transform is to low, which would mean not quite standing on the platform, glitch them on top
+            if (-1f < other.gameObject.transform.position.y && other.gameObject.transform.position.y < 0.5f)
+            {
+                CharacterController.instance.SetyPosition(0.5f);
+                //other.gameObject.transform.position.y = 0.5f;
+            }
         }
     }
 

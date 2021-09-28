@@ -459,4 +459,10 @@ public class CharacterController : BaseHealthBehavior
     {
         transform.position = position;
     }
+
+    public void SetyPosition(float f)
+    {
+        Vector3 v = new Vector3(transform.position.x, f, transform.position.z);
+        transform.position = v;
+    }
 }

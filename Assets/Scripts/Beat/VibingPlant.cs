@@ -8,7 +8,6 @@ public class VibingPlant : VibingEntity
     [SerializeField]
     private Animator anim;
 
-    public bool debug = false;
     private void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -21,10 +20,6 @@ public class VibingPlant : VibingEntity
     private int stateName;
     public override void OnBeat(float jitter_delay, float bps)
     {
-        if (debug)
-        {
-            Debug.Log("Vibing Entity Debug: OnBeat called");
-        }
         if (!gameObject.activeInHierarchy)
         {
             anim.enabled = false;
