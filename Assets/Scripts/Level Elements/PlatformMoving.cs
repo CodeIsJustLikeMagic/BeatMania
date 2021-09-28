@@ -17,14 +17,12 @@ public class PlatformMoving : AlienBehavior
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-
     }
 
     private int combocounter = 0;
     public string debug = "";
     public override void PerformBehaviorOnBeat(float bps)
     {
-
         if (beat_num < move_every_x_beats)
         {
             beat_num++;
@@ -36,15 +34,14 @@ public class PlatformMoving : AlienBehavior
         {
             animator = GetComponentInChildren<Animator>();
         }
-        if (!animator.gameObject.activeSelf)
+        if (animator != null && animator.isActiveAndEnabled)
         {
-            return;
+            animator.SetFloat("Speed", bps);
+            string move = combo[combocounter];
+            debug = move;
+            animator.SetTrigger(move);
+            combocounter = (combocounter + 1) % combo.Length;// cycle though combo array
         }
-        animator.SetFloat("Speed", bps);
-        string move = combo[combocounter];
-        debug = move;
-        animator.SetTrigger(move);
-        combocounter = (combocounter + 1) % combo.Length;// cycle though combo array
     }
 
 }

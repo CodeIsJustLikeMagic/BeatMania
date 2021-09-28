@@ -22,6 +22,14 @@ public class ColorChange2DColor : ColorChange
     private bool songWasChanged = false;
     private float beatCountsToTransition = 1;
 
+    public new void Start()
+    {
+        if (debug)
+        {
+            Debug.Log("platform running Start");
+        }
+        base.Start();
+    }
     
     private void Awake()
     {
@@ -36,10 +44,15 @@ public class ColorChange2DColor : ColorChange
         }
     }
 
+    public bool debug = false;
 
     // show color gets called when the song is changed.
     protected override void showColor(int song)
     {
+        if (debug)
+        {
+            Debug.Log("show Color was called. Song "+song);
+        }
         if (colors.Length == 0)
         {
             Debug.LogError("color Array Length is zero", this);
@@ -80,6 +93,10 @@ public class ColorChange2DColor : ColorChange
 
     public override void OnBeat(float jitter_delay, float bps)
     {
+        if (debug)
+        {
+            Debug.Log("Platform colorchange OnBeat was called");
+        }
         if (songWasChanged)
         {
             beatCountsToTransition = 1;
@@ -95,4 +112,5 @@ public class ColorChange2DColor : ColorChange
     {
         colors[songNum % colors.Length] = color;
     }
+    
 }

@@ -28,12 +28,17 @@ public class AttackBehavior : AlienBehavior
         _walkBehavior = gameObject.GetComponent<WalkBehavior>();
         attackPerformer = gameObject.GetComponentInChildren<AttackPerformer>();
     }
-    
+
+    public bool debug = false;
     public override void PerformBehaviorOnBeat(float bps)
     {
         string move = combo[combocounter];
         if (move == "Walk") // only walk during that time slot
         {
+            if (debug)
+            {
+                //Debug.Log("Hello it is I");
+            }
             WalkState s = _walkBehavior.CheckForEnemyInRange(bps, attack_range, true, true);
             if (s == WalkState.See_And_In_Range && !skip)
             {
@@ -83,14 +88,18 @@ public class AttackBehavior : AlienBehavior
                 charge_length = int.Parse(c[1]);
             }
             enemyAnimator3D.speed = 1f / charge_length;
-        }
-        else
+            _walkBehavior.StopMoving();
+        }else
         {
             enemyAnimator3D.speed = 1f;
         }
         if (move == "Attack")
         {
-            _walkBehavior.KeepMoving(); // move forward a little during attack
+            _walkBehavior.MoveSlow(); // move forward a little during attack
+        }
+        if (move == "Wait")
+        {
+            _walkBehavior.StopMoving();
         }
         if (!only3D)
         {

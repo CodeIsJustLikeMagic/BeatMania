@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +25,18 @@ public class DamageOnTouch : MonoBehaviour
         }
     }
     private void OnCollisionEnter(Collision collision)
+    {
+        OnTriggerEnter(collision.collider);
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        OnTriggerEnter(other);
+    }
+
+
+    private void OnCollisionStay(Collision collision)
     {
         OnTriggerEnter(collision.collider);
     }

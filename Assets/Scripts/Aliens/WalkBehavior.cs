@@ -193,7 +193,7 @@ public class WalkBehavior : MonoBehaviour
     }
 
     private bool slow = false;
-    public void KeepMoving()
+    public void MoveSlow()
     {
         slow = true;
         move = true;

@@ -19,6 +19,7 @@ MonoBehaviour:
   - {r: 1, g: 0.30296707, b: 0, a: 255}
   SongChangeColorSteps: 5
   delayTransitionByXBeats: 0
+  debug: 0
 --- !u!1 &2600743053344652081
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +348,7 @@ MonoBehaviour:
   dmgToPlayer: 1
   only3D: 0
   attack_range: 2.2
+  debug: 0
 --- !u!114 &4687517011736086013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,7 +718,7 @@ PrefabInstance:
     - target: {fileID: 2843166299814916312, guid: 04ac66f8152a7a24dbaed4c71d753a15,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2843166299814916313, guid: 04ac66f8152a7a24dbaed4c71d753a15,
         type: 3}

@@ -17,16 +17,16 @@ public class PlatformBehavior : AlienBehavior
     }
     public void OnEnable()
     {
-        Platform.SetActive(true);
+        Platform.GetComponent<AlienPlatform>().show();
     }
 
     public void OnDisable()
     {
-        Platform.SetActive(false);
+        Platform.GetComponent<AlienPlatform>().hide();
     }
 
     public override void PerformBehaviorOnBeat(float bps)
     {
-        Platform.SetActive(true);
+        Platform.GetComponent<AlienPlatform>().show();
     }
 }
