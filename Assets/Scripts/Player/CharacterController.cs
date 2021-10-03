@@ -45,7 +45,7 @@ public class CharacterController : BaseHealthBehavior
     private bool canCheck = false; //For check if player is wallsliding
 
     public float life = 10f; //Life of the player
-    private float maxlife;
+    public float maxlife;
     public bool invincible = false; //If player can die
     private bool canMove = true; //If player can move
 
