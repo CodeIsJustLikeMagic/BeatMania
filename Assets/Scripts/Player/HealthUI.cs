@@ -24,7 +24,6 @@ public class HealthUI : MonoBehaviour
         healthComponent = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateHealth();

@@ -117,6 +117,7 @@ public class AttackBehavior : AlienBehavior
     {
         combocounter = 0;//rest combo
         enemyAnimator3D.SetTrigger("Dizzy");//play stagger animation as feedback
+        _walkBehavior.StopMoving();
     }
 
     public void GetHit()

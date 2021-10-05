@@ -29,4 +29,15 @@ public class PlatformForce : MonoBehaviour
             other.collider.transform.SetParent(null);
         }
     }
+
+    public void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (-1f < other.gameObject.transform.position.y && other.gameObject.transform.position.y < 0.5f)
+            {
+                CharacterController.instance.SetyPosition(0.4918084f);
+            }
+        }
+    }
 }

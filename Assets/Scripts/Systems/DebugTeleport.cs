@@ -20,6 +20,7 @@ public class DebugTeleport : MonoBehaviour
         {
             CharacterController.instance.DebugTeleport(spots[current].getPosition());
             current++;
+            current = current % spots.Length;
         }
     }
 }

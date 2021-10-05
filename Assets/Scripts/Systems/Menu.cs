@@ -24,6 +24,7 @@ public class Menu : MonoBehaviour
     public void showSongChangeMenue()
     {
         songChangeMenue.SetActive(true);
+        CursorShow();
     }
 
     public void closeAll()
@@ -31,11 +32,13 @@ public class Menu : MonoBehaviour
         GameMenue.SetActive(false);
         endofDemo.SetActive(false);
         songChangeMenue.SetActive(false);
+        CursorHide();
     }
 
     public void closeSongChangeMenue()
     {
         songChangeMenue.SetActive(false);
+        CursorHide();
     }
 
     private void Update()
