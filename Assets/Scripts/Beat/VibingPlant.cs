@@ -25,10 +25,7 @@ public class VibingPlant : VibingEntity
             anim.enabled = false;
             return;
         }
-        else
-        {
-            anim.enabled = true;
-        }
+        anim.enabled = true;
         stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
         anim.Play(stateName, 0, jitter_delay);
         //restart animationNow

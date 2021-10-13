@@ -28,6 +28,16 @@ public class AlienHandleSongChange : VibingEntity
         {
             Debug.LogError("AlienHandleSongChange failed to Start Action Invoke beacause Time-BeatStart is negative", this);
         }
+
+        try
+        {
+            var stateName = enemyAnimator3D.GetCurrentAnimatorStateInfo(1).fullPathHash;
+            enemyAnimator3D.Play(stateName, 0, jitter_delay);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
     
     [NonSerialized] public bool is_dead = false; // Alien gets supressed before it dies So it doesnt interrupt its attack animation.

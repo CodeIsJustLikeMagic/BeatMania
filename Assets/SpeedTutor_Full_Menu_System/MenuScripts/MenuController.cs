@@ -18,7 +18,9 @@ namespace SpeedTutorMainMenuSystem
         //[SerializeField] private bool defaultInvertY = false;
 
         [Header("Levels To Load")]
-        public string _newGameButtonLevel;
+        public int _newGameButtonLevel;
+
+        public int _loadGameButtonLevel;
         private string levelToLoad;
 
         private int menuNumber;
@@ -280,7 +282,7 @@ namespace SpeedTutorMainMenuSystem
                     //SceneManager.LoadScene(levelToLoad);
                     
                     PlayerPrefs.SetInt("LoadSavedState", 1);
-                    SceneManager.LoadScene(_newGameButtonLevel);
+                    SceneManager.LoadScene(_loadGameButtonLevel);
                 }
 
                 else

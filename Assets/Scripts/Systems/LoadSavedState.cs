@@ -41,6 +41,9 @@ public class LoadSavedState : MonoBehaviour
             var collectedSpacehShips = PlayerPrefs.GetString("CollectedSpaceShips", "00000000000");
             SpaceShipSytem.Instance.LoadCollected(collectedSpacehShips);
             //Debug.Log("Loaded Collected SpaceShip Parts. Code: "+collectedSpacehShips);
+
+            var unlockedSongs = PlayerPrefs.GetString("UnlockedSongs", "0000");
+            UnlockedSongs.Instance.LoadUnlockedSongs(unlockedSongs);
         }
         else
         {
@@ -60,6 +63,7 @@ public class LoadSavedState : MonoBehaviour
         PlayerPrefs.SetInt("Checkpoint", TeleportSystem.Instance.GetActiveCheckpointIndex());
         PlayerPrefs.SetInt("CurrentSong", SongchangeSystem.Instance.Currentsong);
         PlayerPrefs.SetString("CollectedSpaceShips", SpaceShipSytem.Instance.SaveCollected());
+        PlayerPrefs.SetString("UnlockedSongs", UnlockedSongs.Instance.SaveUnlockedSongs());
         Debug.Log("SaveState");
         //todo save which songs are unlocked
     }

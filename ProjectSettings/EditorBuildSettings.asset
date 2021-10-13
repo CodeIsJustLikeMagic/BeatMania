@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/0_MainMenue.unity
     guid: 73085ca7476a3ba46b6153b3733edf7e
   - enabled: 1
-    path: Assets/Scenes/Story_Intro.unity
+    path: Assets/Scenes/1_Story_Intro.unity
     guid: 0a2623c1e2fcae34eafbf550db9140f7
   - enabled: 1
-    path: Assets/Scenes/1_Tutorial_Level.unity
+    path: Assets/Scenes/2_Game.unity
     guid: ddc8f9033765ab24eaddd56216d308b8
   - enabled: 0
     path: Assets/Scenes/Nelly_Component_Test_Scene.unity

@@ -8,13 +8,14 @@ using UnityEngine.Rendering.PostProcessing;
 public class TrampolineBehavior : AlienBehavior
 {
     [SerializeField] private GameObject Trampoline = null;
-
+    private Animator enemyAnimator3D;
     public void Start()
     {
         if (Trampoline == null)
         {
             Debug.LogError("Trampolione Behavior was not assigned a Trampoline", this);
         }
+        enemyAnimator3D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
     }
     public void OnEnable()
     {
@@ -30,6 +31,6 @@ public class TrampolineBehavior : AlienBehavior
 
     public override void PerformBehaviorOnBeat(float bps)
     {
-        
+        enemyAnimator3D.SetTrigger("Wait");
     }
 }
