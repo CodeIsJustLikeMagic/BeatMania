@@ -16,6 +16,7 @@ public class EnemyOneSequence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Enemy One Sequence here", this);
         if (Input.GetKeyDown(KeyCode.E))
         {
             sequencer.Clear();

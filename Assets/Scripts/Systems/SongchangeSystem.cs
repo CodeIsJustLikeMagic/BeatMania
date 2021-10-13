@@ -48,7 +48,7 @@ public class SongchangeSystem : MonoBehaviour
 
     public void SongChange(int song)//gets called when user uses Songtree ?
     {
-        Debug.Log("SongChange to "+song);
+        //Debug.Log("SongChange to "+song);
         if (UnlockedSongs.Instance.SongIsUnlocked(song) || enableAllSongs)
         {
             foreach (var theme in themes)
@@ -71,6 +71,7 @@ public class SongchangeSystem : MonoBehaviour
     //einfach nur zum testen
     public void Update()
     {
+        #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Alpha1)) 
         {
             SongChange(0);
@@ -87,5 +88,6 @@ public class SongchangeSystem : MonoBehaviour
         {
             SongChange(3);
         }
+        #endif
     }
 }

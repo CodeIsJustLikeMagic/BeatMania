@@ -20,30 +20,24 @@ public class AttackBehavior : AlienBehavior
     [SerializeField]
     private float attack_range = 2.4f;
 
-    private WalkBehavior _walkBehavior;
+    public WalkBehavior _walkBehavior;
     private AttackPerformer attackPerformer;
     private void Start()
     {
         enemyAnimator3D = gameObject.GetComponent<AlienHandleSongChange>().enemyAnimator3D;
-        _walkBehavior = gameObject.GetComponent<WalkBehavior>();
+        if (_walkBehavior == null)
+        {
+            _walkBehavior = gameObject.GetComponent<WalkBehavior>();
+        }
+        
         attackPerformer = gameObject.GetComponentInChildren<AttackPerformer>();
     }
 
-    public bool debug = false;
     public override void PerformBehaviorOnBeat(float bps)
     {
         string move = combo[combocounter];
         if (move == "Walk") // only walk during that time slot
         {
-            if (debug)
-            {
-                //Debug.Log("Hello it is I");
-            }
-
-            if (_walkBehavior == null)
-            {
-                Debug.LogError("walk behavior is missing");
-            }
             WalkState s = _walkBehavior.CheckForEnemyInRange(bps, attack_range, true, true);
             
             if (s == WalkState.See_And_In_Range && !skip)

@@ -16,6 +16,7 @@ public class SequenceSamples : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Sequence Samples", this);
         if (Input.GetKeyDown(KeyCode.E))
         {
             sequencer.Clear();

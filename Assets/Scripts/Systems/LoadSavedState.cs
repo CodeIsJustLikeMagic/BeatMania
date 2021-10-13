@@ -44,6 +44,7 @@ public class LoadSavedState : MonoBehaviour
 
             var unlockedSongs = PlayerPrefs.GetString("UnlockedSongs", "0000");
             UnlockedSongs.Instance.LoadUnlockedSongs(unlockedSongs);
+            Debug.Log("Loaded Game State");
         }
         else
         {

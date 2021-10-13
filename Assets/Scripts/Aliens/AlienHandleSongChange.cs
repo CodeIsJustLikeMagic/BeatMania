@@ -32,7 +32,7 @@ public class AlienHandleSongChange : VibingEntity
         try
         {
             var stateName = enemyAnimator3D.GetCurrentAnimatorStateInfo(1).fullPathHash;
-            enemyAnimator3D.Play(stateName, 0, jitter_delay);
+            enemyAnimator3D.Play(stateName, 1, jitter_delay);
         }
         catch (Exception e)
         {
