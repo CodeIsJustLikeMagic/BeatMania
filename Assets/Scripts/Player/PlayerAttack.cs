@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
         canAttack = false;
-        if (BeatChecker.instance.IsInBeat())
+        if (BeatChecker.Instance.IsInBeat())
         {
             //playerAnimator.SetTrigger("TAN" + (combocounter + 1)); // Test Attack Normal 1-5
             combocounter = (combocounter + 1) % maxCombo;

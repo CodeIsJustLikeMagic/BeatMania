@@ -14,7 +14,7 @@ public class Songtree : Interactable
 
     private void Start()
     {
-        if (unlocksSong != -1 || !UnlockedSongs.instance.SongIsUnlocked(unlocksSong))
+        if (unlocksSong != -1 || !UnlockedSongs.Instance.SongIsUnlocked(unlocksSong))
         {
             //feedback_light.SetActive(true);
             //feedback_particles.Play();
@@ -28,14 +28,14 @@ public class Songtree : Interactable
 
     protected override void DoSomething()
     {
-        if (unlocksSong == -1 || UnlockedSongs.instance.SongIsUnlocked(unlocksSong))
+        if (unlocksSong == -1 || UnlockedSongs.Instance.SongIsUnlocked(unlocksSong))
         { // not first interaction. Show songchange menu.
             Menu.instance.showSongChangeMenue();
         }
         else
         { // first songtree Interaction. Unlock song and change to it.
-            UnlockedSongs.instance.UnlockSong(unlocksSong);
-            SongchangeSystem.instance.SongChange(unlocksSong);
+            UnlockedSongs.Instance.UnlockSong(unlocksSong);
+            SongchangeSystem.Instance.SongChange(unlocksSong);
             interactionText = "change current song";
             //feedback_light.SetActive(true);
             //feedback_particles.Play();

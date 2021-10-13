@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class UnlockedSongs : MonoBehaviour
 {
-    public static UnlockedSongs instance;
+    private static UnlockedSongs _instance;
+    public static UnlockedSongs Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<UnlockedSongs>();
+            }
+
+            return _instance;
+        }
+    }
+    
     [SerializeField]
     private bool[] song_unlocked = null;
-    
-    // Start is called before the first frame update
-    void Awake()
-    {
-        //DontDestroyOnLoad(gameObject); needs to save unlocked songs between scenes but also for the player. todo
-        instance = this;
-    }
 
     public void UnlockSong(int song)
     {

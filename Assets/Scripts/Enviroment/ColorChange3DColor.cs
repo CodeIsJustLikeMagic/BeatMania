@@ -64,7 +64,7 @@ public class ColorChange3DColor : ColorChange
             beatCountsToTransition = 1;
             //sprite.color = Color.Lerp(sprite.color, colors[currentSong % colors.Length],1/SongChangeColorSteps);
             prevColor = rend.sharedMaterial.GetColor("_Color");
-            InvokeRepeating("ColorProgress", SongSynchonizeVibing.instance.BeatStart+ (SongSynchonizeVibing.instance.BeatLength * delayTransitionByXBeats+1) - Time.time, 1/bps);
+            InvokeRepeating("ColorProgress", SongSynchonizeVibing.Instance.BeatStart+ (SongSynchonizeVibing.Instance.BeatLength * delayTransitionByXBeats+1) - Time.time, 1/bps);
             songWasChanged = false;
         }
     }

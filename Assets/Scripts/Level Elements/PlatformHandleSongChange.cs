@@ -22,7 +22,7 @@ public class PlatformHandleSongChange : VibingEntity
         PlatformHandleSongChange.bps = bps;
         //dictate which Behavior to Perform, based on musik (passive, attack, active)
         CancelInvoke();
-        InvokeRepeating("ActionOnBeat", SongSynchonizeVibing.instance.BeatStart+SongSynchonizeVibing.instance.BeatLength - Time.time, 1/bps);
+        InvokeRepeating("ActionOnBeat", SongSynchonizeVibing.Instance.BeatStart+SongSynchonizeVibing.Instance.BeatLength - Time.time, 1/bps);
         actionMethod(bps);
     }
 

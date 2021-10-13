@@ -2,7 +2,19 @@
 
 public class BeatChecker : VibingEntity
 {
-    public static BeatChecker instance;
+    public static BeatChecker _instance;
+    public static BeatChecker Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<BeatChecker>();
+            }
+
+            return _instance;
+        }
+    }
 
     public float toleranceShift = 0.00f;
     public float toleranceRange = 0.07f;
@@ -136,11 +148,6 @@ public class BeatChecker : VibingEntity
     public void SetBeatStart(float beatStart)
     {
         this.beatStart = beatStart;
-    }
-
-    private void Awake()
-    {
-        instance = this;
     }
 
     public float GetbeatLength() {

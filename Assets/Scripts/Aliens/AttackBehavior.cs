@@ -39,7 +39,13 @@ public class AttackBehavior : AlienBehavior
             {
                 //Debug.Log("Hello it is I");
             }
+
+            if (_walkBehavior == null)
+            {
+                Debug.LogError("walk behavior is missing");
+            }
             WalkState s = _walkBehavior.CheckForEnemyInRange(bps, attack_range, true, true);
+            
             if (s == WalkState.See_And_In_Range && !skip)
             {
                 combocounter++;

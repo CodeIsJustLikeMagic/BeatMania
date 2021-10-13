@@ -23,8 +23,8 @@ public class AlienHandleSongChange : VibingEntity
         enemyAnimator3D.SetFloat("Speed", bps);
         //dictate which Behavior to Perform, based on musik (passive, attack, active)
         CancelInvoke();
-        InvokeRepeating("ActionOnBeat",  SongSynchonizeVibing.instance.BeatStart + SongSynchonizeVibing.instance.BeatLength - Time.time, 1 / bps);
-        if (SongSynchonizeVibing.instance.BeatStart - Time.time + SongSynchonizeVibing.instance.BeatLength < 0)
+        InvokeRepeating("ActionOnBeat",  SongSynchonizeVibing.Instance.BeatStart + SongSynchonizeVibing.Instance.BeatLength - Time.time, 1 / bps);
+        if (SongSynchonizeVibing.Instance.BeatStart - Time.time + SongSynchonizeVibing.Instance.BeatLength < 0)
         {
             Debug.LogError("AlienHandleSongChange failed to Start Action Invoke beacause Time-BeatStart is negative", this);
         }

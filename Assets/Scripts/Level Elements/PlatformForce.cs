@@ -16,7 +16,7 @@ public class PlatformForce : MonoBehaviour
             // if the players transform is to low, which would mean not quite standing on the platform, glitch them on top
             if (-1f < other.gameObject.transform.position.y && other.gameObject.transform.position.y < 0.5f)
             {
-                CharacterController.instance.SetyPosition(0.4918084f);
+                CharacterController.Instance.SetyPosition(0.4918084f);
                 //other.gameObject.transform.position.y = 0.5f;
             }
         }
@@ -36,7 +36,7 @@ public class PlatformForce : MonoBehaviour
         {
             if (-1f < other.gameObject.transform.position.y && other.gameObject.transform.position.y < 0.5f)
             {
-                CharacterController.instance.SetyPosition(0.4918084f);
+                CharacterController.Instance.SetyPosition(0.4918084f);
             }
         }
     }

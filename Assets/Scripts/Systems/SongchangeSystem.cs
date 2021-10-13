@@ -1,11 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using AudioHelm;
 using UnityEngine;
 
 public class SongchangeSystem : MonoBehaviour
 {
-    public static SongchangeSystem instance;
+    private static SongchangeSystem _instance;
+    public static SongchangeSystem Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<SongchangeSystem>();
+            }
+
+            return _instance;
+        }
+    }
+    
     public AudioHelm.AudioHelmClock clock;
     public GameObject[] themes;
     public int[] bpms;
@@ -16,13 +30,14 @@ public class SongchangeSystem : MonoBehaviour
     public int Currentsong
     {
         get => currentsong;
+        set => currentsong = value;
     }
+
     [SerializeField]
     private bool enableAllSongs = false;
 
     private void Start()
     {
-        instance = this;
         Invoke("SongChange", 0.2f);
     }
 
@@ -33,9 +48,14 @@ public class SongchangeSystem : MonoBehaviour
 
     public void SongChange(int song)//gets called when user uses Songtree ?
     {
-        if (UnlockedSongs.instance.SongIsUnlocked(song) || enableAllSongs)
+        Debug.Log("SongChange to "+song);
+        if (UnlockedSongs.Instance.SongIsUnlocked(song) || enableAllSongs)
         {
-            SongSynchonizeVibing.instance.RecieveSongChange(song);
+            foreach (var theme in themes)
+            {
+                theme.SetActive(false);
+            }
+            SongSynchonizeVibing.Instance.RecieveSongChange(song);
             themes[currentsong].SetActive(false);
             clock.bpm = bpms[song];
             themes[song].SetActive(true);

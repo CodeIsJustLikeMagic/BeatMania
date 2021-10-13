@@ -137,10 +137,12 @@ namespace SpeedTutorMainMenuSystem
 
             if (buttonType == "BackToMenu")
             {
+                LoadSavedState.Instance.SaveState();
                 SceneManager.LoadScene(0);
             }
             if (buttonType == "Exit")
             {
+                LoadSavedState.Instance.SaveState();
                 Application.Quit();
             }
 
@@ -256,6 +258,7 @@ namespace SpeedTutorMainMenuSystem
         {
             if (ButtonType == "Yes")
             {
+                PlayerPrefs.SetInt("LoadSavedState", 0);
                 SceneManager.LoadScene(_newGameButtonLevel);
             }
 
@@ -269,12 +272,15 @@ namespace SpeedTutorMainMenuSystem
         {
             if (ButtonType == "Yes")
             {
-                if (PlayerPrefs.HasKey("SavedLevel"))
+                if (PlayerPrefs.HasKey("LoadSavedState"))
                 {
                     Debug.Log("I WANT TO LOAD THE SAVED GAME");
                     //LOAD LAST SAVED SCENE
-                    levelToLoad = PlayerPrefs.GetString("SavedLevel");
-                    SceneManager.LoadScene(levelToLoad);
+                    //levelToLoad = PlayerPrefs.GetString("SavedLevel");
+                    //SceneManager.LoadScene(levelToLoad);
+                    
+                    PlayerPrefs.SetInt("LoadSavedState", 1);
+                    SceneManager.LoadScene(_newGameButtonLevel);
                 }
 
                 else

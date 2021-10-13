@@ -13,9 +13,9 @@ public class SongChangeMenue : MonoBehaviour
     {
         for (int i = 0; i< songButtons.Length; i++)
         {
-            songButtons[i].interactable = UnlockedSongs.instance.SongIsUnlocked(i);
+            songButtons[i].interactable = UnlockedSongs.Instance.SongIsUnlocked(i);
             songButtons[i].GetComponent<Text>().color = regularSongColor;
         }
-        songButtons[SongchangeSystem.instance.GetCurrentSong()].GetComponent<Text>().color = runningSongColor;
+        songButtons[SongchangeSystem.Instance.GetCurrentSong()].GetComponent<Text>().color = runningSongColor;
     }
 }

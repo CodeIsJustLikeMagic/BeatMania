@@ -14,7 +14,7 @@ public class PlaySoundBehaviour : StateMachineBehaviour
         audioSource = animator.transform.GetComponent<AudioSource>();
         audioSource.clip = audioSound;
         audioSource.loop = loop;
-        if (BeatChecker.instance.IsInBeat())
+        if (BeatChecker.Instance.IsInBeat())
         {
             audioSource.pitch = 1.2f;
         }

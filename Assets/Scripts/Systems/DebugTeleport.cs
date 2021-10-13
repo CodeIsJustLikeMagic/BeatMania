@@ -18,7 +18,7 @@ public class DebugTeleport : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B)) // lock behind debug mode?
         {
-            CharacterController.instance.DebugTeleport(spots[current].getPosition());
+            CharacterController.Instance.DebugTeleport(spots[current].getPosition());
             current++;
             current = current % spots.Length;
         }

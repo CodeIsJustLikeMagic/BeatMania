@@ -15,7 +15,7 @@ public class BeatCheckerIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BeatChecker.instance.IsInBeat())
+        if (BeatChecker.Instance.IsInBeat())
         {
             fakeLight.enabled = true;
             middle.enabled = true;

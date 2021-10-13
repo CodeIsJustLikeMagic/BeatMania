@@ -6,7 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class CharacterController : BaseHealthBehavior
 {
-    public static CharacterController instance;
+    private static CharacterController _instance;
+
+    public static CharacterController Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<CharacterController>();
+                if (_instance == null)
+                {
+                    Debug.LogError("Couldnt find instance of CharacterController");
+                }
+            }
+
+            return _instance;
+        }
+    }
+    
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
     [SerializeField] private float m_FallMultiplier = 2.5f;                     // Gravity multiplier on Player when falling.
     [SerializeField] private float m_LowJumpMultiplier = 2f;                  // Gravity multiplier on Player low-Jump.
@@ -73,7 +91,7 @@ public class CharacterController : BaseHealthBehavior
 
     private void Awake()
     {
-        instance = this;
+        //instance = this;
         m_Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         combo = gameObject.GetComponent<ComboAttack>();
@@ -234,7 +252,7 @@ public class CharacterController : BaseHealthBehavior
             {
                 // Add a vertical force to the player.
                 animator.SetBool("IsJumping", true);
-                if (BeatChecker.instance.IsInBeat())
+                if (BeatChecker.Instance.IsInBeat())
                 {
                     canDoubleJump = true;
                     BeatIndicatorFeedback.instance.Success();
@@ -252,7 +270,7 @@ public class CharacterController : BaseHealthBehavior
             //Doublejump
             else if (!m_Grounded && jump && canDoubleJump && !isWallSliding && !isLowJumping)
             {
-                if (BeatChecker.instance.IsInBeat())
+                if (BeatChecker.Instance.IsInBeat())
                 {
                     canDoubleJump = false;
                     m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, 0);

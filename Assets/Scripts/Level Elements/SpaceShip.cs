@@ -12,7 +12,12 @@ public class SpaceShip : Interactable
         interactionText = "collect space ship part";
     }
 
-    private bool is_collected = false;
+    public bool is_collected = false;
+
+    public void Collect()
+    {
+        DoSomething();
+    }
     protected override void DoSomething()
     {
         Debug.Log("Interact");
@@ -23,7 +28,7 @@ public class SpaceShip : Interactable
             gameObject.SetActive(false);
             if (collected == maxparts)
             {
-                GameEnd.instance.EndReached();
+                GameEnd.Instance.EndReached();
             }
             SpaceShipUI.instance.PartsCollectedUpdate();
         }

@@ -20,7 +20,7 @@ public class FakeBeat : MonoBehaviour
     }
     void Start()
     {
-        beatLength = 1 / (SongSynchonizeVibing.instance.clock.bpm / 60);
+        beatLength = 1 / (SongSynchonizeVibing.Instance.clock.bpm / 60);
         InvokeRepeating("SongChange", 0, 30.0f); 
         InvokeRepeating("Showbeat", 0, beatLength);
         InvokeRepeating("ShowsecBeat", 0, 1f);

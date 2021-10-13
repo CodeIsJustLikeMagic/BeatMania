@@ -12,7 +12,7 @@ abstract public class VibingEntity : MonoBehaviour
     protected void Start()//needs to be start because AnimationOnBeat gets its instance in Awake
     {
         
-        SongSynchonizeVibing.instance.AddMyselfToList(this);
+        SongSynchonizeVibing.Instance.AddMyselfToList(this);
     }
 
     public abstract void OnBeat(float jitter_delay, float bps);
@@ -22,6 +22,6 @@ abstract public class VibingEntity : MonoBehaviour
     protected virtual void OnDestroy()
     {
         //Debug.Log("call removefrom list");
-        SongSynchonizeVibing.instance.RemoveFromList(this);
+        //SongSynchonizeVibing.Instance.RemoveFromList(this);
     }
 }

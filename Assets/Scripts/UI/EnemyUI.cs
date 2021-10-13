@@ -71,7 +71,7 @@ public class EnemyUI : MonoBehaviour
         //if target is outside of view frustum dont show their UI.
         if (_targetRenderer != null)
         {
-            Debug.Log("target name "+_target.name+" isVisible "+_targetRenderer.isVisible+" visible "+visible,_targetRenderer);
+            //Debug.Log("target name "+_target.name+" isVisible "+_targetRenderer.isVisible+" visible "+visible,_targetRenderer);
             if (_targetRenderer.isVisible && visible)
             {
                 this._canvasGroup.alpha =  1f;

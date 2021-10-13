@@ -14,6 +14,11 @@ public class Checkpoint : Interactable
         FeedbackInactive();
     }
 
+    public void Activate()
+    {
+        DoSomething();
+    }
+
     protected override void DoSomething()
     {
         Debug.Log("Checkpoint used");
@@ -47,15 +52,18 @@ public class Checkpoint : Interactable
         activeSpawnPoint = position;
     }
 
+    public bool active = false;
     private void FeedbackActive()
     {
         feedbackLight.SetActive(true);
         feedbackParticleSystem.Play();
+        active = true;
     }
     private void FeedbackInactive()
     {
         feedbackLight.SetActive(false);
         feedbackParticleSystem.Stop();
+        active = false;
     }
 
 }

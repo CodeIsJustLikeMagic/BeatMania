@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.AccessControl;
 using UnityEngine;
@@ -9,7 +10,19 @@ using UnityEngine.Events;
 //manages timing and speed synchonisation for vibingEntiries with the clock
 public class SongSynchonizeVibing : MonoBehaviour
 {
-    public static SongSynchonizeVibing instance;
+    private static SongSynchonizeVibing _instance;
+    public static SongSynchonizeVibing Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<SongSynchonizeVibing>();
+            }
+
+            return _instance;
+        }
+    }
     public AudioHelmClock clock;
     public Sequencer BeatGiver;
     
@@ -31,9 +44,14 @@ public class SongSynchonizeVibing : MonoBehaviour
     public List<VibingEntity> vibingEntities = new List<VibingEntity>();
     private void Awake()
     {
-        instance = this;
         clock = (AudioHelmClock)FindObjectOfType(typeof(AudioHelmClock));
     }
+
+    public void OnDestroy()
+    {
+        vibingEntities = new List<VibingEntity>();
+    }
+
     public void AddMyselfToList(VibingEntity vibe)//VibingEntities add themselves to my list. Like a bootleg Observer
     {
         vibingEntities.Add(vibe);
@@ -86,7 +104,7 @@ public class SongSynchonizeVibing : MonoBehaviour
                 beatStart = Time.time - time_that_event_is_late + delay;
 
                 //var wait_time = (1 - sequencer_position_jitter) * BeatGiver.GetSixteenthTime();
-                BeatChecker.instance.SetBeatStart(beatStart);
+                BeatChecker.Instance.SetBeatStart(beatStart);
                 NotifyVibingEntities( -(0.125f* delay_modifier_per_song[currentsong]) + (sequencer_position_jitter / 4)); 
                 // jitter_offset is the position_jitter in relation to the entire beat (4 divisions)
                 // and adding a delay so the start of the vibing plants animations is at the beat_sound
@@ -102,7 +120,7 @@ public class SongSynchonizeVibing : MonoBehaviour
                 //Debug.Log("missed Beat by "+ BeatChecker.instance.IsInBeatMissedBy(beattiming));
                 try
                 {
-                    if (!BeatChecker.instance.IsInBeat(beattiming, 0.07f, 0.0f))
+                    if (!BeatChecker.Instance.IsInBeat(beattiming, 0.07f, 0.0f))
                     {
                         Debug.Log("Fixing sync");
                         songHasBeenChanged = true;

@@ -48,7 +48,7 @@ public class AttackPerformer : VibingEntity // sits on Enemy
         if (resync)
         {
             int stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
-            anim.Play(stateName, 0, SongSynchonizeVibing.instance.GetJitterOffset()*bps);
+            anim.Play(stateName, 0, SongSynchonizeVibing.Instance.GetJitterOffset()*bps);
         }
         //Debug.Log("Attack Performer perform done. targets: "+dmg_tag);
     }

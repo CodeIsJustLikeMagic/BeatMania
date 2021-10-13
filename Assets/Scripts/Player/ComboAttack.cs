@@ -55,7 +55,7 @@ public class ComboAttack : MonoBehaviour
             //press attack button
             if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.K))
             {
-                if (BeatChecker.instance.IsInBeat())
+                if (BeatChecker.Instance.IsInBeat())
                 {
                     if (windUp)
                     {
@@ -136,7 +136,7 @@ public class ComboAttack : MonoBehaviour
 
     void SpinAttack()
     {
-        if (fullyCharged && BeatChecker.instance.IsInBeat())
+        if (fullyCharged && BeatChecker.Instance.IsInBeat())
         {
             BeatIndicatorFeedback.instance.Success();
             animator.SetBool("IsSpinning", true);
@@ -174,12 +174,12 @@ public class ComboAttack : MonoBehaviour
 
     void DashAttack()
     {
-        if (fullyCharged && BeatChecker.instance.IsInBeat())
+        if (fullyCharged && BeatChecker.Instance.IsInBeat())
         {
             BeatIndicatorFeedback.instance.Success();
             attackPerformer2D.Perform("pierce", dmgvalue_spin, false, targetEntity);
         }
-        else if (fullyCharged && !BeatChecker.instance.IsInBeat())
+        else if (fullyCharged && !BeatChecker.Instance.IsInBeat())
         {
             BeatIndicatorFeedback.instance.Failed();
             attackPerformer2D.Perform("nothing", 0, false, targetEntity);

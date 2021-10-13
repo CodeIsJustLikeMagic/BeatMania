@@ -6,11 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour
 {
-    public static GameEnd instance;
-
-    private void Awake()
+    private static GameEnd _instance;
+    
+    public static GameEnd Instance
     {
-        instance = this;
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<GameEnd>();
+            }
+
+            return _instance;
+        }
     }
 
     public void EndReached()

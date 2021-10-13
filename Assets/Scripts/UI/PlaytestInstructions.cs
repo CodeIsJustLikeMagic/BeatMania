@@ -29,18 +29,18 @@ public class PlaytestInstructions : MonoBehaviour
     public void Success()
     {
         sucess_count++;
-        missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+SongSynchonizeVibing.instance.BeatLength+")";
-        data += "\nS" + (SongchangeSystem.instance.Currentsong + 1) + " hit. missed by !" +
-                BeatChecker.instance.IsInBeatMissedBy(Time.time)+"! beat length "+SongSynchonizeVibing.instance.BeatLength;
+        missed_by.text = "missed by: " + BeatChecker.Instance.IsInBeatMissedBy(Time.time) +" range(0, "+SongSynchonizeVibing.Instance.BeatLength+")";
+        data += "\nS" + (SongchangeSystem.Instance.Currentsong + 1) + " hit. missed by !" +
+                BeatChecker.Instance.IsInBeatMissedBy(Time.time)+"! beat length "+SongSynchonizeVibing.Instance.BeatLength;
         UpdateCounters();
     }
 
     public void Failed()
     {
         failed_count++;
-        missed_by.text = "missed by: " + BeatChecker.instance.IsInBeatMissedBy(Time.time) +" range(0, "+SongSynchonizeVibing.instance.BeatLength+")";
-        data += "\nS" + (SongchangeSystem.instance.Currentsong + 1) + " miss. missed by !" +
-                BeatChecker.instance.IsInBeatMissedBy(Time.time)+"! beat length "+SongSynchonizeVibing.instance.BeatLength;
+        missed_by.text = "missed by: " + BeatChecker.Instance.IsInBeatMissedBy(Time.time) +" range(0, "+SongSynchonizeVibing.Instance.BeatLength+")";
+        data += "\nS" + (SongchangeSystem.Instance.Currentsong + 1) + " miss. missed by !" +
+                BeatChecker.Instance.IsInBeatMissedBy(Time.time)+"! beat length "+SongSynchonizeVibing.Instance.BeatLength;
         UpdateCounters();
     }
 
@@ -65,7 +65,7 @@ public class PlaytestInstructions : MonoBehaviour
             ShowInstruction(currentInstruction);
             ResetCounters();
             ClickSound();
-            SongchangeSystem.instance.SongChange(changeToSong);
+            SongchangeSystem.Instance.SongChange(changeToSong);
         }
     }
 
