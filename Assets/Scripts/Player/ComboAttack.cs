@@ -57,11 +57,11 @@ public class ComboAttack : MonoBehaviour
             {
                 if (BeatChecker.Instance.IsInBeat())
                 {
-                    if (windUp)
+                    if (windUp)// set ture after WindUp()
                     {
                         StaggerAttack();
                     }
-                    else if (entryAttack)
+                    else if (entryAttack) // set true after Attack()
                     {
                         WindUp();
                     }
@@ -100,7 +100,7 @@ public class ComboAttack : MonoBehaviour
 
     void Attack()
     {
-        BeatIndicatorFeedback.instance.Success();
+        BeatIndicatorFeedback.Instance.Success();
         canAttack = false;
         animator.SetBool("IsAttacking", true);
         attackPerformer2D.Perform("normal_attack", dmgvalue_normal, false, targetEntity);
@@ -110,7 +110,7 @@ public class ComboAttack : MonoBehaviour
 
     void WeakAttack()
     {
-        BeatIndicatorFeedback.instance.Failed();
+        BeatIndicatorFeedback.Instance.Failed();
         canAttack = false;
         animator.SetBool("IsAttacking", true);
         attackPerformer2D.Perform("weak_attack", dmgvalue_weak, false, targetEntity);
@@ -120,6 +120,7 @@ public class ComboAttack : MonoBehaviour
 
     void Charge()
     {
+        Debug.Log("Charge");
         if (!fullyCharged)
         {
             if (chargeLevel == 0) // start charge animation right away
@@ -138,13 +139,13 @@ public class ComboAttack : MonoBehaviour
     {
         if (fullyCharged && BeatChecker.Instance.IsInBeat())
         {
-            BeatIndicatorFeedback.instance.Success();
+            BeatIndicatorFeedback.Instance.Success();
             animator.SetBool("IsSpinning", true);
             attackPerformer2D.Perform("spin_attack", dmgvalue_spin, false, targetEntity);
         }
         else
         {
-            BeatIndicatorFeedback.instance.Failed();
+            BeatIndicatorFeedback.Instance.Failed();
             animator.SetBool("IsAttacking", true);
             attackPerformer2D.Perform("weak_attack", dmgvalue_weak, false, targetEntity);
         }
@@ -154,7 +155,7 @@ public class ComboAttack : MonoBehaviour
 
     void WindUp()
     {
-        BeatIndicatorFeedback.instance.Success();
+        BeatIndicatorFeedback.Instance.Success();
         canAttack = false;
         animator.SetBool("IsWindUp", true);
         attackPerformer2D.Perform("wind_up", dmgvalue_normal, false, targetEntity);
@@ -164,7 +165,7 @@ public class ComboAttack : MonoBehaviour
 
     void StaggerAttack()
     {
-        BeatIndicatorFeedback.instance.Success();
+        BeatIndicatorFeedback.Instance.Success();
         canAttack = false;
         animator.SetBool("IsStaggering", true);
         attackPerformer2D.Perform("stagger", dmgvalue_stagger, true, targetEntity);
@@ -176,12 +177,12 @@ public class ComboAttack : MonoBehaviour
     {
         if (fullyCharged && BeatChecker.Instance.IsInBeat())
         {
-            BeatIndicatorFeedback.instance.Success();
+            BeatIndicatorFeedback.Instance.Success();
             attackPerformer2D.Perform("pierce", dmgvalue_spin, false, targetEntity);
         }
         else if (fullyCharged && !BeatChecker.Instance.IsInBeat())
         {
-            BeatIndicatorFeedback.instance.Failed();
+            BeatIndicatorFeedback.Instance.Failed();
             attackPerformer2D.Perform("nothing", 0, false, targetEntity);
         }
         resetCombo();

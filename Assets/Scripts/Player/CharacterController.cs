@@ -255,13 +255,13 @@ public class CharacterController : BaseHealthBehavior
                 if (BeatChecker.Instance.IsInBeat())
                 {
                     canDoubleJump = true;
-                    BeatIndicatorFeedback.instance.Success();
+                    BeatIndicatorFeedback.Instance.Success();
                     jumpParticleSystem.Play();
                 }
                 else
                 {
                     isLowJumping = true;
-                    BeatIndicatorFeedback.instance.Failed();
+                    BeatIndicatorFeedback.Instance.Failed();
                 }
                 m_Grounded = false;
                 m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce));
@@ -276,12 +276,12 @@ public class CharacterController : BaseHealthBehavior
                     m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, 0);
                     m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
                     animator.SetBool("IsDoubleJumping", true);
-                    BeatIndicatorFeedback.instance.Success();
+                    BeatIndicatorFeedback.Instance.Success();
                     jumpParticleSystem.Play();
                 }
                 else
                 {
-                    BeatIndicatorFeedback.instance.Failed();
+                    BeatIndicatorFeedback.Instance.Failed();
                     jumpFailParticleSystem.Play();
                 }
             }

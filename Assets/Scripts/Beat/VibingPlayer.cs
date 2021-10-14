@@ -31,7 +31,7 @@ public class VibingPlayer : VibingEntity
         
         stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
 
-        anim.Play(stateName, 0, jitter_delay);
+        anim.Play(stateName, 0, jitter_delay/2);
         //restart animationNow
 
         anim.SetFloat("AnimationSpeed", bps/2);

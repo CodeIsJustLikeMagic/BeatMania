@@ -5,7 +5,21 @@ using UnityEngine;
 
 public class BeatIndicatorFeedback : MonoBehaviour
 {
-    public static BeatIndicatorFeedback instance;
+    private static BeatIndicatorFeedback _instance;
+
+    public static BeatIndicatorFeedback Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<BeatIndicatorFeedback>();
+            }
+
+            return _instance;
+        }
+    }
+    
     
     public Color successColor;
     public Color failedColor;
@@ -45,7 +59,6 @@ public class BeatIndicatorFeedback : MonoBehaviour
     
     private void Awake()
     {
-        instance = this;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

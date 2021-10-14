@@ -1436,7 +1436,7 @@ AnimatorState:
   m_PrefabAsset: {fileID: 0}
   m_Name: BeatBop
   m_Speed: 1
-  m_CycleOffset: 0
+  m_CycleOffset: 0.15
   m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
