@@ -104,6 +104,16 @@ public class BeatChecker : VibingEntity
         //return missedBySeconds <= toleranceRange || missedBySeconds >= beatLength - toleranceRange; old
     }
 
+    public float IsInBeatDelta()
+    {
+        return (Time.time - beatStart) % beatLength;
+    }
+
+    public float BeatLength()
+    {
+        return beatLength;
+    }
+
 
     public void OnGUI()
     {

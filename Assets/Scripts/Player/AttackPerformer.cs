@@ -50,7 +50,7 @@ public class AttackPerformer : VibingEntity // sits on Enemy
             int stateName = anim.GetCurrentAnimatorStateInfo(0).fullPathHash;
             anim.Play(stateName, 0, SongSynchonizeVibing.Instance.GetJitterOffset()); //*bps);
         }
-        Debug.Log("Attack Performer perform done. InBeat? "+BeatChecker.Instance.IsInBeat());
+        //Debug.Log("Attack Performer perform done. InBeat? "+BeatChecker.Instance.IsInBeat(), this);
     }
 
     private void OnTriggerEnter(Collider other)

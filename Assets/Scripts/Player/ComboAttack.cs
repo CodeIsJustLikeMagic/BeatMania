@@ -147,6 +147,7 @@ public class ComboAttack : MonoBehaviour
     private bool shielded = false;
     void Shield()
     {
+        Debug.Log("Player create shield. InBeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
         attackPerformer2D.Perform("strong_shield", 0, false, targetEntity, true);
         //fullyCharged = true;
         shielded = true;
@@ -157,6 +158,13 @@ public class ComboAttack : MonoBehaviour
     void StopShield()
     {
         StopCoroutine(_coroutine_shield);
+        Invoke("ActuallyStopShield", 0.1f); // shield persists for 0.1 seconds.
+        // more lenient when you tap to shield "block" attacks
+        // allows you to spin/dash when you let go of block key just before.
+    }
+
+    private void ActuallyStopShield()
+    {
         attackPerformer2D.Perform("nothing", 0, false, targetEntity);
         playerHp.shielded = false;
         shielded = false;
