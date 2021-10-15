@@ -65,6 +65,7 @@ public class CharacterController : BaseHealthBehavior
     public float life = 10f; //Life of the player
     public float maxlife;
     public bool invincible = false; //If player can die
+    public bool shielded = false;
     private bool canMove = true; //If player can move
 
     private Animator animator;
@@ -368,7 +369,7 @@ public class CharacterController : BaseHealthBehavior
         transform.localScale = theScale;
     }
 
-    IEnumerator StaggerTime(float time = 0.5f) {
+    IEnumerator  StaggerTime(float time = 0.5f) {
         canMove = false;
         canDash = false;
         combo.SetAttack(false);
@@ -377,6 +378,12 @@ public class CharacterController : BaseHealthBehavior
         canMove = true;
         canDash = true;
         combo.SetAttack(true);
+    }
+
+    IEnumerator ShieldedTime()
+    {
+        yield return new WaitForSeconds(0.1f);
+        feedback.doNotDisplayDamage();
     }
 
     IEnumerator DashCooldown()
@@ -410,10 +417,16 @@ public class CharacterController : BaseHealthBehavior
 
     public override void ApplyDamage(float damage, bool stagger, Vector3 position, float forceMulti= 1f)
     {// implements Base Health Behavior. gets called when AttackPerformer hits something
-        //Debug.Log("Player apply damage");
-        if (!invincible)
+        Debug.Log("Player apply damage. InBeat? "+BeatChecker.Instance.IsInBeat());
+        if (shielded)
         {
-            animator.SetBool("Hit", true);
+            feedback.displayShieldModel();
+            StartCoroutine(ShieldedTime());
+        }
+        else if (!invincible)
+        {
+            //animator.SetBool("Hit", true);
+            feedback.displayDamage();
             life -= damage;
             Vector2 damageDir = Vector3.Normalize(transform.position - position) * 40f;
             m_Rigidbody.velocity = Vector2.zero;

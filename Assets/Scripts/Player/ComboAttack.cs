@@ -15,6 +15,8 @@ public class ComboAttack : MonoBehaviour
     private bool windUp = false;
     private float chargeLevel = 0;
     private float maxCharge = 0;
+
+    private float _bps = 0;
     //private float beatLen = 0;
 
     public string targetEntity = "Alien";
@@ -26,10 +28,12 @@ public class ComboAttack : MonoBehaviour
     private float dmgvalue_stagger = 6;
 
     [SerializeField] private AttackPerformer attackPerformer2D;
+    private CharacterController playerHp;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        playerHp = GetComponent<CharacterController>();
     }
 
     void Start()
@@ -41,6 +45,7 @@ public class ComboAttack : MonoBehaviour
     {
         //two beats to charge
         maxCharge = 1 / bps * 2;
+        _bps = bps;
     }
 
     public void SetAttack(bool mode) {
@@ -50,6 +55,14 @@ public class ComboAttack : MonoBehaviour
     //Input
     void AttackInput()
     {
+        if (Input.GetKeyDown("joystick button 3") || Input.GetKeyDown(KeyCode.J))
+        {
+            Shield();
+        }
+        else if (Input.GetKeyUp("joystick button 3") || Input.GetKeyUp(KeyCode.J)) //doesnt attack only stops shielding
+        {
+            StopShield();
+        }
         if (canAttack)
         {
             //press attack button
@@ -57,7 +70,11 @@ public class ComboAttack : MonoBehaviour
             {
                 if (BeatChecker.Instance.IsInBeat())
                 {
-                    if (windUp)// set ture after WindUp()
+                    if (shielded)
+                    {
+                        SpinAttack();
+                    }
+                    else if (windUp)// set ture after WindUp()
                     {
                         StaggerAttack();
                     }
@@ -74,20 +91,11 @@ public class ComboAttack : MonoBehaviour
                 {
                     WeakAttack();
                 }
+                shielded = false;
             }
             else if ((Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("RT") > 0 || Input.GetKeyDown(KeyCode.E)))
             {
                 DashAttack();
-            }
-            //hold attack button
-            else if ((Input.GetKey("joystick button 2") || Input.GetKey(KeyCode.K)) && entryAttack)
-            {
-                Charge();
-            }
-            //release attack button
-            else if ((Input.GetKeyUp("joystick button 2") || Input.GetKeyUp(KeyCode.K)) && entryAttack)
-            {
-                SpinAttack();
             }
         }
     }
@@ -135,20 +143,31 @@ public class ComboAttack : MonoBehaviour
         }
     }
 
+    private Coroutine _coroutine_shield;
+    private bool shielded = false;
+    void Shield()
+    {
+        attackPerformer2D.Perform("strong_shield", 0, false, targetEntity, true);
+        //fullyCharged = true;
+        shielded = true;
+        playerHp.shielded = true;
+        _coroutine_shield = StartCoroutine(ShieldDuration());
+    }
+
+    void StopShield()
+    {
+        StopCoroutine(_coroutine_shield);
+        attackPerformer2D.Perform("nothing", 0, false, targetEntity);
+        playerHp.shielded = false;
+        shielded = false;
+    }
+
     void SpinAttack()
     {
-        if (fullyCharged && BeatChecker.Instance.IsInBeat())
-        {
-            BeatIndicatorFeedback.Instance.Success();
-            animator.SetBool("IsSpinning", true);
-            attackPerformer2D.Perform("spin_attack", dmgvalue_spin, false, targetEntity);
-        }
-        else
-        {
-            BeatIndicatorFeedback.Instance.Failed();
-            animator.SetBool("IsAttacking", true);
-            attackPerformer2D.Perform("weak_attack", dmgvalue_weak, false, targetEntity);
-        }
+        playerHp.shielded = true;
+        BeatIndicatorFeedback.Instance.Success();
+        animator.SetBool("IsSpinning", true);
+        attackPerformer2D.Perform("spin_attack", dmgvalue_spin, true, targetEntity);
         resetCombo();
         StartCoroutine(SpinDuration());
     }
@@ -175,23 +194,24 @@ public class ComboAttack : MonoBehaviour
 
     void DashAttack()
     {
-        if (fullyCharged && BeatChecker.Instance.IsInBeat())
+        if (shielded && BeatChecker.Instance.IsInBeat())
         {
             BeatIndicatorFeedback.Instance.Success();
-            attackPerformer2D.Perform("pierce", dmgvalue_spin, false, targetEntity);
+            attackPerformer2D.Perform("pierce", dmgvalue_spin, true, targetEntity);
         }
-        else if (fullyCharged && !BeatChecker.Instance.IsInBeat())
+        else if (shielded && !BeatChecker.Instance.IsInBeat())
         {
             BeatIndicatorFeedback.Instance.Failed();
             attackPerformer2D.Perform("nothing", 0, false, targetEntity);
         }
         resetCombo();
+        shielded = false;
         StartCoroutine(SpinDuration());
     }
 
     void resetCombo()
     {
-        fullyCharged = false;
+        //fullyCharged = false;
         entryAttack = false;
         chargeLevel = 0;
         entryAttack = false;
@@ -224,7 +244,15 @@ public class ComboAttack : MonoBehaviour
 
     IEnumerator SpinDuration()
     {
+        playerHp.shielded = false;
         yield return new WaitForSeconds(0.5f);
         canAttack = true;
+    }
+
+    IEnumerator ShieldDuration()
+    {
+        yield return new WaitForSeconds(1/_bps*2); // shield for 2 beats
+        StopShield();
+        Debug.Log("stop shield coroutine");
     }
 }

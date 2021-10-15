@@ -105,6 +105,7 @@ public class AttackBehavior : AlienBehavior
         {
             enemyAnimator3D.SetTrigger(move);
             attackPerformer.Perform(move, 1, false, "Player");
+            Debug.Log("Attack perform is inbeat? "+BeatChecker.Instance.IsInBeat());
         }
         else
         {

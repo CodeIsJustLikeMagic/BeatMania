@@ -139,12 +139,12 @@ namespace SpeedTutorMainMenuSystem
 
             if (buttonType == "BackToMenu")
             {
-                LoadSavedState.Instance.SaveState();
+                LoadAndSaveGame.Instance.SaveState();
                 SceneManager.LoadScene(0);
             }
             if (buttonType == "Exit")
             {
-                LoadSavedState.Instance.SaveState();
+                LoadAndSaveGame.Instance.SaveState();
                 Application.Quit();
             }
 
