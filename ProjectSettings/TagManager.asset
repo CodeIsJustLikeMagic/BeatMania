@@ -53,9 +53,6 @@ TagManager:
   - name: TreeLine
     uniqueID: 1569129593
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: LevelSprites
     uniqueID: 3542407285
     locked: 0
@@ -64,4 +61,7 @@ TagManager:
     locked: 0
   - name: UILayer
     uniqueID: 609790497
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
