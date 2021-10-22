@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -144,7 +145,14 @@ namespace SpeedTutorMainMenuSystem
             }
             if (buttonType == "Exit")
             {
-                LoadAndSaveGame.Instance.SaveState();
+                try
+                {
+                    LoadAndSaveGame.Instance.SaveState();
+                }
+                catch (Exception e)
+                {
+                    Debug.Log(e);
+                }
                 Application.Quit();
             }
 

@@ -56,9 +56,9 @@ public class MetricWriter : MonoBehaviour
     private string getPath() 
     {
         #if UNITY_EDITOR
-        var filePath =  Application.dataPath + "/GameStats/";
+        var filePath =  Application.dataPath + "/../GameStats/";
         #else
-        var filePath =  Application.dataPath+"/";
+        var filePath =  Application.dataPath+"/../GameStats/";
         #endif
 
         try
