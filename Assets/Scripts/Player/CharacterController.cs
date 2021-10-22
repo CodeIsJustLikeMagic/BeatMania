@@ -253,7 +253,7 @@ public class CharacterController : BaseHealthBehavior
             {
                 // Add a vertical force to the player.
                 animator.SetBool("IsJumping", true);
-                if (BeatChecker.Instance.IsInBeat())
+                if (BeatChecker.Instance.IsInBeat("Jump"))
                 {
                     canDoubleJump = true;
                     BeatIndicatorFeedback.Instance.Success();
@@ -271,7 +271,7 @@ public class CharacterController : BaseHealthBehavior
             //Doublejump
             else if (!m_Grounded && jump && canDoubleJump && !isWallSliding && !isLowJumping)
             {
-                if (BeatChecker.Instance.IsInBeat())
+                if (BeatChecker.Instance.IsInBeat("Double Jump"))
                 {
                     canDoubleJump = false;
                     m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, 0);
@@ -415,14 +415,15 @@ public class CharacterController : BaseHealthBehavior
         m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
     }
 
-    public override void ApplyDamage(float damage, bool stagger, Vector3 position, float forceMulti= 1f)
+    public override void ApplyDamage(float damage, bool stagger, Vector3 position, string attacked_by,float forceMulti= 1f)
     {// implements Base Health Behavior. gets called when AttackPerformer hits something
-        Debug.Log("Player apply damage. InBeat? "+BeatChecker.Instance.IsInBeat());
+        //Debug.Log("Player apply damage. InBeat? "+BeatChecker.Instance.IsInBeat());
         if (shielded)
         {
             feedback.displayShieldModel();
             StartCoroutine(ShieldedTime());
             Debug.Log("Player damage shielded. InBeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
+            MetricWriter.Instance.WritePlayerDamageMetric(0,attacked_by,"shielded");
         }
         else if (!invincible)
         {
@@ -441,6 +442,7 @@ public class CharacterController : BaseHealthBehavior
             {
                 StartCoroutine(StaggerTime());
             }
+            MetricWriter.Instance.WritePlayerDamageMetric(-damage,attacked_by,"damaged");
         }
     }
 
@@ -451,13 +453,14 @@ public class CharacterController : BaseHealthBehavior
         m_Rigidbody.AddForce(damageDir * forceMulti);
     }
 
-    public override void ApplyHeal(float dmg)
+    public override void ApplyHeal(float dmg,string healed_by)
     {
         life += dmg;
         if (life > maxlife) // make sure we cant go beyond maxhealth
         {
             life = maxlife;
         }
+        MetricWriter.Instance.WritePlayerDamageMetric(dmg,healed_by,"heal");
     }
 
     IEnumerator MakeInvincible(float time)

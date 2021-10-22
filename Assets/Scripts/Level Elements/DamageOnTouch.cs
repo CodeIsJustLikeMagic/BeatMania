@@ -16,7 +16,7 @@ public class DamageOnTouch : MonoBehaviour
             BaseHealthBehavior hp = other.gameObject.GetComponent<BaseHealthBehavior>();
             if (dmg > 0)
             {
-                hp.ApplyDamage(dmg, staggers, transform.position, forceMulti: force); //apply damage to the player on touch
+                hp.ApplyDamage(dmg, staggers, transform.position, gameObject.name,forceMulti: force); //apply damage to the player on touch
             }
             else
             {

@@ -12,6 +12,7 @@ public class AttackPerformer : VibingEntity // sits on Enemy
     [SerializeField] private Animator anim = null;
 
     public string dmg_tag = "Player";
+    public string entityName = "Enemy";
     // Start is called before the first frame update
     private new void Start()
     {
@@ -58,7 +59,7 @@ public class AttackPerformer : VibingEntity // sits on Enemy
         if (other.CompareTag(dmg_tag))
         {
             BaseHealthBehavior hp = other.gameObject.GetComponent<BaseHealthBehavior>();
-            hp.ApplyDamage(dmg, stagger, transform.position);
+            hp.ApplyDamage(dmg, stagger, transform.position,entityName);
             
         }
     }

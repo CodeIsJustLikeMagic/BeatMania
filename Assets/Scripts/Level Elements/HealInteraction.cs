@@ -6,6 +6,6 @@ public class HealInteraction : Interactable
 {
     protected override void DoSomething()
     {
-        FindObjectOfType<CharacterController>().ApplyHeal(10000);
+        FindObjectOfType<CharacterController>().ApplyHeal(10000,gameObject.name);
     }
 }

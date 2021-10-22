@@ -73,23 +73,28 @@ public class ComboAttack : MonoBehaviour
                     if (shielded)
                     {
                         SpinAttack();
+                        BeatChecker.Instance.IsInBeat("Player Attack SpinAttack");
                     }
                     else if (windUp)// set ture after WindUp()
                     {
                         StaggerAttack();
+                        BeatChecker.Instance.IsInBeat("Player Attack StaggerAttack 3");
                     }
                     else if (entryAttack) // set true after Attack()
                     {
                         WindUp();
+                        BeatChecker.Instance.IsInBeat("Player Attack WindUpAttack 2");
                     }
                     else
                     {
                         Attack();
+                        BeatChecker.Instance.IsInBeat("Player Attack StrongAttack 1");
                     }
                 }
                 else
                 {
                     WeakAttack();
+                    BeatChecker.Instance.IsInBeat("Player Attack Weak Attack");
                 }
                 shielded = false;
             }
@@ -147,7 +152,7 @@ public class ComboAttack : MonoBehaviour
     private bool shielded = false;
     void Shield()
     {
-        Debug.Log("Player create shield. InBeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
+        //Debug.Log("Player create shield. InBeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
         attackPerformer2D.Perform("strong_shield", 0, false, targetEntity, true);
         //fullyCharged = true;
         shielded = true;
@@ -202,7 +207,7 @@ public class ComboAttack : MonoBehaviour
 
     void DashAttack()
     {
-        if (shielded && BeatChecker.Instance.IsInBeat())
+        if (shielded && BeatChecker.Instance.IsInBeat("PlayerAttack Dash"))
         {
             BeatIndicatorFeedback.Instance.Success();
             attackPerformer2D.Perform("pierce", dmgvalue_spin, true, targetEntity);

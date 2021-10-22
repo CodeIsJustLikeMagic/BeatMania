@@ -77,13 +77,25 @@ public class BeatChecker : VibingEntity
         }
     }
 
-        /// <summary>
-        /// Checks if current time is in musik beat.
-        /// </summary>
-        /// <returns>true if Time.time is in beat</returns>
-        public bool IsInBeat()//is current time in beat?
+    /// <summary>
+    /// Checks if current time is in musik beat.
+    /// </summary>
+    /// <returns>true if Time.time is in beat</returns>
+    public bool IsInBeat()//is current time in beat?
     {
         return IsInBeat(Time.time, toleranceRange, toleranceShift);
+    }
+
+    public bool IsInBeat(string Metric_Action)
+    {
+        float missedBySeconds = (Time.time - beatStart) % beatLength;
+        bool b = missedBySeconds <= (toleranceRange + toleranceShift) || missedBySeconds >= beatLength - (toleranceRange - toleranceShift);
+        MetricWriter.Instance.WriteBeatMetric(b,missedBySeconds,beatLength,Metric_Action);
+        if (allwaysTrue)
+        {
+            return true;
+        }
+        return b;
     }
 
     /// <summary>

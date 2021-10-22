@@ -90,7 +90,7 @@ public class Menu : MonoBehaviour
 
     public void Checkpoint()
     {
-        GameObject.FindObjectOfType<CharacterController>().ApplyDamage(1000,false,Vector3.zero,0);
+        GameObject.FindObjectOfType<CharacterController>().ApplyDamage(1000,false,Vector3.zero,"resetToCheckpoint",0);
         GameMenue.SetActive(false);
         gameMenuOpen = false;
     }

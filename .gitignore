@@ -43,6 +43,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+Build.zip
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -60,3 +61,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 BeatManiUnity/Temp/UnityLockfile
+/Assets/GameStats/
