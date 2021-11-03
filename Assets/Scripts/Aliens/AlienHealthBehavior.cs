@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AudioHelm;
+using UnityEditor.PackageManager;
 using UnityEngine.Serialization;
 using Random = System.Random;
 
@@ -29,6 +30,8 @@ public class AlienHealthBehavior : BaseHealthBehavior
     [FormerlySerializedAs("UIPrefab")] public GameObject uiPrefab;
     [SerializeField] private float height = 0;
     [SerializeField] EnemyUI enemyUi;
+
+    [Space(10)] public string entity;
     void Awake()
     {
         _maxHealth = health;
@@ -104,11 +107,12 @@ public class AlienHealthBehavior : BaseHealthBehavior
         _alienHandleSongChange.enemyAnimator3D.SetTrigger("Wait");
     }
 
-    public override void ApplyDamage(float dmg, bool stagger, Vector3 attack_pos, string attackedBy,float forceMulti = 4f)
+    public override void ApplyDamage(float dmg, bool stagger, Vector3 attack_pos, string attacked_by_entity,float forceMulti = 4f)
     {
         if (_vulnerable)
         {
             health -= dmg;
+            MetricWriter.Instance.WriteCombatMetric(entity,health,-dmg,attacked_by_entity,"damaged");
             if (health <= 0.3)
             {
                 Debug.Log("Die");
@@ -124,7 +128,7 @@ public class AlienHealthBehavior : BaseHealthBehavior
         }
     }
 
-    public override void ApplyHeal(float dmg, string healedBy)
+    public override void ApplyHeal(float dmg, string healed_by_entity)
     {
         throw new NotImplementedException();
     }

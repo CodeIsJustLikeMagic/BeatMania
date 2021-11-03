@@ -123,6 +123,7 @@ public class SongSynchonizeVibing : MonoBehaviour
                     if (!BeatChecker.Instance.IsInBeat(beattiming, 0.07f, 0.0f))
                     {
                         Debug.Log("Fixing sync");
+                        MetricWriter.Instance.WriteVariousMetric("Fixing sync");
                         songHasBeenChanged = true;
                     }
                 }

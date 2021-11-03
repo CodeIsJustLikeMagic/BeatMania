@@ -30,21 +30,21 @@ public class MetricWriter : MonoBehaviour
     }
     
     public string FileName_BeatMetric = "Beat_Metric.csv";
-    public string FileName_PlayerDamage = "PlayerDamage_Metric.csv";
+    public string FileName_PlayerDamage = "Combat_Metric.csv";
     public string FileName_VariousActions = "Various_Metric.csv";
 
     private StreamWriter BeatMetric;
-    private StreamWriter PlayerDamage;
+    private StreamWriter CombatMetric;
     private StreamWriter Various;
     
-    public void WriteBeatMetric(bool Beathit, float BeatDelta, float BeatLength,string Action)
+    public void WriteBeatMetric(bool Beathit, float BeatDelta, float BeatLength,float ToleranceRange,string Action)
     {
-        BeatMetric.WriteLine(Time.time+","+Beathit+","+BeatDelta+","+BeatLength+","+Action);
+        BeatMetric.WriteLine(Time.time+","+Beathit+","+BeatDelta+","+BeatLength+","+ToleranceRange+","+Action);
     }
 
-    public void WritePlayerDamageMetric(float health, string hitBy, string damaged)
+    public void WriteCombatMetric(string entity, float health, float hpModifier,string hitByEntity, string action)
     {
-        PlayerDamage.WriteLine(Time.time+","+health+","+hitBy);
+        CombatMetric.WriteLine(Time.time+","+entity+","+health+","+hpModifier+","+hitByEntity+","+action);
         
     }
 
@@ -82,10 +82,10 @@ public class MetricWriter : MonoBehaviour
         FileName_VariousActions = DateTimeFilePath(FileName_VariousActions);
         
         BeatMetric = new StreamWriter(getPath() + FileName_BeatMetric);
-        PlayerDamage = new StreamWriter(getPath() + FileName_PlayerDamage);
+        CombatMetric = new StreamWriter(getPath() + FileName_PlayerDamage);
         Various = new StreamWriter(getPath() + FileName_VariousActions);
-        BeatMetric.WriteLine("Time,Beathit,BeatDelta,Action");
-        PlayerDamage.WriteLine("Time,Health,HitBy");
+        BeatMetric.WriteLine("Time,Beathit,BeatDelta,BeatLength,ToleranceRange,Action");
+        CombatMetric.WriteLine("Time,Entity,Health,HpModifier,HitBy,Action");
         Various.WriteLine("Time,Action");
         Debug.Log("Created Metric writer at path"+getPath());
     }
@@ -99,8 +99,8 @@ public class MetricWriter : MonoBehaviour
         BeatMetric.Flush();
         BeatMetric.Close();
         
-        PlayerDamage.Flush();
-        PlayerDamage.Close();
+        CombatMetric.Flush();
+        CombatMetric.Close();
         
         Various.Flush();
         Various.Close();

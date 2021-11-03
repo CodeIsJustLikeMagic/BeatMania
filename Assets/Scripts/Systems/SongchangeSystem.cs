@@ -60,6 +60,7 @@ public class SongchangeSystem : MonoBehaviour
             clock.bpm = bpms[song];
             themes[song].SetActive(true);
             currentsong = song;
+            MetricWriter.Instance.WriteVariousMetric("SongChange "+song);
         }else Debug.Log("That song hasn't been unlocked yet");
     }
 

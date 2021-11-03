@@ -7,8 +7,10 @@ public class HealPerformer : VibingEntity
     // !!! make sure this script is on the same gameObject as your trigger collider. Only then will OnTriggerEnter be called. 
     [SerializeField] private Animator anim = null;
 
-    public string entityName = "Enemy";
     public string heal_tag = "Player";
+    [Space(10)]
+    public string entityName = "Enemy";
+    
     // Start is called before the first frame update
     private new void Start()
     {

@@ -30,6 +30,7 @@ public class Checkpoint : Interactable
 
         activeSpawnPoint = getPosition();
         FeedbackActive(); // Activate Feedback for Current Checkpoint
+        MetricWriter.Instance.WriteVariousMetric("Checkpoint Activated "+gameObject.name);
     }
 
     public Vector3 getPosition()

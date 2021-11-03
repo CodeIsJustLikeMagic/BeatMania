@@ -90,7 +90,7 @@ public class BeatChecker : VibingEntity
     {
         float missedBySeconds = (Time.time - beatStart) % beatLength;
         bool b = missedBySeconds <= (toleranceRange + toleranceShift) || missedBySeconds >= beatLength - (toleranceRange - toleranceShift);
-        MetricWriter.Instance.WriteBeatMetric(b,missedBySeconds,beatLength,Metric_Action);
+        MetricWriter.Instance.WriteBeatMetric(b,missedBySeconds,beatLength,toleranceRange, Metric_Action);
         if (allwaysTrue)
         {
             return true;

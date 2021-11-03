@@ -415,7 +415,7 @@ public class CharacterController : BaseHealthBehavior
         m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
     }
 
-    public override void ApplyDamage(float damage, bool stagger, Vector3 position, string attacked_by,float forceMulti= 1f)
+    public override void ApplyDamage(float damage, bool stagger, Vector3 position, string attacked_by_entity,float forceMulti= 1f)
     {// implements Base Health Behavior. gets called when AttackPerformer hits something
         //Debug.Log("Player apply damage. InBeat? "+BeatChecker.Instance.IsInBeat());
         if (shielded)
@@ -423,7 +423,7 @@ public class CharacterController : BaseHealthBehavior
             feedback.displayShieldModel();
             StartCoroutine(ShieldedTime());
             Debug.Log("Player damage shielded. InBeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
-            MetricWriter.Instance.WritePlayerDamageMetric(0,attacked_by,"shielded");
+            MetricWriter.Instance.WriteCombatMetric("player",life,-damage,attacked_by_entity,"shielded");
         }
         else if (!invincible)
         {
@@ -437,12 +437,13 @@ public class CharacterController : BaseHealthBehavior
             if (life <= 0)
             {
                 StartCoroutine(WaitToDead());
+                MetricWriter.Instance.WriteVariousMetric("player death");
             }
             else
             {
                 StartCoroutine(StaggerTime());
             }
-            MetricWriter.Instance.WritePlayerDamageMetric(-damage,attacked_by,"damaged");
+            MetricWriter.Instance.WriteCombatMetric("player",life,-damage,attacked_by_entity,"damaged");
         }
     }
 
@@ -453,14 +454,14 @@ public class CharacterController : BaseHealthBehavior
         m_Rigidbody.AddForce(damageDir * forceMulti);
     }
 
-    public override void ApplyHeal(float dmg,string healed_by)
+    public override void ApplyHeal(float dmg,string healed_by_entity)
     {
         life += dmg;
         if (life > maxlife) // make sure we cant go beyond maxhealth
         {
             life = maxlife;
         }
-        MetricWriter.Instance.WritePlayerDamageMetric(dmg,healed_by,"heal");
+        MetricWriter.Instance.WriteCombatMetric("player",life,dmg, healed_by_entity,"heal");
     }
 
     IEnumerator MakeInvincible(float time)

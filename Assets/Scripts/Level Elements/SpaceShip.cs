@@ -13,6 +13,7 @@ public class SpaceShip : Interactable
     }
 
     public bool is_collected = false;
+    [Space(10)] public string entity = "spaceship";
 
     public void Collect()
     {
@@ -29,9 +30,12 @@ public class SpaceShip : Interactable
             if (collected == maxparts)
             {
                 GameEnd.Instance.EndReached();
+                MetricWriter.Instance.WriteVariousMetric("Game End");
             }
             SpaceShipUI.instance.PartsCollectedUpdate();
+            MetricWriter.Instance.WriteVariousMetric("SpaceShip collected "+entity);
         }
+        
     }
 
 

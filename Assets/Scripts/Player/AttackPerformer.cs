@@ -12,6 +12,7 @@ public class AttackPerformer : VibingEntity // sits on Enemy
     [SerializeField] private Animator anim = null;
 
     public string dmg_tag = "Player";
+    [Space(10)]
     public string entityName = "Enemy";
     // Start is called before the first frame update
     private new void Start()

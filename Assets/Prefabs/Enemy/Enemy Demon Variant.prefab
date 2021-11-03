@@ -2654,6 +2654,11 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 6.602436
       objectReference: {fileID: 0}
+    - target: {fileID: 6134750995793853908, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: entityName
+      value: Demon
+      objectReference: {fileID: 0}
     - target: {fileID: 7577285393757083036, guid: ea2f84a68524d5049827b00fabc3956c,
         type: 3}
       propertyPath: m_Controller
@@ -2684,6 +2689,11 @@ PrefabInstance:
       propertyPath: behaviors.Array.data[2]
       value: 
       objectReference: {fileID: 3196671279758233469}
+    - target: {fileID: 8717838018124924433, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: entityName
+      value: Demon
+      objectReference: {fileID: 0}
     - target: {fileID: 8777473816568637907, guid: ea2f84a68524d5049827b00fabc3956c,
         type: 3}
       propertyPath: m_Name
