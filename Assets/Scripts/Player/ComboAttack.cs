@@ -154,6 +154,7 @@ public class ComboAttack : MonoBehaviour
     {
         //Debug.Log("Player create shield. InBeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
         attackPerformer2D.Perform("strong_shield", 0, false, targetEntity, true);
+        BeatChecker.Instance.IsInBeat("Player Shield");
         //fullyCharged = true;
         shielded = true;
         playerHp.shielded = true;

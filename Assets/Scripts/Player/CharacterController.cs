@@ -438,12 +438,14 @@ public class CharacterController : BaseHealthBehavior
             {
                 StartCoroutine(WaitToDead());
                 MetricWriter.Instance.WriteVariousMetric("player death");
+                MetricWriter.Instance.WriteCombatMetric("player",life,-damage,attacked_by_entity,"death");
             }
             else
             {
+                MetricWriter.Instance.WriteCombatMetric("player",life,-damage,attacked_by_entity,"damaged");
                 StartCoroutine(StaggerTime());
             }
-            MetricWriter.Instance.WriteCombatMetric("player",life,-damage,attacked_by_entity,"damaged");
+            
         }
     }
 

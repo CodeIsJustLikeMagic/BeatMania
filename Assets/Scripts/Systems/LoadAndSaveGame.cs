@@ -19,6 +19,7 @@ public class LoadAndSaveGame : MonoBehaviour
             return _instance;
         }
     }
+
     void Start()
     {
         var r = PlayerPrefs.GetInt("LoadSavedState",0);

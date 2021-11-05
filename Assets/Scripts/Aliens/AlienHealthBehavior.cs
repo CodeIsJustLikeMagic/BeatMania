@@ -112,16 +112,17 @@ public class AlienHealthBehavior : BaseHealthBehavior
         if (_vulnerable)
         {
             health -= dmg;
-            MetricWriter.Instance.WriteCombatMetric(entity,health,-dmg,attacked_by_entity,"damaged");
             if (health <= 0.3)
             {
+                MetricWriter.Instance.WriteCombatMetric(entity,health,-dmg,attacked_by_entity,"death");
                 Debug.Log("Die");
                 DieStart();
-                Invoke("DieEnd", deathAnimationLength);
+                Invoke("DieEnd", deathAnimationLength); 
                 
             }
             else if(stagger)
             {
+                MetricWriter.Instance.WriteCombatMetric(entity,health,-dmg,attacked_by_entity,"damaged");
                 _alienHandleSongChange.skip = 2; // get locked out of acting for 2 beats. is this to much?
                 _attackBehavior.Stagger();
             }

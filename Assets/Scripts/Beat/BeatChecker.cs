@@ -181,4 +181,14 @@ public class BeatChecker : VibingEntity
     {
         allwaysTrue = true;
     }
+
+    public void RhythmControlled()
+    {
+        allwaysTrue = false;
+    }
+
+    public void NoRhythm()
+    {
+        allwaysTrue = true;
+    }
 }

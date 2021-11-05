@@ -1765,6 +1765,11 @@ PrefabInstance:
       propertyPath: canTakeDamage.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4687517011736086013, guid: ea2f84a68524d5049827b00fabc3956c,
+        type: 3}
+      propertyPath: entity
+      value: Beholder
+      objectReference: {fileID: 0}
     - target: {fileID: 6112746983863161654, guid: ea2f84a68524d5049827b00fabc3956c,
         type: 3}
       propertyPath: m_Size.x

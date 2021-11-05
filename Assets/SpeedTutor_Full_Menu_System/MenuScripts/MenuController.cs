@@ -16,6 +16,7 @@ namespace SpeedTutorMainMenuSystem
         [SerializeField] private float defaultBrightness =1;
         [SerializeField] private float defaultVolume = 0.5f;
         [SerializeField] private int defaultSen=4;
+        
         //[SerializeField] private bool defaultInvertY = false;
 
         [Header("Levels To Load")]
@@ -27,6 +28,9 @@ namespace SpeedTutorMainMenuSystem
         private int menuNumber;
         #endregion
 
+        [SerializeField] private Text playerTag = null;
+        [SerializeField] private Text savedState = null;
+        
         #region Menu Dialogs
         [Header("Main Menu Components")]
         [SerializeField] private GameObject menuDefaultCanvas = null;
@@ -35,6 +39,7 @@ namespace SpeedTutorMainMenuSystem
         [SerializeField] private GameObject soundMenu = null;
         [SerializeField] private GameObject gameplayMenu = null;
         [SerializeField] private GameObject controlsMenu = null;
+        [SerializeField] private GameObject evalMenu = null;
         [SerializeField] private GameObject confirmationMenu = null;
         [Space(10)]
         [Header("Menu Popout Dialogs")]
@@ -72,6 +77,49 @@ namespace SpeedTutorMainMenuSystem
             confirmationMenu.SetActive(true);
             yield return new WaitForSeconds(2);
             confirmationMenu.SetActive(false);
+        }
+
+        private void Awake()
+        {
+            //create playername if none exists.
+            if (!PlayerPrefs.HasKey("PlayerName"))
+            {
+                GeneratePlayerName();
+            }
+            else
+            {
+                playerTag.text = PlayerPrefs.GetString("PlayerName");
+                Debug.Log("PlayerName Loaded "+PlayerPrefs.GetString("PlayerName"));
+            }
+
+            if (PlayerPrefs.HasKey("Version"))
+            {
+                Debug.Log("Saved Game is "+ PlayerPrefs.GetInt("Version"));
+                if (PlayerPrefs.GetInt("Version") == 0)
+                {
+                    savedState.text = "Saved Game is Version A";
+                }
+                else
+                {
+                    savedState.text = "Saved Game is Version B";
+                }
+            }
+            else
+            {
+                savedState.text = "No Saved Game";
+            }
+        }
+
+        private void GeneratePlayerName()
+        {
+            string ret = "";
+            for (int i = 0; i < 6; i++)
+            {
+                ret += UnityEngine.Random.Range(0, 10);
+            }
+            Debug.Log("Generate Player Name "+ret);
+            playerTag.text = ret;
+            PlayerPrefs.SetString("PlayerName",ret);
         }
 
         private void Update()
@@ -136,6 +184,13 @@ namespace SpeedTutorMainMenuSystem
                 GeneralSettingsCanvas.SetActive(false);
                 gameplayMenu.SetActive(true);
                 menuNumber = 5;
+            }
+
+            if (buttonType == "EvaluationSettings")
+            {
+                GeneralSettingsCanvas.SetActive(false);
+                evalMenu.SetActive(true);
+                menuNumber = 10;
             }
 
             if (buttonType == "BackToMenu")
@@ -266,10 +321,18 @@ namespace SpeedTutorMainMenuSystem
         #region Dialog Options - This is where we load what has been saved in player prefs!
         public void ClickNewGameDialog(string ButtonType)
         {
-            if (ButtonType == "Yes")
+            if (ButtonType == "0")
             {
                 PlayerPrefs.SetInt("LoadSavedState", 0);
                 SceneManager.LoadScene(_newGameButtonLevel);
+                PlayerPrefs.SetInt("Version",0);
+            }
+
+            if (ButtonType == "1")
+            {
+                PlayerPrefs.SetInt("LoadSavedState", 0);
+                SceneManager.LoadScene(_newGameButtonLevel);
+                PlayerPrefs.SetInt("Version",1);
             }
 
             if (ButtonType == "No")
@@ -288,7 +351,6 @@ namespace SpeedTutorMainMenuSystem
                     //LOAD LAST SAVED SCENE
                     //levelToLoad = PlayerPrefs.GetString("SavedLevel");
                     //SceneManager.LoadScene(levelToLoad);
-                    
                     PlayerPrefs.SetInt("LoadSavedState", 1);
                     SceneManager.LoadScene(_loadGameButtonLevel);
                 }
@@ -307,6 +369,19 @@ namespace SpeedTutorMainMenuSystem
                 GoBackToMainMenu();
             }
         }
+
+        public void ClickEvaluationDialog(string ButtonType)
+        {
+            if (ButtonType == "PlayerName")
+            {
+                GeneratePlayerName();
+            }
+
+            if (ButtonType == "Back")
+            {
+                GoBackToOptionsMenu();
+            }
+        }
         #endregion
 
         #region Back to Menus
@@ -316,6 +391,7 @@ namespace SpeedTutorMainMenuSystem
             graphicsMenu.SetActive(false);
             soundMenu.SetActive(false);
             gameplayMenu.SetActive(false);
+            evalMenu.SetActive(false);
 
             GameplayApply();
             BrightnessApply();
@@ -334,6 +410,7 @@ namespace SpeedTutorMainMenuSystem
             graphicsMenu.SetActive(false);
             soundMenu.SetActive(false);
             gameplayMenu.SetActive(false);
+            evalMenu.SetActive(false);
             menuNumber = 1;
         }
 

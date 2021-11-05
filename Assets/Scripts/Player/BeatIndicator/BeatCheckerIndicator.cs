@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,5 +30,11 @@ public class BeatCheckerIndicator : MonoBehaviour
         }
         
         
+    }
+
+    private void OnDisable()
+    {
+        fakeLight.enabled = false;
+        middle.enabled = false;
     }
 }

@@ -30,15 +30,18 @@ public class BeatIndicatorFeedback : MonoBehaviour
 
     public void Failed()
     {
-        _spriteRenderer.color = failedColor;
-        _spriteRenderer.enabled = true;
-        _lastFeedback = Time.time;
-
-        try
+        if (enabled)
         {
-            //Playtest
-            PlaytestInstructions.instance.Failed();
-        }catch{}
+            _spriteRenderer.color = failedColor;
+            _spriteRenderer.enabled = true;
+            _lastFeedback = Time.time;
+
+            try
+            {
+                //Playtest
+                PlaytestInstructions.instance.Failed();
+            }catch{}
+        }
     }
 
     //private int failed = 0;
@@ -46,15 +49,17 @@ public class BeatIndicatorFeedback : MonoBehaviour
     //private int skipped = 0;
     public void Success()
     {
-        _spriteRenderer.color = successColor;
-        _spriteRenderer.enabled = true;
-        _lastFeedback = Time.time;
-
-        try
+        if (enabled)
         {
-            PlaytestInstructions.instance.Success();
-        }catch{}
+            _spriteRenderer.color = successColor;
+            _spriteRenderer.enabled = true;
+            _lastFeedback = Time.time;
 
+            try
+            {
+                PlaytestInstructions.instance.Success();
+            }catch{}
+        }
     }
     
     private void Awake()
