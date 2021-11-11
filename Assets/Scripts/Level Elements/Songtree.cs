@@ -40,7 +40,7 @@ public class Songtree : Interactable
             //feedback_light.SetActive(true);
             //feedback_particles.Play();
         }
-        InteractionHint.instance.Show(interactionText);
+        InteractionHint.Instance.Show(interactionText);
     }
 
 }

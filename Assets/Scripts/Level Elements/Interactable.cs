@@ -14,7 +14,7 @@ public abstract class Interactable : MonoBehaviour
         Debug.Log("Player Interacion with "+gameObject.name,this);
         if (!dontShowInteractionHint)
         {
-            InteractionHint.instance.Hide();
+            InteractionHint.Instance.Hide();
         }
         DoSomething();
     }
@@ -28,7 +28,7 @@ public abstract class Interactable : MonoBehaviour
             playerinside = true;
             if (!dontShowInteractionHint)
             {
-                InteractionHint.instance.Show(interactionText);
+                InteractionHint.Instance.Show(interactionText);
             }
 
             PlayerInteraction.Instance.my_interactable = gameObject;
@@ -42,7 +42,7 @@ public abstract class Interactable : MonoBehaviour
             playerinside = false;
             if (!dontShowInteractionHint)
             {
-                InteractionHint.instance.Hide();
+                InteractionHint.Instance.Hide();
             }
 
             PlayerInteraction.Instance.my_interactable = null;

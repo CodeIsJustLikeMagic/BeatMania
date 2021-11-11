@@ -6,15 +6,34 @@ using UnityEngine.UI;
 
 public class InteractionHint : MonoBehaviour
 {
-    public static InteractionHint instance;
+    private static InteractionHint _instance;
+
+    public static InteractionHint Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<InteractionHint>();
+                if (_instance == null)
+                {
+                    Debug.LogError("Couldnt find instance of InteractionHint");
+                }
+            }
+            return _instance;
+        }
+    }
+    
     [SerializeField] private Text text = null;
     [SerializeField] private GameObject ui_image = null;
 
     [SerializeField] private string defaultText="interact";
     [SerializeField] private string keyDescription = "f";
+
+    [SerializeField] private string keyKeyboard = "F";
+    [SerializeField] private string keyGamepad = "Y";
     public void Awake()
     {
-        instance = this;
         Hide();
     }
 
@@ -38,5 +57,14 @@ public class InteractionHint : MonoBehaviour
     {
         ui_image.SetActive(false);
     }
-    
+
+    public void ChangeToGamePad()
+    {
+        keyDescription = keyGamepad;
+    }
+
+    public void ChangeToKeyboard()
+    {
+        keyDescription = keyKeyboard;
+    }
 }

@@ -9,14 +9,13 @@ public class TextChange : MonoBehaviour
     public string VersionBKeyboard;
     public string VersionAController;
     public string VersionBController;
-    bool Controller = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     private void Awake()
+    {
+        DoTextChange(false);
+    }
+
+    public void DoTextChange(bool controller)
     {
         //if (Input.GetJoystickNames().Length > 0) Controller = true;
         VersionAKeyboard = VersionAKeyboard.Replace("\\n", "\n");
@@ -26,7 +25,7 @@ public class TextChange : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Version", 0) == 0)
         {
-            if (!Controller)
+            if (!controller)
             {
                 
                 this.GetComponent<TextMeshPro>().SetText(VersionAKeyboard);
@@ -39,7 +38,7 @@ public class TextChange : MonoBehaviour
         }
         else
         {
-            if (!Controller)
+            if (!controller)
             {
                 this.GetComponent<TextMeshPro>().SetText(VersionBKeyboard);
             }
@@ -48,11 +47,5 @@ public class TextChange : MonoBehaviour
                 this.GetComponent<TextMeshPro>().SetText(VersionBController);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
