@@ -422,12 +422,10 @@ public class CharacterController : BaseHealthBehavior
         {
             feedback.displayShieldModel();
             StartCoroutine(ShieldedTime());
-            Debug.Log("Player damage shielded. InBeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
             MetricWriter.Instance.WriteCombatMetric("player",life,-damage,attacked_by_entity,"shielded");
         }
         else if (!invincible)
         {
-            Debug.Log("Player reviece Damage. InBeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
             animator.SetBool("Hit", true);
             //feedback.displayDamage();
             life -= damage;

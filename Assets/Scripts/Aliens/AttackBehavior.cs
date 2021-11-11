@@ -96,7 +96,6 @@ public class AttackBehavior : AlienBehavior
         if (move == "Attack")
         {
             _walkBehavior.MoveSlow(); // move forward a little during attack
-            Debug.Log("Attack perform is Inbeat? "+BeatChecker.Instance.IsInBeat()+" delta "+BeatChecker.Instance.IsInBeatDelta()+" beatlength "+BeatChecker.Instance.BeatLength());
         }
         if (move == "Wait")
         {

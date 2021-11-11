@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class CameraAnalogStick : MonoBehaviour
 {
     public float speedMult = 1.0f;
@@ -16,6 +16,15 @@ public class CameraAnalogStick : MonoBehaviour
     }
 
     // Update is called once per frame
+    public void OnViewHorizontal(InputAction.CallbackContext value)
+    {
+        inputX = value.ReadValue<float>();
+    }
+
+    public void OnViewVertical(InputAction.CallbackContext value)
+    {
+        inputY = value.ReadValue<float>();
+    }
     void Update()
     {
 
@@ -23,8 +32,8 @@ public class CameraAnalogStick : MonoBehaviour
         {
             return;
         }
-        inputX = Input.GetAxisRaw("HorizontalRightStick");
-        inputY = Input.GetAxisRaw("VerticalRightStick");
+        //inputX = Input.GetAxisRaw("HorizontalRightStick");
+        //inputY = Input.GetAxisRaw("VerticalRightStick");
 
         newValueX = this.transform.position.x + (inputX - lastInputX) * speedMult;
         newValueY = this.transform.position.y + (inputY - lastInputY) * speedMult;

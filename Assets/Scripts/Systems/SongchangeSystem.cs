@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using AudioHelm;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SongchangeSystem : MonoBehaviour
 {
@@ -73,19 +74,19 @@ public class SongchangeSystem : MonoBehaviour
     public void Update()
     {
         #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Alpha1)) 
+        if (Keyboard.current.numpad0Key.wasPressedThisFrame) 
         {
             SongChange(0);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Keyboard.current.numpad1Key.wasPressedThisFrame)
         {
             SongChange(1);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Keyboard.current.numpad2Key.wasPressedThisFrame)
         {
             SongChange(2);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Keyboard.current.numpad3Key.wasPressedThisFrame)
         {
             SongChange(3);
         }

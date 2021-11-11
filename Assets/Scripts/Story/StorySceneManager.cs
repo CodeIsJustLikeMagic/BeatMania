@@ -1,32 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class StorySceneManager : MonoBehaviour
 {
 
     //Sits on the MainCamera in the Story_Intro scene, methods are called by the animations of the camera
 
-    private bool receiveInput = true;
+    private bool receiveInput = false;
     private Animator anim;
+
+    private InputAction myAction;
     // Start is called before the first frame update
     void Start()
     {
         anim = this.GetComponent<Animator>();
+
+        myAction = new InputAction(binding: "/*/<button>");
+        myAction.performed += context => showNext(context);
+        myAction.Enable();
+        Invoke("setReceiveInputTrue", 0.2f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void showNext(InputAction.CallbackContext value)
     {
         if (receiveInput)
         {
-            if (Input.anyKey)
-            {
-                nextImageTrue();
-            }
+            nextImageTrue();
         }
-        
     }
 
     public void nextImageTrue()
@@ -51,5 +57,10 @@ public class StorySceneManager : MonoBehaviour
     public void loadGameScene()
     {
         SceneManager.LoadScene(2);
+    }
+
+    private void OnDestroy()
+    {
+        myAction.Disable();
     }
 }

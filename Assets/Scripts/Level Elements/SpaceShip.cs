@@ -21,7 +21,6 @@ public class SpaceShip : Interactable
     }
     protected override void DoSomething()
     {
-        Debug.Log("Interact");
         if (!is_collected)
         {
             SpaceShip.collected++;

@@ -7,21 +7,16 @@ public abstract class Interactable : MonoBehaviour
 
     [SerializeField] protected string interactionText = "";
     [SerializeField] private bool dontShowInteractionHint = false;
-    bool playerinside = false;
-    private void Update()
+    bool playerinside = false; 
     
+    public void Interact()
     {
-        if (playerinside)
+        Debug.Log("Player Interacion with "+gameObject.name,this);
+        if (!dontShowInteractionHint)
         {
-            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.X))
-            {
-                if (!dontShowInteractionHint)
-                {
-                    InteractionHint.instance.Hide();
-                }
-                DoSomething();
-            }
+            InteractionHint.instance.Hide();
         }
+        DoSomething();
     }
 
     protected abstract void DoSomething();
@@ -35,6 +30,8 @@ public abstract class Interactable : MonoBehaviour
             {
                 InteractionHint.instance.Show(interactionText);
             }
+
+            PlayerInteraction.Instance.my_interactable = gameObject;
         }
     }
 
@@ -47,6 +44,8 @@ public abstract class Interactable : MonoBehaviour
             {
                 InteractionHint.instance.Hide();
             }
+
+            PlayerInteraction.Instance.my_interactable = null;
         }
     }
 }

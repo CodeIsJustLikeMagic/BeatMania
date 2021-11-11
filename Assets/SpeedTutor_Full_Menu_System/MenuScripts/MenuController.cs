@@ -88,25 +88,34 @@ namespace SpeedTutorMainMenuSystem
             }
             else
             {
-                playerTag.text = PlayerPrefs.GetString("PlayerName");
+                if (playerTag != null)
+                {
+                    playerTag.text = PlayerPrefs.GetString("PlayerName", "Error:notSet");
+                }
                 Debug.Log("PlayerName Loaded "+PlayerPrefs.GetString("PlayerName"));
             }
 
             if (PlayerPrefs.HasKey("Version"))
             {
                 Debug.Log("Saved Game is "+ PlayerPrefs.GetInt("Version"));
-                if (PlayerPrefs.GetInt("Version") == 0)
+                if (savedState != null)
                 {
-                    savedState.text = "Saved Game is Version A";
-                }
-                else
-                {
-                    savedState.text = "Saved Game is Version B";
+                    if (PlayerPrefs.GetInt("Version") == 0)
+                    {
+                        savedState.text = "Saved Game is Version A";
+                    }
+                    else
+                    {
+                        savedState.text = "Saved Game is Version B";
+                    }
                 }
             }
             else
             {
-                savedState.text = "No Saved Game";
+                if (savedState != null)
+                {
+                    savedState.text = "No Saved Game";
+                }
             }
         }
 
@@ -118,36 +127,35 @@ namespace SpeedTutorMainMenuSystem
                 ret += UnityEngine.Random.Range(0, 10);
             }
             Debug.Log("Generate Player Name "+ret);
-            playerTag.text = ret;
+            if (playerTag != null)
+            {
+                playerTag.text = ret;
+            }
             PlayerPrefs.SetString("PlayerName",ret);
         }
 
-        private void Update()
+        public void OnOpenmenu()
         {
             if (isMainMenu)
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (menuNumber == 2 || menuNumber == 7 || menuNumber == 8)
                 {
-                    if (menuNumber == 2 || menuNumber == 7 || menuNumber == 8)
-                    {
-                        GoBackToMainMenu();
-                        ClickSound();
-                    }
+                    GoBackToMainMenu();
+                    ClickSound();
+                }
 
-                    else if (menuNumber == 3 || menuNumber == 4 || menuNumber == 5)
-                    {
-                        GoBackToOptionsMenu();
-                        ClickSound();
-                    }
+                else if (menuNumber == 3 || menuNumber == 4 || menuNumber == 5)
+                {
+                    GoBackToOptionsMenu();
+                    ClickSound();
+                }
 
-                    else if (menuNumber == 6) //CONTROLS MENU
-                    {
-                        GoBackToGameplayMenu();
-                        ClickSound();
-                    }
+                else if (menuNumber == 6) //CONTROLS MENU
+                {
+                    GoBackToGameplayMenu();
+                    ClickSound();
                 }
             }
-            
         }
 
         private void ClickSound()
@@ -255,9 +263,17 @@ namespace SpeedTutorMainMenuSystem
 
         public void BrightnessApply()
         {
-            PlayerPrefs.SetFloat("masterBrightness", brightnessEffect.brightness);
-            Debug.Log(PlayerPrefs.GetFloat("masterBrightness"));
-            StartCoroutine(ConfirmationBox());
+            try
+            {
+                PlayerPrefs.SetFloat("masterBrightness", brightnessEffect.brightness);
+                Debug.Log(PlayerPrefs.GetFloat("masterBrightness"));
+                StartCoroutine(ConfirmationBox());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public void ControllerSen()
@@ -391,7 +407,11 @@ namespace SpeedTutorMainMenuSystem
             graphicsMenu.SetActive(false);
             soundMenu.SetActive(false);
             gameplayMenu.SetActive(false);
-            evalMenu.SetActive(false);
+            if (evalMenu != null)
+            {
+                evalMenu.SetActive(false);
+            }
+            
 
             GameplayApply();
             BrightnessApply();
@@ -410,7 +430,10 @@ namespace SpeedTutorMainMenuSystem
             graphicsMenu.SetActive(false);
             soundMenu.SetActive(false);
             gameplayMenu.SetActive(false);
-            evalMenu.SetActive(false);
+            if (evalMenu != null)
+            {
+                evalMenu.SetActive(false);
+            }
             menuNumber = 1;
         }
 

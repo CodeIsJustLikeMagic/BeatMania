@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ComboAttack : MonoBehaviour
 {
@@ -52,21 +53,28 @@ public class ComboAttack : MonoBehaviour
         canAttack = mode;
     }
 
-    //Input
-    void AttackInput()
+    public void OnShield(InputAction.CallbackContext value)
     {
-        if (Input.GetKeyDown("joystick button 3") || Input.GetKeyDown(KeyCode.J))
-        {
+        if (value.started)
             Shield();
-        }
-        else if (Input.GetKeyUp("joystick button 3") || Input.GetKeyUp(KeyCode.J)) //doesnt attack only stops shielding
-        {
+        else if (value.canceled)
             StopShield();
-        }
-        if (canAttack)
+        
+    }
+
+    public void OnDash(InputAction.CallbackContext value)
+    {
+        if (value.started)
         {
-            //press attack button
-            if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.K))
+            DashAttack();
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            if (canAttack)
             {
                 if (BeatChecker.Instance.IsInBeat())
                 {
@@ -98,17 +106,7 @@ public class ComboAttack : MonoBehaviour
                 }
                 shielded = false;
             }
-            else if ((Input.GetAxis("LT") > 0 || Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("RT") > 0 || Input.GetKeyDown(KeyCode.E)))
-            {
-                DashAttack();
-            }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        AttackInput();
     }
 
     void Attack()
@@ -267,6 +265,5 @@ public class ComboAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(1/_bps*2); // shield for 2 beats
         StopShield();
-        Debug.Log("stop shield coroutine");
     }
 }

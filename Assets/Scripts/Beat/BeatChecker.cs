@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BeatChecker : VibingEntity
 {
@@ -34,7 +35,7 @@ public class BeatChecker : VibingEntity
     void Update()
     {
         //Toggle UI
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Keyboard.current.nKey.wasPressedThisFrame)
             {
             toggle = !toggle;
             if (toggle) {
@@ -48,7 +49,7 @@ public class BeatChecker : VibingEntity
         }
 
         //GiVE INPUT TO
-        if (Input.GetKeyDown(KeyCode.M)){
+        if (Keyboard.current.mKey.wasPressedThisFrame){
             if (toggle && !isSet)
             {
                 //missedBY = (Time.time - beatStart);

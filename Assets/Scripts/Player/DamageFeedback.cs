@@ -13,7 +13,6 @@ public class DamageFeedback : MonoBehaviour
         damageModel.SetActive(true);
         normalModel.SetActive(false);
         shieldModel.SetActive(false);
-        Debug.Log("DamageFeedback red. InBeat? "+BeatChecker.Instance.IsInBeat(), this);
     }
 
     public void doNotDisplayDamage()
