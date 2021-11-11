@@ -9,7 +9,7 @@ public class TextChange : MonoBehaviour
     public string VersionBKeyboard;
     public string VersionAController;
     public string VersionBController;
-    bool Controller;
+    bool Controller = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,8 @@ public class TextChange : MonoBehaviour
 
     private void Awake()
     {
+
+        if (Input.GetJoystickNames().Length > 0) Controller = true;
         VersionAKeyboard = VersionAKeyboard.Replace("\\n", "\n");
         VersionBKeyboard = VersionBKeyboard.Replace("\\n", "\n");
         VersionAController = VersionAController.Replace("\\n", "\n");
