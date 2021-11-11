@@ -18,7 +18,7 @@ public class TextChange : MonoBehaviour
 
     private void Awake()
     {
-        if (Input.GetJoystickNames().Length > 0) Controller = true;
+        //if (Input.GetJoystickNames().Length > 0) Controller = true;
         VersionAKeyboard = VersionAKeyboard.Replace("\\n", "\n");
         VersionBKeyboard = VersionBKeyboard.Replace("\\n", "\n");
         VersionAController = VersionAController.Replace("\\n", "\n");
