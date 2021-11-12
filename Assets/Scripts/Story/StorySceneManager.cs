@@ -21,6 +21,11 @@ public class StorySceneManager : MonoBehaviour
         anim = this.GetComponent<Animator>();
     }
 
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
     public void ShowNext(InputAction.CallbackContext value)
     {
         Debug.Log("ShowNext");
