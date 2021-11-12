@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ public class SpaceShip : Interactable
             SpaceShip.collected++;
             is_collected = true;
             gameObject.SetActive(false);
-            if (collected == maxparts)
+            if (collected >= maxparts)
             {
                 GameEnd.Instance.EndReached();
                 MetricWriter.Instance.WriteVariousMetric("Game End");
@@ -35,6 +36,11 @@ public class SpaceShip : Interactable
             MetricWriter.Instance.WriteVariousMetric("SpaceShip collected "+entity);
         }
         
+    }
+
+    private void OnDestroy()
+    {
+        SpaceShip.collected = 0;
     }
 
 

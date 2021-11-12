@@ -40,18 +40,18 @@ public class MetricWriter : MonoBehaviour
     
     public void WriteBeatMetric(bool Beathit, float BeatDelta, float BeatLength,float ToleranceRange,string Action)
     {
-        BeatMetric.WriteLine(VersionName+","+Time.time+","+Beathit+","+BeatDelta+","+BeatLength+","+ToleranceRange+","+Action);
+        BeatMetric.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+Beathit+","+BeatDelta+","+BeatLength+","+ToleranceRange+","+Action);
     }
 
     public void WriteCombatMetric(string entity, float health, float hpModifier,string hitByEntity, string action)
     {
-        CombatMetric.WriteLine(VersionName+","+Time.time+","+entity+","+health+","+hpModifier+","+hitByEntity+","+action);
+        CombatMetric.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+entity+","+health+","+hpModifier+","+hitByEntity+","+action);
         
     }
 
     public void WriteVariousMetric(string action)
     {
-        Various.WriteLine(VersionName+","+Time.time+","+action);
+        Various.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+action);
     }
     
     private string getPath() 
@@ -121,8 +121,8 @@ public class MetricWriter : MonoBehaviour
             VersionName = "NoRhythm";
         }   
     }
-    
-    public void OnDestroy()
+
+    public void OnCloseGame()
     {
         BeatMetric.Flush();
         BeatMetric.Close();
@@ -134,4 +134,22 @@ public class MetricWriter : MonoBehaviour
         Various.Close();
     }
 
+    public void OnDestroy()
+    {
+        try
+        {
+            BeatMetric.Flush();
+            BeatMetric.Close();
+        
+            CombatMetric.Flush();
+            CombatMetric.Close();
+        
+            Various.Flush();
+            Various.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
 }

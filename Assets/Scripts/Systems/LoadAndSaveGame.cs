@@ -68,6 +68,7 @@ public class LoadAndSaveGame : MonoBehaviour
         PlayerPrefs.SetString("UnlockedSongs", UnlockedSongs.Instance.SaveUnlockedSongs());
         Debug.Log("SaveState");
         //todo save which songs are unlocked
+        MetricWriter.Instance.OnCloseGame();
     }
     
 }
