@@ -12,7 +12,7 @@ public class TextChange : MonoBehaviour
 
     private void Awake()
     {
-        DoTextChange(false);
+        DoTextChange(true);
     }
 
     public void DoTextChange(bool controller)
