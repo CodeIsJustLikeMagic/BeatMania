@@ -7,9 +7,9 @@ public class SpaceShip : Interactable
 {
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        maxparts = GameObject.FindObjectsOfType<SpaceShip>().Length;
+        maxparts = FindObjectsOfType<SpaceShip>().Length;
         interactionText = "collect space ship part";
     }
 
