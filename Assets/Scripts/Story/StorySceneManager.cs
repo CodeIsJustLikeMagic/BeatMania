@@ -12,24 +12,19 @@ public class StorySceneManager : MonoBehaviour
 
     //Sits on the MainCamera in the Story_Intro scene, methods are called by the animations of the camera
 
-    private bool receiveInput = false;
+    private bool receiveInput = true;
     private Animator anim;
 
-    private InputAction myAction;
     // Start is called before the first frame update
     void Start()
     {
         anim = this.GetComponent<Animator>();
-
-        myAction = new InputAction(binding: "/*/<button>");
-        myAction.performed += context => showNext(context);
-        myAction.Enable();
-        Invoke("setReceiveInputTrue", 0.2f);
     }
 
-    void showNext(InputAction.CallbackContext value)
+    public void ShowNext(InputAction.CallbackContext value)
     {
-        if (receiveInput)
+        Debug.Log("ShowNext");
+        if (receiveInput && value.started)
         {
             nextImageTrue();
         }
@@ -57,10 +52,5 @@ public class StorySceneManager : MonoBehaviour
     public void loadGameScene()
     {
         SceneManager.LoadScene(2);
-    }
-
-    private void OnDestroy()
-    {
-        myAction.Disable();
     }
 }

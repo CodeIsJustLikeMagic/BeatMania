@@ -15,11 +15,32 @@ public class AntennaLight : MonoBehaviour
             gameObject.SetActive(false);
             this.enabled = false;
         }
+        else
+        {
+            fakeLight = GetComponent<SpriteRenderer>();
+        }
     }
 
     private void Update()
     {
         gameObject.transform.position =
             new Vector3(AntennaTransform.position.x, AntennaTransform.position.y, transform.position.z);
+        if (BeatChecker.Instance.IsInBeat())
+        {
+            fakeLight.enabled = true;
+        }
+        else
+        {
+            fakeLight.enabled = false;
+        }
+    }
+    
+    private Light _light;
+
+    [SerializeField] private SpriteRenderer fakeLight = null;
+
+    private void OnDisable()
+    {
+        fakeLight.enabled = false;
     }
 }
