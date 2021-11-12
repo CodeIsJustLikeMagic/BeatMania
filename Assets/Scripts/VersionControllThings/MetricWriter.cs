@@ -40,18 +40,44 @@ public class MetricWriter : MonoBehaviour
     
     public void WriteBeatMetric(bool Beathit, float BeatDelta, float BeatLength,float ToleranceRange,string Action)
     {
-        BeatMetric.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+Beathit+","+BeatDelta+","+BeatLength+","+ToleranceRange+","+Action);
+        try
+        {
+            BeatMetric.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+Beathit+","+BeatDelta+","+BeatLength+","+ToleranceRange+","+Action);
+        }
+        catch (ObjectDisposedException e)
+        {
+            Debug.Log("Csv file is close but we want to write to it");
+            OnCloseGame();
+            SetUp();
+        }
     }
 
     public void WriteCombatMetric(string entity, float health, float hpModifier,string hitByEntity, string action)
     {
-        CombatMetric.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+entity+","+health+","+hpModifier+","+hitByEntity+","+action);
-        
+        try
+        {
+            CombatMetric.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+entity+","+health+","+hpModifier+","+hitByEntity+","+action);
+        }
+        catch (ObjectDisposedException e)
+        {
+            Debug.Log("Csv file is close but we want to write to it");
+            OnCloseGame();
+            SetUp();
+        }
     }
 
     public void WriteVariousMetric(string action)
     {
-        Various.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+action);
+        try
+        {
+            Various.WriteLine(VersionName+","+(int)Time.timeSinceLevelLoad+","+action);
+        }
+        catch (ObjectDisposedException e)
+        {
+            Debug.Log("Csv file is close but we want to write to it");
+            OnCloseGame();
+            SetUp();
+        }
     }
     
     private string getPath() 
@@ -77,6 +103,11 @@ public class MetricWriter : MonoBehaviour
     }
 
     private void Awake()
+    {
+        SetUp();
+    }
+
+    public void SetUp()
     {
         FindOutVersion();
         var playerName = PlayerPrefs.GetString("PlayerName", "PlayerNameNotSet");
@@ -124,14 +155,36 @@ public class MetricWriter : MonoBehaviour
 
     public void OnCloseGame()
     {
-        BeatMetric.Flush();
-        BeatMetric.Close();
-        
-        CombatMetric.Flush();
-        CombatMetric.Close();
-        
-        Various.Flush();
-        Various.Close();
+        try
+        {
+            BeatMetric.Flush();
+            BeatMetric.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            CombatMetric.Flush();
+            CombatMetric.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            Various.Flush();
+            Various.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
     }
 
     public void OnDestroy()
@@ -140,10 +193,24 @@ public class MetricWriter : MonoBehaviour
         {
             BeatMetric.Flush();
             BeatMetric.Close();
-        
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
             CombatMetric.Flush();
             CombatMetric.Close();
-        
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
             Various.Flush();
             Various.Close();
         }

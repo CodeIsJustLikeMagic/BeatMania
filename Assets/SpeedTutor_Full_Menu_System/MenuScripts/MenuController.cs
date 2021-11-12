@@ -204,6 +204,7 @@ namespace SpeedTutorMainMenuSystem
             if (buttonType == "BackToMenu")
             {
                 LoadAndSaveGame.Instance.SaveState();
+                MetricWriter.Instance.OnCloseGame();
                 SceneManager.LoadScene(0);
             }
             if (buttonType == "Exit")
@@ -211,6 +212,7 @@ namespace SpeedTutorMainMenuSystem
                 try
                 {
                     LoadAndSaveGame.Instance.SaveState();
+                    MetricWriter.Instance.OnCloseGame();
                 }
                 catch (Exception e)
                 {

@@ -263,6 +263,7 @@ public class CharacterController : BaseHealthBehavior
                 {
                     isLowJumping = true;
                     BeatIndicatorFeedback.Instance.Failed();
+                    jumpFailParticleSystem.Play();
                 }
                 m_Grounded = false;
                 m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce));

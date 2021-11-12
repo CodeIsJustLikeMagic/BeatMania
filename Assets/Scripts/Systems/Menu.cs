@@ -32,6 +32,7 @@ public class Menu : MonoBehaviour
         {
             mainMenuEvent = new UnityEvent();
         }
+        ResumeGame();
     }
 
     public void showEndOfDemo()
