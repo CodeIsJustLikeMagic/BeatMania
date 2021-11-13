@@ -15,7 +15,7 @@ namespace SpeedTutorMainMenuSystem
         [Header("Default Menu Values")]
         [SerializeField] private float defaultBrightness =1;
         [SerializeField] private float defaultVolume = 0.5f;
-        [SerializeField] private int defaultSen=4;
+        [SerializeField] private float defaultTolerance=0.1f;
         
         //[SerializeField] private bool defaultInvertY = false;
 
@@ -50,9 +50,9 @@ namespace SpeedTutorMainMenuSystem
 
         #region Slider Linking
         [Header("Menu Sliders")]
-        [SerializeField] private Text controllerSenText  = null;
-        [SerializeField] private Slider controllerSenSlider = null;
-        public float controlSenFloat = 2f;
+        [SerializeField] private Text beatToleranceText  = null;
+        [SerializeField] private Slider beatToleranceSlider = null;
+        public float beatToleranceInput = 2f;
         [Space(10)]
         [SerializeField] private Brightness brightnessEffect = null;
         [SerializeField] private Slider brightnessSlider = null;
@@ -117,6 +117,15 @@ namespace SpeedTutorMainMenuSystem
                     savedState.text = "No Saved Game";
                 }
             }
+
+            if (beatToleranceSlider!= null)
+            {
+                //PlayerPrefs.DeleteKey("beatTolerance");
+                BeatChecker.Instance.toleranceRange = PlayerPrefs.GetFloat("beatTolerance", defaultTolerance);
+                beatToleranceSlider.value = BeatChecker.Instance.toleranceRange;
+                beatToleranceText.text = beatToleranceSlider.value.ToString("0.00");
+            }
+
         }
 
         private void GeneratePlayerName()
@@ -132,6 +141,7 @@ namespace SpeedTutorMainMenuSystem
                 playerTag.text = ret;
             }
             PlayerPrefs.SetString("PlayerName",ret);
+            PlayerPrefs.DeleteKey("beatTolerance"); // reset beattoleranze setting for new player
         }
 
         public void OnOpenmenu()
@@ -259,8 +269,12 @@ namespace SpeedTutorMainMenuSystem
 
         public void BrightnessSlider(float brightness)
         {
-            brightnessEffect.brightness = brightness;
-            brightnessText.text = brightness.ToString("0.0");
+            if (brightnessEffect != null)
+            {
+                brightnessEffect.brightness = brightness;
+                brightnessText.text = brightness.ToString("0.0");
+            }
+
         }
 
         public void BrightnessApply()
@@ -278,30 +292,22 @@ namespace SpeedTutorMainMenuSystem
 
         }
 
-        public void ControllerSen()
+        public void ControllerSen()// On slider change
         {
-            controllerSenText.text = controllerSenSlider.value.ToString("0");
-            controlSenFloat = controllerSenSlider.value;
+            beatToleranceText.text = beatToleranceSlider.value.ToString("0.00");
+            beatToleranceInput = beatToleranceSlider.value;
         }
 
         public void GameplayApply()
         {
-            if (invertYToggle.isOn) //Invert Y ON
+            if (BeatChecker.Instance != null)
             {
-                PlayerPrefs.SetInt("masterInvertY", 1);
-                Debug.Log("Invert" + " " + PlayerPrefs.GetInt("masterInvertY"));
+                PlayerPrefs.SetFloat("beatTolerance", beatToleranceInput);
+                Debug.Log("beatTolerance" + " " + PlayerPrefs.GetFloat("beatTolerance"));
+                BeatChecker.Instance.toleranceRange = beatToleranceInput;
+
+                StartCoroutine(ConfirmationBox());
             }
-
-            else if (!invertYToggle.isOn) //Invert Y OFF
-            {
-                PlayerPrefs.SetInt("masterInvertY", 0);
-                Debug.Log(PlayerPrefs.GetInt("masterInvertY"));
-            }
-
-            PlayerPrefs.SetFloat("masterSen", controlSenFloat);
-            Debug.Log("Sensitivity" + " " + PlayerPrefs.GetFloat("masterSen"));
-
-            StartCoroutine(ConfirmationBox());
         }
 
         #region ResetButton
@@ -325,12 +331,9 @@ namespace SpeedTutorMainMenuSystem
 
             if (GraphicsMenu == "Graphics")
             {
-                controllerSenText.text = defaultSen.ToString("0");
-                controllerSenSlider.value = defaultSen;
-                controlSenFloat = defaultSen;
-
-                invertYToggle.isOn = false;
-
+                beatToleranceText.text = defaultTolerance.ToString("0.00");
+                beatToleranceSlider.value = defaultTolerance;
+                beatToleranceInput = defaultTolerance;
                 GameplayApply();
             }
         }

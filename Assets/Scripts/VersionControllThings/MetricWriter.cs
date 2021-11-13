@@ -114,7 +114,7 @@ public class MetricWriter : MonoBehaviour
         FileName_BeatMetric= DateTimeFilePath(FileName_BeatMetric,playerName);
         FileName_PlayerDamage = DateTimeFilePath(FileName_PlayerDamage,playerName);
         FileName_VariousActions = DateTimeFilePath(FileName_VariousActions,playerName);
-        
+        Debug.Log("trying to set up beatmetrics",this);
         BeatMetric = new StreamWriter(getPath() + FileName_BeatMetric);
         CombatMetric = new StreamWriter(getPath() + FileName_PlayerDamage);
         Various = new StreamWriter(getPath() + FileName_VariousActions);
