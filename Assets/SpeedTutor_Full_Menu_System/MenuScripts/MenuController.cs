@@ -281,7 +281,7 @@ namespace SpeedTutorMainMenuSystem
         {
             PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
             Debug.Log("Volume Apply "+PlayerPrefs.GetFloat("masterVolume"));
-            StartCoroutine(ConfirmationBox());
+            //StartCoroutine(ConfirmationBox());
         }
 
         public void BrightnessSlider(float brightness)
@@ -300,7 +300,7 @@ namespace SpeedTutorMainMenuSystem
             {
                 PlayerPrefs.SetFloat("masterBrightness", brightnessEffect.brightness);
                 Debug.Log(PlayerPrefs.GetFloat("masterBrightness"));
-                StartCoroutine(ConfirmationBox());
+                //StartCoroutine(ConfirmationBox());
             }
             catch (Exception e)
             {
@@ -329,7 +329,7 @@ namespace SpeedTutorMainMenuSystem
                 Debug.Log("beatTolerance" + " " + PlayerPrefs.GetFloat("beatTolerance"));
                 BeatChecker.Instance.ToleranceRange = beatToleranceInput;
 
-                StartCoroutine(ConfirmationBox());
+                //StartCoroutine(ConfirmationBox());
             }
         }
 

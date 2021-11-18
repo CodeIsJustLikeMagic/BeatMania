@@ -38,9 +38,17 @@ public class rhythmTest : MonoBehaviour
         if (value.started)
         {
             //Debug.Log("Player Input rhythm test");
-            BeatChecker.Instance.IsInBeatRhythmTest("tap");
             tapcount++;
             TapEvent.Invoke();
+
+            if (tapcount <= maxtap)
+            {
+                BeatChecker.Instance.IsInBeatRhythmTest("with_indicator");
+            }
+            else
+            {
+                BeatChecker.Instance.IsInBeatRhythmTest("no_indicator");
+            }
             if (tapcount == maxtap)
             {
                 TestDoneEvent.Invoke();
