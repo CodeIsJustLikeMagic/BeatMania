@@ -211,13 +211,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1035874925549199754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89c2c6a854dc65b43aa3e0874610cb3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fce1f392c3b9af4db2b8c3ab97b34ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FileName_BeatMetric: Beat_Metric.csv
-  FileName_PlayerDamage: PlayerDamage_Metric.csv
+  FileName_PlayerDamage: Combat_Metric.csv
   FileName_VariousActions: Various_Metric.csv
-  VersionName: 
+  VersionName: NotSet
 --- !u!114 &5573827470023054133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6903,6 +6903,7 @@ MonoBehaviour:
   defaultTolerance: 0.1
   _newGameButtonLevel: 0
   _loadGameButtonLevel: 0
+  _loadRhythmButtonLevel: 0
   playerTag: {fileID: 0}
   savedState: {fileID: 0}
   menuDefaultCanvas: {fileID: 6215275823391817033}

@@ -18,7 +18,20 @@ public class BeatChecker : VibingEntity
     }
 
     public float toleranceShift = 0.00f;
-    public float toleranceRange = 0.07f;
+    private float toleranceRange = 0.10f;
+
+    public float ToleranceRange
+    {
+        get
+        {
+            return toleranceRange;
+        }
+        set
+        {
+            toleranceRange = value;
+            Debug.Log("ToleranceRange set to "+value);
+        }
+    }
 
     //Hold Beat
     float beatStart = 0;
@@ -55,12 +68,12 @@ public class BeatChecker : VibingEntity
                 //missedBY = (Time.time - beatStart);
                 missedBY = (Time.time - beatStart) % beatLength;
 
-                if (missedBY <= (toleranceRange + toleranceShift))
+                if (missedBY <= (ToleranceRange + toleranceShift))
                 {
                     hitAVG += missedBY;
                     hitcount = hitcount + 1;
                 }
-                else if (missedBY >= (beatLength - (toleranceRange - toleranceShift)))
+                else if (missedBY >= (beatLength - (ToleranceRange - toleranceShift)))
                 {
                     hitAVG -= (beatLength - missedBY);
                     hitcount = hitcount + 1;
@@ -84,14 +97,26 @@ public class BeatChecker : VibingEntity
     /// <returns>true if Time.time is in beat</returns>
     public bool IsInBeat()//is current time in beat?
     {
-        return IsInBeat(Time.time, toleranceRange, toleranceShift);
+        return IsInBeat(Time.time, ToleranceRange, toleranceShift);
     }
 
     public bool IsInBeat(string Metric_Action)
     {
         float missedBySeconds = (Time.time - beatStart) % beatLength;
-        bool b = missedBySeconds <= (toleranceRange + toleranceShift) || missedBySeconds >= beatLength - (toleranceRange - toleranceShift);
-        MetricWriter.Instance.WriteBeatMetric(b,missedBySeconds,beatLength,toleranceRange, Metric_Action);
+        bool b = missedBySeconds <= (ToleranceRange + toleranceShift) || missedBySeconds >= beatLength - (ToleranceRange - toleranceShift);
+        MetricWriter.Instance.WriteBeatMetric(b,missedBySeconds,beatLength,ToleranceRange, Metric_Action);
+        if (allwaysTrue)
+        {
+            return true;
+        }
+        return b;
+    }
+    
+    public bool IsInBeatRhythmTest(string Metric_Action)
+    {
+        float missedBySeconds = (Time.time - beatStart) % beatLength;
+        bool b = missedBySeconds <= (ToleranceRange + toleranceShift) || missedBySeconds >= beatLength - (ToleranceRange - toleranceShift);
+        RhythmTestMetricWriter.Instance.WriteBeatMetric(b,missedBySeconds,beatLength,ToleranceRange, Metric_Action);
         if (allwaysTrue)
         {
             return true;
@@ -136,14 +161,14 @@ public class BeatChecker : VibingEntity
             GUI.Label(new Rect(10, 25, 200, 500), "HIT_COUNT: " + hitcount);
             GUI.Label(new Rect(10, 50, 200, 500), "MISS_COUNT: " + misscount);
             GUI.Label(new Rect(10, 75, 200, 500), "CURRENT_SHIFT: " + toleranceShift);
-            GUI.Label(new Rect(10, 100, 200, 500), "CURRENT_RANGE: " + toleranceRange);
+            GUI.Label(new Rect(10, 100, 200, 500), "CURRENT_RANGE: " + ToleranceRange);
             GUI.Label(new Rect(10, 125, 200, 500), "BEAT: " + beatStart);
             GUI.Label(new Rect(10, 150, 200, 500), "TIME: " + Time.time);
             GUI.Label(new Rect(10, 175, 200, 500), "DIFF: " + (Time.time - beatStart));
             GUI.Label(new Rect(10, 200, 200, 500), "MISSED_BY: " + missedBY);
             GUI.Label(new Rect(10, 225, 200, 500), "HIT_AVG: " + hitAVG);
-            GUI.Label(new Rect(10, 250, 200, 500), "SHIFT_POS: " + (toleranceRange + toleranceShift));
-            GUI.Label(new Rect(10, 275, 200, 500), "SHIFT_NEG: " + (toleranceRange - toleranceShift));
+            GUI.Label(new Rect(10, 250, 200, 500), "SHIFT_POS: " + (ToleranceRange + toleranceShift));
+            GUI.Label(new Rect(10, 275, 200, 500), "SHIFT_NEG: " + (ToleranceRange - toleranceShift));
             GUI.Label(new Rect(10, 300, 200, 500), "ADJUSTED: " + isSet);
         }
     }
@@ -155,7 +180,7 @@ public class BeatChecker : VibingEntity
     /// <returns>true if time is in beat</returns>
     public bool IsInBeat(float time)
     {
-        return IsInBeat(time, toleranceRange, toleranceRange);
+        return IsInBeat(time, ToleranceRange, ToleranceRange);
     }
 
     public float IsInBeatMissedBy(float time)

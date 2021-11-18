@@ -124,9 +124,11 @@ namespace SpeedTutorMainMenuSystem
             if (beatToleranceSlider!= null)
             {
                 //PlayerPrefs.DeleteKey("beatTolerance");
-                BeatChecker.Instance.toleranceRange = PlayerPrefs.GetFloat("beatTolerance", defaultTolerance);
-                beatToleranceSlider.value = BeatChecker.Instance.toleranceRange;
+                BeatChecker.Instance.ToleranceRange = PlayerPrefs.GetFloat("beatTolerance", defaultTolerance);
+                beatToleranceSlider.value = BeatChecker.Instance.ToleranceRange;
                 beatToleranceText.text = beatToleranceSlider.value.ToString("0.00");
+                beatToleranceInput = BeatChecker.Instance.ToleranceRange;
+
             }
 
         }
@@ -223,13 +225,13 @@ namespace SpeedTutorMainMenuSystem
             {
                 
                 LoadAndSaveGame.Instance.SaveState();
-                MetricWriter.Instance.OnCloseGame();
+                MetricWriter.Instance.CloseMetricWriter();
                 SceneManager.LoadScene(0);
             }
 
             if (buttonType == "ExitRhythmTest")
             {
-                RhythmTestMetricWriter.Instance.OnCloseTest();
+                MetricWriter.Instance.CloseMetricWriter();
                 SceneManager.LoadScene(0);
             }
             if (buttonType == "Exit")
@@ -237,7 +239,7 @@ namespace SpeedTutorMainMenuSystem
                 try
                 {
                     LoadAndSaveGame.Instance.SaveState();
-                    MetricWriter.Instance.OnCloseGame();
+                    MetricWriter.Instance.CloseMetricWriter();
                 }
                 catch (Exception e)
                 {
@@ -278,7 +280,7 @@ namespace SpeedTutorMainMenuSystem
         public void VolumeApply()
         {
             PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
-            Debug.Log(PlayerPrefs.GetFloat("masterVolume"));
+            Debug.Log("Volume Apply "+PlayerPrefs.GetFloat("masterVolume"));
             StartCoroutine(ConfirmationBox());
         }
 
@@ -311,15 +313,21 @@ namespace SpeedTutorMainMenuSystem
         {
             beatToleranceText.text = beatToleranceSlider.value.ToString("0.00");
             beatToleranceInput = beatToleranceSlider.value;
+            Debug.Log("Controller Sen "+beatToleranceInput);
         }
 
         public void GameplayApply()
         {
+            Debug.Log("Gameplay Apply");
             if (BeatChecker.Instance != null)
             {
+                if (beatToleranceInput >= 2)
+                {
+                    Debug.LogError("BeatTolerance to large");
+                }
                 PlayerPrefs.SetFloat("beatTolerance", beatToleranceInput);
                 Debug.Log("beatTolerance" + " " + PlayerPrefs.GetFloat("beatTolerance"));
-                BeatChecker.Instance.toleranceRange = beatToleranceInput;
+                BeatChecker.Instance.ToleranceRange = beatToleranceInput;
 
                 StartCoroutine(ConfirmationBox());
             }

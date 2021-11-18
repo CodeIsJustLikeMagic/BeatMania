@@ -1,36 +1,73 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-public class RhythmTestMetricWriter : MonoBehaviour
+public class RhythmTestMetricWriter : MetricWriter
 {
-    private static RhythmTestMetricWriter _instance;
 
-    public static RhythmTestMetricWriter Instance
+    public string FileName_RhythmTestMetric = "RhythmTest_Metric.csv";
+    private StreamWriter BeatMetric;
+    
+    public override void WriteBeatMetric(bool Beathit, float BeatDelta, float BeatLength,float ToleranceRange,string Action)
     {
-        get
+        try
         {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<RhythmTestMetricWriter>();
-                if (_instance == null)
-                {
-                    Debug.LogError("Couldn't find instance of RhythmTestMetricWriter");
-                }
-            }
-
-            return _instance;
+            BeatMetric.WriteLine((int)Time.timeSinceLevelLoad+","+Beathit+","+BeatDelta+","+BeatLength+","+ToleranceRange+","+Action);
+        }
+        catch (ObjectDisposedException e)
+        {
+            Debug.Log("Csv file is close but we want to write to it");
+            CloseMetricWriter();
+            SetUp();
         }
     }
 
-
-    public void OnCloseTest()
+    private void Awake()
     {
-        Debug.LogError("RhythmTestMetric Writer: Close Test not implemented", this);
+        SetUp();
     }
 
-    public void Write(string blabla)
+    public void SetUp()
     {
-        Debug.LogError("RhythmTestMetric Writer: Write not implemented", this);
+        var playerName = PlayerPrefs.GetString("PlayerName", "PlayerNameNotSet");
+        FileName_RhythmTestMetric= DateTimeFilePath(FileName_RhythmTestMetric,playerName);
+        Debug.Log("trying to set up beatmetrics",this);
+        BeatMetric = new StreamWriter(getPath() + FileName_RhythmTestMetric);
+        BeatMetric.WriteLine("sep=,");
+        BeatMetric.WriteLine("Time,Beathit,BeatDelta,BeatLength,ToleranceRange,Action");
+        Debug.Log("Created Metric writer at path"+getPath());
+    }
+
+    private string DateTimeFilePath(string Metric_type, string playerName)
+    {
+        return playerName+"_"+DateTime.Now.ToString("dd_MM_yy_hh_mm")+"_"+Metric_type;
+    }
+    
+    
+    public override void CloseMetricWriter()
+    {
+        try
+        {
+            BeatMetric.Flush();
+            BeatMetric.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+    public void OnDestroy()
+    {
+        try
+        {
+            BeatMetric.Flush();
+            BeatMetric.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
 }
