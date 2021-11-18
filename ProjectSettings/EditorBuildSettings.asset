@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Nelly_Component_Test_Scene.unity
     guid: 3ecb02e1112442e40967186bc78dfc2e
+  - enabled: 1
+    path: Assets/Scenes/3_RhythmTest.unity
+    guid: 5c0b82841e472ed41bc3c0c97d5890d2
   m_configObjects: {}

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ namespace SpeedTutorMainMenuSystem
         public int _newGameButtonLevel;
 
         public int _loadGameButtonLevel;
+
+        public int _loadRhythmButtonLevel;
         private string levelToLoad;
 
         private int menuNumber;
@@ -204,6 +207,11 @@ namespace SpeedTutorMainMenuSystem
                 menuNumber = 5;
             }
 
+            if (buttonType == "RhythmTest")
+            {
+                SceneManager.LoadScene(_loadRhythmButtonLevel);
+            }
+
             if (buttonType == "EvaluationSettings")
             {
                 GeneralSettingsCanvas.SetActive(false);
@@ -213,8 +221,15 @@ namespace SpeedTutorMainMenuSystem
 
             if (buttonType == "BackToMenu")
             {
+                
                 LoadAndSaveGame.Instance.SaveState();
                 MetricWriter.Instance.OnCloseGame();
+                SceneManager.LoadScene(0);
+            }
+
+            if (buttonType == "ExitRhythmTest")
+            {
+                RhythmTestMetricWriter.Instance.OnCloseTest();
                 SceneManager.LoadScene(0);
             }
             if (buttonType == "Exit")
