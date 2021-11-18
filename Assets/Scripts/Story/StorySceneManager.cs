@@ -28,7 +28,7 @@ public class StorySceneManager : MonoBehaviour
 
     public void ShowNext(InputAction.CallbackContext value)
     {
-        Debug.Log("ShowNext");
+        //Debug.Log("ShowNext");
         if (receiveInput && value.started)
         {
             nextImageTrue();

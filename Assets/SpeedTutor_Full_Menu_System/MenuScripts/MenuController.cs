@@ -313,12 +313,12 @@ namespace SpeedTutorMainMenuSystem
         {
             beatToleranceText.text = beatToleranceSlider.value.ToString("0.00");
             beatToleranceInput = beatToleranceSlider.value;
-            Debug.Log("Controller Sen "+beatToleranceInput);
+            //Debug.Log("Controller Sen "+beatToleranceInput);
         }
 
         public void GameplayApply()
         {
-            Debug.Log("Gameplay Apply");
+            //Debug.Log("Gameplay Apply");
             if (BeatChecker.Instance != null)
             {
                 if (beatToleranceInput >= 2)
