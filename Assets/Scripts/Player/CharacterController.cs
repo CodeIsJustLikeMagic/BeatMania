@@ -41,7 +41,8 @@ public class CharacterController : BaseHealthBehavior
     [SerializeField] private ParticleSystem jumpFailParticleSystem = null;
     [SerializeField] private ParticleSystem dashParticleSystem = null;
     
-    const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+    const float k_GroundedRadius = .30f; // Radius of the overlap circle to determine if grounded
+    const float k_WallRadius = .45f;
     public bool m_Grounded;            // Whether or not the player is grounded.
     private Rigidbody m_Rigidbody;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -142,10 +143,10 @@ public class CharacterController : BaseHealthBehavior
         if (!m_Grounded)
         {
             OnFallEvent.Invoke();
-            Collider[] collidersWall = Physics.OverlapSphere(m_WallCheck.position, k_GroundedRadius, m_WhatIsGround);
+            Collider[] collidersWall = Physics.OverlapSphere(m_WallCheck.position, k_WallRadius, m_WhatIsGround);
             for (int i = 0; i < collidersWall.Length; i++)
             {
-                if (collidersWall[i].gameObject.tag == "GroundandWall")
+                if (collidersWall[i].gameObject.tag == "GroundandWall" || collidersWall[i].gameObject.tag == "Ground")
                 {
                     isDashing = false;
                     m_IsWall = true;
