@@ -24,11 +24,13 @@ public class TeleportSystem : MonoBehaviour
 
     public void ActivateCheckpoint(int point)
     {
+        Debug.Log("Activating checkpoint "+point);
         if (point == -1)
         {
-            return; // Player stoped playing before reaching the first checkpoint.
+            return;
         }
         checkpoints[point].Activate();
+        Debug.Log("Activating checkpoint "+point, checkpoints[point]);
     }
 
     public int GetActiveCheckpointIndex()

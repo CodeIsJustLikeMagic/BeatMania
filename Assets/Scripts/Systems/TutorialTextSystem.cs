@@ -21,7 +21,7 @@ public class TutorialTextSystem : MonoBehaviour
             }
             //change interaction text
             InteractionHint.Instance.ChangeToGamePad();
-            Debug.Log("Controll schema: gamepad");
+            //Debug.Log("Controll schema: gamepad");
             
         }
         else
@@ -33,7 +33,7 @@ public class TutorialTextSystem : MonoBehaviour
             }
             //change interaction text
             InteractionHint.Instance.ChangeToKeyboard();
-            Debug.Log("Controll schema: keyboard");
+            //Debug.Log("Controll schema: keyboard");
         }
     }
 }

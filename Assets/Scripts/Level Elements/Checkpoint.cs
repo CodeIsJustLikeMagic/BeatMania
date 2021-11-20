@@ -9,7 +9,7 @@ public class Checkpoint : Interactable
     [SerializeField] private GameObject feedbackLight = null;
     [SerializeField] private ParticleSystem feedbackParticleSystem = null;
 
-    private void Start()
+    public void Awake()
     {
         FeedbackInactive();
     }
@@ -25,7 +25,7 @@ public class Checkpoint : Interactable
         var checkpoints = FindObjectsOfType<Checkpoint>();
         foreach (var s in checkpoints)
         {
-            s.FeedbackInactive(); // Deactivate Feedback for previous Checkpoint
+            s.FeedbackInactive(); // Deactivate Feedback for all other Checkpoints
         }
 
         activeSpawnPoint = getPosition();
@@ -66,6 +66,5 @@ public class Checkpoint : Interactable
         feedbackParticleSystem.Stop();
         active = false;
     }
-
 }
 
