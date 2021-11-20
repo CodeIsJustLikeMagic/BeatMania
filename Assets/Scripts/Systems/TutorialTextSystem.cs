@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,7 +8,8 @@ using UnityEngine.InputSystem.Users;
 public class TutorialTextSystem : MonoBehaviour
 {
     public List<TextChange> _tutorialTexts;
-    
+
+
     public void OnSchemeChange(PlayerInput playerinput)
     {
         if (playerinput.user.controlScheme.Value.name.Equals("Gamepad"))

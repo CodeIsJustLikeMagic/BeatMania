@@ -10,10 +10,6 @@ public class TextChange : MonoBehaviour
     public string VersionAController;
     public string VersionBController;
 
-    private void Awake()
-    {
-        DoTextChange(true);
-    }
 
     public void DoTextChange(bool controller)
     {

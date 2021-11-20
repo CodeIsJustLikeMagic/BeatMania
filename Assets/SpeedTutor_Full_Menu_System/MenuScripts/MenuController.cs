@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Policy;
+//using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

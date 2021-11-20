@@ -121,35 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 2973a9ab9d0948044892c18fa54568a6, type: 2}
---- !u!83 &128641147
-AudioClip:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: helm
-  m_LoadType: 0
-  m_Channels: 1
-  m_Frequency: 48000
-  m_BitsPerSample: 32
-  m_Length: 0
-  m_IsTrackerFormat: 0
-  m_Ambisonic: 0
-  m_SubsoundIndex: 0
-  m_PreloadAudioData: 1
-  m_LoadInBackground: 0
-  m_Legacy3D: 0
-  m_Resource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_CompressionFormat: 0
-  m_EditorResource:
-    m_Source: 
-    m_Offset: 0
-    m_Size: 0
-  m_EditorCompressionFormat: 0
---- !u!83 &350621999
+--- !u!83 &131289991
 AudioClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,7 +262,7 @@ MonoBehaviour:
     m_ActionId: 61ec9cde-8b05-49c9-9720-e97458e30176
     m_ActionName: gameplay/open menu[/Keyboard/escape,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: Keyboard & Mouse
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -614,7 +586,7 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1463976823121895737}
   m_PrefabAsset: {fileID: 0}
---- !u!83 &1105995738
+--- !u!83 &1109178369
 AudioClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -925,6 +897,34 @@ MonoBehaviour:
   - {fileID: 1401064506}
   beatCheckerIndicator: {fileID: 807617832}
   beatIndicatorFeedback: {fileID: 1920851473}
+--- !u!83 &1681392608
+AudioClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: helm
+  m_LoadType: 0
+  m_Channels: 1
+  m_Frequency: 48000
+  m_BitsPerSample: 32
+  m_Length: 0
+  m_IsTrackerFormat: 0
+  m_Ambisonic: 0
+  m_SubsoundIndex: 0
+  m_PreloadAudioData: 1
+  m_LoadInBackground: 0
+  m_Legacy3D: 0
+  m_Resource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_CompressionFormat: 0
+  m_EditorResource:
+    m_Source: 
+    m_Offset: 0
+    m_Size: 0
+  m_EditorCompressionFormat: 0
 --- !u!1001 &1748240345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15605,7 +15605,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7591273069912847326, guid: 8033c1d7952e3e24b80a1bce139b24a6,
     type: 2}
-  m_audioClip: {fileID: 128641147}
+  m_audioClip: {fileID: 1681392608}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -16636,7 +16636,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8755277268487452704, guid: 8033c1d7952e3e24b80a1bce139b24a6,
     type: 2}
-  m_audioClip: {fileID: 1105995738}
+  m_audioClip: {fileID: 131289991}
   m_PlayOnAwake: 1
   m_Volume: 0.039
   m_Pitch: 1
@@ -18009,7 +18009,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8235600533482060647, guid: 8033c1d7952e3e24b80a1bce139b24a6,
     type: 2}
-  m_audioClip: {fileID: 350621999}
+  m_audioClip: {fileID: 1109178369}
   m_PlayOnAwake: 1
   m_Volume: 0.039
   m_Pitch: 1

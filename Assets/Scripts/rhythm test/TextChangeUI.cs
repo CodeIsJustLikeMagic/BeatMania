@@ -11,7 +11,7 @@ public class TextChangeUI : MonoBehaviour
 
     private void Awake()
     {
-        DoTextChange(true);
+        //DoTextChange(true);
     }
 
     public void OnSchemeChange(PlayerInput playerinput)
