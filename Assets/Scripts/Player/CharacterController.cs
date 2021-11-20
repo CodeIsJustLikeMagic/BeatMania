@@ -41,9 +41,9 @@ public class CharacterController : BaseHealthBehavior
     [SerializeField] private ParticleSystem jumpFailParticleSystem = null;
     [SerializeField] private ParticleSystem dashParticleSystem = null;
     
-    const float k_GroundedRadius = .30f; // Radius of the overlap circle to determine if grounded
+    const float k_GroundedRadius = .25f; // Radius of the overlap circle to determine if grounded
     const float k_WallRadius = .45f;
-    public bool m_Grounded;            // Whether or not the player is grounded.
+    [SerializeField] public bool m_Grounded;            // Whether or not the player is grounded.
     private Rigidbody m_Rigidbody;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 velocity = Vector3.zero;
@@ -52,7 +52,7 @@ public class CharacterController : BaseHealthBehavior
     [SerializeField] private float m_DashForce = 25f;
     private bool canDash = true;
     private bool isDashing = false; //If player is dashing
-    private bool m_IsWall = false; //If there is a wall in front of the player
+    [SerializeField] private bool m_IsWall = false; //If there is a wall in front of the player
     //private bool hasJumped = false; //If player
 
     public bool touchedRightWall = false;  //Stores Information if Player jumped from a right wall
@@ -67,7 +67,7 @@ public class CharacterController : BaseHealthBehavior
     public float maxlife;
     public bool invincible = false; //If player can die
     public bool shielded = false;
-    private bool canMove = true; //If player can move
+    [SerializeField] private bool canMove = true; //If player can move
 
     private Animator animator;
     //    public ParticleSystem particleJumpUp; //Trail particles
@@ -131,6 +131,7 @@ public class CharacterController : BaseHealthBehavior
                     //canDoubleJump = true;
                     touchedLeftWall = false;
                     touchedRightWall = false;
+                    canMove = true;
                     if (m_Rigidbody.velocity.y < 0f)
                         limitVelOnWallJump = false;
                 }
@@ -263,6 +264,7 @@ public class CharacterController : BaseHealthBehavior
                 else
                 {
                     isLowJumping = true;
+                    canDoubleJump = false;
                     BeatIndicatorFeedback.Instance.Failed();
                     jumpFailParticleSystem.Play();
                 }
@@ -271,7 +273,7 @@ public class CharacterController : BaseHealthBehavior
                 
             }
             //Doublejump
-            else if (!m_Grounded && jump && canDoubleJump && !isWallSliding && !isLowJumping)
+            else if (!m_Grounded && !m_IsWall && jump && canDoubleJump && !isWallSliding && !isLowJumping)
             {
                 if (BeatChecker.Instance.IsInBeat("Double Jump"))
                 {
@@ -311,16 +313,22 @@ public class CharacterController : BaseHealthBehavior
                     else
                     {
                         oldWallSlidding = true;
-                        m_Rigidbody.velocity = new Vector2(-transform.localScale.x * 2, -5);
+                        m_Rigidbody.velocity = new Vector2(-transform.localScale.x * 2, -2);
                     }
                 }
                 //modified
-                if (jump && isWallSliding && ((m_FacingRight && !touchedLeftWall) ||(!m_FacingRight && !touchedRightWall)))
+                if (jump && isWallSliding && ((m_FacingRight && !touchedLeftWall) || (!m_FacingRight && !touchedRightWall)))
                 {
                     animator.SetBool("IsJumping", true);
                     animator.SetBool("JumpUp", true);
+                    if (BeatChecker.Instance.IsInBeat()) {
+                        jumpParticleSystem.Play();
+                    }
+                    else {
+                        jumpFailParticleSystem.Play();
+                    }
                     m_Rigidbody.velocity = new Vector2(0f, 0f);
-                    m_Rigidbody.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 1.2f, m_JumpForce));
+                    m_Rigidbody.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 1.5f, m_JumpForce));
                     jumpWallStartX = transform.position.x;
                     limitVelOnWallJump = true;
                     canDoubleJump = true;
@@ -335,6 +343,38 @@ public class CharacterController : BaseHealthBehavior
                         touchedRightWall = false;
                     }
                     else {
+                        touchedLeftWall = false;
+                        touchedRightWall = true;
+                    }
+                }
+                else if (jump && m_IsWall && !isWallSliding && ((m_FacingRight && !touchedRightWall) || (!m_FacingRight && !touchedLeftWall))) {
+                    
+                    m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
+                    Flip();
+                    animator.SetBool("IsDoubleJumping", true);
+                    if (BeatChecker.Instance.IsInBeat())
+                    {
+                        jumpParticleSystem.Play();
+                    }
+                    else
+                    {
+                        jumpFailParticleSystem.Play();
+                    }
+                    m_Rigidbody.velocity = new Vector2(0f, 0f);
+                    m_Rigidbody.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 1.5f, m_JumpForce));
+                    jumpWallStartX = transform.position.x;
+                    limitVelOnWallJump = true;
+                    canDoubleJump = true;
+
+                    m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
+                    canMove = false;
+                    if (m_FacingRight)
+                    {
+                        touchedLeftWall = true;
+                        touchedRightWall = false;
+                    }
+                    else
+                    {
                         touchedLeftWall = false;
                         touchedRightWall = true;
                     }
