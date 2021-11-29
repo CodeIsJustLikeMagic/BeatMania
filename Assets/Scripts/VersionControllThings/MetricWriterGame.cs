@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
-
+using UnityEngine.InputSystem;
 
 public class MetricWriterGame : MetricWriter
 {
@@ -61,6 +61,11 @@ public class MetricWriterGame : MetricWriter
         }
     }
 
+    public void WriteControlSchema(PlayerInput playerinput)
+    {
+        WriteVariousMetric(playerinput.user.controlScheme.Value.name);
+    }
+
     private void Awake()
     {
         SetUp();
@@ -84,6 +89,7 @@ public class MetricWriterGame : MetricWriter
         Various.WriteLine("sep=,");
         Various.WriteLine("Version,Time,Action");
         Debug.Log("Created Metric writer at path"+getPath());
+        WriteVariousMetric("Keyboard & Mouse");
     }
 
     private string DateTimeFilePath(string Metric_type, string playerName)
