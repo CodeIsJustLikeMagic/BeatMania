@@ -1,22 +1,22 @@
-,A,B,1A,1B,2A,2B
-jump hits,267.33,223.26,267.33,223.26,267.33,223.26
-jump count,506.52,558.19,506.52,558.19,506.52,558.19
-jump hit percentage,52.11,39.82,52.11,39.82,52.11,39.82
-attack hits,118.11,69.19,118.11,69.19,118.11,69.19
-attack count,231.33,177.7,231.33,177.7,231.33,177.7
-attack hit percentage,52.7,39.11,52.7,39.11,52.7,39.11
-player damaged count,45.26,16.89,45.26,16.89,45.26,16.89
-player damaged by enemy types,6.41,3.81,6.41,3.81,6.41,3.81
-player healed count,60.22,61.81,60.22,61.81,60.22,61.81
-enemy damaged count,33.33,60.85,33.33,60.85,33.33,60.85
-enemy types damaged,6.85,7.0,6.85,7.0,6.85,7.0
-spaceships collected,3.41,5.52,3.41,5.52,3.41,5.52
-spaceship collection percentage,37.86,61.32,37.86,61.32,37.86,61.32
-enemy deaths,23.44,33.7,23.44,33.7,23.44,33.7
-player combat deaths,1.56,0.22,1.56,0.22,1.56,0.22
-player boundary deaths,4.15,2.3,4.15,2.3,4.15,2.3
-player spike deaths,1.52,0.96,1.52,0.96,1.52,0.96
-unique regions discorvered,5.85,6.37,5.85,6.37,5.85,6.37
-regions discovered percentage,73.15,79.63,73.15,79.63,73.15,79.63
-region changes,16.44,20.89,16.44,20.89,16.44,20.89
-song changes,4.48,6.52,4.48,6.52,4.48,6.52
+stat,A,B,1A,1B,2A,2B
+jump hits,267.33,223.26,274.8,183.75,258.0,254.87
+jump count,506.52,558.19,504.93,488.5,508.5,613.93
+jump hit percentage,52.11,39.82,53.59,37.74,50.25,41.48
+attack hits,118.11,69.19,121.33,87.92,114.08,54.2
+attack count,231.33,177.7,244.4,229.33,215.0,136.4
+attack hit percentage,52.7,39.11,52.25,38.36,53.26,39.71
+player damaged count,45.26,16.89,45.2,19.08,45.33,15.13
+player damaged by enemy types,6.41,3.81,6.33,4.42,6.5,3.33
+player healed count,60.22,61.81,60.33,62.58,60.08,61.2
+enemy damaged count,33.33,60.85,31.07,75.25,36.17,49.33
+enemy types damaged,6.85,7.0,6.8,8.08,6.92,6.13
+spaceships collected,3.41,5.52,3.67,3.83,3.08,6.87
+spaceship collection percentage,37.86,61.32,40.74,42.59,34.26,76.3
+enemy deaths,23.44,33.7,23.0,43.0,24.0,26.27
+player combat deaths,1.56,0.22,1.47,0.25,1.67,0.2
+player boundary deaths,4.15,2.3,4.87,1.83,3.25,2.67
+player spike deaths,1.52,0.96,1.73,0.67,1.25,1.2
+unique regions discorvered,5.85,6.37,6.0,5.58,5.67,7.0
+regions discovered percentage,73.15,79.63,75.0,69.79,70.83,87.5
+region changes,16.44,20.89,16.93,14.67,15.83,25.87
+song changes,4.48,6.52,4.93,5.25,3.92,7.53
