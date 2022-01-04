@@ -1,0 +1,22 @@
+,A,B,1A,1B,2A,2B
+jump hits,267.33,223.26,267.33,223.26,267.33,223.26
+jump count,506.52,558.19,506.52,558.19,506.52,558.19
+jump hit percentage,52.11,39.82,52.11,39.82,52.11,39.82
+attack hits,118.11,69.19,118.11,69.19,118.11,69.19
+attack count,231.33,177.7,231.33,177.7,231.33,177.7
+attack hit percentage,52.7,39.11,52.7,39.11,52.7,39.11
+player damaged count,45.26,16.89,45.26,16.89,45.26,16.89
+player damaged by enemy types,6.41,3.81,6.41,3.81,6.41,3.81
+player healed count,60.22,61.81,60.22,61.81,60.22,61.81
+enemy damaged count,33.33,60.85,33.33,60.85,33.33,60.85
+enemy types damaged,6.85,7.0,6.85,7.0,6.85,7.0
+spaceships collected,3.41,5.52,3.41,5.52,3.41,5.52
+spaceship collection percentage,37.86,61.32,37.86,61.32,37.86,61.32
+enemy deaths,23.44,33.7,23.44,33.7,23.44,33.7
+player combat deaths,1.56,0.22,1.56,0.22,1.56,0.22
+player boundary deaths,4.15,2.3,4.15,2.3,4.15,2.3
+player spike deaths,1.52,0.96,1.52,0.96,1.52,0.96
+unique regions discorvered,5.85,6.37,5.85,6.37,5.85,6.37
+regions discovered percentage,73.15,79.63,73.15,79.63,73.15,79.63
+region changes,16.44,20.89,16.44,20.89,16.44,20.89
+song changes,4.48,6.52,4.48,6.52,4.48,6.52
