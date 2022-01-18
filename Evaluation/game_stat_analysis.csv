@@ -1,10 +1,10 @@
 stat,A,A std,B,B std,1A,1A std,1B,1B std,2A,2A std,2B,2B std
-Jumps in union with beat,267,95,223,59,275,93,184,36,258,96,255,56
+Jumps beat-aligned,267,95,223,59,275,93,184,36,258,96,255,56
 Total jumps,507,107,558,123,505,92,488,99,508,123,614,111
-Percentage of jumps in beat,52,11,40,5,54,11,38,2,50,12,41,5
-Attacks in union with beat,118,47,69,43,121,45,88,38,114,49,54,41
+Percentage of beat-aligned jumps,52,11,40,5,54,11,38,2,50,12,41,5
+Attacks beat-aligned,118,47,69,43,121,45,88,38,114,49,54,41
 Total attacks,231,105,178,108,244,116,229,92,215,85,136,102
-Percentage of attacks in beat,53,11,39,7,52,13,38,4,53,8,40,8
+Percentage of attacks beat-aligned,53,11,39,7,52,13,38,4,53,8,40,8
 Enemy deaths,23,13,34,23,23,10,43,17,24,16,26,24
 Player got damaged by enemy,45,20,17,11,45,16,19,9,45,24,15,13
 Player got healed,60,22,62,19,60,20,63,18,60,23,61,19
